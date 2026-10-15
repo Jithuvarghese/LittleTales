@@ -1,0 +1,498 @@
+{
+  "id": "the-ant-and-the-dove",
+  "locale": "en",
+  "title": "The Ant and the Dove",
+  "category": [
+    "fairy-tales",
+    "friendship"
+  ],
+  "ageBand": "5-7",
+  "durationTag": "medium",
+  "coverScene": {
+    "backdrop": "forest",
+    "props": [
+      {
+        "x": 35,
+        "y": 72,
+        "size": 16,
+        "prop": "ant"
+      },
+      {
+        "x": 65,
+        "y": 40,
+        "size": 22,
+        "anim": "float",
+        "prop": "bird"
+      }
+    ],
+    "characters": []
+  },
+  "theme": "sunny-meadow",
+  "music": {
+    "src": "audio/music/frere-01.mp3",
+    "volume": 0.4
+  },
+  "characters": [
+    "pip"
+  ],
+  "pages": [
+    {
+      "type": "story",
+      "text": "Once upon a time, a little ant was very thirsty.",
+      "scene": {
+        "backdrop": "forest",
+        "props": [
+          {
+            "x": 45,
+            "y": 72,
+            "size": 18,
+            "prop": "ant"
+          },
+          {
+            "x": 82,
+            "y": 18,
+            "size": 16,
+            "prop": "sun"
+          }
+        ],
+        "characters": []
+      },
+      "narration": {
+        "src": "audio/narration/en/the-ant-and-the-dove/p1.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "ant",
+          "shape": {
+            "x": 36,
+            "y": 63,
+            "w": 18,
+            "h": 18
+          },
+          "label": "ant",
+          "onTap": {
+            "say": "I need a drink!",
+            "animate": "wiggle"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "She walked to the river to have a sip.",
+      "scene": {
+        "backdrop": "beach",
+        "props": [
+          {
+            "x": 30,
+            "y": 74,
+            "size": 16,
+            "prop": "ant"
+          }
+        ],
+        "characters": []
+      },
+      "narration": {
+        "src": "audio/narration/en/the-ant-and-the-dove/p2.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/splash.mp3"
+        }
+      ],
+      "hotspots": []
+    },
+    {
+      "type": "story",
+      "text": "Splash! A wave pulled the ant into the water.",
+      "scene": {
+        "backdrop": "beach",
+        "props": [
+          {
+            "x": 50,
+            "y": 60,
+            "size": 14,
+            "prop": "ant"
+          },
+          {
+            "x": 70,
+            "y": 30,
+            "size": 16,
+            "prop": "leaf"
+          }
+        ],
+        "characters": []
+      },
+      "narration": {
+        "src": "audio/narration/en/the-ant-and-the-dove/p3.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "ant",
+          "shape": {
+            "x": 43,
+            "y": 53,
+            "w": 14,
+            "h": 14
+          },
+          "label": "ant",
+          "onTap": {
+            "sfx": "audio/sfx/splash.mp3",
+            "say": "Help! Help!",
+            "animate": "wiggle"
+          }
+        }
+      ],
+      "parentPrompt": "Ask: How can someone help the ant?"
+    },
+    {
+      "type": "story",
+      "text": "A kind dove saw her and dropped a leaf.",
+      "scene": {
+        "backdrop": "forest",
+        "props": [
+          {
+            "x": 55,
+            "y": 30,
+            "size": 24,
+            "prop": "bird"
+          },
+          {
+            "x": 50,
+            "y": 60,
+            "size": 16,
+            "anim": "float",
+            "prop": "leaf"
+          }
+        ],
+        "characters": []
+      },
+      "narration": {
+        "src": "audio/narration/en/the-ant-and-the-dove/p4.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "bird",
+          "shape": {
+            "x": 43,
+            "y": 18,
+            "w": 24,
+            "h": 24
+          },
+          "label": "bird",
+          "onTap": {
+            "say": "Coo, coo! Climb on!",
+            "animate": "bounce"
+          }
+        },
+        {
+          "id": "leaf",
+          "shape": {
+            "x": 42,
+            "y": 52,
+            "w": 16,
+            "h": 16
+          },
+          "label": "leaf",
+          "onTap": {
+            "say": "Float, float.",
+            "animate": "float"
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "question": "What did the dove drop to help?",
+      "reward": {
+        "stars": 1
+      },
+      "quizType": "picture-choice",
+      "options": [
+        {
+          "prop": "leaf",
+          "label": "leaf",
+          "correct": true
+        },
+        {
+          "prop": "apple",
+          "label": "apple"
+        },
+        {
+          "prop": "cup",
+          "label": "cup"
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "The ant climbed on the leaf and floated to shore.",
+      "scene": {
+        "backdrop": "beach",
+        "props": [
+          {
+            "x": 40,
+            "y": 72,
+            "size": 18,
+            "prop": "leaf"
+          },
+          {
+            "x": 40,
+            "y": 66,
+            "size": 12,
+            "prop": "ant"
+          }
+        ],
+        "characters": []
+      },
+      "narration": {
+        "src": "audio/narration/en/the-ant-and-the-dove/p5.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/chime.mp3"
+        }
+      ],
+      "hotspots": []
+    },
+    {
+      "type": "story",
+      "text": "\"Thank you, dove!\" said the ant. \"I will help you one day.\"",
+      "scene": {
+        "backdrop": "forest",
+        "props": [
+          {
+            "x": 30,
+            "y": 74,
+            "size": 14,
+            "prop": "ant"
+          },
+          {
+            "x": 65,
+            "y": 30,
+            "size": 22,
+            "prop": "bird"
+          }
+        ],
+        "characters": []
+      },
+      "narration": {
+        "src": "audio/narration/en/the-ant-and-the-dove/p6.mp3"
+      },
+      "sfx": [],
+      "hotspots": [],
+      "parentPrompt": "Ask: When did someone help you?"
+    },
+    {
+      "type": "story",
+      "text": "Later, a hunter crept close to the dove's tree.",
+      "scene": {
+        "backdrop": "forest",
+        "props": [
+          {
+            "x": 65,
+            "y": 48,
+            "size": 40,
+            "prop": "tree"
+          },
+          {
+            "x": 65,
+            "y": 28,
+            "size": 18,
+            "prop": "bird"
+          },
+          {
+            "x": 20,
+            "y": 64,
+            "size": 20,
+            "prop": "hat"
+          }
+        ],
+        "characters": []
+      },
+      "narration": {
+        "src": "audio/narration/en/the-ant-and-the-dove/p7.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "hat",
+          "shape": {
+            "x": 10,
+            "y": 54,
+            "w": 20,
+            "h": 20
+          },
+          "label": "hat",
+          "onTap": {
+            "say": "Tiptoe, tiptoe.",
+            "animate": "wiggle"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "The ant gave the hunter's foot a tiny nip!",
+      "scene": {
+        "backdrop": "forest",
+        "props": [
+          {
+            "x": 30,
+            "y": 74,
+            "size": 14,
+            "prop": "ant"
+          },
+          {
+            "x": 30,
+            "y": 58,
+            "size": 20,
+            "prop": "hat"
+          }
+        ],
+        "characters": []
+      },
+      "narration": {
+        "src": "audio/narration/en/the-ant-and-the-dove/p8.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "ant",
+          "shape": {
+            "x": 23,
+            "y": 67,
+            "w": 14,
+            "h": 14
+          },
+          "label": "ant",
+          "onTap": {
+            "sfx": "audio/sfx/pop.mp3",
+            "say": "Nip!",
+            "animate": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "question": "What happens next?",
+      "reward": {
+        "stars": 1
+      },
+      "quizType": "sequence",
+      "shown": [
+        "ant",
+        "hat"
+      ],
+      "options": [
+        {
+          "prop": "bird",
+          "label": "bird",
+          "correct": true
+        },
+        {
+          "prop": "cake",
+          "label": "cake"
+        },
+        {
+          "prop": "car",
+          "label": "car"
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "\"Ouch!\" The dove heard him and flew safely away.",
+      "scene": {
+        "backdrop": "forest",
+        "props": [
+          {
+            "x": 55,
+            "y": 20,
+            "size": 22,
+            "anim": "float",
+            "prop": "bird"
+          },
+          {
+            "x": 30,
+            "y": 50,
+            "size": 36,
+            "prop": "tree"
+          }
+        ],
+        "characters": []
+      },
+      "narration": {
+        "src": "audio/narration/en/the-ant-and-the-dove/p9.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/whoosh.mp3"
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "bird",
+          "shape": {
+            "x": 44,
+            "y": 9,
+            "w": 22,
+            "h": 22
+          },
+          "label": "bird",
+          "onTap": {
+            "say": "Thank you, ant!",
+            "animate": "spin"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "One good turn deserves another. Friends help friends.",
+      "scene": {
+        "backdrop": "forest",
+        "props": [
+          {
+            "x": 35,
+            "y": 74,
+            "size": 14,
+            "prop": "ant"
+          },
+          {
+            "x": 60,
+            "y": 50,
+            "size": 20,
+            "prop": "bird"
+          },
+          {
+            "x": 50,
+            "y": 25,
+            "size": 14,
+            "anim": "float",
+            "prop": "heart"
+          }
+        ],
+        "characters": []
+      },
+      "narration": {
+        "src": "audio/narration/en/the-ant-and-the-dove/p10.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/chime.mp3"
+        }
+      ],
+      "hotspots": [],
+      "parentPrompt": "This is a retelling of one of Aesop's fables."
+    }
+  ]
+}

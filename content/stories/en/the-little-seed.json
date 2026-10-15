@@ -1,0 +1,489 @@
+{
+  "id": "the-little-seed",
+  "locale": "en",
+  "title": "The Little Seed",
+  "category": [
+    "nature",
+    "learning"
+  ],
+  "ageBand": "3-7",
+  "durationTag": "short",
+  "coverScene": {
+    "backdrop": "meadow",
+    "props": [
+      {
+        "x": 55,
+        "y": 62,
+        "size": 34,
+        "prop": "flower"
+      }
+    ],
+    "characters": [
+      {
+        "x": 25,
+        "y": 65,
+        "size": 34,
+        "id": "pip",
+        "expression": "happy"
+      }
+    ]
+  },
+  "theme": "sunny-meadow",
+  "music": {
+    "src": "audio/music/mary-01.mp3",
+    "volume": 0.4
+  },
+  "characters": [
+    "pip"
+  ],
+  "pages": [
+    {
+      "type": "story",
+      "text": "Pip found a tiny seed in the grass.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [],
+        "characters": [
+          {
+            "x": 40,
+            "y": 64,
+            "size": 40,
+            "id": "pip",
+            "expression": "thinking"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/the-little-seed/p1.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "pip",
+          "shape": {
+            "x": 20,
+            "y": 44,
+            "w": 40,
+            "h": 40
+          },
+          "label": "pip",
+          "onTap": {
+            "say": "A tiny seed!",
+            "animate": "bounce"
+          }
+        }
+      ],
+      "parentPrompt": "Ask: What do you think will grow?"
+    },
+    {
+      "type": "story",
+      "text": "Pip dug a little hole and planted it.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [],
+        "characters": [
+          {
+            "x": 40,
+            "y": 64,
+            "size": 40,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/the-little-seed/p2.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/pop.mp3"
+        }
+      ],
+      "hotspots": []
+    },
+    {
+      "type": "story",
+      "text": "Pitter, patter! The rain gave it a drink.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 55,
+            "y": 20,
+            "size": 30,
+            "anim": "float",
+            "prop": "cloud"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 64,
+            "size": 36,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/the-little-seed/p3.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/splash.mp3"
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "cloud",
+          "shape": {
+            "x": 40,
+            "y": 5,
+            "w": 30,
+            "h": 30
+          },
+          "label": "cloud",
+          "onTap": {
+            "sfx": "audio/sfx/splash.mp3",
+            "say": "Pitter, patter!",
+            "animate": "grow"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "The warm sun said, \"Grow, little seed!\"",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 75,
+            "y": 20,
+            "size": 24,
+            "prop": "sun"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 64,
+            "size": 36,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/the-little-seed/p4.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "sun",
+          "shape": {
+            "x": 63,
+            "y": 8,
+            "w": 24,
+            "h": 24
+          },
+          "label": "sun",
+          "onTap": {
+            "say": "Grow, grow!",
+            "animate": "grow"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Pop! A tiny green shoot peeked out.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 55,
+            "y": 72,
+            "size": 14,
+            "prop": "leaf"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 64,
+            "size": 36,
+            "id": "pip",
+            "expression": "celebrate"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/the-little-seed/p5.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "leaf",
+          "shape": {
+            "x": 48,
+            "y": 65,
+            "w": 14,
+            "h": 14
+          },
+          "label": "leaf",
+          "onTap": {
+            "sfx": "audio/sfx/pop.mp3",
+            "say": "Hello, shoot!",
+            "animate": "wiggle"
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "question": "What happens next?",
+      "reward": {
+        "stars": 1
+      },
+      "quizType": "sequence",
+      "shown": [
+        "leaf"
+      ],
+      "options": [
+        {
+          "prop": "flower",
+          "label": "flower",
+          "correct": true
+        },
+        {
+          "prop": "egg",
+          "label": "egg"
+        },
+        {
+          "prop": "ball",
+          "label": "ball"
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Day by day, it grew taller and taller.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 50,
+            "y": 64,
+            "size": 20,
+            "prop": "leaf"
+          },
+          {
+            "x": 60,
+            "y": 60,
+            "size": 18,
+            "prop": "leaf"
+          }
+        ],
+        "characters": [
+          {
+            "x": 25,
+            "y": 64,
+            "size": 34,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/the-little-seed/p6.mp3"
+      },
+      "sfx": [],
+      "hotspots": [],
+      "parentPrompt": "Stretch up tall like a growing plant!"
+    },
+    {
+      "type": "story",
+      "text": "One morning, a big pink flower opened up!",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 55,
+            "y": 58,
+            "size": 40,
+            "prop": "flower"
+          },
+          {
+            "x": 75,
+            "y": 30,
+            "size": 16,
+            "anim": "float",
+            "prop": "bee"
+          }
+        ],
+        "characters": [
+          {
+            "x": 25,
+            "y": 64,
+            "size": 34,
+            "id": "pip",
+            "expression": "celebrate"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/the-little-seed/p7.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "flower",
+          "shape": {
+            "x": 35,
+            "y": 38,
+            "w": 40,
+            "h": 40
+          },
+          "label": "flower",
+          "onTap": {
+            "sfx": "audio/sfx/sparkle.mp3",
+            "say": "Ta-da!",
+            "animate": "grow"
+          }
+        },
+        {
+          "id": "bee",
+          "shape": {
+            "x": 67,
+            "y": 22,
+            "w": 16,
+            "h": 16
+          },
+          "label": "bee",
+          "onTap": {
+            "say": "Buzz, buzz!",
+            "animate": "spin"
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "question": "Help the bee find the flower.",
+      "reward": {
+        "stars": 1
+      },
+      "quizType": "drag-drop",
+      "item": "bee",
+      "targets": [
+        {
+          "prop": "flower",
+          "label": "flower",
+          "correct": true
+        },
+        {
+          "prop": "car",
+          "label": "car"
+        },
+        {
+          "prop": "cup",
+          "label": "cup"
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Bees and butterflies came to visit.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 55,
+            "y": 58,
+            "size": 40,
+            "prop": "flower"
+          },
+          {
+            "x": 75,
+            "y": 30,
+            "size": 18,
+            "anim": "float",
+            "prop": "butterfly"
+          }
+        ],
+        "characters": [
+          {
+            "x": 25,
+            "y": 64,
+            "size": 34,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/the-little-seed/p8.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "butterfly",
+          "shape": {
+            "x": 66,
+            "y": 21,
+            "w": 18,
+            "h": 18
+          },
+          "label": "butterfly",
+          "onTap": {
+            "say": "Flutter!",
+            "animate": "spin"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "\"From one tiny seed,\" said Pip, \"a flower grew!\"",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 40,
+            "y": 58,
+            "size": 34,
+            "prop": "flower"
+          },
+          {
+            "x": 65,
+            "y": 60,
+            "size": 30,
+            "prop": "flower"
+          }
+        ],
+        "characters": [
+          {
+            "x": 20,
+            "y": 66,
+            "size": 30,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/the-little-seed/p9.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/chime.mp3"
+        }
+      ],
+      "hotspots": []
+    }
+  ]
+}

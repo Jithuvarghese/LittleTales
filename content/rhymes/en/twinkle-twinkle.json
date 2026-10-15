@@ -1,0 +1,73 @@
+{
+  "id": "twinkle-twinkle",
+  "locale": "en",
+  "title": "Twinkle, Twinkle, Little Star",
+  "source": "Jane Taylor, \"The Star\" (1806)",
+  "publicDomain": true,
+  "melody": "twinkle",
+  "tempo": 96,
+  "scene": {
+    "backdrop": "night",
+    "props": [
+      {
+        "prop": "star",
+        "x": 50,
+        "y": 30,
+        "size": 22,
+        "anim": "float"
+      },
+      {
+        "prop": "moon",
+        "x": 82,
+        "y": 22,
+        "size": 16
+      }
+    ],
+    "characters": [
+      {
+        "id": "coco",
+        "x": 20,
+        "y": 68,
+        "size": 28,
+        "expression": "happy"
+      }
+    ]
+  },
+  "hotspots": [
+    {
+      "id": "star",
+      "label": "star",
+      "shape": {
+        "x": 39,
+        "y": 19,
+        "w": 22,
+        "h": 22
+      },
+      "onTap": {
+        "say": "Twinkle!",
+        "animate": "spin",
+        "sfx": "audio/sfx/twinkle.mp3"
+      }
+    }
+  ],
+  "lines": [
+    {
+      "text": "Twinkle, twinkle, little star,"
+    },
+    {
+      "text": "How I wonder what you are!"
+    },
+    {
+      "text": "Up above the world so high,"
+    },
+    {
+      "text": "Like a diamond in the sky."
+    },
+    {
+      "text": "Twinkle, twinkle, little star,"
+    },
+    {
+      "text": "How I wonder what you are!"
+    }
+  ]
+}

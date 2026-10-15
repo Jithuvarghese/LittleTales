@@ -1,0 +1,36 @@
+{
+  "albums": [
+    { "id": "animals", "label": "Animal Friends", "backdrop": "meadow" },
+    { "id": "ocean", "label": "Ocean", "backdrop": "sea" },
+    { "id": "sky", "label": "Night Sky", "backdrop": "night" },
+    { "id": "treats", "label": "Yummy Treats", "backdrop": "room" }
+  ],
+  "stickers": [
+    { "id": "s-cat", "album": "animals", "prop": "cat", "label": "Cat" },
+    { "id": "s-dog", "album": "animals", "prop": "dog", "label": "Dog" },
+    { "id": "s-cow", "album": "animals", "prop": "cow", "label": "Cow" },
+    { "id": "s-duck", "album": "animals", "prop": "duck", "label": "Duck" },
+    { "id": "s-rabbit", "album": "animals", "prop": "rabbit", "label": "Rabbit" },
+    { "id": "s-pig", "album": "animals", "prop": "pig", "label": "Pig" },
+    { "id": "s-lion", "album": "animals", "prop": "lion", "label": "Lion" },
+    { "id": "s-elephant", "album": "animals", "prop": "elephant", "label": "Elephant" },
+    { "id": "s-fish", "album": "ocean", "prop": "fish", "label": "Fish" },
+    { "id": "s-whale", "album": "ocean", "prop": "whale", "label": "Whale" },
+    { "id": "s-octopus", "album": "ocean", "prop": "octopus", "label": "Octopus" },
+    { "id": "s-turtle", "album": "ocean", "prop": "turtle", "label": "Turtle" },
+    { "id": "s-shell", "album": "ocean", "prop": "shell", "label": "Shell" },
+    { "id": "s-boat", "album": "ocean", "prop": "boat", "label": "Boat" },
+    { "id": "s-moon", "album": "sky", "prop": "moon", "label": "Moon" },
+    { "id": "s-star", "album": "sky", "prop": "star", "label": "Star" },
+    { "id": "s-owl", "album": "sky", "prop": "owl", "label": "Owl" },
+    { "id": "s-cloud", "album": "sky", "prop": "cloud", "label": "Cloud" },
+    { "id": "s-rainbow", "album": "sky", "prop": "rainbow", "label": "Rainbow" },
+    { "id": "s-kite", "album": "sky", "prop": "kite", "label": "Kite" },
+    { "id": "s-cake", "album": "treats", "prop": "cake", "label": "Cake" },
+    { "id": "s-apple", "album": "treats", "prop": "apple", "label": "Apple" },
+    { "id": "s-mango", "album": "treats", "prop": "mango", "label": "Mango" },
+    { "id": "s-banana", "album": "treats", "prop": "banana", "label": "Banana" },
+    { "id": "s-watermelon", "album": "treats", "prop": "watermelon", "label": "Watermelon" },
+    { "id": "s-grapes", "album": "treats", "prop": "grapes", "label": "Grapes" }
+  ]
+}

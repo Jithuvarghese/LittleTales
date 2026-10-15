@@ -1,0 +1,59 @@
+{
+  "id": "mary-had-a-little-lamb",
+  "locale": "en",
+  "title": "Mary Had a Little Lamb",
+  "source": "Sarah Josepha Hale (1830)",
+  "publicDomain": true,
+  "melody": "mary",
+  "tempo": 108,
+  "scene": {
+    "backdrop": "village",
+    "props": [
+      {
+        "prop": "goat",
+        "x": 55,
+        "y": 68,
+        "size": 24
+      }
+    ],
+    "characters": [
+      {
+        "id": "coco",
+        "x": 20,
+        "y": 30,
+        "size": 22,
+        "expression": "happy"
+      }
+    ]
+  },
+  "hotspots": [
+    {
+      "id": "goat",
+      "label": "goat",
+      "shape": {
+        "x": 43,
+        "y": 56,
+        "w": 24,
+        "h": 24
+      },
+      "onTap": {
+        "say": "Baa!",
+        "animate": "bounce"
+      }
+    }
+  ],
+  "lines": [
+    {
+      "text": "Mary had a little lamb,"
+    },
+    {
+      "text": "Its fleece was white as snow."
+    },
+    {
+      "text": "And everywhere that Mary went,"
+    },
+    {
+      "text": "The lamb was sure to go."
+    }
+  ]
+}

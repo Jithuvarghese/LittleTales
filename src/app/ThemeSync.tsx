@@ -5,15 +5,16 @@ import { useSettings } from './settingsStore';
 /** Keeps document-level CSS variables and data attributes in sync with settings. */
 export function ThemeSync() {
   const theme = useSettings((s) => s.theme);
+  const bedtime = useSettings((s) => s.bedtime);
   const textSize = useSettings((s) => s.textSize);
   const dyslexicFont = useSettings((s) => s.dyslexicFont);
 
-  useEffect(() => applyTheme(theme), [theme]);
+  // Bedtime mode always uses the dim Starry Night theme.
+  useEffect(() => applyTheme(bedtime ? 'starry-night' : theme), [theme, bedtime]);
   useEffect(() => {
     document.documentElement.dataset.textSize = textSize;
   }, [textSize]);
   useEffect(() => {
-    // OpenDyslexic is self-hosted in a later phase; Atkinson Hyperlegible stands in until then.
     document.documentElement.style.setProperty(
       '--font-story',
       dyslexicFont ? "'OpenDyslexic', 'Atkinson Hyperlegible'" : "'Andika'",

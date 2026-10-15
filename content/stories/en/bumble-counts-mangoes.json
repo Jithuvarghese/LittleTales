@@ -1,0 +1,592 @@
+{
+  "id": "bumble-counts-mangoes",
+  "locale": "en",
+  "title": "Bumble Counts Mangoes",
+  "category": [
+    "learning",
+    "animals"
+  ],
+  "ageBand": "3-5",
+  "durationTag": "short",
+  "coverScene": {
+    "backdrop": "meadow",
+    "props": [
+      {
+        "x": 70,
+        "y": 45,
+        "size": 50,
+        "prop": "tree"
+      },
+      {
+        "x": 64,
+        "y": 34,
+        "size": 10,
+        "prop": "mango"
+      },
+      {
+        "x": 78,
+        "y": 40,
+        "size": 10,
+        "prop": "mango"
+      }
+    ],
+    "characters": [
+      {
+        "x": 30,
+        "y": 65,
+        "size": 45,
+        "id": "bumble",
+        "expression": "happy"
+      }
+    ]
+  },
+  "theme": "sunny-meadow",
+  "music": {
+    "src": "audio/music/play-01.mp3",
+    "volume": 0.4
+  },
+  "characters": [
+    "bumble",
+    "pip"
+  ],
+  "pages": [
+    {
+      "type": "story",
+      "text": "Bumble the bear loved sweet, yellow mangoes.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 70,
+            "y": 45,
+            "size": 50,
+            "prop": "tree"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 65,
+            "size": 42,
+            "id": "bumble",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/bumble-counts-mangoes/p1.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "bumble",
+          "shape": {
+            "x": 9,
+            "y": 44,
+            "w": 42,
+            "h": 42
+          },
+          "label": "bumble",
+          "onTap": {
+            "say": "Yum, yum!",
+            "animate": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "One mango hung on the big tree.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 70,
+            "y": 45,
+            "size": 50,
+            "prop": "tree"
+          },
+          {
+            "x": 64,
+            "y": 34,
+            "size": 10,
+            "prop": "mango"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 65,
+            "size": 42,
+            "id": "bumble",
+            "expression": "thinking"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/bumble-counts-mangoes/p2.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "mango",
+          "shape": {
+            "x": 59,
+            "y": 29,
+            "w": 10,
+            "h": 10
+          },
+          "label": "mango",
+          "onTap": {
+            "sfx": "audio/sfx/pop.mp3",
+            "say": "One!",
+            "animate": "grow"
+          }
+        }
+      ],
+      "parentPrompt": "Count with your child: one!"
+    },
+    {
+      "type": "story",
+      "text": "Then Bumble saw two mangoes.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 70,
+            "y": 45,
+            "size": 50,
+            "prop": "tree"
+          },
+          {
+            "x": 64,
+            "y": 34,
+            "size": 10,
+            "prop": "mango"
+          },
+          {
+            "x": 78,
+            "y": 40,
+            "size": 10,
+            "prop": "mango"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 65,
+            "size": 42,
+            "id": "bumble",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/bumble-counts-mangoes/p3.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "mango",
+          "shape": {
+            "x": 59,
+            "y": 29,
+            "w": 10,
+            "h": 10
+          },
+          "label": "mango",
+          "onTap": {
+            "sfx": "audio/sfx/pop.mp3",
+            "say": "Mango!",
+            "animate": "grow"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "One, two, three mangoes!",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 70,
+            "y": 45,
+            "size": 50,
+            "prop": "tree"
+          },
+          {
+            "x": 60,
+            "y": 32,
+            "size": 10,
+            "prop": "mango"
+          },
+          {
+            "x": 72,
+            "y": 30,
+            "size": 10,
+            "prop": "mango"
+          },
+          {
+            "x": 80,
+            "y": 42,
+            "size": 10,
+            "prop": "mango"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 65,
+            "size": 42,
+            "id": "bumble",
+            "expression": "celebrate"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/bumble-counts-mangoes/p4.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/chime.mp3"
+        }
+      ],
+      "hotspots": []
+    },
+    {
+      "type": "quiz",
+      "question": "How many mangoes are there?",
+      "reward": {
+        "stars": 1
+      },
+      "quizType": "count",
+      "prop": "mango",
+      "count": 3,
+      "choices": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Pip came by with a big basket.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 70,
+            "y": 45,
+            "size": 50,
+            "prop": "tree"
+          },
+          {
+            "x": 35,
+            "y": 78,
+            "size": 22,
+            "prop": "basket"
+          }
+        ],
+        "characters": [
+          {
+            "x": 15,
+            "y": 66,
+            "size": 30,
+            "id": "pip",
+            "expression": "happy"
+          },
+          {
+            "x": 45,
+            "y": 62,
+            "size": 38,
+            "id": "bumble",
+            "expression": "idle"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/bumble-counts-mangoes/p5.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "basket",
+          "shape": {
+            "x": 24,
+            "y": 67,
+            "w": 22,
+            "h": 22
+          },
+          "label": "basket",
+          "onTap": {
+            "say": "A basket for mangoes!",
+            "animate": "wiggle"
+          }
+        },
+        {
+          "id": "pip",
+          "shape": {
+            "x": 0,
+            "y": 51,
+            "w": 30,
+            "h": 30
+          },
+          "label": "pip",
+          "onTap": {
+            "say": "Hello, Bumble!",
+            "animate": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "\"Let us pick them and share,\" said Bumble.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 70,
+            "y": 45,
+            "size": 50,
+            "prop": "tree"
+          },
+          {
+            "x": 60,
+            "y": 32,
+            "size": 10,
+            "prop": "mango"
+          },
+          {
+            "x": 72,
+            "y": 30,
+            "size": 10,
+            "prop": "mango"
+          },
+          {
+            "x": 80,
+            "y": 42,
+            "size": 10,
+            "prop": "mango"
+          }
+        ],
+        "characters": [
+          {
+            "x": 40,
+            "y": 62,
+            "size": 38,
+            "id": "bumble",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/bumble-counts-mangoes/p6.mp3"
+      },
+      "sfx": [],
+      "hotspots": [],
+      "parentPrompt": "Ask: Who do you like to share with?"
+    },
+    {
+      "type": "quiz",
+      "question": "Put the mango in the basket.",
+      "reward": {
+        "stars": 1
+      },
+      "quizType": "drag-drop",
+      "item": "mango",
+      "targets": [
+        {
+          "prop": "basket",
+          "label": "basket",
+          "correct": true
+        },
+        {
+          "prop": "tree",
+          "label": "tree"
+        },
+        {
+          "prop": "house",
+          "label": "house"
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Plop, plop, plop! Three mangoes in the basket.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 50,
+            "y": 72,
+            "size": 30,
+            "prop": "basket"
+          },
+          {
+            "x": 44,
+            "y": 62,
+            "size": 10,
+            "prop": "mango"
+          },
+          {
+            "x": 54,
+            "y": 60,
+            "size": 10,
+            "prop": "mango"
+          },
+          {
+            "x": 50,
+            "y": 66,
+            "size": 10,
+            "prop": "mango"
+          }
+        ],
+        "characters": [
+          {
+            "x": 20,
+            "y": 64,
+            "size": 30,
+            "id": "pip",
+            "expression": "happy"
+          },
+          {
+            "x": 80,
+            "y": 62,
+            "size": 36,
+            "id": "bumble",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/bumble-counts-mangoes/p7.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/pop.mp3"
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "basket",
+          "shape": {
+            "x": 35,
+            "y": 57,
+            "w": 30,
+            "h": 30
+          },
+          "label": "basket",
+          "onTap": {
+            "sfx": "audio/sfx/pop.mp3",
+            "say": "Three mangoes!",
+            "animate": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "One for Pip and one for Bumble.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 30,
+            "y": 60,
+            "size": 12,
+            "prop": "mango"
+          },
+          {
+            "x": 70,
+            "y": 60,
+            "size": 12,
+            "prop": "mango"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 72,
+            "size": 30,
+            "id": "pip",
+            "expression": "happy"
+          },
+          {
+            "x": 70,
+            "y": 70,
+            "size": 36,
+            "id": "bumble",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/bumble-counts-mangoes/p8.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "pip",
+          "shape": {
+            "x": 15,
+            "y": 57,
+            "w": 30,
+            "h": 30
+          },
+          "label": "pip",
+          "onTap": {
+            "say": "Thank you!",
+            "animate": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "And one to share with you!",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 50,
+            "y": 40,
+            "size": 14,
+            "anim": "float",
+            "prop": "mango"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 68,
+            "size": 32,
+            "id": "pip",
+            "expression": "celebrate"
+          },
+          {
+            "x": 70,
+            "y": 66,
+            "size": 38,
+            "id": "bumble",
+            "expression": "celebrate"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/bumble-counts-mangoes/p9.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/tada.mp3"
+        }
+      ],
+      "hotspots": [],
+      "parentPrompt": "Pretend to take a bite. Mmm!"
+    }
+  ]
+}

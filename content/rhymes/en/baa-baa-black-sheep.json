@@ -1,0 +1,77 @@
+{
+  "id": "baa-baa-black-sheep",
+  "locale": "en",
+  "title": "Baa, Baa, Black Sheep",
+  "source": "Traditional (printed 1744)",
+  "publicDomain": true,
+  "melody": "twinkle",
+  "tempo": 96,
+  "scene": {
+    "backdrop": "meadow",
+    "props": [
+      {
+        "prop": "goat",
+        "x": 45,
+        "y": 62,
+        "size": 30
+      },
+      {
+        "prop": "basket",
+        "x": 75,
+        "y": 72,
+        "size": 20
+      }
+    ],
+    "characters": [
+      {
+        "id": "coco",
+        "x": 18,
+        "y": 35,
+        "size": 24,
+        "expression": "happy"
+      }
+    ]
+  },
+  "hotspots": [
+    {
+      "id": "goat",
+      "label": "goat",
+      "shape": {
+        "x": 30,
+        "y": 47,
+        "w": 30,
+        "h": 30
+      },
+      "onTap": {
+        "say": "Baa!",
+        "animate": "bounce"
+      }
+    }
+  ],
+  "lines": [
+    {
+      "text": "Baa, baa, black sheep,"
+    },
+    {
+      "text": "Have you any wool?"
+    },
+    {
+      "text": "Yes sir, yes sir,"
+    },
+    {
+      "text": "Three bags full."
+    },
+    {
+      "text": "One for the master,"
+    },
+    {
+      "text": "And one for the dame,"
+    },
+    {
+      "text": "And one for the little boy"
+    },
+    {
+      "text": "Who lives down the lane."
+    }
+  ]
+}

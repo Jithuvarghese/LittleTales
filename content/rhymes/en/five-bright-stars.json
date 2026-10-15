@@ -1,0 +1,81 @@
+{
+  "id": "five-bright-stars",
+  "locale": "en",
+  "title": "Five Bright Stars",
+  "source": "Original LittleTales counting song",
+  "publicDomain": false,
+  "melody": "twinkle",
+  "tempo": 92,
+  "scene": {
+    "backdrop": "night",
+    "props": [
+      {
+        "prop": "moon",
+        "x": 82,
+        "y": 22,
+        "size": 18
+      }
+    ],
+    "characters": [
+      {
+        "id": "luna",
+        "x": 18,
+        "y": 65,
+        "size": 28,
+        "expression": "happy"
+      }
+    ]
+  },
+  "hotspots": [],
+  "counting": {
+    "prop": "star",
+    "from": 5
+  },
+  "lines": [
+    {
+      "text": "Five bright stars twinkling in the sky,"
+    },
+    {
+      "text": "One went to sleep and waved goodbye."
+    },
+    {
+      "text": "Now there are four, shining high!"
+    },
+    {
+      "text": "Four bright stars twinkling in the sky,"
+    },
+    {
+      "text": "One went to sleep and waved goodbye."
+    },
+    {
+      "text": "Now there are three, shining high!"
+    },
+    {
+      "text": "Three bright stars twinkling in the sky,"
+    },
+    {
+      "text": "One went to sleep and waved goodbye."
+    },
+    {
+      "text": "Now there are two, shining high!"
+    },
+    {
+      "text": "Two bright stars twinkling in the sky,"
+    },
+    {
+      "text": "One went to sleep and waved goodbye."
+    },
+    {
+      "text": "Now there are one, shining high!"
+    },
+    {
+      "text": "One bright star twinkling in the sky,"
+    },
+    {
+      "text": "One went to sleep and waved goodbye."
+    },
+    {
+      "text": "Now the sky is sleepy. Night, night, sky!"
+    }
+  ]
+}

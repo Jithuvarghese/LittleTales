@@ -1,0 +1,470 @@
+{
+  "stories": [
+    {
+      "id": "anus-kite-day",
+      "title": "Anu's Kite Day",
+      "category": [
+        "adventures",
+        "everyday"
+      ],
+      "ageBand": "3-7",
+      "durationTag": "short",
+      "characters": [
+        "pip",
+        "coco"
+      ],
+      "theme": "sunny-meadow",
+      "coverScene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 60,
+            "y": 25,
+            "size": 24,
+            "anim": "float",
+            "prop": "kite"
+          }
+        ],
+        "characters": [
+          {
+            "x": 35,
+            "y": 66,
+            "size": 36,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bumble-counts-mangoes",
+      "title": "Bumble Counts Mangoes",
+      "category": [
+        "learning",
+        "animals"
+      ],
+      "ageBand": "3-5",
+      "durationTag": "short",
+      "characters": [
+        "bumble",
+        "pip"
+      ],
+      "theme": "sunny-meadow",
+      "coverScene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 70,
+            "y": 45,
+            "size": 50,
+            "prop": "tree"
+          },
+          {
+            "x": 64,
+            "y": 34,
+            "size": 10,
+            "prop": "mango"
+          },
+          {
+            "x": 78,
+            "y": 40,
+            "size": 10,
+            "prop": "mango"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 65,
+            "size": 45,
+            "id": "bumble",
+            "expression": "happy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "coco-visits-the-farm",
+      "title": "Coco Visits the Farm",
+      "category": [
+        "animals",
+        "everyday"
+      ],
+      "ageBand": "3-5",
+      "durationTag": "short",
+      "characters": [
+        "coco"
+      ],
+      "theme": "sunny-meadow",
+      "coverScene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 75,
+            "y": 50,
+            "size": 34,
+            "prop": "house"
+          },
+          {
+            "x": 40,
+            "y": 65,
+            "size": 30,
+            "prop": "cow"
+          }
+        ],
+        "characters": [
+          {
+            "x": 20,
+            "y": 35,
+            "size": 26,
+            "id": "coco",
+            "expression": "happy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "luna-and-the-sleepy-forest",
+      "title": "Luna and the Sleepy Forest",
+      "category": [
+        "bedtime",
+        "nature"
+      ],
+      "ageBand": "3-5",
+      "durationTag": "short",
+      "characters": [
+        "luna",
+        "bumble"
+      ],
+      "theme": "starry-night",
+      "coverScene": {
+        "backdrop": "night",
+        "props": [
+          {
+            "x": 30,
+            "y": 50,
+            "size": 40,
+            "prop": "tree"
+          },
+          {
+            "x": 78,
+            "y": 22,
+            "size": 22,
+            "prop": "moon"
+          }
+        ],
+        "characters": [
+          {
+            "x": 60,
+            "y": 60,
+            "size": 36,
+            "id": "luna",
+            "expression": "happy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pip-and-the-moon",
+      "title": "Pip and the Moon",
+      "category": [
+        "bedtime",
+        "animals"
+      ],
+      "ageBand": "3-5",
+      "durationTag": "short",
+      "characters": [
+        "pip",
+        "luna"
+      ],
+      "theme": "starry-night",
+      "coverScene": {
+        "backdrop": "night",
+        "props": [
+          {
+            "x": 75,
+            "y": 25,
+            "size": 26,
+            "anim": "float",
+            "prop": "moon"
+          }
+        ],
+        "characters": [
+          {
+            "x": 40,
+            "y": 65,
+            "size": 45,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pip-makes-a-friend",
+      "title": "Pip Makes a Friend",
+      "category": [
+        "friendship",
+        "feelings"
+      ],
+      "ageBand": "3-7",
+      "durationTag": "short",
+      "characters": [
+        "pip",
+        "zig"
+      ],
+      "theme": "sunny-meadow",
+      "coverScene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 50,
+            "y": 75,
+            "size": 14,
+            "prop": "ball"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 62,
+            "size": 36,
+            "id": "pip",
+            "expression": "happy"
+          },
+          {
+            "x": 70,
+            "y": 60,
+            "size": 36,
+            "id": "zig",
+            "expression": "happy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rainy-day-puddles",
+      "title": "Rainy Day Puddles",
+      "category": [
+        "everyday",
+        "nature"
+      ],
+      "ageBand": "3-5",
+      "durationTag": "short",
+      "characters": [
+        "bumble",
+        "coco"
+      ],
+      "theme": "under-the-sea",
+      "coverScene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 40,
+            "y": 18,
+            "size": 30,
+            "prop": "cloud"
+          },
+          {
+            "x": 60,
+            "y": 55,
+            "size": 30,
+            "prop": "umbrella"
+          }
+        ],
+        "characters": [
+          {
+            "x": 40,
+            "y": 66,
+            "size": 36,
+            "id": "bumble",
+            "expression": "happy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-ant-and-the-dove",
+      "title": "The Ant and the Dove",
+      "category": [
+        "fairy-tales",
+        "friendship"
+      ],
+      "ageBand": "5-7",
+      "durationTag": "medium",
+      "characters": [
+        "pip"
+      ],
+      "theme": "sunny-meadow",
+      "coverScene": {
+        "backdrop": "forest",
+        "props": [
+          {
+            "x": 35,
+            "y": 72,
+            "size": 16,
+            "prop": "ant"
+          },
+          {
+            "x": 65,
+            "y": 40,
+            "size": 22,
+            "anim": "float",
+            "prop": "bird"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "id": "the-big-blue-sea",
+      "title": "The Big Blue Sea",
+      "category": [
+        "adventures",
+        "animals"
+      ],
+      "ageBand": "3-5",
+      "durationTag": "short",
+      "characters": [
+        "pip"
+      ],
+      "theme": "under-the-sea",
+      "coverScene": {
+        "backdrop": "sea",
+        "props": [
+          {
+            "x": 40,
+            "y": 50,
+            "size": 22,
+            "anim": "float",
+            "prop": "fish"
+          },
+          {
+            "x": 70,
+            "y": 60,
+            "size": 34,
+            "prop": "whale"
+          }
+        ],
+        "characters": []
+      }
+    },
+    {
+      "id": "the-little-seed",
+      "title": "The Little Seed",
+      "category": [
+        "nature",
+        "learning"
+      ],
+      "ageBand": "3-7",
+      "durationTag": "short",
+      "characters": [
+        "pip"
+      ],
+      "theme": "sunny-meadow",
+      "coverScene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 55,
+            "y": 62,
+            "size": 34,
+            "prop": "flower"
+          }
+        ],
+        "characters": [
+          {
+            "x": 25,
+            "y": 65,
+            "size": 34,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "zig-and-the-colour-garden",
+      "title": "Zig and the Colour Garden",
+      "category": [
+        "learning",
+        "nature"
+      ],
+      "ageBand": "3-5",
+      "durationTag": "short",
+      "characters": [
+        "zig"
+      ],
+      "theme": "candy-land",
+      "coverScene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 30,
+            "y": 70,
+            "size": 22,
+            "prop": "flower"
+          },
+          {
+            "x": 70,
+            "y": 72,
+            "size": 22,
+            "prop": "flower"
+          }
+        ],
+        "characters": [
+          {
+            "x": 50,
+            "y": 55,
+            "size": 40,
+            "id": "zig",
+            "expression": "happy"
+          }
+        ]
+      }
+    }
+  ],
+  "rhymes": [
+    {
+      "id": "baa-baa-black-sheep",
+      "title": "Baa, Baa, Black Sheep",
+      "counting": false
+    },
+    {
+      "id": "five-bright-stars",
+      "title": "Five Bright Stars",
+      "counting": true
+    },
+    {
+      "id": "hey-diddle-diddle",
+      "title": "Hey Diddle Diddle",
+      "counting": false
+    },
+    {
+      "id": "hickory-dickory-dock",
+      "title": "Hickory Dickory Dock",
+      "counting": false
+    },
+    {
+      "id": "mary-had-a-little-lamb",
+      "title": "Mary Had a Little Lamb",
+      "counting": false
+    },
+    {
+      "id": "rain-rain-go-away",
+      "title": "Rain, Rain, Go Away",
+      "counting": false
+    },
+    {
+      "id": "row-row-row-your-boat",
+      "title": "Row, Row, Row Your Boat",
+      "counting": false
+    },
+    {
+      "id": "twinkle-twinkle",
+      "title": "Twinkle, Twinkle, Little Star",
+      "counting": false
+    }
+  ],
+  "audio": []
+}

@@ -1,0 +1,67 @@
+{
+  "id": "rain-rain-go-away",
+  "locale": "en",
+  "title": "Rain, Rain, Go Away",
+  "source": "Traditional (17th century)",
+  "publicDomain": true,
+  "melody": "row",
+  "tempo": 96,
+  "scene": {
+    "backdrop": "village",
+    "props": [
+      {
+        "prop": "cloud",
+        "x": 40,
+        "y": 20,
+        "size": 28,
+        "anim": "float"
+      },
+      {
+        "prop": "umbrella",
+        "x": 60,
+        "y": 60,
+        "size": 26
+      }
+    ],
+    "characters": [
+      {
+        "id": "bumble",
+        "x": 30,
+        "y": 68,
+        "size": 28,
+        "expression": "thinking"
+      }
+    ]
+  },
+  "hotspots": [
+    {
+      "id": "cloud",
+      "label": "cloud",
+      "shape": {
+        "x": 26,
+        "y": 6,
+        "w": 28,
+        "h": 28
+      },
+      "onTap": {
+        "say": "Drip, drop!",
+        "animate": "grow",
+        "sfx": "audio/sfx/splash.mp3"
+      }
+    }
+  ],
+  "lines": [
+    {
+      "text": "Rain, rain, go away,"
+    },
+    {
+      "text": "Come again another day."
+    },
+    {
+      "text": "Little children want to play,"
+    },
+    {
+      "text": "Rain, rain, go away."
+    }
+  ]
+}

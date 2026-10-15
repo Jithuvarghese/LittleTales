@@ -1,17 +1,10 @@
-/**
- * Fallback speech for UI labels while recorded audio is not yet available.
- * Recorded clips (via AudioManager) take precedence once they exist.
- */
+import { AudioManager } from './AudioManager';
+
+/** Speaks a short UI label (recorded clip when available, otherwise the speech fallback). */
 export function speak(text: string) {
-  if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
   try {
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en';
-    u.rate = 0.8;
-    u.pitch = 1.1;
-    window.speechSynthesis.speak(u);
+    AudioManager.say(text, { channel: 'ui' });
   } catch {
-    /* speech unavailable: stay silent */
+    /* audio unavailable: stay silent */
   }
 }

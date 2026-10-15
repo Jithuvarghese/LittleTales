@@ -1,0 +1,291 @@
+{
+  "locale": "en",
+  "letters": [
+    {
+      "letter": "A",
+      "sound": "a",
+      "word": "apple",
+      "prop": "apple",
+      "audio": {
+        "name": "audio/letters/en/a-name.mp3",
+        "sound": "audio/letters/en/a-sound.mp3",
+        "word": "audio/letters/en/a-word.mp3"
+      }
+    },
+    {
+      "letter": "B",
+      "sound": "b",
+      "word": "ball",
+      "prop": "ball",
+      "audio": {
+        "name": "audio/letters/en/b-name.mp3",
+        "sound": "audio/letters/en/b-sound.mp3",
+        "word": "audio/letters/en/b-word.mp3"
+      }
+    },
+    {
+      "letter": "C",
+      "sound": "k",
+      "word": "cat",
+      "prop": "cat",
+      "audio": {
+        "name": "audio/letters/en/c-name.mp3",
+        "sound": "audio/letters/en/c-sound.mp3",
+        "word": "audio/letters/en/c-word.mp3"
+      }
+    },
+    {
+      "letter": "D",
+      "sound": "d",
+      "word": "dog",
+      "prop": "dog",
+      "audio": {
+        "name": "audio/letters/en/d-name.mp3",
+        "sound": "audio/letters/en/d-sound.mp3",
+        "word": "audio/letters/en/d-word.mp3"
+      }
+    },
+    {
+      "letter": "E",
+      "sound": "e",
+      "word": "egg",
+      "prop": "egg",
+      "audio": {
+        "name": "audio/letters/en/e-name.mp3",
+        "sound": "audio/letters/en/e-sound.mp3",
+        "word": "audio/letters/en/e-word.mp3"
+      }
+    },
+    {
+      "letter": "F",
+      "sound": "f",
+      "word": "fish",
+      "prop": "fish",
+      "audio": {
+        "name": "audio/letters/en/f-name.mp3",
+        "sound": "audio/letters/en/f-sound.mp3",
+        "word": "audio/letters/en/f-word.mp3"
+      }
+    },
+    {
+      "letter": "G",
+      "sound": "g",
+      "word": "goat",
+      "prop": "goat",
+      "audio": {
+        "name": "audio/letters/en/g-name.mp3",
+        "sound": "audio/letters/en/g-sound.mp3",
+        "word": "audio/letters/en/g-word.mp3"
+      }
+    },
+    {
+      "letter": "H",
+      "sound": "h",
+      "word": "hat",
+      "prop": "hat",
+      "audio": {
+        "name": "audio/letters/en/h-name.mp3",
+        "sound": "audio/letters/en/h-sound.mp3",
+        "word": "audio/letters/en/h-word.mp3"
+      }
+    },
+    {
+      "letter": "I",
+      "sound": "i",
+      "word": "igloo",
+      "prop": "igloo",
+      "audio": {
+        "name": "audio/letters/en/i-name.mp3",
+        "sound": "audio/letters/en/i-sound.mp3",
+        "word": "audio/letters/en/i-word.mp3"
+      }
+    },
+    {
+      "letter": "J",
+      "sound": "j",
+      "word": "jam",
+      "prop": "jam",
+      "audio": {
+        "name": "audio/letters/en/j-name.mp3",
+        "sound": "audio/letters/en/j-sound.mp3",
+        "word": "audio/letters/en/j-word.mp3"
+      }
+    },
+    {
+      "letter": "K",
+      "sound": "k",
+      "word": "kite",
+      "prop": "kite",
+      "audio": {
+        "name": "audio/letters/en/k-name.mp3",
+        "sound": "audio/letters/en/k-sound.mp3",
+        "word": "audio/letters/en/k-word.mp3"
+      }
+    },
+    {
+      "letter": "L",
+      "sound": "l",
+      "word": "lion",
+      "prop": "lion",
+      "audio": {
+        "name": "audio/letters/en/l-name.mp3",
+        "sound": "audio/letters/en/l-sound.mp3",
+        "word": "audio/letters/en/l-word.mp3"
+      }
+    },
+    {
+      "letter": "M",
+      "sound": "m",
+      "word": "moon",
+      "prop": "moon",
+      "audio": {
+        "name": "audio/letters/en/m-name.mp3",
+        "sound": "audio/letters/en/m-sound.mp3",
+        "word": "audio/letters/en/m-word.mp3"
+      }
+    },
+    {
+      "letter": "N",
+      "sound": "n",
+      "word": "nest",
+      "prop": "nest",
+      "audio": {
+        "name": "audio/letters/en/n-name.mp3",
+        "sound": "audio/letters/en/n-sound.mp3",
+        "word": "audio/letters/en/n-word.mp3"
+      }
+    },
+    {
+      "letter": "O",
+      "sound": "o",
+      "word": "octopus",
+      "prop": "octopus",
+      "audio": {
+        "name": "audio/letters/en/o-name.mp3",
+        "sound": "audio/letters/en/o-sound.mp3",
+        "word": "audio/letters/en/o-word.mp3"
+      }
+    },
+    {
+      "letter": "P",
+      "sound": "p",
+      "word": "pig",
+      "prop": "pig",
+      "audio": {
+        "name": "audio/letters/en/p-name.mp3",
+        "sound": "audio/letters/en/p-sound.mp3",
+        "word": "audio/letters/en/p-word.mp3"
+      }
+    },
+    {
+      "letter": "Q",
+      "sound": "kw",
+      "word": "quilt",
+      "prop": "quilt",
+      "audio": {
+        "name": "audio/letters/en/q-name.mp3",
+        "sound": "audio/letters/en/q-sound.mp3",
+        "word": "audio/letters/en/q-word.mp3"
+      }
+    },
+    {
+      "letter": "R",
+      "sound": "r",
+      "word": "rabbit",
+      "prop": "rabbit",
+      "audio": {
+        "name": "audio/letters/en/r-name.mp3",
+        "sound": "audio/letters/en/r-sound.mp3",
+        "word": "audio/letters/en/r-word.mp3"
+      }
+    },
+    {
+      "letter": "S",
+      "sound": "s",
+      "word": "sun",
+      "prop": "sun",
+      "audio": {
+        "name": "audio/letters/en/s-name.mp3",
+        "sound": "audio/letters/en/s-sound.mp3",
+        "word": "audio/letters/en/s-word.mp3"
+      }
+    },
+    {
+      "letter": "T",
+      "sound": "t",
+      "word": "tree",
+      "prop": "tree",
+      "audio": {
+        "name": "audio/letters/en/t-name.mp3",
+        "sound": "audio/letters/en/t-sound.mp3",
+        "word": "audio/letters/en/t-word.mp3"
+      }
+    },
+    {
+      "letter": "U",
+      "sound": "u",
+      "word": "umbrella",
+      "prop": "umbrella",
+      "audio": {
+        "name": "audio/letters/en/u-name.mp3",
+        "sound": "audio/letters/en/u-sound.mp3",
+        "word": "audio/letters/en/u-word.mp3"
+      }
+    },
+    {
+      "letter": "V",
+      "sound": "v",
+      "word": "van",
+      "prop": "van",
+      "audio": {
+        "name": "audio/letters/en/v-name.mp3",
+        "sound": "audio/letters/en/v-sound.mp3",
+        "word": "audio/letters/en/v-word.mp3"
+      }
+    },
+    {
+      "letter": "W",
+      "sound": "w",
+      "word": "whale",
+      "prop": "whale",
+      "audio": {
+        "name": "audio/letters/en/w-name.mp3",
+        "sound": "audio/letters/en/w-sound.mp3",
+        "word": "audio/letters/en/w-word.mp3"
+      }
+    },
+    {
+      "letter": "X",
+      "sound": "ks",
+      "word": "xylophone",
+      "prop": "xylophone",
+      "audio": {
+        "name": "audio/letters/en/x-name.mp3",
+        "sound": "audio/letters/en/x-sound.mp3",
+        "word": "audio/letters/en/x-word.mp3"
+      }
+    },
+    {
+      "letter": "Y",
+      "sound": "y",
+      "word": "yo-yo",
+      "prop": "yoyo",
+      "audio": {
+        "name": "audio/letters/en/y-name.mp3",
+        "sound": "audio/letters/en/y-sound.mp3",
+        "word": "audio/letters/en/y-word.mp3"
+      }
+    },
+    {
+      "letter": "Z",
+      "sound": "z",
+      "word": "zebra",
+      "prop": "zebra",
+      "audio": {
+        "name": "audio/letters/en/z-name.mp3",
+        "sound": "audio/letters/en/z-sound.mp3",
+        "word": "audio/letters/en/z-word.mp3"
+      }
+    }
+  ]
+}

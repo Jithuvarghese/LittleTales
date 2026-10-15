@@ -1,0 +1,501 @@
+{
+  "id": "anus-kite-day",
+  "locale": "en",
+  "title": "Anu's Kite Day",
+  "category": [
+    "adventures",
+    "everyday"
+  ],
+  "ageBand": "3-7",
+  "durationTag": "short",
+  "coverScene": {
+    "backdrop": "village",
+    "props": [
+      {
+        "x": 60,
+        "y": 25,
+        "size": 24,
+        "anim": "float",
+        "prop": "kite"
+      }
+    ],
+    "characters": [
+      {
+        "x": 35,
+        "y": 66,
+        "size": 36,
+        "id": "pip",
+        "expression": "happy"
+      }
+    ]
+  },
+  "theme": "sunny-meadow",
+  "music": {
+    "src": "audio/music/play-01.mp3",
+    "volume": 0.4
+  },
+  "characters": [
+    "pip",
+    "coco"
+  ],
+  "pages": [
+    {
+      "type": "story",
+      "text": "It was kite day in Anu's town, and Pip came too.",
+      "scene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 80,
+            "y": 18,
+            "size": 18,
+            "prop": "sun"
+          }
+        ],
+        "characters": [
+          {
+            "x": 40,
+            "y": 66,
+            "size": 38,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/anus-kite-day/p1.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "pip",
+          "shape": {
+            "x": 21,
+            "y": 47,
+            "w": 38,
+            "h": 38
+          },
+          "label": "pip",
+          "onTap": {
+            "say": "Kite day!",
+            "animate": "bounce"
+          }
+        }
+      ],
+      "parentPrompt": "Kite festivals like Makar Sankranti are loved across India."
+    },
+    {
+      "type": "story",
+      "text": "Anu had a bright orange kite with a long tail.",
+      "scene": {
+        "backdrop": "room",
+        "props": [
+          {
+            "x": 50,
+            "y": 45,
+            "size": 34,
+            "prop": "kite"
+          }
+        ],
+        "characters": [
+          {
+            "x": 25,
+            "y": 66,
+            "size": 32,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/anus-kite-day/p2.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "kite",
+          "shape": {
+            "x": 33,
+            "y": 28,
+            "w": 34,
+            "h": 34
+          },
+          "label": "kite",
+          "onTap": {
+            "say": "Ready to fly!",
+            "animate": "wiggle"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Anu ran fast. Up, up went the kite!",
+      "scene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 50,
+            "y": 30,
+            "size": 20,
+            "prop": "kite"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 68,
+            "size": 32,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/anus-kite-day/p3.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/whoosh.mp3"
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "kite",
+          "shape": {
+            "x": 40,
+            "y": 20,
+            "w": 20,
+            "h": 20
+          },
+          "label": "kite",
+          "onTap": {
+            "sfx": "audio/sfx/whoosh.mp3",
+            "say": "Up, up!",
+            "animate": "spin"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "The sky was full of kites. One, two, three!",
+      "scene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 25,
+            "y": 22,
+            "size": 14,
+            "anim": "float",
+            "prop": "kite"
+          },
+          {
+            "x": 50,
+            "y": 18,
+            "size": 14,
+            "anim": "float",
+            "prop": "kite"
+          },
+          {
+            "x": 75,
+            "y": 25,
+            "size": 14,
+            "anim": "float",
+            "prop": "kite"
+          }
+        ],
+        "characters": [
+          {
+            "x": 50,
+            "y": 70,
+            "size": 30,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/anus-kite-day/p4.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/sparkle.mp3"
+        }
+      ],
+      "hotspots": []
+    },
+    {
+      "type": "quiz",
+      "question": "How many kites are in the sky?",
+      "reward": {
+        "stars": 1
+      },
+      "quizType": "count",
+      "prop": "kite",
+      "count": 3,
+      "choices": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Coco the parrot flew next to Anu's kite.",
+      "scene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 60,
+            "y": 20,
+            "size": 18,
+            "anim": "float",
+            "prop": "kite"
+          }
+        ],
+        "characters": [
+          {
+            "x": 40,
+            "y": 36,
+            "size": 22,
+            "id": "coco",
+            "expression": "happy"
+          },
+          {
+            "x": 30,
+            "y": 70,
+            "size": 30,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/anus-kite-day/p5.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "coco",
+          "shape": {
+            "x": 29,
+            "y": 25,
+            "w": 22,
+            "h": 22
+          },
+          "label": "coco",
+          "onTap": {
+            "say": "Race you, kite!",
+            "animate": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Oh! The kite string caught on a tree.",
+      "scene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 60,
+            "y": 30,
+            "size": 18,
+            "prop": "kite"
+          },
+          {
+            "x": 72,
+            "y": 50,
+            "size": 34,
+            "prop": "tree"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 68,
+            "size": 30,
+            "id": "pip",
+            "expression": "surprised"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/anus-kite-day/p6.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "tree",
+          "shape": {
+            "x": 55,
+            "y": 33,
+            "w": 34,
+            "h": 34
+          },
+          "label": "tree",
+          "onTap": {
+            "say": "Oops!",
+            "animate": "wiggle"
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "question": "How does Pip feel?",
+      "reward": {
+        "stars": 1
+      },
+      "quizType": "feelings",
+      "character": "pip",
+      "options": [
+        {
+          "label": "surprised",
+          "correct": true,
+          "face": "surprised"
+        },
+        {
+          "label": "sleepy",
+          "face": "sleepy"
+        },
+        {
+          "label": "happy",
+          "face": "happy"
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Coco gently pulled the string free.",
+      "scene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 60,
+            "y": 30,
+            "size": 18,
+            "prop": "kite"
+          },
+          {
+            "x": 72,
+            "y": 50,
+            "size": 34,
+            "prop": "tree"
+          }
+        ],
+        "characters": [
+          {
+            "x": 62,
+            "y": 24,
+            "size": 18,
+            "id": "coco",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/anus-kite-day/p7.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "coco",
+          "shape": {
+            "x": 53,
+            "y": 15,
+            "w": 18,
+            "h": 18
+          },
+          "label": "coco",
+          "onTap": {
+            "sfx": "audio/sfx/pop.mp3",
+            "say": "Got it!",
+            "animate": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "The kite danced high again. Hooray!",
+      "scene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 55,
+            "y": 20,
+            "size": 22,
+            "anim": "float",
+            "prop": "kite"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 68,
+            "size": 30,
+            "id": "pip",
+            "expression": "celebrate"
+          },
+          {
+            "x": 72,
+            "y": 30,
+            "size": 20,
+            "id": "coco",
+            "expression": "celebrate"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/anus-kite-day/p8.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/tada.mp3"
+        }
+      ],
+      "hotspots": []
+    },
+    {
+      "type": "story",
+      "text": "\"Thank you, Coco,\" said Anu. \"Best kite day ever!\"",
+      "scene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 80,
+            "y": 20,
+            "size": 18,
+            "prop": "sun"
+          },
+          {
+            "x": 30,
+            "y": 66,
+            "size": 18,
+            "prop": "kite"
+          }
+        ],
+        "characters": [
+          {
+            "x": 55,
+            "y": 66,
+            "size": 32,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/anus-kite-day/p9.mp3"
+      },
+      "sfx": [],
+      "hotspots": [],
+      "parentPrompt": "Ask: What colour kite would you fly?"
+    }
+  ]
+}

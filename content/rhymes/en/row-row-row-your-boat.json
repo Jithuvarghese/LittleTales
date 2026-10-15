@@ -1,0 +1,60 @@
+{
+  "id": "row-row-row-your-boat",
+  "locale": "en",
+  "title": "Row, Row, Row Your Boat",
+  "source": "Traditional (published 1852)",
+  "publicDomain": true,
+  "melody": "row",
+  "tempo": 100,
+  "scene": {
+    "backdrop": "beach",
+    "props": [
+      {
+        "prop": "boat",
+        "x": 50,
+        "y": 58,
+        "size": 34
+      }
+    ],
+    "characters": [
+      {
+        "id": "pip",
+        "x": 50,
+        "y": 46,
+        "size": 18,
+        "expression": "happy"
+      }
+    ]
+  },
+  "hotspots": [
+    {
+      "id": "boat",
+      "label": "boat",
+      "shape": {
+        "x": 33,
+        "y": 41,
+        "w": 34,
+        "h": 34
+      },
+      "onTap": {
+        "say": "Row, row!",
+        "animate": "wiggle",
+        "sfx": "audio/sfx/splash.mp3"
+      }
+    }
+  ],
+  "lines": [
+    {
+      "text": "Row, row, row your boat,"
+    },
+    {
+      "text": "Gently down the stream."
+    },
+    {
+      "text": "Merrily, merrily, merrily, merrily,"
+    },
+    {
+      "text": "Life is but a dream."
+    }
+  ]
+}

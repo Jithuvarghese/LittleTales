@@ -13,9 +13,16 @@
     "test:watch": "vitest",
     "format": "prettier --write .",
     "check:clean": "bash scripts/check-clean.sh",
-    "prepare": "husky"
+    "prepare": "husky",
+    "content:manifest": "tsx scripts/build-manifest.ts",
+    "content:validate": "tsx scripts/validate-content.ts",
+    "content:convert": "tsx scripts/md-to-story.ts",
+    "content:new-story": "tsx scripts/new-story.ts",
+    "predev": "npm run content:manifest",
+    "prebuild": "npm run content:manifest && npm run content:validate"
   },
   "dependencies": {
+    "@fontsource/opendyslexic": "^5.3.0",
     "framer-motion": "^14.2.0",
     "howler": "^2.2.4",
     "react": "^18.3.1",
@@ -25,10 +32,12 @@
     "zustand": "^5.0.15"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^9.39.5",
     "@fontsource/andika": "^5.3.0",
     "@fontsource/atkinson-hyperlegible": "^5.3.0",
     "@fontsource/baloo-2": "^5.3.0",
+    "@playwright/test": "^1.64.1",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^14.6.8",
@@ -47,9 +56,11 @@
     "postcss": "^8.5.30",
     "prettier": "^3.9.10",
     "tailwindcss": "^3.4.19",
+    "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.71.2",
     "vite": "^8.3.4",
+    "vite-plugin-pwa": "^2.0.0",
     "vitest": "^5.0.4"
   }
 }

@@ -1,0 +1,504 @@
+{
+  "id": "rainy-day-puddles",
+  "locale": "en",
+  "title": "Rainy Day Puddles",
+  "category": [
+    "everyday",
+    "nature"
+  ],
+  "ageBand": "3-5",
+  "durationTag": "short",
+  "coverScene": {
+    "backdrop": "village",
+    "props": [
+      {
+        "x": 40,
+        "y": 18,
+        "size": 30,
+        "prop": "cloud"
+      },
+      {
+        "x": 60,
+        "y": 55,
+        "size": 30,
+        "prop": "umbrella"
+      }
+    ],
+    "characters": [
+      {
+        "x": 40,
+        "y": 66,
+        "size": 36,
+        "id": "bumble",
+        "expression": "happy"
+      }
+    ]
+  },
+  "theme": "under-the-sea",
+  "music": {
+    "src": "audio/music/row-01.mp3",
+    "volume": 0.4
+  },
+  "characters": [
+    "bumble",
+    "coco"
+  ],
+  "pages": [
+    {
+      "type": "story",
+      "text": "Drip, drop! It was raining in the village.",
+      "scene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 40,
+            "y": 18,
+            "size": 30,
+            "anim": "float",
+            "prop": "cloud"
+          },
+          {
+            "x": 72,
+            "y": 22,
+            "size": 26,
+            "anim": "float",
+            "prop": "cloud"
+          }
+        ],
+        "characters": [
+          {
+            "x": 50,
+            "y": 66,
+            "size": 40,
+            "id": "bumble",
+            "expression": "thinking"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/rainy-day-puddles/p1.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/splash.mp3"
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "cloud",
+          "shape": {
+            "x": 25,
+            "y": 3,
+            "w": 30,
+            "h": 30
+          },
+          "label": "cloud",
+          "onTap": {
+            "sfx": "audio/sfx/splash.mp3",
+            "say": "Drip, drop!",
+            "animate": "grow"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Bumble found a big purple umbrella.",
+      "scene": {
+        "backdrop": "room",
+        "props": [
+          {
+            "x": 70,
+            "y": 55,
+            "size": 30,
+            "prop": "umbrella"
+          }
+        ],
+        "characters": [
+          {
+            "x": 35,
+            "y": 62,
+            "size": 40,
+            "id": "bumble",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/rainy-day-puddles/p2.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "umbrella",
+          "shape": {
+            "x": 55,
+            "y": 40,
+            "w": 30,
+            "h": 30
+          },
+          "label": "umbrella",
+          "onTap": {
+            "sfx": "audio/sfx/pop.mp3",
+            "say": "Pop it open!",
+            "animate": "grow"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Out he went, splish, splash, splosh!",
+      "scene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 50,
+            "y": 44,
+            "size": 30,
+            "prop": "umbrella"
+          }
+        ],
+        "characters": [
+          {
+            "x": 50,
+            "y": 66,
+            "size": 36,
+            "id": "bumble",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/rainy-day-puddles/p3.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/splash.mp3"
+        }
+      ],
+      "hotspots": []
+    },
+    {
+      "type": "quiz",
+      "question": "Which sound does a drum make?",
+      "reward": {
+        "stars": 1
+      },
+      "quizType": "sound-choice",
+      "sound": "drum",
+      "options": [
+        {
+          "prop": "drum",
+          "label": "drum",
+          "correct": true
+        },
+        {
+          "prop": "bell",
+          "label": "bell"
+        },
+        {
+          "prop": "duck",
+          "label": "duck"
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Coco the parrot hid under the umbrella too.",
+      "scene": {
+        "backdrop": "village",
+        "props": [],
+        "characters": [
+          {
+            "x": 30,
+            "y": 36,
+            "size": 26,
+            "id": "coco",
+            "expression": "happy"
+          },
+          {
+            "x": 60,
+            "y": 66,
+            "size": 36,
+            "id": "bumble",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/rainy-day-puddles/p4.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "coco",
+          "shape": {
+            "x": 17,
+            "y": 23,
+            "w": 26,
+            "h": 26
+          },
+          "label": "coco",
+          "onTap": {
+            "say": "Thank you, Bumble!",
+            "animate": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Oh no! Bumble's sock got all wet.",
+      "scene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 35,
+            "y": 72,
+            "size": 16,
+            "prop": "sock"
+          }
+        ],
+        "characters": [
+          {
+            "x": 60,
+            "y": 64,
+            "size": 36,
+            "id": "bumble",
+            "expression": "surprised"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/rainy-day-puddles/p5.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "sock",
+          "shape": {
+            "x": 27,
+            "y": 64,
+            "w": 16,
+            "h": 16
+          },
+          "label": "sock",
+          "onTap": {
+            "sfx": "audio/sfx/splash.mp3",
+            "say": "Squelch!",
+            "animate": "wiggle"
+          }
+        }
+      ],
+      "parentPrompt": "Ask: What do you wear when it rains?"
+    },
+    {
+      "type": "story",
+      "text": "Coco laughed. \"Puddles are fun!\"",
+      "scene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 50,
+            "y": 20,
+            "size": 28,
+            "prop": "cloud"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 40,
+            "size": 24,
+            "id": "coco",
+            "expression": "happy"
+          },
+          {
+            "x": 60,
+            "y": 66,
+            "size": 36,
+            "id": "bumble",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/rainy-day-puddles/p6.mp3"
+      },
+      "sfx": [],
+      "hotspots": []
+    },
+    {
+      "type": "quiz",
+      "question": "Find the same shape.",
+      "reward": {
+        "stars": 1
+      },
+      "quizType": "match",
+      "target": {
+        "label": "triangle",
+        "color": "#9b6bd6",
+        "shape": "triangle"
+      },
+      "options": [
+        {
+          "label": "square",
+          "color": "#9b6bd6",
+          "shape": "square"
+        },
+        {
+          "label": "triangle",
+          "correct": true,
+          "color": "#9b6bd6",
+          "shape": "triangle"
+        },
+        {
+          "label": "circle",
+          "color": "#9b6bd6",
+          "shape": "circle"
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Then the rain stopped and a rainbow came out!",
+      "scene": {
+        "backdrop": "village",
+        "props": [
+          {
+            "x": 50,
+            "y": 30,
+            "size": 60,
+            "prop": "rainbow"
+          }
+        ],
+        "characters": [
+          {
+            "x": 30,
+            "y": 50,
+            "size": 22,
+            "id": "coco",
+            "expression": "celebrate"
+          },
+          {
+            "x": 65,
+            "y": 66,
+            "size": 34,
+            "id": "bumble",
+            "expression": "celebrate"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/rainy-day-puddles/p7.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/sparkle.mp3"
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "rainbow",
+          "shape": {
+            "x": 20,
+            "y": 0,
+            "w": 60,
+            "h": 60
+          },
+          "label": "rainbow",
+          "onTap": {
+            "sfx": "audio/sfx/chime.mp3",
+            "say": "A rainbow!",
+            "animate": "grow"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Back home, they had warm milk.",
+      "scene": {
+        "backdrop": "room",
+        "props": [
+          {
+            "x": 50,
+            "y": 64,
+            "size": 22,
+            "prop": "cup"
+          }
+        ],
+        "characters": [
+          {
+            "x": 25,
+            "y": 62,
+            "size": 34,
+            "id": "bumble",
+            "expression": "happy"
+          },
+          {
+            "x": 78,
+            "y": 50,
+            "size": 24,
+            "id": "coco",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/rainy-day-puddles/p8.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "cup",
+          "shape": {
+            "x": 39,
+            "y": 53,
+            "w": 22,
+            "h": 22
+          },
+          "label": "cup",
+          "onTap": {
+            "say": "Warm and yummy.",
+            "animate": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Rainy days can be happy days too.",
+      "scene": {
+        "backdrop": "room",
+        "props": [
+          {
+            "x": 50,
+            "y": 70,
+            "size": 50,
+            "prop": "bed"
+          }
+        ],
+        "characters": [
+          {
+            "x": 50,
+            "y": 58,
+            "size": 32,
+            "id": "bumble",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/rainy-day-puddles/p9.mp3"
+      },
+      "sfx": [],
+      "hotspots": [],
+      "parentPrompt": "Ask: What do you like to do on a rainy day?"
+    }
+  ]
+}

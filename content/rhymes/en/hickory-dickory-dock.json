@@ -1,0 +1,84 @@
+{
+  "id": "hickory-dickory-dock",
+  "locale": "en",
+  "title": "Hickory Dickory Dock",
+  "source": "Traditional (printed 1744)",
+  "publicDomain": true,
+  "melody": "frere",
+  "tempo": 100,
+  "scene": {
+    "backdrop": "room",
+    "props": [
+      {
+        "prop": "mouse",
+        "x": 50,
+        "y": 60,
+        "size": 24
+      },
+      {
+        "prop": "bell",
+        "x": 50,
+        "y": 22,
+        "size": 18
+      }
+    ],
+    "characters": [
+      {
+        "id": "coco",
+        "x": 82,
+        "y": 40,
+        "size": 22,
+        "expression": "happy"
+      }
+    ]
+  },
+  "hotspots": [
+    {
+      "id": "mouse",
+      "label": "mouse",
+      "shape": {
+        "x": 38,
+        "y": 48,
+        "w": 24,
+        "h": 24
+      },
+      "onTap": {
+        "say": "Squeak!",
+        "animate": "bounce",
+        "sfx": "audio/sfx/pop.mp3"
+      }
+    },
+    {
+      "id": "bell",
+      "label": "bell",
+      "shape": {
+        "x": 41,
+        "y": 13,
+        "w": 18,
+        "h": 18
+      },
+      "onTap": {
+        "say": "Dong!",
+        "animate": "wiggle",
+        "sfx": "audio/sfx/bell.mp3"
+      }
+    }
+  ],
+  "lines": [
+    {
+      "text": "Hickory, dickory, dock,"
+    },
+    {
+      "text": "The mouse ran up the clock."
+    },
+    {
+      "text": "The clock struck one,"
+    },
+    {
+      "text": "The mouse ran down,"
+    },
+    {
+      "text": "Hickory, dickory, dock."
+    }
+  ]
+}

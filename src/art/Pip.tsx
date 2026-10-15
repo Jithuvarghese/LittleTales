@@ -1,6 +1,13 @@
 import { motion, useReducedMotion } from 'framer-motion';
 
-export type Expression = 'idle' | 'happy' | 'thinking' | 'celebrate' | 'talking';
+export type Expression =
+  | 'idle'
+  | 'happy'
+  | 'thinking'
+  | 'celebrate'
+  | 'talking'
+  | 'sleepy'
+  | 'surprised';
 
 /**
  * Pip the fox cub as a layered SVG with named groups so parts can be animated
@@ -52,7 +59,12 @@ export function Pip({ expression = 'idle', size = 160 }: { expression?: Expressi
           transition={{ repeat: Infinity, duration: 4, times: [0, 0.92, 0.96, 1] }}
           style={{ originY: '88px' }}
         >
-          {expression === 'happy' || expression === 'celebrate' ? (
+          {expression === 'sleepy' ? (
+            <>
+              <path d="M66 90h16" fill="none" />
+              <path d="M118 90h16" fill="none" />
+            </>
+          ) : expression === 'happy' || expression === 'celebrate' ? (
             <>
               <path d="M66 90q8-10 16 0" fill="none" />
               <path d="M118 90q8-10 16 0" fill="none" />
@@ -77,7 +89,9 @@ export function Pip({ expression = 'idle', size = 160 }: { expression?: Expressi
               animate={reduce ? { ry: 5 } : { ry: [2, 7, 2] }}
               transition={{ repeat: Infinity, duration: 0.35 }}
             />
-          ) : expression === 'thinking' ? (
+          ) : expression === 'surprised' ? (
+            <ellipse cx="100" cy="121" rx="6" ry="8" fill="#c0483c" />
+          ) : expression === 'thinking' || expression === 'sleepy' ? (
             <path d="M92 120h16" fill="none" />
           ) : (
             <path d="M88 116q12 12 24 0" fill="none" />

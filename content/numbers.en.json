@@ -1,0 +1,131 @@
+{
+  "locale": "en",
+  "numbers": [
+    {
+      "value": 0,
+      "word": "zero",
+      "prop": "star",
+      "audio": "audio/numbers/en/0.mp3"
+    },
+    {
+      "value": 1,
+      "word": "one",
+      "prop": "apple",
+      "audio": "audio/numbers/en/1.mp3"
+    },
+    {
+      "value": 2,
+      "word": "two",
+      "prop": "ball",
+      "audio": "audio/numbers/en/2.mp3"
+    },
+    {
+      "value": 3,
+      "word": "three",
+      "prop": "duck",
+      "audio": "audio/numbers/en/3.mp3"
+    },
+    {
+      "value": 4,
+      "word": "four",
+      "prop": "fish",
+      "audio": "audio/numbers/en/4.mp3"
+    },
+    {
+      "value": 5,
+      "word": "five",
+      "prop": "flower",
+      "audio": "audio/numbers/en/5.mp3"
+    },
+    {
+      "value": 6,
+      "word": "six",
+      "prop": "star",
+      "audio": "audio/numbers/en/6.mp3"
+    },
+    {
+      "value": 7,
+      "word": "seven",
+      "prop": "apple",
+      "audio": "audio/numbers/en/7.mp3"
+    },
+    {
+      "value": 8,
+      "word": "eight",
+      "prop": "ball",
+      "audio": "audio/numbers/en/8.mp3"
+    },
+    {
+      "value": 9,
+      "word": "nine",
+      "prop": "duck",
+      "audio": "audio/numbers/en/9.mp3"
+    },
+    {
+      "value": 10,
+      "word": "ten",
+      "prop": "fish",
+      "audio": "audio/numbers/en/10.mp3"
+    },
+    {
+      "value": 11,
+      "word": "eleven",
+      "prop": "flower",
+      "audio": "audio/numbers/en/11.mp3"
+    },
+    {
+      "value": 12,
+      "word": "twelve",
+      "prop": "star",
+      "audio": "audio/numbers/en/12.mp3"
+    },
+    {
+      "value": 13,
+      "word": "thirteen",
+      "prop": "apple",
+      "audio": "audio/numbers/en/13.mp3"
+    },
+    {
+      "value": 14,
+      "word": "fourteen",
+      "prop": "ball",
+      "audio": "audio/numbers/en/14.mp3"
+    },
+    {
+      "value": 15,
+      "word": "fifteen",
+      "prop": "duck",
+      "audio": "audio/numbers/en/15.mp3"
+    },
+    {
+      "value": 16,
+      "word": "sixteen",
+      "prop": "fish",
+      "audio": "audio/numbers/en/16.mp3"
+    },
+    {
+      "value": 17,
+      "word": "seventeen",
+      "prop": "flower",
+      "audio": "audio/numbers/en/17.mp3"
+    },
+    {
+      "value": 18,
+      "word": "eighteen",
+      "prop": "star",
+      "audio": "audio/numbers/en/18.mp3"
+    },
+    {
+      "value": 19,
+      "word": "nineteen",
+      "prop": "apple",
+      "audio": "audio/numbers/en/19.mp3"
+    },
+    {
+      "value": 20,
+      "word": "twenty",
+      "prop": "ball",
+      "audio": "audio/numbers/en/20.mp3"
+    }
+  ]
+}

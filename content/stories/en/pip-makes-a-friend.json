@@ -1,0 +1,500 @@
+{
+  "id": "pip-makes-a-friend",
+  "locale": "en",
+  "title": "Pip Makes a Friend",
+  "category": [
+    "friendship",
+    "feelings"
+  ],
+  "ageBand": "3-7",
+  "durationTag": "short",
+  "coverScene": {
+    "backdrop": "meadow",
+    "props": [
+      {
+        "x": 50,
+        "y": 75,
+        "size": 14,
+        "prop": "ball"
+      }
+    ],
+    "characters": [
+      {
+        "x": 30,
+        "y": 62,
+        "size": 36,
+        "id": "pip",
+        "expression": "happy"
+      },
+      {
+        "x": 70,
+        "y": 60,
+        "size": 36,
+        "id": "zig",
+        "expression": "happy"
+      }
+    ]
+  },
+  "theme": "sunny-meadow",
+  "music": {
+    "src": "audio/music/play-01.mp3",
+    "volume": 0.4
+  },
+  "characters": [
+    "pip",
+    "zig"
+  ],
+  "pages": [
+    {
+      "type": "story",
+      "text": "Pip had a bright blue ball.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 60,
+            "y": 76,
+            "size": 14,
+            "prop": "ball"
+          }
+        ],
+        "characters": [
+          {
+            "x": 35,
+            "y": 62,
+            "size": 40,
+            "id": "pip",
+            "expression": "idle"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/pip-makes-a-friend/p1.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "ball",
+          "shape": {
+            "x": 53,
+            "y": 69,
+            "w": 14,
+            "h": 14
+          },
+          "label": "ball",
+          "onTap": {
+            "sfx": "audio/sfx/boing.mp3",
+            "say": "Bounce!",
+            "animate": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "But playing ball alone was not much fun.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 60,
+            "y": 76,
+            "size": 14,
+            "prop": "ball"
+          }
+        ],
+        "characters": [
+          {
+            "x": 35,
+            "y": 62,
+            "size": 40,
+            "id": "pip",
+            "expression": "thinking"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/pip-makes-a-friend/p2.mp3"
+      },
+      "sfx": [],
+      "hotspots": [],
+      "parentPrompt": "Ask: Is it more fun to play together?"
+    },
+    {
+      "type": "quiz",
+      "question": "How does Pip feel?",
+      "reward": {
+        "stars": 1
+      },
+      "quizType": "feelings",
+      "character": "pip",
+      "options": [
+        {
+          "label": "sad",
+          "correct": true,
+          "face": "sad"
+        },
+        {
+          "label": "happy",
+          "face": "happy"
+        },
+        {
+          "label": "angry",
+          "face": "angry"
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Behind a tree, Pip saw a little robot.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 80,
+            "y": 48,
+            "size": 36,
+            "prop": "tree"
+          }
+        ],
+        "characters": [
+          {
+            "x": 80,
+            "y": 66,
+            "size": 26,
+            "id": "zig",
+            "expression": "thinking"
+          },
+          {
+            "x": 30,
+            "y": 62,
+            "size": 38,
+            "id": "pip",
+            "expression": "thinking"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/pip-makes-a-friend/p3.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "zig",
+          "shape": {
+            "x": 67,
+            "y": 53,
+            "w": 26,
+            "h": 26
+          },
+          "label": "zig",
+          "onTap": {
+            "sfx": "audio/sfx/click.mp3",
+            "say": "Beep?",
+            "animate": "wiggle"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "\"Hello! I am Pip. Do you want to play?\"",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [],
+        "characters": [
+          {
+            "x": 70,
+            "y": 62,
+            "size": 34,
+            "id": "zig",
+            "expression": "thinking"
+          },
+          {
+            "x": 30,
+            "y": 62,
+            "size": 38,
+            "id": "pip",
+            "expression": "talking"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/pip-makes-a-friend/p4.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "pip",
+          "shape": {
+            "x": 11,
+            "y": 43,
+            "w": 38,
+            "h": 38
+          },
+          "label": "pip",
+          "onTap": {
+            "say": "Let us play!",
+            "animate": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "\"Beep boop! Yes, please! I am Zig.\"",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [],
+        "characters": [
+          {
+            "x": 70,
+            "y": 62,
+            "size": 34,
+            "id": "zig",
+            "expression": "happy"
+          },
+          {
+            "x": 30,
+            "y": 62,
+            "size": 38,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/pip-makes-a-friend/p5.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "zig",
+          "shape": {
+            "x": 53,
+            "y": 45,
+            "w": 34,
+            "h": 34
+          },
+          "label": "zig",
+          "onTap": {
+            "say": "Beep boop!",
+            "animate": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "Pip threw the ball. Zig caught it!",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 50,
+            "y": 40,
+            "size": 14,
+            "anim": "float",
+            "prop": "ball"
+          }
+        ],
+        "characters": [
+          {
+            "x": 75,
+            "y": 62,
+            "size": 32,
+            "id": "zig",
+            "expression": "happy"
+          },
+          {
+            "x": 25,
+            "y": 62,
+            "size": 34,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/pip-makes-a-friend/p6.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/boing.mp3"
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "ball",
+          "shape": {
+            "x": 43,
+            "y": 33,
+            "w": 14,
+            "h": 14
+          },
+          "label": "ball",
+          "onTap": {
+            "sfx": "audio/sfx/whoosh.mp3",
+            "say": "Wheee!",
+            "animate": "spin"
+          }
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "question": "What are Pip and Zig playing with?",
+      "reward": {
+        "stars": 1
+      },
+      "quizType": "picture-choice",
+      "options": [
+        {
+          "prop": "ball",
+          "label": "ball",
+          "correct": true
+        },
+        {
+          "prop": "kite",
+          "label": "kite"
+        },
+        {
+          "prop": "book",
+          "label": "book"
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "text": "They played and laughed all afternoon.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 50,
+            "y": 76,
+            "size": 14,
+            "prop": "ball"
+          }
+        ],
+        "characters": [
+          {
+            "x": 72,
+            "y": 60,
+            "size": 32,
+            "id": "zig",
+            "expression": "celebrate"
+          },
+          {
+            "x": 28,
+            "y": 60,
+            "size": 34,
+            "id": "pip",
+            "expression": "celebrate"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/pip-makes-a-friend/p7.mp3"
+      },
+      "sfx": [
+        {
+          "trigger": "onEnter",
+          "src": "audio/sfx/tada.mp3"
+        }
+      ],
+      "hotspots": []
+    },
+    {
+      "type": "story",
+      "text": "\"Will you play again tomorrow?\" asked Zig.",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 80,
+            "y": 20,
+            "size": 20,
+            "prop": "sun"
+          }
+        ],
+        "characters": [
+          {
+            "x": 65,
+            "y": 62,
+            "size": 32,
+            "id": "zig",
+            "expression": "happy"
+          },
+          {
+            "x": 35,
+            "y": 62,
+            "size": 34,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/pip-makes-a-friend/p8.mp3"
+      },
+      "sfx": [],
+      "hotspots": [],
+      "parentPrompt": "Ask: Who is your friend?"
+    },
+    {
+      "type": "story",
+      "text": "\"Yes!\" said Pip. \"Friends play together.\"",
+      "scene": {
+        "backdrop": "meadow",
+        "props": [
+          {
+            "x": 50,
+            "y": 30,
+            "size": 16,
+            "anim": "float",
+            "prop": "heart"
+          }
+        ],
+        "characters": [
+          {
+            "x": 65,
+            "y": 62,
+            "size": 32,
+            "id": "zig",
+            "expression": "happy"
+          },
+          {
+            "x": 35,
+            "y": 62,
+            "size": 34,
+            "id": "pip",
+            "expression": "happy"
+          }
+        ]
+      },
+      "narration": {
+        "src": "audio/narration/en/pip-makes-a-friend/p9.mp3"
+      },
+      "sfx": [],
+      "hotspots": [
+        {
+          "id": "heart",
+          "shape": {
+            "x": 42,
+            "y": 22,
+            "w": 16,
+            "h": 16
+          },
+          "label": "heart",
+          "onTap": {
+            "sfx": "audio/sfx/sparkle.mp3",
+            "say": "Friends!",
+            "animate": "grow"
+          }
+        }
+      ]
+    }
+  ]
+}

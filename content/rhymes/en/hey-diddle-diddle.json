@@ -1,0 +1,104 @@
+{
+  "id": "hey-diddle-diddle",
+  "locale": "en",
+  "title": "Hey Diddle Diddle",
+  "source": "Traditional (printed 1765)",
+  "publicDomain": true,
+  "melody": "frere",
+  "tempo": 104,
+  "scene": {
+    "backdrop": "night",
+    "props": [
+      {
+        "prop": "moon",
+        "x": 75,
+        "y": 25,
+        "size": 24
+      },
+      {
+        "prop": "cow",
+        "x": 40,
+        "y": 40,
+        "size": 26,
+        "anim": "float"
+      },
+      {
+        "prop": "cat",
+        "x": 20,
+        "y": 72,
+        "size": 20
+      },
+      {
+        "prop": "dog",
+        "x": 65,
+        "y": 72,
+        "size": 20
+      }
+    ],
+    "characters": []
+  },
+  "hotspots": [
+    {
+      "id": "cow",
+      "label": "cow",
+      "shape": {
+        "x": 27,
+        "y": 27,
+        "w": 26,
+        "h": 26
+      },
+      "onTap": {
+        "say": "Moo!",
+        "animate": "bounce"
+      }
+    },
+    {
+      "id": "dog",
+      "label": "dog",
+      "shape": {
+        "x": 55,
+        "y": 62,
+        "w": 20,
+        "h": 20
+      },
+      "onTap": {
+        "say": "Ha ha!",
+        "animate": "wiggle"
+      }
+    },
+    {
+      "id": "cat",
+      "label": "cat",
+      "shape": {
+        "x": 10,
+        "y": 62,
+        "w": 20,
+        "h": 20
+      },
+      "onTap": {
+        "say": "Meow!",
+        "animate": "wiggle"
+      }
+    }
+  ],
+  "lines": [
+    {
+      "text": "Hey diddle diddle,"
+    },
+    {
+      "text": "The cat and the fiddle,"
+    },
+    {
+      "text": "The cow jumped over the moon."
+    },
+    {
+      "text": "The little dog laughed"
+    },
+    {
+      "text": "To see such sport,"
+    },
+    {
+      "text": "And the dish ran away with the spoon."
+    }
+  ]
+}

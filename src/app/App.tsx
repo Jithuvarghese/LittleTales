@@ -1,12 +1,42 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ErrorBoundary } from './ErrorBoundary';
 import { Layout } from './Layout';
 import { HomePage } from './HomePage';
-import { ComingSoon } from './ComingSoon';
 import { StartSplash } from './StartSplash';
 import { ThemeSync } from './ThemeSync';
-import { strings } from '@/strings';
+import { ScreenTime } from './ScreenTime';
+import { CharacterHost } from '@/components/CharacterHost';
+import { AudioManager } from '@/services/AudioManager';
+
+// Feature areas are split into their own chunks to keep the first load small.
+const Library = lazy(() => import('@/features/stories/Library').then((m) => ({ default: m.Library })));
+const Reader = lazy(() => import('@/features/stories/Reader').then((m) => ({ default: m.Reader })));
+const LettersHub = lazy(() => import('@/features/letters/LettersHub').then((m) => ({ default: m.LettersHub })));
+const MeetLetter = lazy(() => import('@/features/letters/MeetLetter').then((m) => ({ default: m.MeetLetter })));
+const FindKey = lazy(() => import('@/features/letters/FindKey').then((m) => ({ default: m.FindKey })));
+const FallingLetters = lazy(() => import('@/features/letters/FallingLetters').then((m) => ({ default: m.FallingLetters })));
+const NameBuilder = lazy(() => import('@/features/letters/NameBuilder').then((m) => ({ default: m.NameBuilder })));
+const AlphabetSong = lazy(() => import('@/features/letters/AlphabetSong').then((m) => ({ default: m.AlphabetSong })));
+const numbers = () => import('@/features/numbers/Numbers');
+const NumbersHub = lazy(() => numbers().then((m) => ({ default: m.NumbersHub })));
+const MeetNumber = lazy(() => numbers().then((m) => ({ default: m.MeetNumber })));
+const CountAndTap = lazy(() => numbers().then((m) => ({ default: m.CountAndTap })));
+const WhichHasMore = lazy(() => numbers().then((m) => ({ default: m.WhichHasMore })));
+const AddPictures = lazy(() => numbers().then((m) => ({ default: m.AddPictures })));
+const songs = () => import('@/features/songs/Songs');
+const SongsList = lazy(() => songs().then((m) => ({ default: m.SongsList })));
+const RhymePlayer = lazy(() => songs().then((m) => ({ default: m.RhymePlayer })));
+const StickerBook = lazy(() => import('@/features/rewards/StickerBook').then((m) => ({ default: m.StickerBook })));
+const ParentArea = lazy(() => import('@/features/parent/ParentArea').then((m) => ({ default: m.ParentArea })));
+
+function Loading() {
+  return (
+    <div className="flex flex-1 items-center justify-center">
+      <CharacterHost expression="thinking" size={140} />
+    </div>
+  );
+}
 
 export function App() {
   const [started, setStarted] = useState(false);
@@ -15,21 +45,42 @@ export function App() {
     <ErrorBoundary>
       <ThemeSync />
       {!started ? (
-        <StartSplash onStart={() => setStarted(true)} />
+        <StartSplash
+          onStart={() => {
+            AudioManager.unlock();
+            AudioManager.sfx('sparkle', 'ui');
+            setStarted(true);
+          }}
+        />
       ) : (
         <BrowserRouter>
-          <Routes>
-            <Route element={<Layout />}>
-              <Route index element={<HomePage />} />
-              <Route path="stories" element={<ComingSoon title={strings.nav.stories} />} />
-              <Route path="letters" element={<ComingSoon title={strings.nav.letters} />} />
-              <Route path="numbers" element={<ComingSoon title={strings.nav.numbers} />} />
-              <Route path="songs" element={<ComingSoon title={strings.nav.songs} />} />
-              <Route path="stickers" element={<ComingSoon title={strings.nav.stickers} />} />
-              <Route path="grown-ups" element={<ComingSoon title={strings.nav.grownUps} />} />
-              <Route path="*" element={<HomePage />} />
-            </Route>
-          </Routes>
+          <ScreenTime />
+          <Suspense fallback={<Loading />}>
+            <Routes>
+              <Route element={<Layout />}>
+                <Route index element={<HomePage />} />
+                <Route path="stories" element={<Library />} />
+                <Route path="stories/:id" element={<Reader />} />
+                <Route path="letters" element={<LettersHub />} />
+                <Route path="letters/meet" element={<MeetLetter />} />
+                <Route path="letters/find" element={<FindKey />} />
+                <Route path="letters/bubbles" element={<FallingLetters />} />
+                <Route path="letters/name" element={<NameBuilder />} />
+                <Route path="letters/song" element={<AlphabetSong />} />
+                <Route path="numbers" element={<NumbersHub />} />
+                <Route path="numbers/meet" element={<MeetNumber />} />
+                <Route path="numbers/find" element={<FindKey mode="numbers" />} />
+                <Route path="numbers/count" element={<CountAndTap />} />
+                <Route path="numbers/more" element={<WhichHasMore />} />
+                <Route path="numbers/add" element={<AddPictures />} />
+                <Route path="songs" element={<SongsList />} />
+                <Route path="songs/:id" element={<RhymePlayer />} />
+                <Route path="stickers" element={<StickerBook />} />
+                <Route path="grown-ups" element={<ParentArea />} />
+                <Route path="*" element={<HomePage />} />
+              </Route>
+            </Routes>
+          </Suspense>
         </BrowserRouter>
       )}
     </ErrorBoundary>
