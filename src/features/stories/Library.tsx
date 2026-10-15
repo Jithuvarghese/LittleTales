@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { storyIndex, type StorySummary } from '@/content/loaders';
 import { Scene } from '@/art/Scene';
-import { speak } from '@/services/speech';
 import { useProgress } from '@/features/rewards/progressStore';
 import { category as categorySchema } from '@/content/schema';
 import { strings } from '@/strings';
@@ -14,11 +13,7 @@ function Cover({ s, done }: { s: StorySummary; done: boolean }) {
       type="button"
       whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.95 }}
-      onPointerEnter={(e) => e.pointerType === 'mouse' && speak(s.title)}
-      onClick={() => {
-        speak(s.title);
-        navigate(`/stories/${s.id}`);
-      }}
+      onClick={() => navigate(`/stories/${s.id}`)}
       aria-label={done ? `${s.title} (read)` : s.title}
       className="relative w-64 shrink-0 snap-start rounded-blob bg-surface p-2 text-left shadow-[0_6px_0_var(--outline)] ring-[5px] ring-outline"
     >
@@ -45,9 +40,7 @@ export function Library() {
       <h1 className="sr-only">{strings.nav.stories}</h1>
       {shelves.map(({ c, stories }) => (
         <section key={c} aria-label={strings.categories[c]}>
-          <button type="button" className="mb-2 font-ui text-3xl font-extrabold" onClick={() => speak(strings.categories[c])}>
-            {strings.categories[c]}
-          </button>
+          <h2 className="mb-2 font-ui text-3xl font-extrabold">{strings.categories[c]}</h2>
           <div className="flex snap-x gap-6 overflow-x-auto pb-4 pt-1 pl-1">
             {stories.map((s) => (
               <Cover key={s.id} s={s} done={Boolean(completed[s.id])} />

@@ -37,6 +37,48 @@ export class Ducker {
 const knownFiles = new Set<string>((manifest as { audio?: string[] }).audio ?? []);
 const baseName = (src: string) => src.split('/').pop()!.replace(/\.(mp3|ogg|m4a|wav)$/, '');
 
+/**
+ * Ranks the device's speech voices so the most natural-sounding English voice is
+ * used. Neural voices ("Natural", "Online", Google, Apple enhanced) sound far less
+ * robotic than the classic system voices.
+ */
+export function rankVoice(v: Pick<SpeechSynthesisVoice, 'name' | 'lang' | 'localService'>): number {
+  if (!/^en(-|_|$)/i.test(v.lang)) return -1;
+  const n = v.name.toLowerCase();
+  let score = 0;
+  if (/natural|neural/.test(n)) score += 100;
+  if (/online/.test(n)) score += 40;
+  if (/premium|enhanced/.test(n)) score += 60;
+  if (/^google/.test(n)) score += 50;
+  if (/(samantha|karen|moira|tessa|serena|aria|jenny|sonia|libby|ava|emma|neerja|clara|natasha)/.test(n)) score += 30;
+  if (/(en-gb|en-in|en-au)/i.test(v.lang)) score += 5;
+  if (/(desktop|espeak|zira|david|mark|hazel)/.test(n)) score -= 30;
+  return score;
+}
+
+let chosenVoice: SpeechSynthesisVoice | null = null;
+function bestVoice(): SpeechSynthesisVoice | null {
+  if (chosenVoice) return chosenVoice;
+  try {
+    const voices = speechSynthesis.getVoices();
+    const best = voices.filter((v) => rankVoice(v) >= 0).sort((a, b) => rankVoice(b) - rankVoice(a))[0];
+    if (best) chosenVoice = best;
+    return best ?? null;
+  } catch {
+    return null;
+  }
+}
+if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  try {
+    speechSynthesis.addEventListener?.('voiceschanged', () => {
+      chosenVoice = null;
+      bestVoice();
+    });
+  } catch {
+    /* ignore */
+  }
+}
+
 /** Effective gain for a channel given settings (master × channel, muted → 0, capped). */
 export function channelGain(ch: Channel, s = useSettings.getState()) {
   if (s.muted[ch]) return 0;
@@ -199,9 +241,12 @@ class AudioManagerImpl {
     try {
       speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'en';
-      u.rate = opts.rate ?? 0.8;
-      u.pitch = 1.1;
+      const voice = bestVoice();
+      if (voice) u.voice = voice;
+      u.lang = voice?.lang ?? 'en-GB';
+      // Natural pace and pitch: slowing or raising the pitch is what makes these voices sound robotic.
+      u.rate = opts.rate ?? 0.92;
+      u.pitch = 1;
       u.volume = channelGain(channel);
       // Map character offsets to word indices for boundary events.
       const starts: number[] = [];

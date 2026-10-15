@@ -1,9 +1,9 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
-import { speak } from '@/services/speech';
+import { AudioManager } from '@/services/AudioManager';
 
 type Props = {
-  /** Spoken and used as the accessible name. */
+  /** Accessible name (read by screen readers, not spoken aloud). */
   label: string;
   icon: ReactNode;
   onClick?: () => void;
@@ -19,7 +19,7 @@ const sizes = {
   huge: 'w-36 h-36 sm:w-48 sm:h-48 p-4',
 };
 
-/** Large, forgiving icon button that speaks its label on hover and tap. */
+/** Large, forgiving icon button with a soft click on tap. */
 export function BigButton({
   label,
   icon,
@@ -37,10 +37,9 @@ export function BigButton({
       aria-pressed={pressed}
       title={label}
       onClick={() => {
-        speak(label);
+        AudioManager.sfx('click', 'ui');
         onClick?.();
       }}
-      onPointerEnter={(e) => e.pointerType === 'mouse' && speak(label)}
       whileHover={reduce ? undefined : { scale: 1.06 }}
       whileTap={reduce ? undefined : { scale: 0.92 }}
       className={`flex flex-col items-center justify-center gap-1 rounded-blob border-[5px] border-outline bg-surface text-text shadow-[0_6px_0_var(--outline)] ${sizes[size]} ${className}`}

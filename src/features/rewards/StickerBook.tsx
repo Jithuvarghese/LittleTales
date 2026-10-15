@@ -5,7 +5,6 @@ import { Backdrop } from '@/art/Backdrops';
 import { Prop } from '@/art/props';
 import { CharacterHost } from '@/components/CharacterHost';
 import { AudioManager } from '@/services/AudioManager';
-import { speak } from '@/services/speech';
 import { strings } from '@/strings';
 import { useProgress } from './progressStore';
 
@@ -53,7 +52,7 @@ export function StickerBook() {
             role="tab"
             aria-selected={a.id === album}
             aria-label={a.label}
-            onClick={() => { setAlbum(a.id); speak(a.label); }}
+            onClick={() => setAlbum(a.id)}
             className={`relative h-20 w-28 overflow-hidden rounded-2xl border-[5px] border-outline ${a.id === album ? 'ring-4 ring-accent' : ''}`}
           >
             <Backdrop name={a.backdrop} />
@@ -105,7 +104,7 @@ export function StickerBook() {
                 dragSnapToOrigin
                 whileDrag={{ scale: 1.2, zIndex: 50 }}
                 onDragEnd={(_, info) => drop(s.id, info.point.x - window.scrollX, info.point.y - window.scrollY)}
-                onClick={() => { if (have) { setSelected(s.id); speak(s.label); } }}
+                onClick={() => { if (have) setSelected(s.id); }}
                 className={`h-24 w-24 touch-none rounded-full border-[5px] border-outline bg-surface p-2 ${selected === s.id ? 'ring-4 ring-accent' : ''} ${have ? '' : 'opacity-30 grayscale'}`}
               >
                 <Prop id={s.prop} />

@@ -1,4 +1,4 @@
-import { channelGain, Ducker, DUCK_LEVEL, MAX_OUTPUT, AudioManager } from '@/services/AudioManager';
+import { channelGain, Ducker, DUCK_LEVEL, MAX_OUTPUT, AudioManager, rankVoice } from '@/services/AudioManager';
 import { defaultSettings, useSettings } from '@/app/settingsStore';
 
 describe('Ducker', () => {
@@ -61,5 +61,17 @@ describe('AudioManager.say fallback', () => {
   it('unlock() is safe without Web Audio', () => {
     expect(() => AudioManager.unlock()).not.toThrow();
     expect(AudioManager.unlocked).toBe(true);
+  });
+});
+
+describe('rankVoice', () => {
+  const v = (name: string, lang = 'en-US') => ({ name, lang, localService: true });
+  it('prefers natural neural voices over classic robotic ones', () => {
+    const voices = [v('Microsoft David Desktop'), v('Microsoft Aria Online (Natural) - English (United States)'), v('Google UK English Female', 'en-GB')];
+    const best = [...voices].sort((a, b) => rankVoice(b) - rankVoice(a))[0]!;
+    expect(best.name).toMatch(/Natural/);
+  });
+  it('ignores non-English voices', () => {
+    expect(rankVoice(v('Google français', 'fr-FR'))).toBe(-1);
   });
 });

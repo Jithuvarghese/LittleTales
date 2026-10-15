@@ -8,7 +8,6 @@ import { Prop } from '@/art/props';
 import { BigButton } from '@/components/BigButton';
 import { CharacterHost } from '@/components/CharacterHost';
 import { AudioManager } from '@/services/AudioManager';
-import { speak } from '@/services/speech';
 import { useSettings } from '@/app/settingsStore';
 import { useProgress } from '@/features/rewards/progressStore';
 import { strings } from '@/strings';
@@ -54,7 +53,6 @@ export function SongsList() {
             type="button"
             key={r.id}
             whileTap={{ scale: 0.95 }}
-            onPointerEnter={(e) => e.pointerType === 'mouse' && speak(r.title)}
             onClick={() => navigate(`/songs/${r.id}`)}
             className="flex w-56 flex-col items-center gap-2 rounded-blob border-[5px] border-outline bg-surface p-4 shadow-[0_6px_0_var(--outline)]"
           >
@@ -131,7 +129,7 @@ export function RhymePlayer() {
           AudioManager.say(l.text, {
             src: l.narration?.src,
             wordTimings: l.narration?.wordTimings,
-            rate: 0.85,
+            rate: 0.9,
             onWord: setWord,
             onEnd: () => timers.current.push(setTimeout(() => speakLine(i + 1), 250)),
           });
