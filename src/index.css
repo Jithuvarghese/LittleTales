@@ -1,0 +1,64 @@
+@import '@fontsource/baloo-2/600.css';
+@import '@fontsource/baloo-2/800.css';
+@import '@fontsource/andika/400.css';
+@import '@fontsource/andika/700.css';
+@import '@fontsource/atkinson-hyperlegible/400.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-story: 'Andika';
+  --story-size: clamp(2.5rem, 4vw + 1rem, 4rem);
+  color-scheme: light;
+}
+
+:root[data-text-size='M'] {
+  --story-size: clamp(2.25rem, 3vw + 1rem, 3.5rem);
+}
+:root[data-text-size='XL'] {
+  --story-size: clamp(3rem, 5vw + 1rem, 5rem);
+}
+:root[data-theme='starry-night'] {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+  transition: background-color 0.4s ease;
+}
+
+/* Large, colourful focus ring for keyboard users. */
+:focus-visible {
+  outline: 6px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 1rem;
+}
+
+.story-text {
+  font-family: var(--font-story), sans-serif;
+  font-size: var(--story-size);
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

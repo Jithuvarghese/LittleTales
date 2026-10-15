@@ -1,0 +1,25 @@
+# spec kept local only
+PROJECT_SPEC.md
+
+node_modules
+dist
+dist-ssr
+coverage
+*.local
+.env
+.env.*
+!.env.example
+
+# tooling
+tools/models/
+.vscode/*
+!.vscode/extensions.json
+.idea
+.cursor/
+.aider*
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
