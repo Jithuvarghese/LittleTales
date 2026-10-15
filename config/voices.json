@@ -1,0 +1,14 @@
+{
+  "engine": "piper",
+  "defaults": { "speed": 0.85, "sentencePauseMs": 350 },
+  "voices": {
+    "narrator": { "piper": { "model": "en_US-amy-medium.onnx" }, "kokoro": { "voice": "af_heart" }, "speed": 0.85 },
+    "songHost": { "piper": { "model": "en_US-amy-medium.onnx" }, "kokoro": { "voice": "af_bella" }, "speed": 0.9 },
+    "pip": { "piper": { "model": "en_US-amy-medium.onnx", "speaker": 0 }, "kokoro": { "voice": "af_sky" }, "speed": 0.95 },
+    "bumble": { "piper": { "model": "en_US-ryan-medium.onnx" }, "kokoro": { "voice": "am_michael" }, "speed": 0.8 },
+    "luna": { "piper": { "model": "en_GB-alba-medium.onnx" }, "kokoro": { "voice": "bf_emma" }, "speed": 0.8 },
+    "zig": { "piper": { "model": "en_US-ryan-medium.onnx" }, "kokoro": { "voice": "am_puck" }, "speed": 1.0 },
+    "coco": { "piper": { "model": "en_US-amy-medium.onnx" }, "kokoro": { "voice": "af_nova" }, "speed": 1.0 },
+    "letters": { "piper": { "model": "en_US-amy-medium.onnx" }, "kokoro": { "voice": "af_heart" }, "speed": 0.8 }
+  }
+}

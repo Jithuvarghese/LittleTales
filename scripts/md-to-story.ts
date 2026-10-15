@@ -173,6 +173,20 @@ export function convert(md: string) {
   return story.parse(data);
 }
 
+/** Keeps generated word timings and question audio when the page text is unchanged. */
+function preserveAudio(next: ReturnType<typeof convert>, path: string) {
+  if (!existsSync(path)) return;
+  const prev = JSON.parse(readFileSync(path, 'utf8'));
+  next.pages.forEach((p, i) => {
+    const old = prev.pages?.[i];
+    if (!old || old.type !== p.type) return;
+    if (p.type === 'story' && old.text === p.text && old.narration?.wordTimings) {
+      p.narration = { ...p.narration, wordTimings: old.narration.wordTimings };
+    }
+    if (p.type === 'quiz' && old.question === p.question && old.questionAudio) p.questionAudio = old.questionAudio;
+  });
+}
+
 function main() {
   const only = process.argv[2];
   if (!existsSync(OUT)) mkdirSync(OUT, { recursive: true });
@@ -181,6 +195,7 @@ function main() {
   for (const f of files) {
     try {
       const out = convert(readFileSync(join(SRC, f), 'utf8').replace(/\r\n/g, '\n'));
+      preserveAudio(out, join(OUT, `${out.id}.json`));
       writeFileSync(join(OUT, `${out.id}.json`), JSON.stringify(out, null, 2) + '\n');
       console.log(`converted ${basename(f)} -> ${out.id}.json`);
     } catch (e) {

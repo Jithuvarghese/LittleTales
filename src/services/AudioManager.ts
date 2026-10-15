@@ -125,7 +125,8 @@ class AudioManagerImpl {
       this.musicHowl.fade(0, channelGain('music'), 1500);
       return;
     }
-    const melody = baseName(key).replace(/-\d+$/, '');
+    // Bedtime mode keeps everything calm: built-in music switches to the lullaby.
+    const melody = useSettings.getState().bedtime ? 'lullaby' : baseName(key).replace(/-\d+$/, '');
     const dest = this.gains.music;
     if (this.ctx && dest) this.stopMusicFn = playMelody(this.ctx, dest, melody);
   }

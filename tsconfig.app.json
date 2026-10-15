@@ -16,8 +16,8 @@
     "moduleDetection": "force",
     "noEmit": true,
     "resolveJsonModule": true,
-    "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "types": ["vite/client"],
     "paths": { "@/*": ["./src/*"] }
   },
-  "include": ["src", "tests"]
+  "include": ["src"]
 }

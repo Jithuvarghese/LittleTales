@@ -22,7 +22,7 @@ function Cover({ s, done }: { s: StorySummary; done: boolean }) {
       aria-label={done ? `${s.title} (read)` : s.title}
       className="relative w-64 shrink-0 snap-start rounded-blob bg-surface p-2 text-left shadow-[0_6px_0_var(--outline)] ring-[5px] ring-outline"
     >
-      {s.coverScene && <Scene scene={s.coverScene} className="!border-0" />}
+      {s.coverScene && <Scene scene={s.coverScene} className="!border-0" label={`${s.title} cover`} />}
       <span className="mt-2 block px-2 font-ui text-xl font-bold leading-tight">{s.title}</span>
       {done && (
         <span className="absolute right-2 top-2 flex h-12 w-12 items-center justify-center rounded-full border-4 border-outline bg-success text-2xl text-white" aria-hidden>

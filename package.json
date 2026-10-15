@@ -19,7 +19,12 @@
     "content:convert": "tsx scripts/md-to-story.ts",
     "content:new-story": "tsx scripts/new-story.ts",
     "predev": "npm run content:manifest",
-    "prebuild": "npm run content:manifest && npm run content:validate"
+    "prebuild": "npm run content:manifest && npm run content:validate",
+    "audio:generate": "tsx scripts/tts/generate.ts",
+    "audio:samples": "tsx scripts/tts/generate.ts --samples",
+    "audio:review": "tsx scripts/tts/review.ts",
+    "test:e2e": "playwright test",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@fontsource/opendyslexic": "^5.3.0",

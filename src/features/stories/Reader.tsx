@@ -83,7 +83,8 @@ export function Reader() {
     AudioManager.music(story.music?.src);
     return () => {
       AudioManager.stopAll();
-      applyTheme(useSettings.getState().theme);
+      const s = useSettings.getState();
+      applyTheme(s.bedtime ? 'starry-night' : s.theme);
     };
   }, [story, theme, bedtime]);
 

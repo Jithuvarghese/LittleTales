@@ -1,0 +1,19 @@
+{
+  "_comment": "Whole-word replacements applied to text before speech generation. Keep the on-screen text unchanged.",
+  "replacements": {
+    "Anu's": "Ahnoo's",
+    "Anu": "Ahnoo",
+    "Zig": "Zigg",
+    "Coco": "Koko",
+    "Hoo": "Hooo",
+    "Zzz": "zzzzz",
+    "Maa": "Mahh"
+  },
+  "phonics": {
+    "_comment": "Letter-sound prompts for the engine. Each generated letter sound must be listen-checked and approved.",
+    "A": "a, as in apple", "B": "b", "C": "k", "D": "d", "E": "e, as in egg", "F": "fff", "G": "g", "H": "h",
+    "I": "i, as in igloo", "J": "j", "K": "k", "L": "lll", "M": "mmm", "N": "nnn", "O": "o, as in octopus",
+    "P": "p", "Q": "kw", "R": "rrr", "S": "sss", "T": "t", "U": "u, as in umbrella", "V": "vvv", "W": "w",
+    "X": "ks", "Y": "y", "Z": "zzz"
+  }
+}

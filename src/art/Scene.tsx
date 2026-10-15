@@ -33,8 +33,8 @@ export function Scene({ scene, children, className = '', label, pulse }: Props) 
   return (
     <div
       className={`relative aspect-[16/10] w-full overflow-hidden rounded-blob border-[5px] border-outline ${className}`}
-      role="img"
-      aria-label={label}
+      role={label ? 'img' : undefined}
+      aria-label={label || undefined}
     >
       <Backdrop name={scene.backdrop} />
       {items.map((it, i) => (

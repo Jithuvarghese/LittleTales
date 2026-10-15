@@ -23,3 +23,9 @@ tools/models/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# test output
+test-results/
+playwright-report/
+tools/samples/
+tools/audio-review.html

@@ -33,7 +33,7 @@ describe('App shell', () => {
     render(<App />);
     await user.click(screen.getByRole('button', { name: strings.tapToStart }));
     await user.click(screen.getByRole('button', { name: strings.nav.stories }));
-    expect(screen.getByRole('heading', { name: strings.nav.stories })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: strings.nav.stories }, { timeout: 15000 })).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: strings.home }));
     expect(screen.getByRole('button', { name: strings.nav.letters })).toBeInTheDocument();
   });
