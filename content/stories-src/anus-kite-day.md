@@ -23,7 +23,7 @@ tap: kite "Ready to fly!" wiggle
 
 ## Page
 scene: village | kite 50 30 20 | pip 30 68 32 happy
-text: Anu ran fast. Up, up, UP went the kite! Whoosh!
+text: Anu ran fast. Up, up, up went the kite! Whoosh!
 sfx: onEnter whoosh
 tap: kite "Up, up!" spin whoosh
 

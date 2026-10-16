@@ -500,7 +500,7 @@
     },
     {
       "type": "story",
-      "text": "Day by day, it grew taller... and taller... and TALLER! Can you stretch up tall?",
+      "text": "Day by day, it grew taller... and taller... and taller! Can you stretch up tall?",
       "scene": {
         "backdrop": "meadow",
         "props": [
@@ -563,48 +563,48 @@
           },
           {
             "word": "and",
-            "startMs": 2873,
-            "endMs": 3010
+            "startMs": 2835,
+            "endMs": 2972
           },
           {
             "word": "taller...",
-            "startMs": 3010,
-            "endMs": 3773
+            "startMs": 2972,
+            "endMs": 3735
           },
           {
             "word": "and",
-            "startMs": 3656,
-            "endMs": 3819
+            "startMs": 4254,
+            "endMs": 4379
           },
           {
-            "word": "TALLER!",
-            "startMs": 3819,
-            "endMs": 4881
+            "word": "taller!",
+            "startMs": 4379,
+            "endMs": 5129
           },
           {
             "word": "Can",
-            "startMs": 4762,
-            "endMs": 4899
+            "startMs": 4919,
+            "endMs": 5056
           },
           {
             "word": "you",
-            "startMs": 4899,
-            "endMs": 5012
+            "startMs": 5056,
+            "endMs": 5169
           },
           {
             "word": "stretch",
-            "startMs": 5012,
-            "endMs": 5325
+            "startMs": 5169,
+            "endMs": 5482
           },
           {
             "word": "up",
-            "startMs": 5325,
-            "endMs": 5487
+            "startMs": 5482,
+            "endMs": 5644
           },
           {
             "word": "tall?",
-            "startMs": 5487,
-            "endMs": 6062
+            "startMs": 5644,
+            "endMs": 6219
           }
         ]
       },

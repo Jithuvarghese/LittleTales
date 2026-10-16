@@ -45,7 +45,7 @@ sfx: onEnter sparkle
 
 ## Page
 scene: sea | whale 50 55 50 | pip 82 18 16 surprised
-text: Then... a GIANT whale swam up. Whoosh!
+text: Then... a giant whale swam up. Whoosh!
 sfx: onEnter whoosh
 tap: whale "Hello, little fox!" grow splash
 

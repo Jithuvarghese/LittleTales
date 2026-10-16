@@ -243,7 +243,7 @@
     },
     {
       "type": "story",
-      "text": "Anu ran fast. Up, up, UP went the kite! Whoosh!",
+      "text": "Anu ran fast. Up, up, up went the kite! Whoosh!",
       "scene": {
         "backdrop": "village",
         "props": [
@@ -285,38 +285,38 @@
           },
           {
             "word": "Up,",
-            "startMs": 2339,
-            "endMs": 2489
+            "startMs": 2338,
+            "endMs": 2488
           },
           {
             "word": "up,",
-            "startMs": 2539,
-            "endMs": 2739
+            "startMs": 2538,
+            "endMs": 2713
           },
           {
-            "word": "UP",
-            "startMs": 2789,
-            "endMs": 3114
+            "word": "up",
+            "startMs": 2763,
+            "endMs": 2950
           },
           {
             "word": "went",
-            "startMs": 3114,
-            "endMs": 3277
+            "startMs": 2950,
+            "endMs": 3100
           },
           {
             "word": "the",
-            "startMs": 3277,
-            "endMs": 3364
+            "startMs": 3100,
+            "endMs": 3188
           },
           {
             "word": "kite!",
-            "startMs": 3364,
-            "endMs": 3964
+            "startMs": 3188,
+            "endMs": 3813
           },
           {
             "word": "Whoosh!",
-            "startMs": 4728,
-            "endMs": 5478
+            "startMs": 4549,
+            "endMs": 5299
           }
         ]
       },

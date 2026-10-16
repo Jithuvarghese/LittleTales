@@ -548,7 +548,7 @@
     },
     {
       "type": "story",
-      "text": "Then... a GIANT whale swam up. Whoosh!",
+      "text": "Then... a giant whale swam up. Whoosh!",
       "scene": {
         "backdrop": "sea",
         "props": [
@@ -580,33 +580,33 @@
           },
           {
             "word": "a",
-            "startMs": 1815,
-            "endMs": 1903
+            "startMs": 1235,
+            "endMs": 1323
           },
           {
-            "word": "GIANT",
-            "startMs": 1903,
-            "endMs": 2240
+            "word": "giant",
+            "startMs": 1323,
+            "endMs": 1660
           },
           {
             "word": "whale",
-            "startMs": 2240,
-            "endMs": 2553
+            "startMs": 1660,
+            "endMs": 1973
           },
           {
             "word": "swam",
-            "startMs": 2553,
-            "endMs": 2890
+            "startMs": 1973,
+            "endMs": 2310
           },
           {
             "word": "up.",
-            "startMs": 2890,
-            "endMs": 3365
+            "startMs": 2310,
+            "endMs": 2785
           },
           {
             "word": "Whoosh!",
-            "startMs": 4085,
-            "endMs": 4835
+            "startMs": 3505,
+            "endMs": 4255
           }
         ]
       },

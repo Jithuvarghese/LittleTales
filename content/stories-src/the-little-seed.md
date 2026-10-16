@@ -44,7 +44,7 @@ tap: leaf "Hello, shoot!" wiggle pop
 
 ## Page
 scene: meadow | leaf 50 64 20 | leaf 60 60 18 | pip 25 64 34 happy
-text: Day by day, it grew taller... and taller... and TALLER! Can you stretch up tall?
+text: Day by day, it grew taller... and taller... and taller! Can you stretch up tall?
 prompt: Stretch up tall like a growing plant!
 
 ## Page
