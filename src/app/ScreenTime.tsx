@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { CharacterHost } from '@/components/CharacterHost';
 import { AudioManager } from '@/services/AudioManager';
 import { useProgress, dayKey } from '@/features/rewards/progressStore';
+import { uiLineSrc } from '@/content/voicing';
 import { strings } from '@/strings';
 import { useSettings } from './settingsStore';
 
@@ -12,43 +14,77 @@ const TICK_S = 15;
 export function ScreenTime() {
   const sessionMinutes = useSettings((s) => s.sessionMinutes);
   const dailyLimit = useSettings((s) => s.dailyLimitMinutes);
-  const [overlay, setOverlay] = useState<'stretch' | 'daily' | null>(null);
+  const [overlay, setOverlay] = useState<'stretch' | 'daily' | null>(() =>
+    // Development preview: add ?preview=stretch or ?preview=daily to the address.
+    import.meta.env.DEV ? ((new URLSearchParams(location.search).get('preview') as 'stretch' | 'daily' | null) ?? null) : null,
+  );
   const sessionSeconds = useRef(0);
   const navigate = useNavigate();
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const t = setInterval(() => {
-      if (document.hidden) return;
+      if (document.hidden || overlay) return;
       useProgress.getState().tick(TICK_S);
       sessionSeconds.current += TICK_S;
       const today = useProgress.getState().secondsByDay[dayKey()] ?? 0;
       if (dailyLimit > 0 && today >= dailyLimit * 60) {
         setOverlay('daily');
         AudioManager.stopAll();
-        AudioManager.say(strings.screenTime.dailyDone);
+        AudioManager.say(strings.screenTime.dailyDone, { role: 'quizHost', delivery: 'gentle', src: uiLineSrc(strings.screenTime.dailyDone) });
       } else if (sessionMinutes > 0 && sessionSeconds.current >= sessionMinutes * 60) {
         sessionSeconds.current = 0;
         setOverlay('stretch');
-        AudioManager.say(strings.screenTime.stretch);
+        AudioManager.stopVoice();
+        AudioManager.say(strings.screenTime.stretch, { role: 'quizHost', delivery: 'excited', src: uiLineSrc(strings.screenTime.stretch) });
       }
     }, TICK_S * 1000);
     return () => clearInterval(t);
-  }, [sessionMinutes, dailyLimit]);
+  }, [sessionMinutes, dailyLimit, overlay]);
 
-  if (!overlay) return null;
+  const daily = overlay === 'daily';
+
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-bg/95 p-6 text-center" role="dialog" aria-modal="true">
-      <CharacterHost character={overlay === 'daily' ? 'luna' : 'pip'} expression={overlay === 'daily' ? 'sleepy' : 'celebrate'} size={220} />
-      <p className="max-w-xl font-ui text-4xl font-bold">{overlay === 'daily' ? strings.screenTime.dailyDone : strings.screenTime.stretch}</p>
-      {overlay === 'stretch' ? (
-        <button type="button" onClick={() => setOverlay(null)} className="min-h-big rounded-blob border-[5px] border-outline bg-accent px-10 font-ui text-3xl font-bold text-[#2b1d16]">
-          {strings.screenTime.keepGoing}
-        </button>
-      ) : (
-        <button type="button" onClick={() => { setOverlay(null); navigate('/grown-ups'); }} className="font-ui text-lg underline">
-          {strings.nav.grownUps}
-        </button>
+    <AnimatePresence>
+      {overlay && (
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#2b1d16]/45 p-4 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="break-title"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.div
+            className="relative flex w-full max-w-md flex-col items-center gap-4 rounded-[2.5rem] border-[5px] border-outline bg-surface px-6 pb-7 pt-8 text-center text-text shadow-[0_10px_0_var(--outline)]"
+            initial={reduce ? false : { scale: 0.85, y: 30 }}
+            animate={{ scale: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+          >
+            <motion.div animate={!reduce && !daily ? { y: [0, -14, 0] } : undefined} transition={{ repeat: Infinity, duration: 1.2 }}>
+              <CharacterHost character={daily ? 'luna' : 'pip'} expression={daily ? 'sleepy' : 'celebrate'} size={150} />
+            </motion.div>
+            <h2 id="break-title" className="font-ui text-3xl font-extrabold leading-tight sm:text-4xl">
+              {daily ? strings.screenTime.dailyTitle : strings.screenTime.stretchTitle}
+            </h2>
+            <p className="font-ui text-xl leading-snug sm:text-2xl">{daily ? strings.screenTime.dailyDone : strings.screenTime.stretchHow}</p>
+            {daily ? (
+              <button type="button" onClick={() => { setOverlay(null); navigate('/grown-ups'); }} className="min-h-[56px] rounded-full px-6 font-ui text-lg underline">
+                {strings.nav.grownUps}
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => { AudioManager.sfx('chime', 'ui'); setOverlay(null); }}
+                className="min-h-[72px] w-full max-w-xs rounded-blob border-[5px] border-outline bg-accent px-8 font-ui text-2xl font-extrabold text-[#2b1d16] shadow-[0_6px_0_var(--outline)]"
+              >
+                {strings.screenTime.keepGoing}
+              </button>
+            )}
+          </motion.div>
+        </motion.div>
       )}
-    </div>
+    </AnimatePresence>
   );
 }

@@ -128,8 +128,11 @@ export const strings = {
   },
   screenTime: {
     stretch: 'Time for a stretch! Reach up high!',
+    stretchTitle: 'Stretch time!',
+    stretchHow: 'Reach up high, wiggle your fingers, and touch your toes.',
+    dailyTitle: 'Night, night!',
     dailyDone: "That's all for today. See you tomorrow!",
-    keepGoing: 'Okay',
+    keepGoing: 'I did it!',
   },
   comingSoon: 'Coming soon!',
   errorTitle: 'Oops! Pip tripped over a pebble.',

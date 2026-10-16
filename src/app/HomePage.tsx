@@ -38,7 +38,7 @@ export function HomePage() {
           {strings.appName}
         </span>
       </motion.div>
-      <div className="grid w-full max-w-6xl grid-cols-2 justify-items-center gap-4 sm:grid-cols-3 sm:gap-6 xl:grid-cols-6">
+      <div className="flex w-full max-w-[72rem] flex-wrap justify-center gap-4 sm:gap-6">
         {destinations.map((d, i) => (
           <motion.div
             key={d.to}
