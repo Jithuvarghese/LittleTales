@@ -10,6 +10,7 @@ import { Celebration } from '@/components/Celebration';
 import { AudioManager } from '@/services/AudioManager';
 import { sfxNames, type SfxName } from '@/services/synth';
 import { strings } from '@/strings';
+import { numbers } from '@/content/loaders';
 import { ArrowRightIcon, QuestionIcon, SkipIcon } from '@/art/Icons';
 import { uiLineSrc } from '@/content/voicing';
 import { initialQuiz, isFinished, quizReducer } from './quizLogic';
@@ -76,8 +77,13 @@ export function Quiz({ page, onDone }: Props) {
     AudioManager.sfx('tada');
     const label = options[correctIndex]?.label ?? '';
     const line = state.status === 'correct' ? strings.quiz.great : strings.quiz.itWas(label);
-    AudioManager.say(line, { role: 'quizHost', delivery: 'excited', src: state.status === 'correct' ? uiLineSrc(line) : undefined });
-    const t = setTimeout(() => onDone(page.reward.stars), 2200);
+    let t: ReturnType<typeof setTimeout> | undefined;
+    AudioManager.say(line, {
+      role: 'quizHost',
+      delivery: 'excited',
+      src: state.status === 'correct' ? uiLineSrc(line) : undefined,
+      onEnd: () => (t = setTimeout(() => onDone(page.reward.stars), 800)),
+    });
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.status]);
@@ -126,7 +132,7 @@ export function Quiz({ page, onDone }: Props) {
                 const next = [...counted, i];
                 setCounted(next);
                 AudioManager.sfx('pop');
-                AudioManager.say(String(next.length));
+                AudioManager.say(`${numbers[next.length]?.word ?? next.length}!`, { role: 'teacher', src: numbers[next.length]?.audio, queue: true });
               }}
             >
               <Prop id={page.prop} />

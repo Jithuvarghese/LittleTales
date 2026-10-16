@@ -10,7 +10,8 @@ import { stickerData } from '@/content/loaders';
 import { strings } from '@/strings';
 import { useTypingKeys } from './keys';
 import { OnScreenKeyboard } from './OnScreenKeyboard';
-import { letterEntry, sayLetterName, sayLetterSoundAndWord } from './letterAudio';
+import { letterEntry, sayLetterAsIn, sayLetterName } from './letterAudio';
+import { numbers } from '@/content/loaders';
 import { GiantLetter, letterOrder } from './MeetLetter';
 
 /** Session length before a sticker and a gentle break suggestion. */
@@ -57,10 +58,8 @@ export function FindKey({ mode = 'letters' }: Props) {
       const progress = useProgress.getState();
       if (mode === 'letters') {
         progress.practiseLetter(k);
-        sayLetterSoundAndWord(k);
       } else {
         progress.practiseNumber(Number(k));
-        AudioManager.say(k, { channel: 'letters' });
       }
       progress.addStars(1);
       const s = streak + 1;
@@ -70,7 +69,8 @@ export function FindKey({ mode = 'letters' }: Props) {
         setMood('celebrate');
         AudioManager.sfx('tada');
       }
-      setTimeout(() => {
+      // Move on only after the whole line ("B, as in ball!") has been spoken.
+      const next = () => setTimeout(() => {
         setParty(false);
         setMood('idle');
         busy.current = false;
@@ -80,7 +80,9 @@ export function FindKey({ mode = 'letters' }: Props) {
           return;
         }
         setIdx((i) => i + 1);
-      }, 1800);
+      }, 600);
+      if (mode === 'letters') sayLetterAsIn(k, next);
+      else AudioManager.say(`${numbers[Number(k)]!.word}!`, { channel: 'letters', role: 'teacher', delivery: 'excited', src: numbers[Number(k)]!.audio, onEnd: next });
     } else {
       // No negative sound: highlight the target key and repeat it kindly.
       setHint(true);

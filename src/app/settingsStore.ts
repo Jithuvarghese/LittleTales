@@ -20,6 +20,8 @@ type SettingsData = {
   master: number;
   learningPath: LearningPath;
   childName: string;
+  /** Words a grown-up added for the word builder (stay on this device). */
+  customWords: string[];
   autoAdvance: boolean;
   /** Minutes before a friendly stretch break; 0 = off. */
   sessionMinutes: number;
@@ -49,6 +51,7 @@ export const defaultSettings: SettingsData = {
   master: 0.8,
   learningPath: 'alphabetical',
   childName: '',
+  customWords: [],
   autoAdvance: true,
   sessionMinutes: 15,
   dailyLimitMinutes: 0,

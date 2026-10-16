@@ -98,3 +98,16 @@ describe('interrupting speech', () => {
     vi.useRealTimers();
   });
 });
+
+describe('queued speech', () => {
+  it('speaks queued lines one after another, each completely', () => {
+    vi.useFakeTimers();
+    const order: string[] = [];
+    AudioManager.say('one', { onEnd: () => order.push('one') });
+    AudioManager.say('two', { queue: true, onEnd: () => order.push('two') });
+    AudioManager.say('three', { queue: true, onEnd: () => order.push('three') });
+    vi.advanceTimersByTime(20000);
+    expect(order).toEqual(['one', 'two', 'three']);
+    vi.useRealTimers();
+  });
+});

@@ -107,8 +107,15 @@ function collectClips(only?: string): { clips: Clip[]; dirty: Map<string, unknow
       clips.push({ out: l.audio.name, text: `${l.letter}!`, parts: [{ text: `${l.letter}!`, role: 'teacher', delivery: 'excited' }] });
       const snd = pron.phonics[l.letter] ?? l.sound;
       clips.push({ out: l.audio.sound, text: snd, parts: [{ text: snd, role: 'teacher', delivery: 'gentle' }] });
-      const word = `${l.letter} is for ${l.word}!`;
+      const word = `${l.letter}, as in ${l.word}!`;
       clips.push({ out: l.audio.word, text: word, parts: [{ text: word, role: 'teacher', delivery: 'excited' }] });
+    }
+  }
+  if (!only || only === 'words') {
+    const list = JSON.parse(readFileSync('content/words.en.json', 'utf8')).words;
+    for (const w of list) {
+      const t = `${w.word[0].toUpperCase()}${w.word.slice(1)}!`;
+      clips.push({ out: w.audio, text: t, parts: [{ text: t, role: 'teacher', delivery: 'proud' }] });
     }
   }
   if (!only || only === 'numbers') {

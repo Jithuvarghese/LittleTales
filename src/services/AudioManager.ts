@@ -21,6 +21,8 @@ export type SayOptions = {
   role?: Role;
   delivery?: Delivery;
   speaker?: Role;
+  /** Wait for the current line to finish instead of interrupting it. */
+  queue?: boolean;
 };
 
 /** Tracks overlapping voice clips so music ducks once and restores after the last ends. */
@@ -136,6 +138,12 @@ class AudioManagerImpl {
   private preloaded = new Map<string, Howl>();
   private speechToken = 0;
   private cancelCurrent: (() => void) | null = null;
+  private pending: [string, SayOptions][] = [];
+
+  /** True while a line is being spoken. */
+  get speaking() {
+    return this.cancelCurrent !== null;
+  }
   private stopAmbienceFn: (() => void) | null = null;
   private currentAmbience: string | null = null;
   readonly ducker = new Ducker((d) => this.applyDuck(d));
@@ -249,6 +257,10 @@ class AudioManagerImpl {
 
   /** Speaks text: recorded clip if available, else the speech fallback. Ducks music meanwhile. */
   say(text: string, opts: SayOptions = {}) {
+    if (opts.queue && this.cancelCurrent) {
+      this.pending.push([text, opts]);
+      return;
+    }
     this.stopVoice();
     const channel = opts.channel ?? 'narration';
     const words = text.split(/\s+/).filter(Boolean);
@@ -262,6 +274,13 @@ class AudioManagerImpl {
       this.clearWordTimer();
       this.ducker.end();
       opts.onEnd?.();
+      // Next queued line, if any (and nothing new has started meanwhile).
+      const next = this.pending.shift();
+      if (next && !this.cancelCurrent) {
+        const rest = this.pending;
+        this.say(next[0], { ...next[1], queue: false });
+        this.pending = rest;
+      }
     };
     // Interrupted (Next pressed, page left): restore music but never report "finished".
     this.cancelCurrent = () => {
@@ -406,6 +425,7 @@ class AudioManagerImpl {
   }
 
   stopVoice() {
+    this.pending = [];
     this.cancelCurrent?.();
     this.speechToken++;
     this.clearWordTimer();

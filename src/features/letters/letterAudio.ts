@@ -21,7 +21,8 @@ export function sayLetterName(l: string, onEnd?: () => void) {
   AudioManager.say(l, { channel: 'letters', role: 'teacher', src: letterEntry(l).audio.name, onEnd });
 }
 
-export function sayLetterSoundAndWord(l: string) {
+/** "B, as in ball!" — the full line, then onEnd (used to move on only when finished). */
+export function sayLetterAsIn(l: string, onEnd?: () => void) {
   const e = letterEntry(l);
-  AudioManager.say(`${fallbackSound[l]}, ${e.word}`, { channel: 'letters', role: 'teacher', delivery: 'proud', src: e.audio.sound });
+  AudioManager.say(strings.letters.asIn(l, e.word), { channel: 'letters', role: 'teacher', delivery: 'excited', src: e.audio.word, onEnd });
 }

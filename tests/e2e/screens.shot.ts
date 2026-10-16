@@ -15,7 +15,7 @@ const sizes = [
   { name: 'desktop', width: 1600, height: 900 },
 ];
 const stories = ['pip-and-the-moon', 'bumble-counts-mangoes', 'coco-visits-the-farm', 'zig-and-the-colour-garden', 'the-little-seed', 'luna-and-the-sleepy-forest', 'pip-makes-a-friend', 'rainy-day-puddles', 'the-ant-and-the-dove', 'anus-kite-day', 'the-big-blue-sea'];
-const screens = ['/', '/stories', '/stories/pip-and-the-moon', '/letters', '/letters/find', '/letters/meet', '/letters/bubbles', '/numbers', '/numbers/meet', '/numbers/count', '/songs', '/songs/twinkle-twinkle', '/stickers', '/grown-ups'];
+const screens = ['/', '/games', '/games/catch', '/games/match', '/letters/name', '/stories', '/stories/pip-and-the-moon', '/letters', '/letters/find', '/letters/meet', '/letters/bubbles', '/numbers', '/numbers/meet', '/numbers/count', '/songs', '/songs/twinkle-twinkle', '/stickers', '/grown-ups'];
 
 async function problems(page: Page) {
   return page.evaluate(() => {
@@ -102,7 +102,7 @@ async function main() {
       if (p.length) console.log(`${name}:\n  ${p.join('\n  ')}`);
     }
     // Walk every page of every story in "Grown-up reads" mode (no narration timing needed).
-    for (const story of stories) {
+    for (const story of process.env.NO_STORIES ? [] : stories) {
       await page.goto(`${base}/stories/${story}`);
       const startBtn = page.getByRole('button', { name: 'Tap to start!' });
       if (await startBtn.isVisible().catch(() => false)) await startBtn.click();

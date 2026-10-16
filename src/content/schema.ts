@@ -192,6 +192,10 @@ export const numberEntry = z.object({
 });
 export const numbersFile = z.object({ locale, numbers: z.array(numberEntry).min(21) });
 
+export const wordEntry = z.object({ word: z.string().regex(/^[a-z]+$/), prop: z.string(), audio: z.string() });
+export const wordsFile = z.object({ locale, words: z.array(wordEntry).min(1) });
+export type WordEntry = z.infer<typeof wordEntry>;
+
 export const sticker = z.object({ id: z.string(), album: z.string(), prop: z.string(), label: z.string() });
 export const stickersFile = z.object({ albums: z.array(z.object({ id: z.string(), label: z.string(), backdrop })), stickers: z.array(sticker) });
 

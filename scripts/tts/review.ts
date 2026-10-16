@@ -27,7 +27,7 @@ function collect(): Clip[] {
   for (const l of letters) {
     clips.push({ src: l.audio.name, text: `${l.letter} (name)`, group: 'Letters' });
     clips.push({ src: l.audio.sound, text: `${l.letter} (sound: must be a clean phonics sound)`, group: 'Letters' });
-    clips.push({ src: l.audio.word, text: `${l.letter} is for ${l.word}`, group: 'Letters' });
+    clips.push({ src: l.audio.word, text: `${l.letter}, as in ${l.word}`, group: 'Letters' });
   }
   for (const n of JSON.parse(readFileSync('content/numbers.en.json', 'utf8')).numbers) clips.push({ src: n.audio, text: n.word, group: 'Numbers' });
   return clips.filter((c) => existsSync(join('public', c.src)));

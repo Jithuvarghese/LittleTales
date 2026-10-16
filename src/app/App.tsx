@@ -16,7 +16,6 @@ const LettersHub = lazy(() => import('@/features/letters/LettersHub').then((m) =
 const MeetLetter = lazy(() => import('@/features/letters/MeetLetter').then((m) => ({ default: m.MeetLetter })));
 const FindKey = lazy(() => import('@/features/letters/FindKey').then((m) => ({ default: m.FindKey })));
 const FallingLetters = lazy(() => import('@/features/letters/FallingLetters').then((m) => ({ default: m.FallingLetters })));
-const NameBuilder = lazy(() => import('@/features/letters/NameBuilder').then((m) => ({ default: m.NameBuilder })));
 const AlphabetSong = lazy(() => import('@/features/letters/AlphabetSong').then((m) => ({ default: m.AlphabetSong })));
 const numbers = () => import('@/features/numbers/Numbers');
 const NumbersHub = lazy(() => numbers().then((m) => ({ default: m.NumbersHub })));
@@ -30,6 +29,11 @@ const RhymePlayer = lazy(() => songs().then((m) => ({ default: m.RhymePlayer }))
 const StickerBook = lazy(() => import('@/features/rewards/StickerBook').then((m) => ({ default: m.StickerBook })));
 // Recording studio exists only in development; the production build drops it entirely.
 const Studio = import.meta.env.DEV ? lazy(() => import('@/features/studio/Studio').then((m) => ({ default: m.Studio }))) : null;
+const games = () => import('@/features/games/GamesHub');
+const GamesHub = lazy(() => games().then((m) => ({ default: m.GamesHub })));
+const CatchGame = lazy(() => import('@/features/games/CatchGame').then((m) => ({ default: m.CatchGame })));
+const MatchGame = lazy(() => import('@/features/games/MatchGame').then((m) => ({ default: m.MatchGame })));
+const WordBuilder = lazy(() => import('@/features/letters/WordBuilder').then((m) => ({ default: m.WordBuilder })));
 const ParentArea = lazy(() => import('@/features/parent/ParentArea').then((m) => ({ default: m.ParentArea })));
 
 function Loading() {
@@ -67,7 +71,10 @@ export function App() {
                 <Route path="letters/meet" element={<MeetLetter />} />
                 <Route path="letters/find" element={<FindKey />} />
                 <Route path="letters/bubbles" element={<FallingLetters />} />
-                <Route path="letters/name" element={<NameBuilder />} />
+                <Route path="letters/name" element={<WordBuilder />} />
+                <Route path="games" element={<GamesHub />} />
+                <Route path="games/catch" element={<CatchGame />} />
+                <Route path="games/match" element={<MatchGame />} />
                 <Route path="letters/song" element={<AlphabetSong />} />
                 <Route path="numbers" element={<NumbersHub />} />
                 <Route path="numbers/meet" element={<MeetNumber />} />

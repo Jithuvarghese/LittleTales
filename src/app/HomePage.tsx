@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { BigButton } from '@/components/BigButton';
 import { CharacterHost } from '@/components/CharacterHost';
 import { ThemePicker } from '@/components/ThemePicker';
-import { AbcIcon, BookIcon, LockIcon, MusicIcon, NumbersIcon, StarIcon } from '@/art/Icons';
+import { AbcIcon, BookIcon, GamesIcon, LockIcon, MusicIcon, NumbersIcon, StarIcon } from '@/art/Icons';
 import { AudioManager } from '@/services/AudioManager';
 import { useSettings } from './settingsStore';
 import { strings } from '@/strings';
@@ -14,6 +14,7 @@ const destinations: { to: string; label: string; icon: ReactNode; tint: string }
   { to: '/letters', label: strings.nav.letters, icon: <AbcIcon />, tint: '#fff1c4' },
   { to: '/numbers', label: strings.nav.numbers, icon: <NumbersIcon />, tint: '#dff5d8' },
   { to: '/songs', label: strings.nav.songs, icon: <MusicIcon />, tint: '#efe2ff' },
+  { to: '/games', label: strings.nav.games, icon: <GamesIcon />, tint: '#d6f1ff' },
   { to: '/stickers', label: strings.nav.stickers, icon: <StarIcon />, tint: '#fff6c9' },
 ];
 
@@ -37,13 +38,12 @@ export function HomePage() {
           {strings.appName}
         </span>
       </motion.div>
-      <div className="grid w-full max-w-5xl grid-cols-2 justify-items-center gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-5">
+      <div className="grid w-full max-w-6xl grid-cols-2 justify-items-center gap-4 sm:grid-cols-3 sm:gap-6 xl:grid-cols-6">
         {destinations.map((d, i) => (
           <motion.div
             key={d.to}
             initial={reduce ? false : { y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1, transition: { delay: 0.08 * i } }}
-            className={i === destinations.length - 1 ? 'col-span-2 sm:col-span-1' : ''}
           >
             <BigButton size="huge" showLabel label={d.label} icon={d.icon} tint={d.tint} onClick={() => navigate(d.to)} />
           </motion.div>

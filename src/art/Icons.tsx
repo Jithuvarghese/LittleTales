@@ -109,3 +109,13 @@ export const QuestionIcon = (p: IconProps) => (
     <circle cx="24" cy="37" r="2.5" fill="var(--outline)" />
   </svg>
 );
+
+/** Game controller for the Games section. */
+export const GamesIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M14 22h36q10 0 10 14v6q0 10-8 10-6 0-10-8H22q-4 8-10 8-8 0-8-10v-6q0-14 10-14z" fill="#6bc1ff" />
+    <path d="M18 31v10M13 36h10" />
+    <circle cx="44" cy="33" r="3" fill="#ffcb47" />
+    <circle cx="50" cy="39" r="3" fill="#ff8a6b" />
+  </svg>
+);

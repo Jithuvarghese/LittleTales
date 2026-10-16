@@ -1,0 +1,155 @@
+{
+  "locale": "en",
+  "words": [
+    {
+      "word": "cat",
+      "prop": "cat",
+      "audio": "audio/words/en/cat.mp3"
+    },
+    {
+      "word": "dog",
+      "prop": "dog",
+      "audio": "audio/words/en/dog.mp3"
+    },
+    {
+      "word": "sun",
+      "prop": "sun",
+      "audio": "audio/words/en/sun.mp3"
+    },
+    {
+      "word": "ball",
+      "prop": "ball",
+      "audio": "audio/words/en/ball.mp3"
+    },
+    {
+      "word": "hat",
+      "prop": "hat",
+      "audio": "audio/words/en/hat.mp3"
+    },
+    {
+      "word": "cup",
+      "prop": "cup",
+      "audio": "audio/words/en/cup.mp3"
+    },
+    {
+      "word": "egg",
+      "prop": "egg",
+      "audio": "audio/words/en/egg.mp3"
+    },
+    {
+      "word": "fish",
+      "prop": "fish",
+      "audio": "audio/words/en/fish.mp3"
+    },
+    {
+      "word": "car",
+      "prop": "car",
+      "audio": "audio/words/en/car.mp3"
+    },
+    {
+      "word": "duck",
+      "prop": "duck",
+      "audio": "audio/words/en/duck.mp3"
+    },
+    {
+      "word": "cow",
+      "prop": "cow",
+      "audio": "audio/words/en/cow.mp3"
+    },
+    {
+      "word": "pig",
+      "prop": "pig",
+      "audio": "audio/words/en/pig.mp3"
+    },
+    {
+      "word": "star",
+      "prop": "star",
+      "audio": "audio/words/en/star.mp3"
+    },
+    {
+      "word": "moon",
+      "prop": "moon",
+      "audio": "audio/words/en/moon.mp3"
+    },
+    {
+      "word": "cake",
+      "prop": "cake",
+      "audio": "audio/words/en/cake.mp3"
+    },
+    {
+      "word": "kite",
+      "prop": "kite",
+      "audio": "audio/words/en/kite.mp3"
+    },
+    {
+      "word": "frog",
+      "prop": "frog",
+      "audio": "audio/words/en/frog.mp3"
+    },
+    {
+      "word": "bee",
+      "prop": "bee",
+      "audio": "audio/words/en/bee.mp3"
+    },
+    {
+      "word": "tree",
+      "prop": "tree",
+      "audio": "audio/words/en/tree.mp3"
+    },
+    {
+      "word": "book",
+      "prop": "book",
+      "audio": "audio/words/en/book.mp3"
+    },
+    {
+      "word": "boat",
+      "prop": "boat",
+      "audio": "audio/words/en/boat.mp3"
+    },
+    {
+      "word": "bed",
+      "prop": "bed",
+      "audio": "audio/words/en/bed.mp3"
+    },
+    {
+      "word": "sock",
+      "prop": "sock",
+      "audio": "audio/words/en/sock.mp3"
+    },
+    {
+      "word": "jam",
+      "prop": "jam",
+      "audio": "audio/words/en/jam.mp3"
+    },
+    {
+      "word": "van",
+      "prop": "van",
+      "audio": "audio/words/en/van.mp3"
+    },
+    {
+      "word": "bell",
+      "prop": "bell",
+      "audio": "audio/words/en/bell.mp3"
+    },
+    {
+      "word": "drum",
+      "prop": "drum",
+      "audio": "audio/words/en/drum.mp3"
+    },
+    {
+      "word": "owl",
+      "prop": "owl",
+      "audio": "audio/words/en/owl.mp3"
+    },
+    {
+      "word": "ant",
+      "prop": "ant",
+      "audio": "audio/words/en/ant.mp3"
+    },
+    {
+      "word": "fox",
+      "prop": "fox",
+      "audio": "audio/words/en/fox.mp3"
+    }
+  ]
+}

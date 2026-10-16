@@ -12,6 +12,7 @@ import { AudioManager } from '@/services/AudioManager';
 import { useProgress } from '@/features/rewards/progressStore';
 import { useTypingKeys } from '@/features/letters/keys';
 import { strings } from '@/strings';
+import { uiLineSrc } from '@/content/voicing';
 import { KeyboardIcon } from '@/art/Icons';
 import { initialQuiz, isFinished, quizReducer } from '@/features/stories/quiz/quizLogic';
 
@@ -61,20 +62,32 @@ export function MeetNumber() {
   useEffect(() => {
     setShown(0);
     useProgress.getState().practiseNumber(n);
+    // Count one object at a time; the next appears only after its number is fully spoken.
+    let cancelled = false;
     const timers: ReturnType<typeof setTimeout>[] = [];
-    const step = reduce ? 500 : 750;
-    for (let i = 1; i <= n; i++) {
-      timers.push(
-        setTimeout(() => {
-          setShown(i);
-          AudioManager.sfx('pop');
-          AudioManager.say(numbers[i]!.word, { channel: 'letters', rate: 0.9 });
-        }, i * step),
-      );
-    }
-    timers.push(setTimeout(() => AudioManager.say(`${entry.word}!`, { channel: 'letters', src: entry.audio }), (n + 1) * step + 300));
-    if (n === 0) AudioManager.say('Zero. Nothing at all!', { channel: 'letters', src: entry.audio });
-    return () => timers.forEach(clearTimeout);
+    const gap = reduce ? 150 : 300;
+    const countFrom = (i: number) => {
+      if (cancelled) return;
+      if (i > n) {
+        timers.push(setTimeout(() => !cancelled && AudioManager.say(`${n} — ${entry.word}!`, { channel: 'letters', role: 'teacher', delivery: 'proud' }), gap * 2));
+        return;
+      }
+      setShown(i);
+      AudioManager.sfx('pop');
+      AudioManager.say(`${numbers[i]!.word}!`, {
+        channel: 'letters',
+        role: 'teacher',
+        src: numbers[i]!.audio,
+        onEnd: () => timers.push(setTimeout(() => countFrom(i + 1), gap)),
+      });
+    };
+    if (n === 0) AudioManager.say('Zero. Nothing at all!', { channel: 'letters', role: 'teacher', src: entry.audio });
+    else timers.push(setTimeout(() => countFrom(1), 400));
+    return () => {
+      cancelled = true;
+      timers.forEach(clearTimeout);
+      AudioManager.stopVoice();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [n, run]);
 
@@ -119,10 +132,16 @@ export function CountAndTap() {
   useEffect(() => {
     if (!done) return;
     AudioManager.sfx('tada');
-    setTimeout(() => AudioManager.say(`${numbers[total]!.word}! ${strings.praise[round % strings.praise.length]}`), 600);
     useProgress.getState().practiseNumber(total);
     useProgress.getState().addStars(1);
-    const t = setTimeout(() => setRound((r) => r + 1), 3200);
+    // Praise waits for the last number, and the next round waits for the praise.
+    let t: ReturnType<typeof setTimeout> | undefined;
+    AudioManager.say(`${numbers[total]!.word}! ${strings.praise[round % strings.praise.length]}`, {
+      queue: true,
+      role: 'teacher',
+      delivery: 'proud',
+      onEnd: () => (t = setTimeout(() => setRound((r) => r + 1), 900)),
+    });
     return () => clearTimeout(t);
   }, [done, total, round]);
 
@@ -145,7 +164,7 @@ export function CountAndTap() {
               const next = [...tapped, i];
               setTapped(next);
               AudioManager.sfx('pop');
-              AudioManager.say(numbers[next.length]!.word, { channel: 'letters' });
+              AudioManager.say(`${numbers[next.length]!.word}!`, { channel: 'letters', role: 'teacher', src: numbers[next.length]!.audio, queue: true });
             }}
           >
             <Prop id={prop} />
@@ -166,7 +185,8 @@ function ChoiceRound({ question, options, correct, render, onNext }: { question:
     if (!isFinished(state)) return;
     AudioManager.sfx('tada');
     useProgress.getState().addStars(1);
-    const t = setTimeout(onNext, 2400);
+    let t: ReturnType<typeof setTimeout> | undefined;
+    AudioManager.say(strings.quiz.great, { role: 'quizHost', delivery: 'excited', src: uiLineSrc(strings.quiz.great), onEnd: () => (t = setTimeout(onNext, 700)) });
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.status]);

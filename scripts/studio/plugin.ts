@@ -36,7 +36,7 @@ async function collectLines(): Promise<Line[]> {
   for (const l of letters) {
     lines.push({ out: l.audio.name, text: l.letter, direction: 'Teacher · say the letter name, bright', group: 'Letters', kind: 'line' });
     lines.push({ out: l.audio.sound, text: `/${l.sound}/`, direction: 'Teacher · the SOUND only (b not "buh"), short and clean', group: 'Letters', kind: 'line' });
-    lines.push({ out: l.audio.word, text: `${l.letter} is for ${l.word}!`, direction: 'Teacher · excited', group: 'Letters', kind: 'line' });
+    lines.push({ out: l.audio.word, text: `${l.letter}, as in ${l.word}!`, direction: 'Teacher · excited, say it all', group: 'Letters', kind: 'line' });
   }
   for (const n of readJson<{ numbers: { word: string; audio: string }[] }>('content/numbers.en.json', { numbers: [] }).numbers)
     lines.push({ out: n.audio, text: `${n.word}!`, direction: 'Teacher · counting, cheerful', group: 'Numbers', kind: 'line' });

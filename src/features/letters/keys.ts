@@ -26,15 +26,21 @@ export function shouldBlock(e: KeyLike): boolean {
 }
 
 /** Captures key presses for a typing game and swallows browser side effects. Escape is left alone. */
-export function useTypingKeys(onKey: (key: string) => void, enabled = true) {
+export function useTypingKeys(onKey: (key: string) => void, enabled = true, opts: { backspace?: boolean } = {}) {
   const ref = useRef(onKey);
   ref.current = onKey;
+  const optsRef = useRef(opts);
+  optsRef.current = opts;
   useEffect(() => {
     if (!enabled) return;
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'Escape') return;
+      // Grown-ups typing into a text box are left alone.
+      const el = e.target as HTMLElement | null;
+      if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable)) return;
       if (shouldBlock(e)) e.preventDefault();
       if (e.repeat) return;
+      if (e.key === 'Backspace' && optsRef.current.backspace) return ref.current('BACKSPACE');
       const k = normalizeKey(e);
       if (k) ref.current(k);
     };
