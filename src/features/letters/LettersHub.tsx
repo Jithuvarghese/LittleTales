@@ -3,6 +3,7 @@ import { BigButton } from '@/components/BigButton';
 import { CharacterHost } from '@/components/CharacterHost';
 import { Prop } from '@/art/props';
 import { strings } from '@/strings';
+import { KeyboardIcon } from '@/art/Icons';
 
 const Glyph = ({ text, bg }: { text: string; bg: string }) => (
   <svg viewBox="0 0 64 64" aria-hidden>
@@ -15,7 +16,7 @@ export function LettersHub() {
   const navigate = useNavigate();
   const modes = [
     { to: 'meet', label: strings.letters.meet, icon: <Glyph text="Aa" bg="#ffcb47" /> },
-    { to: 'find', label: strings.letters.find, icon: <Glyph text="⌨" bg="#8fd18a" /> },
+    { to: 'find', label: strings.letters.find, icon: <KeyboardIcon /> },
     { to: 'bubbles', label: strings.letters.falling, icon: <Prop id="balloon" /> },
     { to: 'name', label: strings.letters.name, icon: <Glyph text="Me" bg="#ff9fc4" /> },
     { to: 'song', label: strings.letters.song, icon: <Prop id="bell" /> },

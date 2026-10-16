@@ -77,7 +77,59 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/rainy-day-puddles/p1.mp3"
+        "src": "audio/narration/en/rainy-day-puddles/p1.mp3",
+        "wordTimings": [
+          {
+            "word": "Drip,",
+            "startMs": 525,
+            "endMs": 775
+          },
+          {
+            "word": "drop!",
+            "startMs": 825,
+            "endMs": 1475
+          },
+          {
+            "word": "Drip,",
+            "startMs": 1956,
+            "endMs": 2206
+          },
+          {
+            "word": "drop!",
+            "startMs": 2256,
+            "endMs": 2906
+          },
+          {
+            "word": "It",
+            "startMs": 3287,
+            "endMs": 3400
+          },
+          {
+            "word": "was",
+            "startMs": 3400,
+            "endMs": 3574
+          },
+          {
+            "word": "raining",
+            "startMs": 3574,
+            "endMs": 3974
+          },
+          {
+            "word": "in",
+            "startMs": 3974,
+            "endMs": 4050
+          },
+          {
+            "word": "the",
+            "startMs": 4050,
+            "endMs": 4137
+          },
+          {
+            "word": "village.",
+            "startMs": 4137,
+            "endMs": 4837
+          }
+        ]
       },
       "sfx": [
         {
@@ -129,7 +181,39 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/rainy-day-puddles/p2.mp3"
+        "src": "audio/narration/en/rainy-day-puddles/p2.mp3",
+        "wordTimings": [
+          {
+            "word": "Bumble",
+            "startMs": 475,
+            "endMs": 862
+          },
+          {
+            "word": "found",
+            "startMs": 862,
+            "endMs": 1162
+          },
+          {
+            "word": "a",
+            "startMs": 1162,
+            "endMs": 1262
+          },
+          {
+            "word": "big",
+            "startMs": 1262,
+            "endMs": 1538
+          },
+          {
+            "word": "purple",
+            "startMs": 1538,
+            "endMs": 1912
+          },
+          {
+            "word": "umbrella.",
+            "startMs": 1912,
+            "endMs": 2750
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -176,7 +260,39 @@
       },
       "delivery": "silly",
       "narration": {
-        "src": "audio/narration/en/rainy-day-puddles/p3.mp3"
+        "src": "audio/narration/en/rainy-day-puddles/p3.mp3",
+        "wordTimings": [
+          {
+            "word": "Out",
+            "startMs": 500,
+            "endMs": 675
+          },
+          {
+            "word": "he",
+            "startMs": 675,
+            "endMs": 825
+          },
+          {
+            "word": "went...",
+            "startMs": 825,
+            "endMs": 1450
+          },
+          {
+            "word": "splish!",
+            "startMs": 1923,
+            "endMs": 2673
+          },
+          {
+            "word": "Splash!",
+            "startMs": 3154,
+            "endMs": 3954
+          },
+          {
+            "word": "Splosh!",
+            "startMs": 4453,
+            "endMs": 5228
+          }
+        ]
       },
       "sfx": [
         {
@@ -208,7 +324,8 @@
           "prop": "duck",
           "label": "duck"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/rainy-day-puddles/q4.mp3"
     },
     {
       "type": "story",
@@ -235,7 +352,49 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/rainy-day-puddles/p4.mp3"
+        "src": "audio/narration/en/rainy-day-puddles/p4.mp3",
+        "wordTimings": [
+          {
+            "word": "Coco",
+            "startMs": 475,
+            "endMs": 825
+          },
+          {
+            "word": "the",
+            "startMs": 825,
+            "endMs": 925
+          },
+          {
+            "word": "parrot",
+            "startMs": 925,
+            "endMs": 1400
+          },
+          {
+            "word": "hid",
+            "startMs": 1400,
+            "endMs": 1700
+          },
+          {
+            "word": "under",
+            "startMs": 1700,
+            "endMs": 1888
+          },
+          {
+            "word": "the",
+            "startMs": 1888,
+            "endMs": 1988
+          },
+          {
+            "word": "umbrella",
+            "startMs": 1988,
+            "endMs": 2438
+          },
+          {
+            "word": "too.",
+            "startMs": 2438,
+            "endMs": 3050
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -281,7 +440,49 @@
       },
       "delivery": "surprised",
       "narration": {
-        "src": "audio/narration/en/rainy-day-puddles/p5.mp3"
+        "src": "audio/narration/en/rainy-day-puddles/p5.mp3",
+        "wordTimings": [
+          {
+            "word": "Oh",
+            "startMs": 575,
+            "endMs": 725
+          },
+          {
+            "word": "no!",
+            "startMs": 725,
+            "endMs": 1325
+          },
+          {
+            "word": "Bumble's",
+            "startMs": 1874,
+            "endMs": 2287
+          },
+          {
+            "word": "sock",
+            "startMs": 2287,
+            "endMs": 2624
+          },
+          {
+            "word": "got",
+            "startMs": 2624,
+            "endMs": 2811
+          },
+          {
+            "word": "all",
+            "startMs": 2811,
+            "endMs": 2999
+          },
+          {
+            "word": "wet.",
+            "startMs": 2999,
+            "endMs": 3599
+          },
+          {
+            "word": "Squelch!",
+            "startMs": 4300,
+            "endMs": 5125
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -337,7 +538,34 @@
       "delivery": "excited",
       "speaker": "coco",
       "narration": {
-        "src": "audio/narration/en/rainy-day-puddles/p6.mp3"
+        "src": "audio/narration/en/rainy-day-puddles/p6.mp3",
+        "wordTimings": [
+          {
+            "word": "Coco",
+            "startMs": 525,
+            "endMs": 850
+          },
+          {
+            "word": "laughed.",
+            "startMs": 850,
+            "endMs": 1525
+          },
+          {
+            "word": "\"Puddles",
+            "startMs": 1986,
+            "endMs": 2361
+          },
+          {
+            "word": "are",
+            "startMs": 2361,
+            "endMs": 2536
+          },
+          {
+            "word": "fun!\"",
+            "startMs": 2536,
+            "endMs": 3286
+          }
+        ]
       },
       "sfx": [],
       "hotspots": []
@@ -371,7 +599,8 @@
           "color": "#9b6bd6",
           "shape": "circle"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/rainy-day-puddles/q8.mp3"
     },
     {
       "type": "story",
@@ -405,7 +634,59 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/rainy-day-puddles/p7.mp3"
+        "src": "audio/narration/en/rainy-day-puddles/p7.mp3",
+        "wordTimings": [
+          {
+            "word": "Then",
+            "startMs": 450,
+            "endMs": 638
+          },
+          {
+            "word": "the",
+            "startMs": 638,
+            "endMs": 725
+          },
+          {
+            "word": "rain",
+            "startMs": 725,
+            "endMs": 1025
+          },
+          {
+            "word": "stopped...",
+            "startMs": 1025,
+            "endMs": 1700
+          },
+          {
+            "word": "and",
+            "startMs": 2244,
+            "endMs": 2394
+          },
+          {
+            "word": "look!",
+            "startMs": 2394,
+            "endMs": 3019
+          },
+          {
+            "word": "A",
+            "startMs": 3429,
+            "endMs": 3504
+          },
+          {
+            "word": "rainbow",
+            "startMs": 3504,
+            "endMs": 3929
+          },
+          {
+            "word": "came",
+            "startMs": 3929,
+            "endMs": 4154
+          },
+          {
+            "word": "out!",
+            "startMs": 4154,
+            "endMs": 4679
+          }
+        ]
       },
       "sfx": [
         {
@@ -464,7 +745,39 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/rainy-day-puddles/p8.mp3"
+        "src": "audio/narration/en/rainy-day-puddles/p8.mp3",
+        "wordTimings": [
+          {
+            "word": "Back",
+            "startMs": 475,
+            "endMs": 725
+          },
+          {
+            "word": "home,",
+            "startMs": 725,
+            "endMs": 1075
+          },
+          {
+            "word": "they",
+            "startMs": 1125,
+            "endMs": 1250
+          },
+          {
+            "word": "had",
+            "startMs": 1250,
+            "endMs": 1450
+          },
+          {
+            "word": "warm",
+            "startMs": 1450,
+            "endMs": 1750
+          },
+          {
+            "word": "milk.",
+            "startMs": 1750,
+            "endMs": 2375
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -510,7 +823,44 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/rainy-day-puddles/p9.mp3"
+        "src": "audio/narration/en/rainy-day-puddles/p9.mp3",
+        "wordTimings": [
+          {
+            "word": "Rainy",
+            "startMs": 500,
+            "endMs": 800
+          },
+          {
+            "word": "days",
+            "startMs": 800,
+            "endMs": 1175
+          },
+          {
+            "word": "can",
+            "startMs": 1175,
+            "endMs": 1288
+          },
+          {
+            "word": "be",
+            "startMs": 1288,
+            "endMs": 1425
+          },
+          {
+            "word": "happy",
+            "startMs": 1425,
+            "endMs": 1775
+          },
+          {
+            "word": "days",
+            "startMs": 1775,
+            "endMs": 2138
+          },
+          {
+            "word": "too.",
+            "startMs": 2138,
+            "endMs": 2725
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [],

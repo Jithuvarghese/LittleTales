@@ -55,7 +55,59 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/the-little-seed/p1.mp3"
+        "src": "audio/narration/en/the-little-seed/p1.mp3",
+        "wordTimings": [
+          {
+            "word": "Look!",
+            "startMs": 575,
+            "endMs": 1150
+          },
+          {
+            "word": "Pip",
+            "startMs": 1510,
+            "endMs": 1735
+          },
+          {
+            "word": "found",
+            "startMs": 1735,
+            "endMs": 1973
+          },
+          {
+            "word": "a",
+            "startMs": 1973,
+            "endMs": 2035
+          },
+          {
+            "word": "tiny,",
+            "startMs": 2035,
+            "endMs": 2535
+          },
+          {
+            "word": "tiny",
+            "startMs": 2647,
+            "endMs": 3047
+          },
+          {
+            "word": "seed",
+            "startMs": 3047,
+            "endMs": 3297
+          },
+          {
+            "word": "in",
+            "startMs": 3297,
+            "endMs": 3373
+          },
+          {
+            "word": "the",
+            "startMs": 3373,
+            "endMs": 3460
+          },
+          {
+            "word": "grass.",
+            "startMs": 3460,
+            "endMs": 4160
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -95,7 +147,49 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/the-little-seed/p2.mp3"
+        "src": "audio/narration/en/the-little-seed/p2.mp3",
+        "wordTimings": [
+          {
+            "word": "Pip",
+            "startMs": 450,
+            "endMs": 675
+          },
+          {
+            "word": "dug",
+            "startMs": 675,
+            "endMs": 862
+          },
+          {
+            "word": "a",
+            "startMs": 862,
+            "endMs": 912
+          },
+          {
+            "word": "little",
+            "startMs": 912,
+            "endMs": 1100
+          },
+          {
+            "word": "hole",
+            "startMs": 1100,
+            "endMs": 1562
+          },
+          {
+            "word": "and",
+            "startMs": 1562,
+            "endMs": 1700
+          },
+          {
+            "word": "planted",
+            "startMs": 1700,
+            "endMs": 2150
+          },
+          {
+            "word": "it.",
+            "startMs": 2150,
+            "endMs": 2625
+          }
+        ]
       },
       "sfx": [
         {
@@ -131,7 +225,59 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/the-little-seed/p3.mp3"
+        "src": "audio/narration/en/the-little-seed/p3.mp3",
+        "wordTimings": [
+          {
+            "word": "Pitter,",
+            "startMs": 425,
+            "endMs": 775
+          },
+          {
+            "word": "patter,",
+            "startMs": 825,
+            "endMs": 1175
+          },
+          {
+            "word": "pitter,",
+            "startMs": 1225,
+            "endMs": 1475
+          },
+          {
+            "word": "patter!",
+            "startMs": 1525,
+            "endMs": 2175
+          },
+          {
+            "word": "The",
+            "startMs": 2586,
+            "endMs": 2686
+          },
+          {
+            "word": "rain",
+            "startMs": 2686,
+            "endMs": 3036
+          },
+          {
+            "word": "gave",
+            "startMs": 3036,
+            "endMs": 3249
+          },
+          {
+            "word": "it",
+            "startMs": 3249,
+            "endMs": 3323
+          },
+          {
+            "word": "a",
+            "startMs": 3323,
+            "endMs": 3399
+          },
+          {
+            "word": "drink.",
+            "startMs": 3399,
+            "endMs": 4036
+          }
+        ]
       },
       "sfx": [
         {
@@ -183,7 +329,44 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/the-little-seed/p4.mp3"
+        "src": "audio/narration/en/the-little-seed/p4.mp3",
+        "wordTimings": [
+          {
+            "word": "The",
+            "startMs": 450,
+            "endMs": 550
+          },
+          {
+            "word": "warm",
+            "startMs": 550,
+            "endMs": 850
+          },
+          {
+            "word": "sun",
+            "startMs": 850,
+            "endMs": 1100
+          },
+          {
+            "word": "said,",
+            "startMs": 1100,
+            "endMs": 1625
+          },
+          {
+            "word": "\"Grow,",
+            "startMs": 2156,
+            "endMs": 2431
+          },
+          {
+            "word": "little",
+            "startMs": 2468,
+            "endMs": 2694
+          },
+          {
+            "word": "seed!\"",
+            "startMs": 2694,
+            "endMs": 3331
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -229,7 +412,44 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/the-little-seed/p5.mp3"
+        "src": "audio/narration/en/the-little-seed/p5.mp3",
+        "wordTimings": [
+          {
+            "word": "Pop!",
+            "startMs": 525,
+            "endMs": 1150
+          },
+          {
+            "word": "A",
+            "startMs": 1496,
+            "endMs": 1583
+          },
+          {
+            "word": "tiny",
+            "startMs": 1583,
+            "endMs": 1946
+          },
+          {
+            "word": "green",
+            "startMs": 1946,
+            "endMs": 2233
+          },
+          {
+            "word": "shoot",
+            "startMs": 2233,
+            "endMs": 2471
+          },
+          {
+            "word": "peeked",
+            "startMs": 2471,
+            "endMs": 2746
+          },
+          {
+            "word": "out.",
+            "startMs": 2746,
+            "endMs": 3271
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -275,7 +495,8 @@
           "prop": "ball",
           "label": "ball"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/the-little-seed/q6.mp3"
     },
     {
       "type": "story",
@@ -308,7 +529,84 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/the-little-seed/p6.mp3"
+        "src": "audio/narration/en/the-little-seed/p6.mp3",
+        "wordTimings": [
+          {
+            "word": "Day",
+            "startMs": 450,
+            "endMs": 650
+          },
+          {
+            "word": "by",
+            "startMs": 650,
+            "endMs": 850
+          },
+          {
+            "word": "day,",
+            "startMs": 850,
+            "endMs": 1200
+          },
+          {
+            "word": "it",
+            "startMs": 1275,
+            "endMs": 1375
+          },
+          {
+            "word": "grew",
+            "startMs": 1375,
+            "endMs": 1600
+          },
+          {
+            "word": "taller...",
+            "startMs": 1600,
+            "endMs": 2325
+          },
+          {
+            "word": "and",
+            "startMs": 2873,
+            "endMs": 3010
+          },
+          {
+            "word": "taller...",
+            "startMs": 3010,
+            "endMs": 3773
+          },
+          {
+            "word": "and",
+            "startMs": 3656,
+            "endMs": 3819
+          },
+          {
+            "word": "TALLER!",
+            "startMs": 3819,
+            "endMs": 4881
+          },
+          {
+            "word": "Can",
+            "startMs": 4762,
+            "endMs": 4899
+          },
+          {
+            "word": "you",
+            "startMs": 4899,
+            "endMs": 5012
+          },
+          {
+            "word": "stretch",
+            "startMs": 5012,
+            "endMs": 5325
+          },
+          {
+            "word": "up",
+            "startMs": 5325,
+            "endMs": 5487
+          },
+          {
+            "word": "tall?",
+            "startMs": 5487,
+            "endMs": 6062
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [],
@@ -346,7 +644,54 @@
       },
       "delivery": "surprised",
       "narration": {
-        "src": "audio/narration/en/the-little-seed/p7.mp3"
+        "src": "audio/narration/en/the-little-seed/p7.mp3",
+        "wordTimings": [
+          {
+            "word": "One",
+            "startMs": 550,
+            "endMs": 775
+          },
+          {
+            "word": "morning...",
+            "startMs": 775,
+            "endMs": 1525
+          },
+          {
+            "word": "ta-da!",
+            "startMs": 2165,
+            "endMs": 2890
+          },
+          {
+            "word": "A",
+            "startMs": 3492,
+            "endMs": 3567
+          },
+          {
+            "word": "big",
+            "startMs": 3567,
+            "endMs": 3817
+          },
+          {
+            "word": "pink",
+            "startMs": 3817,
+            "endMs": 4067
+          },
+          {
+            "word": "flower",
+            "startMs": 4067,
+            "endMs": 4442
+          },
+          {
+            "word": "opened",
+            "startMs": 4442,
+            "endMs": 4792
+          },
+          {
+            "word": "up!",
+            "startMs": 4792,
+            "endMs": 5267
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -405,7 +750,8 @@
           "prop": "cup",
           "label": "cup"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/the-little-seed/q9.mp3"
     },
     {
       "type": "story",
@@ -439,7 +785,39 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/the-little-seed/p8.mp3"
+        "src": "audio/narration/en/the-little-seed/p8.mp3",
+        "wordTimings": [
+          {
+            "word": "Bees",
+            "startMs": 500,
+            "endMs": 975
+          },
+          {
+            "word": "and",
+            "startMs": 975,
+            "endMs": 1100
+          },
+          {
+            "word": "butterflies",
+            "startMs": 1100,
+            "endMs": 1700
+          },
+          {
+            "word": "came",
+            "startMs": 1700,
+            "endMs": 1925
+          },
+          {
+            "word": "to",
+            "startMs": 1925,
+            "endMs": 2025
+          },
+          {
+            "word": "visit.",
+            "startMs": 2025,
+            "endMs": 2750
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -492,7 +870,54 @@
       "delivery": "excited",
       "speaker": "pip",
       "narration": {
-        "src": "audio/narration/en/the-little-seed/p9.mp3"
+        "src": "audio/narration/en/the-little-seed/p9.mp3",
+        "wordTimings": [
+          {
+            "word": "\"From",
+            "startMs": 475,
+            "endMs": 688
+          },
+          {
+            "word": "one",
+            "startMs": 688,
+            "endMs": 950
+          },
+          {
+            "word": "tiny",
+            "startMs": 950,
+            "endMs": 1312
+          },
+          {
+            "word": "seed,\"",
+            "startMs": 1312,
+            "endMs": 1900
+          },
+          {
+            "word": "said",
+            "startMs": 2008,
+            "endMs": 2208
+          },
+          {
+            "word": "Pip,",
+            "startMs": 2208,
+            "endMs": 2833
+          },
+          {
+            "word": "\"a",
+            "startMs": 3376,
+            "endMs": 3476
+          },
+          {
+            "word": "flower",
+            "startMs": 3476,
+            "endMs": 3901
+          },
+          {
+            "word": "grew!\"",
+            "startMs": 3901,
+            "endMs": 4451
+          }
+        ]
       },
       "sfx": [
         {

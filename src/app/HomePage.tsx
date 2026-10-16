@@ -1,43 +1,57 @@
+import { useEffect, type ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
 import { BigButton } from '@/components/BigButton';
 import { CharacterHost } from '@/components/CharacterHost';
 import { ThemePicker } from '@/components/ThemePicker';
 import { AbcIcon, BookIcon, LockIcon, MusicIcon, NumbersIcon, StarIcon } from '@/art/Icons';
+import { AudioManager } from '@/services/AudioManager';
+import { useSettings } from './settingsStore';
 import { strings } from '@/strings';
 
-const destinations = [
-  { to: '/stories', label: strings.nav.stories, icon: <BookIcon /> },
-  { to: '/letters', label: strings.nav.letters, icon: <AbcIcon /> },
-  { to: '/numbers', label: strings.nav.numbers, icon: <NumbersIcon /> },
-  { to: '/songs', label: strings.nav.songs, icon: <MusicIcon /> },
-  { to: '/stickers', label: strings.nav.stickers, icon: <StarIcon /> },
+const destinations: { to: string; label: string; icon: ReactNode; tint: string }[] = [
+  { to: '/stories', label: strings.nav.stories, icon: <BookIcon />, tint: '#ffe1d6' },
+  { to: '/letters', label: strings.nav.letters, icon: <AbcIcon />, tint: '#fff1c4' },
+  { to: '/numbers', label: strings.nav.numbers, icon: <NumbersIcon />, tint: '#dff5d8' },
+  { to: '/songs', label: strings.nav.songs, icon: <MusicIcon />, tint: '#efe2ff' },
+  { to: '/stickers', label: strings.nav.stickers, icon: <StarIcon />, tint: '#fff6c9' },
 ];
 
 export function HomePage() {
   const navigate = useNavigate();
+  const reduce = useReducedMotion();
+  const bedtime = useSettings((s) => s.bedtime);
+
+  // Quiet birdsong on the home screen (crickets at bedtime).
+  useEffect(() => {
+    AudioManager.ambience(bedtime ? 'night' : 'birds');
+    return () => AudioManager.ambience('none');
+  }, [bedtime]);
+
   return (
-    <div className="relative flex flex-1 flex-col items-center justify-center gap-6 p-6">
+    <div className="relative flex flex-1 flex-col items-center justify-center gap-5 px-4 pb-10 pt-6">
       <h1 className="sr-only">{strings.appName}</h1>
-      <CharacterHost expression="happy" size={150} />
-      <div className="flex max-w-4xl flex-wrap justify-center gap-6 sm:gap-8">
-        {destinations.map((d) => (
-          <BigButton
+      <motion.div initial={reduce ? false : { y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="flex items-end gap-2">
+        <CharacterHost expression="happy" size={130} />
+        <span className="mb-10 hidden rounded-[1.5rem] rounded-bl-none border-4 border-outline bg-surface px-4 py-2 font-ui text-2xl font-extrabold text-text shadow-[0_4px_0_var(--outline)] sm:block">
+          {strings.appName}
+        </span>
+      </motion.div>
+      <div className="grid w-full max-w-5xl grid-cols-2 justify-items-center gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-5">
+        {destinations.map((d, i) => (
+          <motion.div
             key={d.to}
-            size="huge"
-            label={d.label}
-            icon={d.icon}
-            onClick={() => navigate(d.to)}
-          />
+            initial={reduce ? false : { y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1, transition: { delay: 0.08 * i } }}
+            className={i === destinations.length - 1 ? 'col-span-2 sm:col-span-1' : ''}
+          >
+            <BigButton size="huge" showLabel label={d.label} icon={d.icon} tint={d.tint} onClick={() => navigate(d.to)} />
+          </motion.div>
         ))}
       </div>
       <ThemePicker />
-      <div className="absolute right-4 top-4">
-        <BigButton
-          size="tap"
-          label={strings.nav.grownUps}
-          icon={<LockIcon />}
-          onClick={() => navigate('/grown-ups')}
-        />
+      <div className="absolute right-3 top-3">
+        <BigButton size="tap" label={strings.nav.grownUps} icon={<LockIcon />} onClick={() => navigate('/grown-ups')} />
       </div>
     </div>
   );

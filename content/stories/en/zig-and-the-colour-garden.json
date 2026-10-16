@@ -61,7 +61,54 @@
       },
       "delivery": "silly",
       "narration": {
-        "src": "audio/narration/en/zig-and-the-colour-garden/p1.mp3"
+        "src": "audio/narration/en/zig-and-the-colour-garden/p1.mp3",
+        "wordTimings": [
+          {
+            "word": "Beep,",
+            "startMs": 525,
+            "endMs": 750
+          },
+          {
+            "word": "boop!",
+            "startMs": 800,
+            "endMs": 1400
+          },
+          {
+            "word": "Zig",
+            "startMs": 1865,
+            "endMs": 2190
+          },
+          {
+            "word": "the",
+            "startMs": 2190,
+            "endMs": 2290
+          },
+          {
+            "word": "little",
+            "startMs": 2290,
+            "endMs": 2540
+          },
+          {
+            "word": "robot",
+            "startMs": 2540,
+            "endMs": 2965
+          },
+          {
+            "word": "found",
+            "startMs": 2965,
+            "endMs": 3202
+          },
+          {
+            "word": "a",
+            "startMs": 3202,
+            "endMs": 3265
+          },
+          {
+            "word": "garden.",
+            "startMs": 3265,
+            "endMs": 3940
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -108,7 +155,34 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/zig-and-the-colour-garden/p2.mp3"
+        "src": "audio/narration/en/zig-and-the-colour-garden/p2.mp3",
+        "wordTimings": [
+          {
+            "word": "A",
+            "startMs": 475,
+            "endMs": 562
+          },
+          {
+            "word": "pink",
+            "startMs": 562,
+            "endMs": 875
+          },
+          {
+            "word": "flower",
+            "startMs": 875,
+            "endMs": 1250
+          },
+          {
+            "word": "nodded",
+            "startMs": 1250,
+            "endMs": 1600
+          },
+          {
+            "word": "hello.",
+            "startMs": 1600,
+            "endMs": 2300
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -155,7 +229,64 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/zig-and-the-colour-garden/p3.mp3"
+        "src": "audio/narration/en/zig-and-the-colour-garden/p3.mp3",
+        "wordTimings": [
+          {
+            "word": "A",
+            "startMs": 475,
+            "endMs": 562
+          },
+          {
+            "word": "red",
+            "startMs": 562,
+            "endMs": 838
+          },
+          {
+            "word": "apple",
+            "startMs": 838,
+            "endMs": 1188
+          },
+          {
+            "word": "sat",
+            "startMs": 1188,
+            "endMs": 1438
+          },
+          {
+            "word": "on",
+            "startMs": 1438,
+            "endMs": 1538
+          },
+          {
+            "word": "the",
+            "startMs": 1538,
+            "endMs": 1625
+          },
+          {
+            "word": "grass.",
+            "startMs": 1625,
+            "endMs": 2375
+          },
+          {
+            "word": "What",
+            "startMs": 2451,
+            "endMs": 2601
+          },
+          {
+            "word": "else",
+            "startMs": 2601,
+            "endMs": 2876
+          },
+          {
+            "word": "is",
+            "startMs": 2876,
+            "endMs": 3026
+          },
+          {
+            "word": "red?",
+            "startMs": 3026,
+            "endMs": 3676
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -203,7 +334,44 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/zig-and-the-colour-garden/p4.mp3"
+        "src": "audio/narration/en/zig-and-the-colour-garden/p4.mp3",
+        "wordTimings": [
+          {
+            "word": "A",
+            "startMs": 475,
+            "endMs": 562
+          },
+          {
+            "word": "green",
+            "startMs": 562,
+            "endMs": 925
+          },
+          {
+            "word": "leaf",
+            "startMs": 925,
+            "endMs": 1225
+          },
+          {
+            "word": "danced",
+            "startMs": 1225,
+            "endMs": 1562
+          },
+          {
+            "word": "in",
+            "startMs": 1562,
+            "endMs": 1638
+          },
+          {
+            "word": "the",
+            "startMs": 1638,
+            "endMs": 1725
+          },
+          {
+            "word": "wind.",
+            "startMs": 1725,
+            "endMs": 2400
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -254,7 +422,8 @@
           "color": "#f7d443",
           "shape": "circle"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/zig-and-the-colour-garden/q5.mp3"
     },
     {
       "type": "story",
@@ -281,7 +450,34 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/zig-and-the-colour-garden/p5.mp3"
+        "src": "audio/narration/en/zig-and-the-colour-garden/p5.mp3",
+        "wordTimings": [
+          {
+            "word": "The",
+            "startMs": 475,
+            "endMs": 575
+          },
+          {
+            "word": "yellow",
+            "startMs": 575,
+            "endMs": 912
+          },
+          {
+            "word": "sun",
+            "startMs": 912,
+            "endMs": 1225
+          },
+          {
+            "word": "shone",
+            "startMs": 1225,
+            "endMs": 1550
+          },
+          {
+            "word": "bright.",
+            "startMs": 1550,
+            "endMs": 2225
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -328,7 +524,44 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/zig-and-the-colour-garden/p6.mp3"
+        "src": "audio/narration/en/zig-and-the-colour-garden/p6.mp3",
+        "wordTimings": [
+          {
+            "word": "A",
+            "startMs": 450,
+            "endMs": 525
+          },
+          {
+            "word": "purple",
+            "startMs": 525,
+            "endMs": 875
+          },
+          {
+            "word": "butterfly",
+            "startMs": 875,
+            "endMs": 1475
+          },
+          {
+            "word": "flew",
+            "startMs": 1475,
+            "endMs": 1738
+          },
+          {
+            "word": "round",
+            "startMs": 1738,
+            "endMs": 2175
+          },
+          {
+            "word": "and",
+            "startMs": 2175,
+            "endMs": 2300
+          },
+          {
+            "word": "round.",
+            "startMs": 2300,
+            "endMs": 3025
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -375,7 +608,49 @@
       },
       "delivery": "surprised",
       "narration": {
-        "src": "audio/narration/en/zig-and-the-colour-garden/p7.mp3"
+        "src": "audio/narration/en/zig-and-the-colour-garden/p7.mp3",
+        "wordTimings": [
+          {
+            "word": "And",
+            "startMs": 525,
+            "endMs": 675
+          },
+          {
+            "word": "then...",
+            "startMs": 675,
+            "endMs": 1325
+          },
+          {
+            "word": "all",
+            "startMs": 1903,
+            "endMs": 2090
+          },
+          {
+            "word": "the",
+            "startMs": 2090,
+            "endMs": 2178
+          },
+          {
+            "word": "colours",
+            "startMs": 2178,
+            "endMs": 2578
+          },
+          {
+            "word": "made",
+            "startMs": 2578,
+            "endMs": 2740
+          },
+          {
+            "word": "a",
+            "startMs": 2740,
+            "endMs": 2803
+          },
+          {
+            "word": "rainbow!",
+            "startMs": 2803,
+            "endMs": 3628
+          }
+        ]
       },
       "sfx": [
         {
@@ -427,7 +702,8 @@
           "prop": "moon",
           "label": "moon"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/zig-and-the-colour-garden/q9.mp3"
     },
     {
       "type": "story",
@@ -467,7 +743,54 @@
       "delivery": "silly",
       "speaker": "zig",
       "narration": {
-        "src": "audio/narration/en/zig-and-the-colour-garden/p8.mp3"
+        "src": "audio/narration/en/zig-and-the-colour-garden/p8.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Beep",
+            "startMs": 350,
+            "endMs": 575
+          },
+          {
+            "word": "boop,\"",
+            "startMs": 575,
+            "endMs": 1100
+          },
+          {
+            "word": "said",
+            "startMs": 1370,
+            "endMs": 1595
+          },
+          {
+            "word": "Zig.",
+            "startMs": 1595,
+            "endMs": 2195
+          },
+          {
+            "word": "\"I",
+            "startMs": 2545,
+            "endMs": 2645
+          },
+          {
+            "word": "love",
+            "startMs": 2645,
+            "endMs": 2895
+          },
+          {
+            "word": "colours!",
+            "startMs": 2895,
+            "endMs": 3720
+          },
+          {
+            "word": "Do",
+            "startMs": 3539,
+            "endMs": 3726
+          },
+          {
+            "word": "you?\"",
+            "startMs": 3726,
+            "endMs": 4164
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [],

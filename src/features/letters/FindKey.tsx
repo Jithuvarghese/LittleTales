@@ -115,7 +115,7 @@ export function FindKey({ mode = 'letters' }: Props) {
           aria-label={strings.letters.findPrompt(target)}
           animate={reduce ? undefined : mood !== 'idle' ? { rotate: [0, -10, 10, -6, 0], scale: [1, 1.2, 1] } : { scale: [0.6, 1] }}
         >
-          {mode === 'letters' ? <GiantLetter l={target} /> : <span className="font-story font-bold" style={{ fontSize: 'clamp(10rem, 30vw, 22rem)' }}>{target}</span>}
+          {mode === 'letters' ? <GiantLetter l={target} /> : <span className="font-story font-bold" style={{ fontSize: 'clamp(6rem, min(26vw, 34vh), 18rem)' }}>{target}</span>}
         </motion.button>
         {mode === 'letters' && mood !== 'idle' && (
           <div className="h-28 w-28"><Prop id={letterEntry(target).prop} title={letterEntry(target).word} /></div>

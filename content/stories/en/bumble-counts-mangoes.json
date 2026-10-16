@@ -75,7 +75,54 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/bumble-counts-mangoes/p1.mp3"
+        "src": "audio/narration/en/bumble-counts-mangoes/p1.mp3",
+        "wordTimings": [
+          {
+            "word": "Bumble",
+            "startMs": 450,
+            "endMs": 812
+          },
+          {
+            "word": "the",
+            "startMs": 812,
+            "endMs": 900
+          },
+          {
+            "word": "bear",
+            "startMs": 900,
+            "endMs": 1150
+          },
+          {
+            "word": "loved",
+            "startMs": 1150,
+            "endMs": 1450
+          },
+          {
+            "word": "mangoes.",
+            "startMs": 1450,
+            "endMs": 2300
+          },
+          {
+            "word": "Sweet,",
+            "startMs": 2682,
+            "endMs": 3007
+          },
+          {
+            "word": "yellow,",
+            "startMs": 3057,
+            "endMs": 3407
+          },
+          {
+            "word": "yummy",
+            "startMs": 3457,
+            "endMs": 3695
+          },
+          {
+            "word": "mangoes!",
+            "startMs": 3695,
+            "endMs": 4482
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -127,7 +174,64 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/bumble-counts-mangoes/p2.mp3"
+        "src": "audio/narration/en/bumble-counts-mangoes/p2.mp3",
+        "wordTimings": [
+          {
+            "word": "Look",
+            "startMs": 550,
+            "endMs": 688
+          },
+          {
+            "word": "up",
+            "startMs": 688,
+            "endMs": 850
+          },
+          {
+            "word": "high!",
+            "startMs": 850,
+            "endMs": 1425
+          },
+          {
+            "word": "One",
+            "startMs": 1842,
+            "endMs": 2067
+          },
+          {
+            "word": "mango",
+            "startMs": 2067,
+            "endMs": 2579
+          },
+          {
+            "word": "hung",
+            "startMs": 2579,
+            "endMs": 2805
+          },
+          {
+            "word": "on",
+            "startMs": 2805,
+            "endMs": 2905
+          },
+          {
+            "word": "the",
+            "startMs": 2905,
+            "endMs": 2992
+          },
+          {
+            "word": "big",
+            "startMs": 2992,
+            "endMs": 3229
+          },
+          {
+            "word": "tree.",
+            "startMs": 3229,
+            "endMs": 3842
+          },
+          {
+            "word": "One!",
+            "startMs": 4355,
+            "endMs": 4955
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -187,7 +291,44 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/bumble-counts-mangoes/p3.mp3"
+        "src": "audio/narration/en/bumble-counts-mangoes/p3.mp3",
+        "wordTimings": [
+          {
+            "word": "Then",
+            "startMs": 450,
+            "endMs": 688
+          },
+          {
+            "word": "Bumble",
+            "startMs": 688,
+            "endMs": 1112
+          },
+          {
+            "word": "saw",
+            "startMs": 1112,
+            "endMs": 1325
+          },
+          {
+            "word": "another.",
+            "startMs": 1325,
+            "endMs": 2000
+          },
+          {
+            "word": "One...",
+            "startMs": 1987,
+            "endMs": 2587
+          },
+          {
+            "word": "two",
+            "startMs": 3110,
+            "endMs": 3285
+          },
+          {
+            "word": "mangoes!",
+            "startMs": 3285,
+            "endMs": 4160
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -252,7 +393,54 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/bumble-counts-mangoes/p4.mp3"
+        "src": "audio/narration/en/bumble-counts-mangoes/p4.mp3",
+        "wordTimings": [
+          {
+            "word": "One,",
+            "startMs": 450,
+            "endMs": 650
+          },
+          {
+            "word": "two,",
+            "startMs": 700,
+            "endMs": 950
+          },
+          {
+            "word": "three",
+            "startMs": 1025,
+            "endMs": 1250
+          },
+          {
+            "word": "mangoes!",
+            "startMs": 1250,
+            "endMs": 2075
+          },
+          {
+            "word": "Can",
+            "startMs": 2476,
+            "endMs": 2626
+          },
+          {
+            "word": "you",
+            "startMs": 2626,
+            "endMs": 2763
+          },
+          {
+            "word": "count",
+            "startMs": 2763,
+            "endMs": 3039
+          },
+          {
+            "word": "them",
+            "startMs": 3039,
+            "endMs": 3239
+          },
+          {
+            "word": "too?",
+            "startMs": 3239,
+            "endMs": 3801
+          }
+        ]
       },
       "sfx": [
         {
@@ -275,7 +463,8 @@
         2,
         3,
         4
-      ]
+      ],
+      "questionAudio": "audio/narration/en/bumble-counts-mangoes/q5.mp3"
     },
     {
       "type": "story",
@@ -315,7 +504,44 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/bumble-counts-mangoes/p5.mp3"
+        "src": "audio/narration/en/bumble-counts-mangoes/p5.mp3",
+        "wordTimings": [
+          {
+            "word": "Pip",
+            "startMs": 450,
+            "endMs": 675
+          },
+          {
+            "word": "came",
+            "startMs": 675,
+            "endMs": 925
+          },
+          {
+            "word": "by",
+            "startMs": 925,
+            "endMs": 1175
+          },
+          {
+            "word": "with",
+            "startMs": 1175,
+            "endMs": 1312
+          },
+          {
+            "word": "a",
+            "startMs": 1312,
+            "endMs": 1375
+          },
+          {
+            "word": "big",
+            "startMs": 1375,
+            "endMs": 1600
+          },
+          {
+            "word": "basket.",
+            "startMs": 1600,
+            "endMs": 2475
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -395,7 +621,49 @@
       "delivery": "narrator",
       "speaker": "bumble",
       "narration": {
-        "src": "audio/narration/en/bumble-counts-mangoes/p6.mp3"
+        "src": "audio/narration/en/bumble-counts-mangoes/p6.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Let",
+            "startMs": 650,
+            "endMs": 762
+          },
+          {
+            "word": "us",
+            "startMs": 762,
+            "endMs": 962
+          },
+          {
+            "word": "pick",
+            "startMs": 962,
+            "endMs": 1288
+          },
+          {
+            "word": "them",
+            "startMs": 1288,
+            "endMs": 1575
+          },
+          {
+            "word": "and",
+            "startMs": 1575,
+            "endMs": 1788
+          },
+          {
+            "word": "share,\"",
+            "startMs": 1788,
+            "endMs": 2675
+          },
+          {
+            "word": "said",
+            "startMs": 2768,
+            "endMs": 2993
+          },
+          {
+            "word": "Bumble.",
+            "startMs": 2993,
+            "endMs": 3818
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [],
@@ -423,7 +691,8 @@
           "prop": "house",
           "label": "house"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/bumble-counts-mangoes/q8.mp3"
     },
     {
       "type": "story",
@@ -475,7 +744,49 @@
       },
       "delivery": "silly",
       "narration": {
-        "src": "audio/narration/en/bumble-counts-mangoes/p7.mp3"
+        "src": "audio/narration/en/bumble-counts-mangoes/p7.mp3",
+        "wordTimings": [
+          {
+            "word": "Plop,",
+            "startMs": 425,
+            "endMs": 675
+          },
+          {
+            "word": "plop,",
+            "startMs": 725,
+            "endMs": 1000
+          },
+          {
+            "word": "plop!",
+            "startMs": 1050,
+            "endMs": 1625
+          },
+          {
+            "word": "Three",
+            "startMs": 2064,
+            "endMs": 2289
+          },
+          {
+            "word": "mangoes",
+            "startMs": 2289,
+            "endMs": 2752
+          },
+          {
+            "word": "in",
+            "startMs": 2752,
+            "endMs": 2826
+          },
+          {
+            "word": "the",
+            "startMs": 2826,
+            "endMs": 2914
+          },
+          {
+            "word": "basket.",
+            "startMs": 2914,
+            "endMs": 3739
+          }
+        ]
       },
       "sfx": [
         {
@@ -540,7 +851,44 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/bumble-counts-mangoes/p8.mp3"
+        "src": "audio/narration/en/bumble-counts-mangoes/p8.mp3",
+        "wordTimings": [
+          {
+            "word": "One",
+            "startMs": 500,
+            "endMs": 725
+          },
+          {
+            "word": "for",
+            "startMs": 725,
+            "endMs": 888
+          },
+          {
+            "word": "Pip",
+            "startMs": 888,
+            "endMs": 1400
+          },
+          {
+            "word": "and",
+            "startMs": 1400,
+            "endMs": 1550
+          },
+          {
+            "word": "one",
+            "startMs": 1550,
+            "endMs": 1800
+          },
+          {
+            "word": "for",
+            "startMs": 1800,
+            "endMs": 1925
+          },
+          {
+            "word": "Bumble.",
+            "startMs": 1925,
+            "endMs": 2650
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -594,7 +942,49 @@
       },
       "delivery": "proud",
       "narration": {
-        "src": "audio/narration/en/bumble-counts-mangoes/p9.mp3"
+        "src": "audio/narration/en/bumble-counts-mangoes/p9.mp3",
+        "wordTimings": [
+          {
+            "word": "And",
+            "startMs": 500,
+            "endMs": 650
+          },
+          {
+            "word": "one",
+            "startMs": 650,
+            "endMs": 875
+          },
+          {
+            "word": "to",
+            "startMs": 875,
+            "endMs": 1025
+          },
+          {
+            "word": "share...",
+            "startMs": 1025,
+            "endMs": 1700
+          },
+          {
+            "word": "with",
+            "startMs": 2356,
+            "endMs": 2593
+          },
+          {
+            "word": "you!",
+            "startMs": 2593,
+            "endMs": 3131
+          },
+          {
+            "word": "Yum,",
+            "startMs": 3828,
+            "endMs": 4153
+          },
+          {
+            "word": "yum!",
+            "startMs": 4241,
+            "endMs": 4928
+          }
+        ]
       },
       "sfx": [
         {

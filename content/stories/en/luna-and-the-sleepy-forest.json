@@ -75,7 +75,64 @@
       },
       "delivery": "gentle",
       "narration": {
-        "src": "audio/narration/en/luna-and-the-sleepy-forest/p1.mp3"
+        "src": "audio/narration/en/luna-and-the-sleepy-forest/p1.mp3",
+        "wordTimings": [
+          {
+            "word": "Hoo,",
+            "startMs": 625,
+            "endMs": 1000
+          },
+          {
+            "word": "hoo...",
+            "startMs": 1050,
+            "endMs": 1750
+          },
+          {
+            "word": "In",
+            "startMs": 1774,
+            "endMs": 1861
+          },
+          {
+            "word": "the",
+            "startMs": 1861,
+            "endMs": 1961
+          },
+          {
+            "word": "quiet",
+            "startMs": 1961,
+            "endMs": 2461
+          },
+          {
+            "word": "forest,",
+            "startMs": 2461,
+            "endMs": 3199
+          },
+          {
+            "word": "Luna",
+            "startMs": 3349,
+            "endMs": 3699
+          },
+          {
+            "word": "the",
+            "startMs": 3699,
+            "endMs": 3911
+          },
+          {
+            "word": "owl",
+            "startMs": 3911,
+            "endMs": 4261
+          },
+          {
+            "word": "woke",
+            "startMs": 4261,
+            "endMs": 4574
+          },
+          {
+            "word": "up.",
+            "startMs": 4574,
+            "endMs": 5174
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -137,7 +194,54 @@
       "delivery": "sleepy",
       "speaker": "luna",
       "narration": {
-        "src": "audio/narration/en/luna-and-the-sleepy-forest/p2.mp3"
+        "src": "audio/narration/en/luna-and-the-sleepy-forest/p2.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Time",
+            "startMs": 650,
+            "endMs": 1088
+          },
+          {
+            "word": "to",
+            "startMs": 1088,
+            "endMs": 1288
+          },
+          {
+            "word": "say",
+            "startMs": 1288,
+            "endMs": 1638
+          },
+          {
+            "word": "good",
+            "startMs": 1638,
+            "endMs": 1962
+          },
+          {
+            "word": "night",
+            "startMs": 1962,
+            "endMs": 2388
+          },
+          {
+            "word": "to",
+            "startMs": 2388,
+            "endMs": 2588
+          },
+          {
+            "word": "everyone,\"",
+            "startMs": 2588,
+            "endMs": 4175
+          },
+          {
+            "word": "she",
+            "startMs": 4468,
+            "endMs": 4668
+          },
+          {
+            "word": "said.",
+            "startMs": 4668,
+            "endMs": 5518
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [],
@@ -174,7 +278,69 @@
       },
       "delivery": "sleepy",
       "narration": {
-        "src": "audio/narration/en/luna-and-the-sleepy-forest/p3.mp3"
+        "src": "audio/narration/en/luna-and-the-sleepy-forest/p3.mp3",
+        "wordTimings": [
+          {
+            "word": "Two",
+            "startMs": 575,
+            "endMs": 838
+          },
+          {
+            "word": "bunnies",
+            "startMs": 838,
+            "endMs": 1488
+          },
+          {
+            "word": "yawned",
+            "startMs": 1488,
+            "endMs": 1788
+          },
+          {
+            "word": "a",
+            "startMs": 1788,
+            "endMs": 1900
+          },
+          {
+            "word": "big,",
+            "startMs": 1900,
+            "endMs": 2300
+          },
+          {
+            "word": "big",
+            "startMs": 2388,
+            "endMs": 2738
+          },
+          {
+            "word": "yawn.",
+            "startMs": 2738,
+            "endMs": 3600
+          },
+          {
+            "word": "Yaaawn!",
+            "startMs": 4615,
+            "endMs": 5590
+          },
+          {
+            "word": "Can",
+            "startMs": 6460,
+            "endMs": 6747
+          },
+          {
+            "word": "you",
+            "startMs": 6747,
+            "endMs": 6923
+          },
+          {
+            "word": "yawn",
+            "startMs": 6923,
+            "endMs": 7335
+          },
+          {
+            "word": "too?",
+            "startMs": 7335,
+            "endMs": 8110
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -209,7 +375,8 @@
         1,
         2,
         3
-      ]
+      ],
+      "questionAudio": "audio/narration/en/luna-and-the-sleepy-forest/q4.mp3"
     },
     {
       "type": "story",
@@ -242,7 +409,44 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/luna-and-the-sleepy-forest/p4.mp3"
+        "src": "audio/narration/en/luna-and-the-sleepy-forest/p4.mp3",
+        "wordTimings": [
+          {
+            "word": "A",
+            "startMs": 475,
+            "endMs": 550
+          },
+          {
+            "word": "little",
+            "startMs": 550,
+            "endMs": 800
+          },
+          {
+            "word": "bird",
+            "startMs": 800,
+            "endMs": 1262
+          },
+          {
+            "word": "snuggled",
+            "startMs": 1262,
+            "endMs": 1762
+          },
+          {
+            "word": "in",
+            "startMs": 1762,
+            "endMs": 1838
+          },
+          {
+            "word": "her",
+            "startMs": 1838,
+            "endMs": 1950
+          },
+          {
+            "word": "nest.",
+            "startMs": 1950,
+            "endMs": 2650
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -288,7 +492,49 @@
       },
       "delivery": "sleepy",
       "narration": {
-        "src": "audio/narration/en/luna-and-the-sleepy-forest/p5.mp3"
+        "src": "audio/narration/en/luna-and-the-sleepy-forest/p5.mp3",
+        "wordTimings": [
+          {
+            "word": "Bumble",
+            "startMs": 600,
+            "endMs": 1150
+          },
+          {
+            "word": "the",
+            "startMs": 1150,
+            "endMs": 1288
+          },
+          {
+            "word": "bear",
+            "startMs": 1288,
+            "endMs": 1650
+          },
+          {
+            "word": "was",
+            "startMs": 1650,
+            "endMs": 1850
+          },
+          {
+            "word": "already",
+            "startMs": 1850,
+            "endMs": 2362
+          },
+          {
+            "word": "snoring.",
+            "startMs": 2362,
+            "endMs": 3450
+          },
+          {
+            "word": "Zzz...",
+            "startMs": 4361,
+            "endMs": 6086
+          },
+          {
+            "word": "zzz...",
+            "startMs": 7174,
+            "endMs": 8499
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -331,7 +577,8 @@
           "label": "angry",
           "face": "angry"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/luna-and-the-sleepy-forest/q7.mp3"
     },
     {
       "type": "story",
@@ -359,7 +606,44 @@
       "delivery": "whisper",
       "speaker": "luna",
       "narration": {
-        "src": "audio/narration/en/luna-and-the-sleepy-forest/p6.mp3"
+        "src": "audio/narration/en/luna-and-the-sleepy-forest/p6.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Shh,\"",
+            "startMs": 625,
+            "endMs": 2200
+          },
+          {
+            "word": "said",
+            "startMs": 2880,
+            "endMs": 3143
+          },
+          {
+            "word": "Luna",
+            "startMs": 3143,
+            "endMs": 3505
+          },
+          {
+            "word": "softly",
+            "startMs": 3505,
+            "endMs": 4117
+          },
+          {
+            "word": "to",
+            "startMs": 4117,
+            "endMs": 4217
+          },
+          {
+            "word": "the",
+            "startMs": 4217,
+            "endMs": 4343
+          },
+          {
+            "word": "frog.",
+            "startMs": 4343,
+            "endMs": 5230
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -425,7 +709,54 @@
       },
       "delivery": "whisper",
       "narration": {
-        "src": "audio/narration/en/luna-and-the-sleepy-forest/p7.mp3"
+        "src": "audio/narration/en/luna-and-the-sleepy-forest/p7.mp3",
+        "wordTimings": [
+          {
+            "word": "The",
+            "startMs": 550,
+            "endMs": 725
+          },
+          {
+            "word": "stars",
+            "startMs": 725,
+            "endMs": 1338
+          },
+          {
+            "word": "came",
+            "startMs": 1338,
+            "endMs": 1688
+          },
+          {
+            "word": "out...",
+            "startMs": 1688,
+            "endMs": 2350
+          },
+          {
+            "word": "one",
+            "startMs": 2535,
+            "endMs": 2847
+          },
+          {
+            "word": "by",
+            "startMs": 2847,
+            "endMs": 3073
+          },
+          {
+            "word": "one",
+            "startMs": 3073,
+            "endMs": 3423
+          },
+          {
+            "word": "by",
+            "startMs": 3423,
+            "endMs": 3673
+          },
+          {
+            "word": "one.",
+            "startMs": 3673,
+            "endMs": 4410
+          }
+        ]
       },
       "sfx": [
         {
@@ -460,7 +791,44 @@
       },
       "delivery": "sleepy",
       "narration": {
-        "src": "audio/narration/en/luna-and-the-sleepy-forest/p8.mp3"
+        "src": "audio/narration/en/luna-and-the-sleepy-forest/p8.mp3",
+        "wordTimings": [
+          {
+            "word": "The",
+            "startMs": 550,
+            "endMs": 688
+          },
+          {
+            "word": "forest",
+            "startMs": 688,
+            "endMs": 1188
+          },
+          {
+            "word": "was",
+            "startMs": 1188,
+            "endMs": 1388
+          },
+          {
+            "word": "quiet,",
+            "startMs": 1388,
+            "endMs": 2125
+          },
+          {
+            "word": "cosy",
+            "startMs": 2262,
+            "endMs": 2812
+          },
+          {
+            "word": "and",
+            "startMs": 2812,
+            "endMs": 3000
+          },
+          {
+            "word": "calm.",
+            "startMs": 3000,
+            "endMs": 3925
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [],
@@ -493,7 +861,34 @@
       "delivery": "whisper",
       "speaker": "luna",
       "narration": {
-        "src": "audio/narration/en/luna-and-the-sleepy-forest/p9.mp3"
+        "src": "audio/narration/en/luna-and-the-sleepy-forest/p9.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Good",
+            "startMs": 625,
+            "endMs": 938
+          },
+          {
+            "word": "night,",
+            "startMs": 938,
+            "endMs": 1400
+          },
+          {
+            "word": "forest,\"",
+            "startMs": 1500,
+            "endMs": 3000
+          },
+          {
+            "word": "whispered",
+            "startMs": 3561,
+            "endMs": 4123
+          },
+          {
+            "word": "Luna.",
+            "startMs": 4123,
+            "endMs": 4936
+          }
+        ]
       },
       "sfx": [
         {

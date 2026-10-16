@@ -1,23 +1,101 @@
 {
   "fonts": [
-    { "name": "Baloo 2", "author": "Ek Type", "license": "OFL-1.1", "source": "@fontsource/baloo-2", "link": "https://fontsource.org/fonts/baloo-2" },
-    { "name": "Andika", "author": "SIL International", "license": "OFL-1.1", "source": "@fontsource/andika", "link": "https://software.sil.org/andika/" },
-    { "name": "Atkinson Hyperlegible", "author": "Braille Institute of America", "license": "OFL-1.1", "source": "@fontsource/atkinson-hyperlegible", "link": "https://www.brailleinstitute.org/freefont/" },
-    { "name": "OpenDyslexic", "author": "Abbie Gonzalez", "license": "OFL-1.1", "source": "@fontsource/opendyslexic", "link": "https://opendyslexic.org/" }
+    {
+      "name": "Baloo 2",
+      "author": "Ek Type",
+      "license": "OFL-1.1",
+      "source": "@fontsource/baloo-2",
+      "link": "https://fontsource.org/fonts/baloo-2"
+    },
+    {
+      "name": "Andika",
+      "author": "SIL International",
+      "license": "OFL-1.1",
+      "source": "@fontsource/andika",
+      "link": "https://software.sil.org/andika/"
+    },
+    {
+      "name": "Atkinson Hyperlegible",
+      "author": "Braille Institute of America",
+      "license": "OFL-1.1",
+      "source": "@fontsource/atkinson-hyperlegible",
+      "link": "https://www.brailleinstitute.org/freefont/"
+    },
+    {
+      "name": "OpenDyslexic",
+      "author": "Abbie Gonzalez",
+      "license": "OFL-1.1",
+      "source": "@fontsource/opendyslexic",
+      "link": "https://opendyslexic.org/"
+    }
   ],
   "images": [
-    { "name": "All characters, props, backdrops and stickers", "author": "LittleTales project", "license": "Proprietary (original work)", "source": "src/art/" }
+    {
+      "name": "All characters, props, backdrops and stickers",
+      "author": "LittleTales project",
+      "license": "Proprietary (original work)",
+      "source": "src/art/"
+    }
   ],
   "music": [
-    { "name": "Ah! vous dirai-je, maman (melody)", "author": "Traditional, 1761", "license": "Public domain", "source": "src/services/synth.ts" },
-    { "name": "Wiegenlied Op. 49 No. 4 (melody)", "author": "Johannes Brahms (1833–1897)", "license": "Public domain", "source": "src/services/synth.ts" },
-    { "name": "Frère Jacques (melody)", "author": "Traditional", "license": "Public domain", "source": "src/services/synth.ts" },
-    { "name": "Row, Row, Row Your Boat (melody)", "author": "Traditional, 1852", "license": "Public domain", "source": "src/services/synth.ts" },
-    { "name": "Mary Had a Little Lamb (melody)", "author": "Traditional", "license": "Public domain", "source": "src/services/synth.ts" },
-    { "name": "Play loop", "author": "LittleTales project", "license": "Proprietary (original work)", "source": "src/services/synth.ts" }
+    {
+      "name": "Ah! vous dirai-je, maman (melody)",
+      "author": "Traditional, 1761",
+      "license": "Public domain",
+      "source": "src/services/synth.ts"
+    },
+    {
+      "name": "Wiegenlied Op. 49 No. 4 (melody)",
+      "author": "Johannes Brahms (1833–1897)",
+      "license": "Public domain",
+      "source": "src/services/synth.ts"
+    },
+    {
+      "name": "Frère Jacques (melody)",
+      "author": "Traditional",
+      "license": "Public domain",
+      "source": "src/services/synth.ts"
+    },
+    {
+      "name": "Row, Row, Row Your Boat (melody)",
+      "author": "Traditional, 1852",
+      "license": "Public domain",
+      "source": "src/services/synth.ts"
+    },
+    {
+      "name": "Mary Had a Little Lamb (melody)",
+      "author": "Traditional",
+      "license": "Public domain",
+      "source": "src/services/synth.ts"
+    },
+    {
+      "name": "Play loop",
+      "author": "LittleTales project",
+      "license": "Proprietary (original work)",
+      "source": "src/services/synth.ts"
+    }
   ],
   "sfx": [
-    { "name": "Synthesised UI and story sound effects", "author": "LittleTales project", "license": "Proprietary (original work)", "source": "src/services/synth.ts" }
+    {
+      "name": "Synthesised UI and story sound effects",
+      "author": "LittleTales project",
+      "license": "Proprietary (original work)",
+      "source": "src/services/synth.ts"
+    },
+    {
+      "name": "Scene ambience and song backing band",
+      "author": "LittleTales project",
+      "license": "Proprietary (original work)",
+      "source": "src/services/synth.ts"
+    }
   ],
-  "narration": []
+  "narration": [
+    {
+      "name": "Generated narration",
+      "author": "Kokoro-82M model and voice packs (hexgrad)",
+      "license": "Apache-2.0",
+      "source": "scripts/tts/kokoro_say.py",
+      "link": "https://huggingface.co/hexgrad/Kokoro-82M"
+    }
+  ]
 }

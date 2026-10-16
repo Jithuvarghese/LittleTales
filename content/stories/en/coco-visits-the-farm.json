@@ -68,7 +68,59 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/coco-visits-the-farm/p1.mp3"
+        "src": "audio/narration/en/coco-visits-the-farm/p1.mp3",
+        "wordTimings": [
+          {
+            "word": "Flap,",
+            "startMs": 475,
+            "endMs": 725
+          },
+          {
+            "word": "flap,",
+            "startMs": 775,
+            "endMs": 1075
+          },
+          {
+            "word": "flap!",
+            "startMs": 1125,
+            "endMs": 1750
+          },
+          {
+            "word": "Coco",
+            "startMs": 2136,
+            "endMs": 2499
+          },
+          {
+            "word": "the",
+            "startMs": 2499,
+            "endMs": 2586
+          },
+          {
+            "word": "parrot",
+            "startMs": 2586,
+            "endMs": 2973
+          },
+          {
+            "word": "flew",
+            "startMs": 2973,
+            "endMs": 3211
+          },
+          {
+            "word": "to",
+            "startMs": 3211,
+            "endMs": 3299
+          },
+          {
+            "word": "the",
+            "startMs": 3299,
+            "endMs": 3399
+          },
+          {
+            "word": "farm.",
+            "startMs": 3399,
+            "endMs": 4061
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -130,7 +182,49 @@
       "delivery": "excited",
       "speaker": "coco",
       "narration": {
-        "src": "audio/narration/en/coco-visits-the-farm/p2.mp3"
+        "src": "audio/narration/en/coco-visits-the-farm/p2.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Hello,",
+            "startMs": 450,
+            "endMs": 800
+          },
+          {
+            "word": "cow!\"",
+            "startMs": 875,
+            "endMs": 1475
+          },
+          {
+            "word": "said",
+            "startMs": 1592,
+            "endMs": 1767
+          },
+          {
+            "word": "Coco.",
+            "startMs": 1767,
+            "endMs": 2517
+          },
+          {
+            "word": "The",
+            "startMs": 2982,
+            "endMs": 3057
+          },
+          {
+            "word": "cow",
+            "startMs": 3057,
+            "endMs": 3344
+          },
+          {
+            "word": "said...",
+            "startMs": 3344,
+            "endMs": 3932
+          },
+          {
+            "word": "\"Moooo!\"",
+            "startMs": 4496,
+            "endMs": 5171
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -183,7 +277,39 @@
       },
       "delivery": "silly",
       "narration": {
-        "src": "audio/narration/en/coco-visits-the-farm/p3.mp3"
+        "src": "audio/narration/en/coco-visits-the-farm/p3.mp3",
+        "wordTimings": [
+          {
+            "word": "Two",
+            "startMs": 425,
+            "endMs": 600
+          },
+          {
+            "word": "ducks",
+            "startMs": 600,
+            "endMs": 900
+          },
+          {
+            "word": "waddled",
+            "startMs": 900,
+            "endMs": 1275
+          },
+          {
+            "word": "by.",
+            "startMs": 1275,
+            "endMs": 1825
+          },
+          {
+            "word": "\"Quack,",
+            "startMs": 2373,
+            "endMs": 2623
+          },
+          {
+            "word": "quack!\"",
+            "startMs": 2673,
+            "endMs": 3298
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -226,7 +352,8 @@
           "prop": "cat",
           "label": "cat"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/coco-visits-the-farm/q4.mp3"
     },
     {
       "type": "story",
@@ -253,7 +380,49 @@
       },
       "delivery": "silly",
       "narration": {
-        "src": "audio/narration/en/coco-visits-the-farm/p4.mp3"
+        "src": "audio/narration/en/coco-visits-the-farm/p4.mp3",
+        "wordTimings": [
+          {
+            "word": "A",
+            "startMs": 400,
+            "endMs": 475
+          },
+          {
+            "word": "pink",
+            "startMs": 475,
+            "endMs": 775
+          },
+          {
+            "word": "pig",
+            "startMs": 775,
+            "endMs": 1050
+          },
+          {
+            "word": "rolled",
+            "startMs": 1050,
+            "endMs": 1362
+          },
+          {
+            "word": "in",
+            "startMs": 1362,
+            "endMs": 1438
+          },
+          {
+            "word": "the",
+            "startMs": 1438,
+            "endMs": 1525
+          },
+          {
+            "word": "mud.",
+            "startMs": 1525,
+            "endMs": 2075
+          },
+          {
+            "word": "\"Oink!\"",
+            "startMs": 2713,
+            "endMs": 3263
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -300,7 +469,59 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/coco-visits-the-farm/p5.mp3"
+        "src": "audio/narration/en/coco-visits-the-farm/p5.mp3",
+        "wordTimings": [
+          {
+            "word": "A",
+            "startMs": 475,
+            "endMs": 550
+          },
+          {
+            "word": "little",
+            "startMs": 550,
+            "endMs": 800
+          },
+          {
+            "word": "goat",
+            "startMs": 800,
+            "endMs": 1100
+          },
+          {
+            "word": "said,",
+            "startMs": 1100,
+            "endMs": 1625
+          },
+          {
+            "word": "\"Maa,",
+            "startMs": 2258,
+            "endMs": 2433
+          },
+          {
+            "word": "maa!\"",
+            "startMs": 2483,
+            "endMs": 3033
+          },
+          {
+            "word": "Can",
+            "startMs": 3609,
+            "endMs": 3809
+          },
+          {
+            "word": "you",
+            "startMs": 3809,
+            "endMs": 3972
+          },
+          {
+            "word": "say",
+            "startMs": 3972,
+            "endMs": 4209
+          },
+          {
+            "word": "maa?",
+            "startMs": 4209,
+            "endMs": 4734
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -352,7 +573,49 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/coco-visits-the-farm/p6.mp3"
+        "src": "audio/narration/en/coco-visits-the-farm/p6.mp3",
+        "wordTimings": [
+          {
+            "word": "The",
+            "startMs": 500,
+            "endMs": 575
+          },
+          {
+            "word": "cat",
+            "startMs": 575,
+            "endMs": 850
+          },
+          {
+            "word": "said,",
+            "startMs": 850,
+            "endMs": 1400
+          },
+          {
+            "word": "\"Meow.\"",
+            "startMs": 2010,
+            "endMs": 2710
+          },
+          {
+            "word": "The",
+            "startMs": 2694,
+            "endMs": 2769
+          },
+          {
+            "word": "dog",
+            "startMs": 2769,
+            "endMs": 3094
+          },
+          {
+            "word": "said,",
+            "startMs": 3094,
+            "endMs": 3669
+          },
+          {
+            "word": "\"Woof!\"",
+            "startMs": 4309,
+            "endMs": 4909
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -409,7 +672,8 @@
           "prop": "dog",
           "label": "dog"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/coco-visits-the-farm/q8.mp3"
     },
     {
       "type": "story",
@@ -448,7 +712,54 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/coco-visits-the-farm/p7.mp3"
+        "src": "audio/narration/en/coco-visits-the-farm/p7.mp3",
+        "wordTimings": [
+          {
+            "word": "In",
+            "startMs": 475,
+            "endMs": 562
+          },
+          {
+            "word": "the",
+            "startMs": 562,
+            "endMs": 650
+          },
+          {
+            "word": "barn,",
+            "startMs": 650,
+            "endMs": 1175
+          },
+          {
+            "word": "Coco",
+            "startMs": 1275,
+            "endMs": 1675
+          },
+          {
+            "word": "found",
+            "startMs": 1675,
+            "endMs": 2012
+          },
+          {
+            "word": "eggs",
+            "startMs": 2012,
+            "endMs": 2362
+          },
+          {
+            "word": "in",
+            "startMs": 2362,
+            "endMs": 2438
+          },
+          {
+            "word": "a",
+            "startMs": 2438,
+            "endMs": 2500
+          },
+          {
+            "word": "nest.",
+            "startMs": 2500,
+            "endMs": 3200
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -506,7 +817,64 @@
       },
       "delivery": "silly",
       "narration": {
-        "src": "audio/narration/en/coco-visits-the-farm/p8.mp3"
+        "src": "audio/narration/en/coco-visits-the-farm/p8.mp3",
+        "wordTimings": [
+          {
+            "word": "Moo!",
+            "startMs": 550,
+            "endMs": 1025
+          },
+          {
+            "word": "Quack!",
+            "startMs": 1509,
+            "endMs": 2134
+          },
+          {
+            "word": "Oink!",
+            "startMs": 2606,
+            "endMs": 3156
+          },
+          {
+            "word": "All",
+            "startMs": 3548,
+            "endMs": 3710
+          },
+          {
+            "word": "the",
+            "startMs": 3710,
+            "endMs": 3836
+          },
+          {
+            "word": "animals",
+            "startMs": 3836,
+            "endMs": 4398
+          },
+          {
+            "word": "sang",
+            "startMs": 4398,
+            "endMs": 4586
+          },
+          {
+            "word": "a",
+            "startMs": 4586,
+            "endMs": 4660
+          },
+          {
+            "word": "farm",
+            "startMs": 4660,
+            "endMs": 5010
+          },
+          {
+            "word": "song",
+            "startMs": 5010,
+            "endMs": 5323
+          },
+          {
+            "word": "together.",
+            "startMs": 5323,
+            "endMs": 6023
+          }
+        ]
       },
       "sfx": [
         {
@@ -563,7 +931,44 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/coco-visits-the-farm/p9.mp3"
+        "src": "audio/narration/en/coco-visits-the-farm/p9.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Bye,",
+            "startMs": 450,
+            "endMs": 700
+          },
+          {
+            "word": "farm",
+            "startMs": 750,
+            "endMs": 1050
+          },
+          {
+            "word": "friends!\"",
+            "startMs": 1050,
+            "endMs": 1800
+          },
+          {
+            "word": "Coco",
+            "startMs": 1923,
+            "endMs": 2273
+          },
+          {
+            "word": "flew",
+            "startMs": 2273,
+            "endMs": 2498
+          },
+          {
+            "word": "home,",
+            "startMs": 2498,
+            "endMs": 2748
+          },
+          {
+            "word": "happy.",
+            "startMs": 2798,
+            "endMs": 3498
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [],

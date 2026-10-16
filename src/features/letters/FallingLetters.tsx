@@ -9,7 +9,10 @@ import { OnScreenKeyboard } from './OnScreenKeyboard';
 import { letterOrder } from './MeetLetter';
 import { sayLetterName } from './letterAudio';
 
-type Bubble = { id: number; letter: string; x: number; born: number };
+type Bubble = { id: number; letter: string; lane: number; born: number };
+
+/** Bubbles rise in separate lanes so they never overlap. */
+const LANES = 4;
 
 /** Seconds a bubble takes to float up; grows (slower) when the child struggles. */
 export function adaptDuration(current: number, missedRecently: number) {
@@ -33,8 +36,11 @@ export function FallingLetters() {
     const spawn = () => {
       setBubbles((b) => {
         if (b.length >= 3) return b;
-        const letter = pool[Math.floor(Math.random() * pool.length)]!;
-        return [...b, { id: nextId.current++, letter, x: 10 + Math.random() * 75, born: Date.now() }];
+        const free = Array.from({ length: LANES }, (_, i) => i).filter((l) => !b.some((x) => x.lane === l));
+        const lane = free[Math.floor(Math.random() * free.length)];
+        if (lane === undefined) return b;
+        const letter = pool.filter((p) => !b.some((x) => x.letter === p))[Math.floor(Math.random() * (pool.length - b.length))] ?? pool[0]!;
+        return [...b, { id: nextId.current++, letter, lane, born: Date.now() }];
       });
     };
     spawn();
@@ -70,7 +76,7 @@ export function FallingLetters() {
   return (
     <div className="flex flex-1 flex-col items-center gap-4 p-4">
       <h1 className="sr-only">{strings.letters.falling}</h1>
-      <div className="relative h-[45vh] w-full max-w-5xl overflow-hidden rounded-blob border-[5px] border-outline bg-surface/60">
+      <div data-scene="" className="relative h-[42vh] w-full max-w-5xl overflow-hidden rounded-blob border-[5px] border-outline bg-surface/60">
         <AnimatePresence>
           {bubbles.map((b) => (
             <motion.button
@@ -78,8 +84,8 @@ export function FallingLetters() {
               type="button"
               aria-label={b.letter}
               onClick={() => press(b.letter)}
-              className="absolute flex h-24 w-24 items-center justify-center rounded-full border-4 border-outline font-story text-5xl font-bold text-[#2b1d16]"
-              style={{ left: `${b.x}%`, background: COLORS[b.id % COLORS.length] }}
+              className="absolute flex h-[min(6rem,21vw)] w-[min(6rem,21vw)] items-center justify-center rounded-full border-4 border-outline font-story text-4xl font-bold text-[#2b1d16] sm:text-5xl"
+              style={{ left: `${((b.lane + 0.5) / LANES) * 100}%`, translateX: '-50%', background: COLORS[b.id % COLORS.length] }}
               initial={{ top: '100%' }}
               animate={{ top: '-25%' }}
               exit={{ scale: 1.6, opacity: 0, transition: { duration: 0.25 } }}

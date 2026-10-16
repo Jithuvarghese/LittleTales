@@ -2,6 +2,21 @@
 
 ## Unreleased
 
+### Voice upgrade
+- Every line has a role and delivery (excited, whisper, sleepy, sad, surprised, silly, proud, gentle); dialogue is voiced by the speaking character; narrator, five characters, quiz host, teacher and song host each have their own voice.
+- Story text rewritten for listening: sound words, refrains, questions to the child, natural pauses.
+- Generator performs per sentence with pitch shifts, per-role sound chains, breathing pauses and delivery-aware loudness; all 312 clips regenerated with the free local engine.
+- Scene ambience under narration: chirping birds, sea, night crickets, rain, wind.
+- Songs: no more spoken songs. "Rhyme time" chant-along with a band and clap beat; real singing recordings with tap-timed lyrics.
+- Recording studio at `/studio` (development only) with automatic clean-up, quality warnings, saving and timings; recording guide.
+- A/B voice picker, free GPU notebook bake-off with import, optional paid-service provider with character estimate.
+
+### Interface polish
+- Living background on every screen: sky, hills, drifting clouds, flying birds and butterflies (calm and still on activity screens and with reduced motion).
+- Home tiles with colours and labels; story library as one grid with picture filter chips; drawn icons replace emoji characters.
+- Phone layouts fixed (letter and number screens); bubbles rise in separate lanes; automated layout check finds no overlaps at phone, tablet or desktop sizes.
+- Buttons no longer speak their names; a soft click instead.
+
 ### Phase 9: Legal, QA and launch prep
 - Privacy policy and terms drafts (flagged for legal review), shown in the grown-ups area.
 - Strict Content Security Policy and security headers for Netlify, Cloudflare Pages and Vercel.

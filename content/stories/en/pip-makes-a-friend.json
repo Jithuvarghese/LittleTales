@@ -70,7 +70,49 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/pip-makes-a-friend/p1.mp3"
+        "src": "audio/narration/en/pip-makes-a-friend/p1.mp3",
+        "wordTimings": [
+          {
+            "word": "Bounce,",
+            "startMs": 525,
+            "endMs": 850
+          },
+          {
+            "word": "bounce!",
+            "startMs": 900,
+            "endMs": 1650
+          },
+          {
+            "word": "Pip",
+            "startMs": 2023,
+            "endMs": 2248
+          },
+          {
+            "word": "had",
+            "startMs": 2248,
+            "endMs": 2386
+          },
+          {
+            "word": "a",
+            "startMs": 2386,
+            "endMs": 2448
+          },
+          {
+            "word": "bright",
+            "startMs": 2448,
+            "endMs": 2723
+          },
+          {
+            "word": "blue",
+            "startMs": 2723,
+            "endMs": 2948
+          },
+          {
+            "word": "ball.",
+            "startMs": 2948,
+            "endMs": 3548
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -117,7 +159,54 @@
       },
       "delivery": "sad",
       "narration": {
-        "src": "audio/narration/en/pip-makes-a-friend/p2.mp3"
+        "src": "audio/narration/en/pip-makes-a-friend/p2.mp3",
+        "wordTimings": [
+          {
+            "word": "But",
+            "startMs": 500,
+            "endMs": 638
+          },
+          {
+            "word": "playing",
+            "startMs": 638,
+            "endMs": 1138
+          },
+          {
+            "word": "ball",
+            "startMs": 1138,
+            "endMs": 1562
+          },
+          {
+            "word": "all",
+            "startMs": 1562,
+            "endMs": 1825
+          },
+          {
+            "word": "alone...",
+            "startMs": 1825,
+            "endMs": 2675
+          },
+          {
+            "word": "was",
+            "startMs": 3450,
+            "endMs": 3700
+          },
+          {
+            "word": "not",
+            "startMs": 3700,
+            "endMs": 3925
+          },
+          {
+            "word": "much",
+            "startMs": 3925,
+            "endMs": 4237
+          },
+          {
+            "word": "fun.",
+            "startMs": 4237,
+            "endMs": 5025
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [],
@@ -145,7 +234,8 @@
           "label": "angry",
           "face": "angry"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/pip-makes-a-friend/q3.mp3"
     },
     {
       "type": "story",
@@ -179,7 +269,49 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/pip-makes-a-friend/p3.mp3"
+        "src": "audio/narration/en/pip-makes-a-friend/p3.mp3",
+        "wordTimings": [
+          {
+            "word": "Behind",
+            "startMs": 450,
+            "endMs": 812
+          },
+          {
+            "word": "a",
+            "startMs": 812,
+            "endMs": 888
+          },
+          {
+            "word": "tree,",
+            "startMs": 888,
+            "endMs": 1375
+          },
+          {
+            "word": "Pip",
+            "startMs": 1500,
+            "endMs": 1750
+          },
+          {
+            "word": "saw",
+            "startMs": 1750,
+            "endMs": 1888
+          },
+          {
+            "word": "a",
+            "startMs": 1888,
+            "endMs": 1938
+          },
+          {
+            "word": "little",
+            "startMs": 1938,
+            "endMs": 2125
+          },
+          {
+            "word": "robot.",
+            "startMs": 2125,
+            "endMs": 2925
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -227,7 +359,54 @@
       "delivery": "excited",
       "speaker": "pip",
       "narration": {
-        "src": "audio/narration/en/pip-makes-a-friend/p4.mp3"
+        "src": "audio/narration/en/pip-makes-a-friend/p4.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Hello!",
+            "startMs": 525,
+            "endMs": 1175
+          },
+          {
+            "word": "I",
+            "startMs": 1218,
+            "endMs": 1368
+          },
+          {
+            "word": "am",
+            "startMs": 1368,
+            "endMs": 1530
+          },
+          {
+            "word": "Pip.",
+            "startMs": 1530,
+            "endMs": 2093
+          },
+          {
+            "word": "Do",
+            "startMs": 2050,
+            "endMs": 2150
+          },
+          {
+            "word": "you",
+            "startMs": 2150,
+            "endMs": 2300
+          },
+          {
+            "word": "want",
+            "startMs": 2300,
+            "endMs": 2488
+          },
+          {
+            "word": "to",
+            "startMs": 2488,
+            "endMs": 2575
+          },
+          {
+            "word": "play?\"",
+            "startMs": 2575,
+            "endMs": 3150
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -273,7 +452,44 @@
       },
       "delivery": "silly",
       "narration": {
-        "src": "audio/narration/en/pip-makes-a-friend/p5.mp3"
+        "src": "audio/narration/en/pip-makes-a-friend/p5.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Beep",
+            "startMs": 525,
+            "endMs": 750
+          },
+          {
+            "word": "boop!",
+            "startMs": 750,
+            "endMs": 1350
+          },
+          {
+            "word": "Yes,",
+            "startMs": 1807,
+            "endMs": 2007
+          },
+          {
+            "word": "please!",
+            "startMs": 2057,
+            "endMs": 2782
+          },
+          {
+            "word": "I",
+            "startMs": 3242,
+            "endMs": 3392
+          },
+          {
+            "word": "am",
+            "startMs": 3392,
+            "endMs": 3554
+          },
+          {
+            "word": "Zig.\"",
+            "startMs": 3554,
+            "endMs": 4167
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -327,7 +543,54 @@
       },
       "delivery": "silly",
       "narration": {
-        "src": "audio/narration/en/pip-makes-a-friend/p6.mp3"
+        "src": "audio/narration/en/pip-makes-a-friend/p6.mp3",
+        "wordTimings": [
+          {
+            "word": "Pip",
+            "startMs": 450,
+            "endMs": 688
+          },
+          {
+            "word": "threw",
+            "startMs": 688,
+            "endMs": 862
+          },
+          {
+            "word": "the",
+            "startMs": 862,
+            "endMs": 950
+          },
+          {
+            "word": "ball...",
+            "startMs": 950,
+            "endMs": 1550
+          },
+          {
+            "word": "and",
+            "startMs": 2059,
+            "endMs": 2184
+          },
+          {
+            "word": "Zig",
+            "startMs": 2184,
+            "endMs": 2434
+          },
+          {
+            "word": "caught",
+            "startMs": 2434,
+            "endMs": 2684
+          },
+          {
+            "word": "it!",
+            "startMs": 2684,
+            "endMs": 3109
+          },
+          {
+            "word": "Wheee!",
+            "startMs": 3589,
+            "endMs": 4114
+          }
+        ]
       },
       "sfx": [
         {
@@ -375,7 +638,8 @@
           "prop": "book",
           "label": "book"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/pip-makes-a-friend/q8.mp3"
     },
     {
       "type": "story",
@@ -409,7 +673,54 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/pip-makes-a-friend/p7.mp3"
+        "src": "audio/narration/en/pip-makes-a-friend/p7.mp3",
+        "wordTimings": [
+          {
+            "word": "Throw,",
+            "startMs": 500,
+            "endMs": 725
+          },
+          {
+            "word": "catch,",
+            "startMs": 775,
+            "endMs": 1025
+          },
+          {
+            "word": "giggle!",
+            "startMs": 1075,
+            "endMs": 1750
+          },
+          {
+            "word": "They",
+            "startMs": 2085,
+            "endMs": 2235
+          },
+          {
+            "word": "played",
+            "startMs": 2235,
+            "endMs": 2548
+          },
+          {
+            "word": "and",
+            "startMs": 2548,
+            "endMs": 2660
+          },
+          {
+            "word": "laughed",
+            "startMs": 2660,
+            "endMs": 3010
+          },
+          {
+            "word": "all",
+            "startMs": 3010,
+            "endMs": 3210
+          },
+          {
+            "word": "afternoon.",
+            "startMs": 3210,
+            "endMs": 4085
+          }
+        ]
       },
       "sfx": [
         {
@@ -452,7 +763,44 @@
       "delivery": "narrator",
       "speaker": "zig",
       "narration": {
-        "src": "audio/narration/en/pip-makes-a-friend/p8.mp3"
+        "src": "audio/narration/en/pip-makes-a-friend/p8.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Will",
+            "startMs": 350,
+            "endMs": 462
+          },
+          {
+            "word": "you",
+            "startMs": 462,
+            "endMs": 550
+          },
+          {
+            "word": "play",
+            "startMs": 550,
+            "endMs": 762
+          },
+          {
+            "word": "again",
+            "startMs": 762,
+            "endMs": 1050
+          },
+          {
+            "word": "tomorrow?\"",
+            "startMs": 1050,
+            "endMs": 1925
+          },
+          {
+            "word": "asked",
+            "startMs": 2234,
+            "endMs": 2534
+          },
+          {
+            "word": "Zig.",
+            "startMs": 2534,
+            "endMs": 3184
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [],
@@ -492,7 +840,39 @@
       "delivery": "excited",
       "speaker": "pip",
       "narration": {
-        "src": "audio/narration/en/pip-makes-a-friend/p9.mp3"
+        "src": "audio/narration/en/pip-makes-a-friend/p9.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Yes!\"",
+            "startMs": 575,
+            "endMs": 1200
+          },
+          {
+            "word": "said",
+            "startMs": 1382,
+            "endMs": 1607
+          },
+          {
+            "word": "Pip.",
+            "startMs": 1607,
+            "endMs": 2232
+          },
+          {
+            "word": "\"Friends",
+            "startMs": 2784,
+            "endMs": 3197
+          },
+          {
+            "word": "play",
+            "startMs": 3197,
+            "endMs": 3459
+          },
+          {
+            "word": "together.\"",
+            "startMs": 3459,
+            "endMs": 4134
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [

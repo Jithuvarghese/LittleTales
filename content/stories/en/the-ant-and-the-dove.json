@@ -59,7 +59,59 @@
       },
       "delivery": "sad",
       "narration": {
-        "src": "audio/narration/en/the-ant-and-the-dove/p1.mp3"
+        "src": "audio/narration/en/the-ant-and-the-dove/p1.mp3",
+        "wordTimings": [
+          {
+            "word": "Once",
+            "startMs": 550,
+            "endMs": 875
+          },
+          {
+            "word": "upon",
+            "startMs": 875,
+            "endMs": 1212
+          },
+          {
+            "word": "a",
+            "startMs": 1212,
+            "endMs": 1312
+          },
+          {
+            "word": "time,",
+            "startMs": 1312,
+            "endMs": 2050
+          },
+          {
+            "word": "a",
+            "startMs": 2212,
+            "endMs": 2338
+          },
+          {
+            "word": "little",
+            "startMs": 2338,
+            "endMs": 2650
+          },
+          {
+            "word": "ant",
+            "startMs": 2650,
+            "endMs": 3025
+          },
+          {
+            "word": "was",
+            "startMs": 3025,
+            "endMs": 3238
+          },
+          {
+            "word": "very",
+            "startMs": 3238,
+            "endMs": 3650
+          },
+          {
+            "word": "thirsty.",
+            "startMs": 3650,
+            "endMs": 4675
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -97,7 +149,54 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/the-ant-and-the-dove/p2.mp3"
+        "src": "audio/narration/en/the-ant-and-the-dove/p2.mp3",
+        "wordTimings": [
+          {
+            "word": "She",
+            "startMs": 500,
+            "endMs": 625
+          },
+          {
+            "word": "walked",
+            "startMs": 625,
+            "endMs": 925
+          },
+          {
+            "word": "to",
+            "startMs": 925,
+            "endMs": 1012
+          },
+          {
+            "word": "the",
+            "startMs": 1012,
+            "endMs": 1100
+          },
+          {
+            "word": "river",
+            "startMs": 1100,
+            "endMs": 1425
+          },
+          {
+            "word": "to",
+            "startMs": 1425,
+            "endMs": 1525
+          },
+          {
+            "word": "have",
+            "startMs": 1525,
+            "endMs": 1712
+          },
+          {
+            "word": "a",
+            "startMs": 1712,
+            "endMs": 1825
+          },
+          {
+            "word": "sip.",
+            "startMs": 1825,
+            "endMs": 2450
+          }
+        ]
       },
       "sfx": [
         {
@@ -130,7 +229,64 @@
       },
       "delivery": "surprised",
       "narration": {
-        "src": "audio/narration/en/the-ant-and-the-dove/p3.mp3"
+        "src": "audio/narration/en/the-ant-and-the-dove/p3.mp3",
+        "wordTimings": [
+          {
+            "word": "Splash!",
+            "startMs": 600,
+            "endMs": 1425
+          },
+          {
+            "word": "A",
+            "startMs": 1949,
+            "endMs": 2037
+          },
+          {
+            "word": "wave",
+            "startMs": 2037,
+            "endMs": 2461
+          },
+          {
+            "word": "pulled",
+            "startMs": 2461,
+            "endMs": 2737
+          },
+          {
+            "word": "the",
+            "startMs": 2737,
+            "endMs": 2861
+          },
+          {
+            "word": "ant",
+            "startMs": 2861,
+            "endMs": 3137
+          },
+          {
+            "word": "into",
+            "startMs": 3137,
+            "endMs": 3311
+          },
+          {
+            "word": "the",
+            "startMs": 3311,
+            "endMs": 3399
+          },
+          {
+            "word": "water.",
+            "startMs": 3399,
+            "endMs": 4074
+          },
+          {
+            "word": "Oh",
+            "startMs": 4804,
+            "endMs": 4954
+          },
+          {
+            "word": "no!",
+            "startMs": 4954,
+            "endMs": 5554
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -177,7 +333,54 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/the-ant-and-the-dove/p4.mp3"
+        "src": "audio/narration/en/the-ant-and-the-dove/p4.mp3",
+        "wordTimings": [
+          {
+            "word": "A",
+            "startMs": 475,
+            "endMs": 550
+          },
+          {
+            "word": "kind",
+            "startMs": 550,
+            "endMs": 875
+          },
+          {
+            "word": "dove",
+            "startMs": 875,
+            "endMs": 1125
+          },
+          {
+            "word": "saw",
+            "startMs": 1125,
+            "endMs": 1350
+          },
+          {
+            "word": "her",
+            "startMs": 1350,
+            "endMs": 1662
+          },
+          {
+            "word": "and",
+            "startMs": 1662,
+            "endMs": 1800
+          },
+          {
+            "word": "dropped",
+            "startMs": 1800,
+            "endMs": 2138
+          },
+          {
+            "word": "a",
+            "startMs": 2138,
+            "endMs": 2200
+          },
+          {
+            "word": "leaf.",
+            "startMs": 2200,
+            "endMs": 2875
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -234,7 +437,8 @@
           "prop": "cup",
           "label": "cup"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/the-ant-and-the-dove/q5.mp3"
     },
     {
       "type": "story",
@@ -259,7 +463,64 @@
       },
       "delivery": "gentle",
       "narration": {
-        "src": "audio/narration/en/the-ant-and-the-dove/p5.mp3"
+        "src": "audio/narration/en/the-ant-and-the-dove/p5.mp3",
+        "wordTimings": [
+          {
+            "word": "The",
+            "startMs": 500,
+            "endMs": 700
+          },
+          {
+            "word": "ant",
+            "startMs": 700,
+            "endMs": 1125
+          },
+          {
+            "word": "climbed",
+            "startMs": 1125,
+            "endMs": 1562
+          },
+          {
+            "word": "on",
+            "startMs": 1562,
+            "endMs": 1662
+          },
+          {
+            "word": "the",
+            "startMs": 1662,
+            "endMs": 1762
+          },
+          {
+            "word": "leaf...",
+            "startMs": 1762,
+            "endMs": 2500
+          },
+          {
+            "word": "and",
+            "startMs": 2545,
+            "endMs": 2720
+          },
+          {
+            "word": "floated,",
+            "startMs": 2720,
+            "endMs": 3245
+          },
+          {
+            "word": "safe,",
+            "startMs": 3332,
+            "endMs": 3670
+          },
+          {
+            "word": "to",
+            "startMs": 3720,
+            "endMs": 3895
+          },
+          {
+            "word": "shore.",
+            "startMs": 3895,
+            "endMs": 4670
+          }
+        ]
       },
       "sfx": [
         {
@@ -292,7 +553,69 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/the-ant-and-the-dove/p6.mp3"
+        "src": "audio/narration/en/the-ant-and-the-dove/p6.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Thank",
+            "startMs": 525,
+            "endMs": 775
+          },
+          {
+            "word": "you,",
+            "startMs": 775,
+            "endMs": 900
+          },
+          {
+            "word": "dove!\"",
+            "startMs": 950,
+            "endMs": 1600
+          },
+          {
+            "word": "said",
+            "startMs": 2160,
+            "endMs": 2323
+          },
+          {
+            "word": "the",
+            "startMs": 2323,
+            "endMs": 2473
+          },
+          {
+            "word": "ant.",
+            "startMs": 2473,
+            "endMs": 3085
+          },
+          {
+            "word": "\"I",
+            "startMs": 3547,
+            "endMs": 3672
+          },
+          {
+            "word": "will",
+            "startMs": 3672,
+            "endMs": 3797
+          },
+          {
+            "word": "help",
+            "startMs": 3797,
+            "endMs": 4072
+          },
+          {
+            "word": "you",
+            "startMs": 4072,
+            "endMs": 4222
+          },
+          {
+            "word": "one",
+            "startMs": 4222,
+            "endMs": 4422
+          },
+          {
+            "word": "day.\"",
+            "startMs": 4422,
+            "endMs": 4947
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [],
@@ -327,7 +650,64 @@
       },
       "delivery": "whisper",
       "narration": {
-        "src": "audio/narration/en/the-ant-and-the-dove/p7.mp3"
+        "src": "audio/narration/en/the-ant-and-the-dove/p7.mp3",
+        "wordTimings": [
+          {
+            "word": "Later...",
+            "startMs": 725,
+            "endMs": 1625
+          },
+          {
+            "word": "tiptoe,",
+            "startMs": 1669,
+            "endMs": 2219
+          },
+          {
+            "word": "tiptoe...",
+            "startMs": 2306,
+            "endMs": 3344
+          },
+          {
+            "word": "a",
+            "startMs": 3533,
+            "endMs": 3645
+          },
+          {
+            "word": "hunter",
+            "startMs": 3645,
+            "endMs": 4195
+          },
+          {
+            "word": "crept",
+            "startMs": 4195,
+            "endMs": 4621
+          },
+          {
+            "word": "close",
+            "startMs": 4621,
+            "endMs": 5071
+          },
+          {
+            "word": "to",
+            "startMs": 5071,
+            "endMs": 5171
+          },
+          {
+            "word": "the",
+            "startMs": 5171,
+            "endMs": 5271
+          },
+          {
+            "word": "dove's",
+            "startMs": 5271,
+            "endMs": 5695
+          },
+          {
+            "word": "tree.",
+            "startMs": 5695,
+            "endMs": 6483
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -371,7 +751,54 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/the-ant-and-the-dove/p8.mp3"
+        "src": "audio/narration/en/the-ant-and-the-dove/p8.mp3",
+        "wordTimings": [
+          {
+            "word": "The",
+            "startMs": 425,
+            "endMs": 562
+          },
+          {
+            "word": "ant",
+            "startMs": 562,
+            "endMs": 875
+          },
+          {
+            "word": "gave",
+            "startMs": 875,
+            "endMs": 1062
+          },
+          {
+            "word": "the",
+            "startMs": 1062,
+            "endMs": 1150
+          },
+          {
+            "word": "hunter's",
+            "startMs": 1150,
+            "endMs": 1550
+          },
+          {
+            "word": "foot",
+            "startMs": 1550,
+            "endMs": 1738
+          },
+          {
+            "word": "a",
+            "startMs": 1738,
+            "endMs": 1838
+          },
+          {
+            "word": "tiny",
+            "startMs": 1838,
+            "endMs": 2225
+          },
+          {
+            "word": "nip!",
+            "startMs": 2225,
+            "endMs": 2750
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -418,7 +845,8 @@
           "prop": "car",
           "label": "car"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/the-ant-and-the-dove/q10.mp3"
     },
     {
       "type": "story",
@@ -444,7 +872,54 @@
       },
       "delivery": "surprised",
       "narration": {
-        "src": "audio/narration/en/the-ant-and-the-dove/p9.mp3"
+        "src": "audio/narration/en/the-ant-and-the-dove/p9.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Ouch!\"",
+            "startMs": 600,
+            "endMs": 1275
+          },
+          {
+            "word": "The",
+            "startMs": 1920,
+            "endMs": 2020
+          },
+          {
+            "word": "dove",
+            "startMs": 2020,
+            "endMs": 2320
+          },
+          {
+            "word": "heard",
+            "startMs": 2320,
+            "endMs": 2532
+          },
+          {
+            "word": "him",
+            "startMs": 2532,
+            "endMs": 2720
+          },
+          {
+            "word": "and",
+            "startMs": 2720,
+            "endMs": 2858
+          },
+          {
+            "word": "flew",
+            "startMs": 2858,
+            "endMs": 3132
+          },
+          {
+            "word": "safely",
+            "startMs": 3132,
+            "endMs": 3570
+          },
+          {
+            "word": "away.",
+            "startMs": 3570,
+            "endMs": 4245
+          }
+        ]
       },
       "sfx": [
         {
@@ -500,7 +975,49 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/the-ant-and-the-dove/p10.mp3"
+        "src": "audio/narration/en/the-ant-and-the-dove/p10.mp3",
+        "wordTimings": [
+          {
+            "word": "One",
+            "startMs": 525,
+            "endMs": 750
+          },
+          {
+            "word": "good",
+            "startMs": 750,
+            "endMs": 962
+          },
+          {
+            "word": "turn",
+            "startMs": 962,
+            "endMs": 1325
+          },
+          {
+            "word": "deserves",
+            "startMs": 1325,
+            "endMs": 1712
+          },
+          {
+            "word": "another.",
+            "startMs": 1712,
+            "endMs": 2400
+          },
+          {
+            "word": "Friends",
+            "startMs": 2385,
+            "endMs": 2735
+          },
+          {
+            "word": "help",
+            "startMs": 2735,
+            "endMs": 3010
+          },
+          {
+            "word": "friends.",
+            "startMs": 3010,
+            "endMs": 3785
+          }
+        ]
       },
       "sfx": [
         {

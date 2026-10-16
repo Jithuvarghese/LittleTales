@@ -13,7 +13,8 @@ const src = fileURLToPath(new URL('./src', import.meta.url)).replace(/^[a-z]:/, 
 export default defineConfig({
   plugins: [
     react(),
-    studioPlugin(),
+    // Recording studio middleware: dev server only, never in tests or builds.
+    ...(process.env.VITEST ? [] : [studioPlugin()]),
     // Service worker for caching only (no install prompt): app shell and every
     // story chunk are precached; audio and images are cached as they are used.
     VitePWA({

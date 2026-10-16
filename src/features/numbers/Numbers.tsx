@@ -12,6 +12,7 @@ import { AudioManager } from '@/services/AudioManager';
 import { useProgress } from '@/features/rewards/progressStore';
 import { useTypingKeys } from '@/features/letters/keys';
 import { strings } from '@/strings';
+import { KeyboardIcon } from '@/art/Icons';
 import { initialQuiz, isFinished, quizReducer } from '@/features/stories/quiz/quizLogic';
 
 const NumGlyph = ({ text, bg }: { text: string; bg: string }) => (
@@ -31,7 +32,7 @@ export function NumbersHub() {
   const navigate = useNavigate();
   const modes = [
     { to: 'meet', label: strings.numbers.meet, icon: <NumGlyph text="123" bg="#8fd18a" /> },
-    { to: 'find', label: strings.numbers.find, icon: <NumGlyph text="⌨" bg="#ffcb47" /> },
+    { to: 'find', label: strings.numbers.find, icon: <KeyboardIcon /> },
     { to: 'count', label: strings.numbers.count, icon: <Prop id="apple" /> },
     { to: 'more', label: strings.numbers.more, icon: <NumGlyph text="<>" bg="#9fe3e0" /> },
     { to: 'add', label: strings.numbers.add, icon: <NumGlyph text="+" bg="#ff9fc4" /> },
@@ -82,13 +83,13 @@ export function MeetNumber() {
   return (
     <div className="flex flex-1 flex-col items-center gap-4 p-4">
       <h1 className="sr-only">{strings.numbers.meet}</h1>
-      <div className="flex items-center gap-6">
-        <BigButton label={strings.previous} icon={<BackIcon />} onClick={() => setN((x) => (x + 20) % 21)} />
-        <button type="button" onClick={() => setRun((r) => r + 1)} aria-label={`${n}, ${entry.word}`} className="flex flex-col items-center">
-          <span className="font-story font-bold leading-none" style={{ fontSize: 'clamp(8rem, 22vw, 16rem)' }}>{n}</span>
+      <div className="grid grid-cols-2 items-center justify-items-center gap-4 sm:flex sm:gap-8">
+        <BigButton label={strings.previous} icon={<BackIcon />} onClick={() => setN((x) => (x + 20) % 21)} className="order-2 sm:order-none" />
+        <button type="button" onClick={() => setRun((r) => r + 1)} aria-label={`${n}, ${entry.word}`} className="order-1 col-span-2 flex flex-col items-center sm:order-none">
+          <span className="font-story font-bold leading-none" style={{ fontSize: 'clamp(6rem, min(24vw, 32vh), 15rem)' }}>{n}</span>
           <span className="font-story text-4xl">{entry.word}</span>
         </button>
-        <BigButton label={strings.next} icon={<Next />} onClick={() => setN((x) => (x + 1) % 21)} />
+        <BigButton label={strings.next} icon={<Next />} onClick={() => setN((x) => (x + 1) % 21)} className="order-3 sm:order-none" />
       </div>
       <div className="flex max-w-4xl flex-wrap justify-center gap-2">
         {Array.from({ length: shown }, (_, i) => (

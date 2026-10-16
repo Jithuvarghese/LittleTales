@@ -71,3 +71,41 @@ export const BackIcon = (p: IconProps) => (
     <path d="M36 18L22 32l14 14M23 32h20" />
   </svg>
 );
+
+/** Round green tick badge (stories read, right answers). */
+export const CheckBadge = (p: IconProps) => (
+  <svg {...base} viewBox="0 0 48 48" strokeWidth={4} {...p}>
+    <circle cx="24" cy="24" r="20" fill="var(--success)" />
+    <path d="M14 25l7 7 13-15" stroke="#fff" strokeWidth={5} />
+  </svg>
+);
+
+export const SkipIcon = (p: IconProps) => (
+  <svg {...base} viewBox="0 0 48 48" {...p}>
+    <path d="M10 12l14 12-14 12z" fill="#cfd6e0" />
+    <path d="M24 12l14 12-14 12z" fill="#cfd6e0" />
+    <path d="M40 12v24" />
+  </svg>
+);
+
+export const ArrowRightIcon = (p: IconProps) => (
+  <svg {...base} viewBox="0 0 48 48" {...p}>
+    <path d="M8 24h28M26 12l12 12-12 12" />
+  </svg>
+);
+
+export const KeyboardIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <rect x="4" y="14" width="56" height="36" rx="8" fill="#8fd18a" />
+    {[12, 22, 32, 42, 52].map((x) => <rect key={`a${x}`} x={x - 3} y="21" width="6" height="6" rx="1.5" fill="#fff" strokeWidth={2} />)}
+    {[17, 27, 37, 47].map((x) => <rect key={`b${x}`} x={x - 3} y="31" width="6" height="6" rx="1.5" fill="#fff" strokeWidth={2} />)}
+    <rect x="20" y="41" width="24" height="5" rx="2" fill="#fff" strokeWidth={2} />
+  </svg>
+);
+
+export const QuestionIcon = (p: IconProps) => (
+  <svg {...base} viewBox="0 0 48 48" {...p}>
+    <path d="M17 18a7 7 0 1 1 10 6q-3 2-3 6" />
+    <circle cx="24" cy="37" r="2.5" fill="var(--outline)" />
+  </svg>
+);

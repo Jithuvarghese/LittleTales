@@ -34,4 +34,7 @@ All sound effects (chime, pop, whoosh, boing, sparkle, boop, tada, click, twinkl
 - All other stories are original to LittleTales.
 
 ## Narration
-Until recorded narration is generated, the site uses the voice built into the visitor's own browser and device. No speech is sent to any online service. When narration is generated with a local open-source speech engine, the engine, voice model and licence will be recorded here (see `docs/AUDIO_GUIDE.md`).
+- Story narration, quiz questions, praise lines, letter and number clips were generated on the developer's own computer with **Kokoro-82M** (model and voices licensed Apache License 2.0, which allows commercial use and redistribution of output), using the voices af_heart, af_bella, af_sky, af_nova, bf_emma, am_michael and am_puck, then shaped and normalised with FFmpeg (LGPL/GPL tool; no FFmpeg code is shipped with the site). Licence text checked October 2026.
+- Lines without a generated clip use the voice built into the visitor's own device. No speech is ever sent to an online service from the website.
+- Scene sounds (birds, sea, crickets, rain, wind) and the song backing band are synthesised in code. Original to LittleTales.
+- Human recordings, when added, are credited here by first name or initial with the speaker's written permission.

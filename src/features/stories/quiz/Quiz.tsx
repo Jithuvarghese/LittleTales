@@ -10,6 +10,7 @@ import { Celebration } from '@/components/Celebration';
 import { AudioManager } from '@/services/AudioManager';
 import { sfxNames, type SfxName } from '@/services/synth';
 import { strings } from '@/strings';
+import { ArrowRightIcon, QuestionIcon, SkipIcon } from '@/art/Icons';
 import { uiLineSrc } from '@/content/voicing';
 import { initialQuiz, isFinished, quizReducer } from './quizLogic';
 
@@ -146,10 +147,10 @@ export function Quiz({ page, onDone }: Props) {
           {page.shown.map((p, i) => (
             <div key={`${p}-${i}`} className="flex items-center gap-2">
               <div className="h-24 w-24 rounded-blob bg-surface p-2"><Prop id={p} /></div>
-              <span className="font-ui text-4xl" aria-hidden>→</span>
+              <span className="h-10 w-10" aria-hidden><ArrowRightIcon /></span>
             </div>
           ))}
-          <div className="flex h-24 w-24 items-center justify-center rounded-blob border-[5px] border-dashed border-outline font-ui text-5xl">?</div>
+          <div className="flex h-24 w-24 items-center justify-center rounded-blob border-[5px] border-dashed border-outline p-3"><QuestionIcon /></div>
         </div>
       )}
       {page.quizType === 'feelings' && <CharacterHost character={page.character} expression="idle" size={150} />}
@@ -192,10 +193,10 @@ export function Quiz({ page, onDone }: Props) {
         <button
           type="button"
           onClick={() => onDone(0)}
-          className="mt-auto self-end rounded-full px-4 py-2 font-ui text-lg opacity-60 hover:opacity-100"
+          className="mt-auto flex items-center gap-2 self-end rounded-full px-4 py-2 font-ui text-lg opacity-60 hover:opacity-100"
           aria-label={strings.skip}
         >
-          {strings.skip} ⏭
+          {strings.skip} <span className="h-7 w-7" aria-hidden><SkipIcon /></span>
         </button>
       )}
     </div>

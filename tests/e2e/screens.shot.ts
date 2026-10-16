@@ -24,7 +24,25 @@ async function problems(page: Page) {
       const st = getComputedStyle(e);
       return r.width > 0 && r.height > 0 && st.visibility !== 'hidden' && st.opacity !== '0';
     });
-    const rects = tappables.map((e) => ({ e, r: e.getBoundingClientRect() }));
+    // Visible part of each element: clipped by any scrolling or overflow-hidden ancestor.
+    const visibleRect = (e: Element) => {
+      let r = e.getBoundingClientRect();
+      let { left, top, right, bottom } = r;
+      for (let p = e.parentElement; p; p = p.parentElement) {
+        const st = getComputedStyle(p);
+        if (st.overflowX !== 'visible' || st.overflowY !== 'visible') {
+          r = p.getBoundingClientRect();
+          left = Math.max(left, r.left);
+          top = Math.max(top, r.top);
+          right = Math.min(right, r.right);
+          bottom = Math.min(bottom, r.bottom);
+        }
+      }
+      return { left, top, right, bottom };
+    };
+    const rects = tappables
+      .map((e) => ({ e, r: visibleRect(e) }))
+      .filter(({ r }) => r.right - r.left > 2 && r.bottom - r.top > 2);
     for (let i = 0; i < rects.length; i++) {
       const a = rects[i]!;
       if (a.r.right > W + 1 || a.r.left < -1) issues.push(`off-screen: ${a.e.getAttribute('aria-label') ?? a.e.textContent?.trim().slice(0, 20)}`);
@@ -48,6 +66,9 @@ async function main() {
   let total = 0;
   for (const size of sizes) {
     const page = await browser.newPage({ viewport: { width: size.width, height: size.height } });
+    page.setDefaultTimeout(180000);
+    // tsx adds a __name helper to functions sent into the page; provide it there.
+    await page.addInitScript('globalThis.__name = (f) => f');
     await page.goto(base);
     await page.getByRole('button', { name: 'Tap to start!' }).click();
     for (const path of screens) {

@@ -214,16 +214,16 @@ export function RhymePlayer() {
             <BigButton label={strings.pause} icon={<PlayIcon playing />} onClick={stop} />
           ) : (
             <>
-              {rhyme.vocal && <BigButton size="big" showLabel label={strings.songs.singAlong} icon={<MicIcon />} onClick={() => start('sing')} className="!h-32 !w-32" />}
-              <BigButton size="big" showLabel label={strings.songs.rhymeTime} icon={<ClapIcon />} onClick={() => start('chant')} className="!h-32 !w-32" />
-              {rhyme.instrumental && <BigButton size="big" showLabel label={strings.songs.instrumental} icon={<NoteIcon />} onClick={() => start('instrumental')} className="!h-32 !w-32" />}
+              {rhyme.vocal && <BigButton showLabel label={strings.songs.singAlong} icon={<MicIcon />} onClick={() => start('sing')} size="huge" />}
+              <BigButton showLabel label={strings.songs.rhymeTime} icon={<ClapIcon />} onClick={() => start('chant')} size="huge" />
+              {rhyme.instrumental && <BigButton showLabel label={strings.songs.instrumental} icon={<NoteIcon />} onClick={() => start('instrumental')} size="huge" />}
             </>
           )}
         </div>
       </div>
       <div className="w-full space-y-2 rounded-blob bg-surface p-4 lg:w-2/5" aria-live="off">
         {rhyme.lines.map((l, i) => (
-          <p key={i} className={`story-text transition-opacity ${line === i ? 'opacity-100' : 'opacity-50'}`} style={{ fontSize: 'calc(var(--story-size) * 0.6)' }}>
+          <p key={i} className={`story-text rounded-2xl px-2 transition-all ${line === i ? 'bg-accent/30 opacity-100' : 'opacity-75'}`} style={{ fontSize: 'calc(var(--story-size) * 0.6)' }}>
             {l.text.split(/\s+/).map((w, wi) => (
               <span key={wi} className="relative mx-1 inline-block">
                 {line === i && wi === word && (

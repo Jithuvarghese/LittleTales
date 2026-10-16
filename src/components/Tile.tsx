@@ -1,5 +1,6 @@
 import { motion, useReducedMotion, type TargetAndTransition } from 'framer-motion';
 import type { ReactNode } from 'react';
+import { CheckBadge } from '@/art/Icons';
 
 type Props = {
   label: string;
@@ -42,8 +43,8 @@ export function Tile({ label, children, onClick, state = 'idle', className = '',
     >
       {children}
       {state === 'right' && (
-        <span className="absolute -right-3 -top-3 flex h-10 w-10 items-center justify-center rounded-full border-4 border-outline bg-success text-2xl text-white" aria-hidden>
-          ✓
+        <span className="absolute -right-3 -top-3 h-11 w-11" aria-hidden>
+          <CheckBadge />
         </span>
       )}
     </motion.button>

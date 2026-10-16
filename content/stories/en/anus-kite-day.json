@@ -64,7 +64,64 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/anus-kite-day/p1.mp3"
+        "src": "audio/narration/en/anus-kite-day/p1.mp3",
+        "wordTimings": [
+          {
+            "word": "It",
+            "startMs": 450,
+            "endMs": 538
+          },
+          {
+            "word": "was",
+            "startMs": 538,
+            "endMs": 675
+          },
+          {
+            "word": "kite",
+            "startMs": 675,
+            "endMs": 950
+          },
+          {
+            "word": "day",
+            "startMs": 950,
+            "endMs": 1200
+          },
+          {
+            "word": "in",
+            "startMs": 1200,
+            "endMs": 1325
+          },
+          {
+            "word": "Anu's",
+            "startMs": 1325,
+            "endMs": 1700
+          },
+          {
+            "word": "town,",
+            "startMs": 1700,
+            "endMs": 2325
+          },
+          {
+            "word": "and",
+            "startMs": 2425,
+            "endMs": 2550
+          },
+          {
+            "word": "Pip",
+            "startMs": 2550,
+            "endMs": 2800
+          },
+          {
+            "word": "came",
+            "startMs": 2800,
+            "endMs": 3062
+          },
+          {
+            "word": "too.",
+            "startMs": 3062,
+            "endMs": 3675
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -111,7 +168,59 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/anus-kite-day/p2.mp3"
+        "src": "audio/narration/en/anus-kite-day/p2.mp3",
+        "wordTimings": [
+          {
+            "word": "Anu",
+            "startMs": 500,
+            "endMs": 750
+          },
+          {
+            "word": "had",
+            "startMs": 750,
+            "endMs": 888
+          },
+          {
+            "word": "a",
+            "startMs": 888,
+            "endMs": 950
+          },
+          {
+            "word": "bright",
+            "startMs": 950,
+            "endMs": 1250
+          },
+          {
+            "word": "orange",
+            "startMs": 1250,
+            "endMs": 1600
+          },
+          {
+            "word": "kite",
+            "startMs": 1600,
+            "endMs": 1950
+          },
+          {
+            "word": "with",
+            "startMs": 1950,
+            "endMs": 2088
+          },
+          {
+            "word": "a",
+            "startMs": 2088,
+            "endMs": 2175
+          },
+          {
+            "word": "long",
+            "startMs": 2175,
+            "endMs": 2500
+          },
+          {
+            "word": "tail.",
+            "startMs": 2500,
+            "endMs": 3225
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -157,7 +266,59 @@
       },
       "delivery": "surprised",
       "narration": {
-        "src": "audio/narration/en/anus-kite-day/p3.mp3"
+        "src": "audio/narration/en/anus-kite-day/p3.mp3",
+        "wordTimings": [
+          {
+            "word": "Anu",
+            "startMs": 550,
+            "endMs": 800
+          },
+          {
+            "word": "ran",
+            "startMs": 800,
+            "endMs": 1088
+          },
+          {
+            "word": "fast.",
+            "startMs": 1088,
+            "endMs": 1825
+          },
+          {
+            "word": "Up,",
+            "startMs": 2339,
+            "endMs": 2489
+          },
+          {
+            "word": "up,",
+            "startMs": 2539,
+            "endMs": 2739
+          },
+          {
+            "word": "UP",
+            "startMs": 2789,
+            "endMs": 3114
+          },
+          {
+            "word": "went",
+            "startMs": 3114,
+            "endMs": 3277
+          },
+          {
+            "word": "the",
+            "startMs": 3277,
+            "endMs": 3364
+          },
+          {
+            "word": "kite!",
+            "startMs": 3364,
+            "endMs": 3964
+          },
+          {
+            "word": "Whoosh!",
+            "startMs": 4728,
+            "endMs": 5478
+          }
+        ]
       },
       "sfx": [
         {
@@ -224,7 +385,64 @@
       },
       "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/anus-kite-day/p4.mp3"
+        "src": "audio/narration/en/anus-kite-day/p4.mp3",
+        "wordTimings": [
+          {
+            "word": "The",
+            "startMs": 425,
+            "endMs": 538
+          },
+          {
+            "word": "sky",
+            "startMs": 538,
+            "endMs": 862
+          },
+          {
+            "word": "was",
+            "startMs": 862,
+            "endMs": 1025
+          },
+          {
+            "word": "full",
+            "startMs": 1025,
+            "endMs": 1188
+          },
+          {
+            "word": "of",
+            "startMs": 1188,
+            "endMs": 1300
+          },
+          {
+            "word": "kites.",
+            "startMs": 1300,
+            "endMs": 1950
+          },
+          {
+            "word": "Let's",
+            "startMs": 2468,
+            "endMs": 2743
+          },
+          {
+            "word": "count!",
+            "startMs": 2743,
+            "endMs": 3393
+          },
+          {
+            "word": "One,",
+            "startMs": 3838,
+            "endMs": 4038
+          },
+          {
+            "word": "two,",
+            "startMs": 4088,
+            "endMs": 4263
+          },
+          {
+            "word": "three!",
+            "startMs": 4325,
+            "endMs": 4938
+          }
+        ]
       },
       "sfx": [
         {
@@ -247,7 +465,8 @@
         2,
         3,
         4
-      ]
+      ],
+      "questionAudio": "audio/narration/en/anus-kite-day/q5.mp3"
     },
     {
       "type": "story",
@@ -282,7 +501,49 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/anus-kite-day/p5.mp3"
+        "src": "audio/narration/en/anus-kite-day/p5.mp3",
+        "wordTimings": [
+          {
+            "word": "Coco",
+            "startMs": 475,
+            "endMs": 812
+          },
+          {
+            "word": "the",
+            "startMs": 812,
+            "endMs": 900
+          },
+          {
+            "word": "parrot",
+            "startMs": 900,
+            "endMs": 1288
+          },
+          {
+            "word": "flew",
+            "startMs": 1288,
+            "endMs": 1525
+          },
+          {
+            "word": "next",
+            "startMs": 1525,
+            "endMs": 1788
+          },
+          {
+            "word": "to",
+            "startMs": 1788,
+            "endMs": 1912
+          },
+          {
+            "word": "Anu's",
+            "startMs": 1912,
+            "endMs": 2300
+          },
+          {
+            "word": "kite.",
+            "startMs": 2300,
+            "endMs": 2950
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -334,7 +595,49 @@
       },
       "delivery": "surprised",
       "narration": {
-        "src": "audio/narration/en/anus-kite-day/p6.mp3"
+        "src": "audio/narration/en/anus-kite-day/p6.mp3",
+        "wordTimings": [
+          {
+            "word": "Oh!",
+            "startMs": 575,
+            "endMs": 1150
+          },
+          {
+            "word": "The",
+            "startMs": 1148,
+            "endMs": 1223
+          },
+          {
+            "word": "kite",
+            "startMs": 1223,
+            "endMs": 1498
+          },
+          {
+            "word": "string",
+            "startMs": 1498,
+            "endMs": 1823
+          },
+          {
+            "word": "caught",
+            "startMs": 1823,
+            "endMs": 2060
+          },
+          {
+            "word": "on",
+            "startMs": 2060,
+            "endMs": 2160
+          },
+          {
+            "word": "a",
+            "startMs": 2160,
+            "endMs": 2236
+          },
+          {
+            "word": "tree.",
+            "startMs": 2236,
+            "endMs": 2923
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -377,7 +680,8 @@
           "label": "happy",
           "face": "happy"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/anus-kite-day/q8.mp3"
     },
     {
       "type": "story",
@@ -410,7 +714,39 @@
       },
       "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/anus-kite-day/p7.mp3"
+        "src": "audio/narration/en/anus-kite-day/p7.mp3",
+        "wordTimings": [
+          {
+            "word": "Coco",
+            "startMs": 475,
+            "endMs": 1025
+          },
+          {
+            "word": "gently",
+            "startMs": 1025,
+            "endMs": 1400
+          },
+          {
+            "word": "pulled",
+            "startMs": 1400,
+            "endMs": 1662
+          },
+          {
+            "word": "the",
+            "startMs": 1662,
+            "endMs": 1750
+          },
+          {
+            "word": "string",
+            "startMs": 1750,
+            "endMs": 2088
+          },
+          {
+            "word": "free.",
+            "startMs": 2088,
+            "endMs": 2750
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -465,7 +801,44 @@
       },
       "delivery": "proud",
       "narration": {
-        "src": "audio/narration/en/anus-kite-day/p8.mp3"
+        "src": "audio/narration/en/anus-kite-day/p8.mp3",
+        "wordTimings": [
+          {
+            "word": "The",
+            "startMs": 450,
+            "endMs": 525
+          },
+          {
+            "word": "kite",
+            "startMs": 525,
+            "endMs": 825
+          },
+          {
+            "word": "danced",
+            "startMs": 825,
+            "endMs": 1175
+          },
+          {
+            "word": "high",
+            "startMs": 1175,
+            "endMs": 1400
+          },
+          {
+            "word": "again.",
+            "startMs": 1400,
+            "endMs": 2050
+          },
+          {
+            "word": "Hooray!",
+            "startMs": 2700,
+            "endMs": 3400
+          },
+          {
+            "word": "Hooray!",
+            "startMs": 4060,
+            "endMs": 4760
+          }
+        ]
       },
       "sfx": [
         {
@@ -506,7 +879,54 @@
       },
       "delivery": "proud",
       "narration": {
-        "src": "audio/narration/en/anus-kite-day/p9.mp3"
+        "src": "audio/narration/en/anus-kite-day/p9.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Thank",
+            "startMs": 550,
+            "endMs": 800
+          },
+          {
+            "word": "you,",
+            "startMs": 800,
+            "endMs": 925
+          },
+          {
+            "word": "Coco,\"",
+            "startMs": 975,
+            "endMs": 1775
+          },
+          {
+            "word": "said",
+            "startMs": 2689,
+            "endMs": 2889
+          },
+          {
+            "word": "Anu.",
+            "startMs": 2889,
+            "endMs": 3564
+          },
+          {
+            "word": "\"Best",
+            "startMs": 4234,
+            "endMs": 4484
+          },
+          {
+            "word": "kite",
+            "startMs": 4484,
+            "endMs": 4759
+          },
+          {
+            "word": "day",
+            "startMs": 4759,
+            "endMs": 5071
+          },
+          {
+            "word": "ever!\"",
+            "startMs": 5071,
+            "endMs": 5684
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [],
