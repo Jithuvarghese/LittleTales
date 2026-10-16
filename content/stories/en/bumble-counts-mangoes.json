@@ -52,7 +52,7 @@
   "pages": [
     {
       "type": "story",
-      "text": "Bumble the bear loved sweet, yellow mangoes.",
+      "text": "Bumble the bear loved mangoes. Sweet, yellow, yummy mangoes!",
       "scene": {
         "backdrop": "meadow",
         "props": [
@@ -73,6 +73,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/bumble-counts-mangoes/p1.mp3"
       },
@@ -89,6 +90,7 @@
           "label": "bumble",
           "onTap": {
             "say": "Yum, yum!",
+            "sayAudio": "audio/narration/en/bumble-counts-mangoes/p1-bumble.mp3",
             "animate": "bounce"
           }
         }
@@ -96,7 +98,7 @@
     },
     {
       "type": "story",
-      "text": "One mango hung on the big tree.",
+      "text": "Look up high! One mango hung on the big tree. One!",
       "scene": {
         "backdrop": "meadow",
         "props": [
@@ -123,6 +125,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/bumble-counts-mangoes/p2.mp3"
       },
@@ -140,6 +143,7 @@
           "onTap": {
             "sfx": "audio/sfx/pop.mp3",
             "say": "One!",
+            "sayAudio": "audio/narration/en/bumble-counts-mangoes/p2-mango.mp3",
             "animate": "grow"
           }
         }
@@ -148,7 +152,7 @@
     },
     {
       "type": "story",
-      "text": "Then Bumble saw two mangoes.",
+      "text": "Then Bumble saw another. One... two mangoes!",
       "scene": {
         "backdrop": "meadow",
         "props": [
@@ -181,6 +185,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/bumble-counts-mangoes/p3.mp3"
       },
@@ -198,6 +203,7 @@
           "onTap": {
             "sfx": "audio/sfx/pop.mp3",
             "say": "Mango!",
+            "sayAudio": "audio/narration/en/bumble-counts-mangoes/p3-mango.mp3",
             "animate": "grow"
           }
         }
@@ -205,7 +211,7 @@
     },
     {
       "type": "story",
-      "text": "One, two, three mangoes!",
+      "text": "One, two, three mangoes! Can you count them too?",
       "scene": {
         "backdrop": "meadow",
         "props": [
@@ -244,6 +250,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/bumble-counts-mangoes/p4.mp3"
       },
@@ -306,6 +313,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/bumble-counts-mangoes/p5.mp3"
       },
@@ -322,6 +330,7 @@
           "label": "basket",
           "onTap": {
             "say": "A basket for mangoes!",
+            "sayAudio": "audio/narration/en/bumble-counts-mangoes/p5-basket.mp3",
             "animate": "wiggle"
           }
         },
@@ -336,6 +345,7 @@
           "label": "pip",
           "onTap": {
             "say": "Hello, Bumble!",
+            "sayAudio": "audio/narration/en/bumble-counts-mangoes/p5-pip.mp3",
             "animate": "bounce"
           }
         }
@@ -382,6 +392,8 @@
           }
         ]
       },
+      "delivery": "narrator",
+      "speaker": "bumble",
       "narration": {
         "src": "audio/narration/en/bumble-counts-mangoes/p6.mp3"
       },
@@ -461,6 +473,7 @@
           }
         ]
       },
+      "delivery": "silly",
       "narration": {
         "src": "audio/narration/en/bumble-counts-mangoes/p7.mp3"
       },
@@ -483,6 +496,7 @@
           "onTap": {
             "sfx": "audio/sfx/pop.mp3",
             "say": "Three mangoes!",
+            "sayAudio": "audio/narration/en/bumble-counts-mangoes/p7-basket.mp3",
             "animate": "bounce"
           }
         }
@@ -524,6 +538,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/bumble-counts-mangoes/p8.mp3"
       },
@@ -540,6 +555,7 @@
           "label": "pip",
           "onTap": {
             "say": "Thank you!",
+            "sayAudio": "audio/narration/en/bumble-counts-mangoes/p8-pip.mp3",
             "animate": "bounce"
           }
         }
@@ -547,7 +563,7 @@
     },
     {
       "type": "story",
-      "text": "And one to share with you!",
+      "text": "And one to share... with you! Yum, yum!",
       "scene": {
         "backdrop": "meadow",
         "props": [
@@ -576,6 +592,7 @@
           }
         ]
       },
+      "delivery": "proud",
       "narration": {
         "src": "audio/narration/en/bumble-counts-mangoes/p9.mp3"
       },

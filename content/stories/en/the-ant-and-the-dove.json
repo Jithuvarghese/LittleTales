@@ -57,6 +57,7 @@
         ],
         "characters": []
       },
+      "delivery": "sad",
       "narration": {
         "src": "audio/narration/en/the-ant-and-the-dove/p1.mp3"
       },
@@ -73,6 +74,7 @@
           "label": "ant",
           "onTap": {
             "say": "I need a drink!",
+            "sayAudio": "audio/narration/en/the-ant-and-the-dove/p1-ant.mp3",
             "animate": "wiggle"
           }
         }
@@ -93,6 +95,7 @@
         ],
         "characters": []
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/the-ant-and-the-dove/p2.mp3"
       },
@@ -106,7 +109,7 @@
     },
     {
       "type": "story",
-      "text": "Splash! A wave pulled the ant into the water.",
+      "text": "Splash! A wave pulled the ant into the water. Oh no!",
       "scene": {
         "backdrop": "beach",
         "props": [
@@ -125,6 +128,7 @@
         ],
         "characters": []
       },
+      "delivery": "surprised",
       "narration": {
         "src": "audio/narration/en/the-ant-and-the-dove/p3.mp3"
       },
@@ -142,6 +146,7 @@
           "onTap": {
             "sfx": "audio/sfx/splash.mp3",
             "say": "Help! Help!",
+            "sayAudio": "audio/narration/en/the-ant-and-the-dove/p3-ant.mp3",
             "animate": "wiggle"
           }
         }
@@ -170,6 +175,7 @@
         ],
         "characters": []
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/the-ant-and-the-dove/p4.mp3"
       },
@@ -186,6 +192,7 @@
           "label": "bird",
           "onTap": {
             "say": "Coo, coo! Climb on!",
+            "sayAudio": "audio/narration/en/the-ant-and-the-dove/p4-bird.mp3",
             "animate": "bounce"
           }
         },
@@ -200,6 +207,7 @@
           "label": "leaf",
           "onTap": {
             "say": "Float, float.",
+            "sayAudio": "audio/narration/en/the-ant-and-the-dove/p4-leaf.mp3",
             "animate": "float"
           }
         }
@@ -230,7 +238,7 @@
     },
     {
       "type": "story",
-      "text": "The ant climbed on the leaf and floated to shore.",
+      "text": "The ant climbed on the leaf... and floated, safe, to shore.",
       "scene": {
         "backdrop": "beach",
         "props": [
@@ -249,6 +257,7 @@
         ],
         "characters": []
       },
+      "delivery": "gentle",
       "narration": {
         "src": "audio/narration/en/the-ant-and-the-dove/p5.mp3"
       },
@@ -281,6 +290,7 @@
         ],
         "characters": []
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/the-ant-and-the-dove/p6.mp3"
       },
@@ -290,7 +300,7 @@
     },
     {
       "type": "story",
-      "text": "Later, a hunter crept close to the dove's tree.",
+      "text": "Later... tiptoe, tiptoe... a hunter crept close to the dove's tree.",
       "scene": {
         "backdrop": "forest",
         "props": [
@@ -315,6 +325,7 @@
         ],
         "characters": []
       },
+      "delivery": "whisper",
       "narration": {
         "src": "audio/narration/en/the-ant-and-the-dove/p7.mp3"
       },
@@ -331,6 +342,7 @@
           "label": "hat",
           "onTap": {
             "say": "Tiptoe, tiptoe.",
+            "sayAudio": "audio/narration/en/the-ant-and-the-dove/p7-hat.mp3",
             "animate": "wiggle"
           }
         }
@@ -357,6 +369,7 @@
         ],
         "characters": []
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/the-ant-and-the-dove/p8.mp3"
       },
@@ -374,6 +387,7 @@
           "onTap": {
             "sfx": "audio/sfx/pop.mp3",
             "say": "Nip!",
+            "sayAudio": "audio/narration/en/the-ant-and-the-dove/p8-ant.mp3",
             "animate": "bounce"
           }
         }
@@ -428,6 +442,7 @@
         ],
         "characters": []
       },
+      "delivery": "surprised",
       "narration": {
         "src": "audio/narration/en/the-ant-and-the-dove/p9.mp3"
       },
@@ -449,6 +464,7 @@
           "label": "bird",
           "onTap": {
             "say": "Thank you, ant!",
+            "sayAudio": "audio/narration/en/the-ant-and-the-dove/p9-bird.mp3",
             "animate": "spin"
           }
         }
@@ -482,6 +498,7 @@
         ],
         "characters": []
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/the-ant-and-the-dove/p10.mp3"
       },

@@ -10,6 +10,7 @@ import { Celebration } from '@/components/Celebration';
 import { AudioManager } from '@/services/AudioManager';
 import { sfxNames, type SfxName } from '@/services/synth';
 import { strings } from '@/strings';
+import { uiLineSrc } from '@/content/voicing';
 import { initialQuiz, isFinished, quizReducer } from './quizLogic';
 
 function SpeakerIcon() {
@@ -45,6 +46,8 @@ export function Quiz({ page, onDone }: Props) {
   const ask = () => {
     AudioManager.say(page.question, {
       src: page.questionAudio,
+      role: 'quizHost',
+      delivery: 'gentle',
       onEnd: page.quizType === 'sound-choice' ? playSound : undefined,
     });
   };
@@ -71,7 +74,8 @@ export function Quiz({ page, onDone }: Props) {
     doneRef.current = true;
     AudioManager.sfx('tada');
     const label = options[correctIndex]?.label ?? '';
-    AudioManager.say(state.status === 'correct' ? strings.quiz.great : strings.quiz.itWas(label));
+    const line = state.status === 'correct' ? strings.quiz.great : strings.quiz.itWas(label);
+    AudioManager.say(line, { role: 'quizHost', delivery: 'excited', src: state.status === 'correct' ? uiLineSrc(line) : undefined });
     const t = setTimeout(() => onDone(page.reward.stars), 2200);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -82,7 +86,7 @@ export function Quiz({ page, onDone }: Props) {
     const correct = i === correctIndex;
     if (!correct) {
       AudioManager.sfx('boop');
-      if (state.misses === 0) AudioManager.say(strings.quiz.tryAgain);
+      if (state.misses === 0) AudioManager.say(strings.quiz.tryAgain, { role: 'quizHost', delivery: 'gentle', src: uiLineSrc(strings.quiz.tryAgain) });
     }
     dispatch({ type: 'answer', correct, index: i });
   };

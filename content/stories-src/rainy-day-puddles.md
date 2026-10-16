@@ -12,7 +12,7 @@ cover: village | cloud 40 18 30 | umbrella 60 55 30 | bumble 40 66 36 happy
 
 ## Page
 scene: village | cloud 40 18 30 float | cloud 72 22 26 float | bumble 50 66 40 thinking
-text: Drip, drop! It was raining in the village.
+text: Drip, drop! Drip, drop! It was raining in the village.
 sfx: onEnter splash
 tap: cloud "Drip, drop!" grow splash
 
@@ -23,7 +23,8 @@ tap: umbrella "Pop it open!" grow pop
 
 ## Page
 scene: village | umbrella 50 44 30 | bumble 50 66 36 happy
-text: Out he went, splish, splash, splosh!
+text: Out he went... splish! Splash! Splosh!
+delivery: silly
 sfx: onEnter splash
 
 > quiz sound-choice: Which sound does a drum make? | drum
@@ -38,7 +39,7 @@ tap: coco "Thank you, Bumble!" bounce
 
 ## Page
 scene: village | sock 35 72 16 | bumble 60 64 36 surprised
-text: Oh no! Bumble's sock got all wet.
+text: Oh no! Bumble's sock got all wet. Squelch!
 tap: sock "Squelch!" wiggle splash
 prompt: Ask: What do you wear when it rains?
 
@@ -53,7 +54,7 @@ text: Coco laughed. "Puddles are fun!"
 
 ## Page
 scene: village | rainbow 50 30 60 | coco 30 50 22 celebrate | bumble 65 66 34 celebrate
-text: Then the rain stopped and a rainbow came out!
+text: Then the rain stopped... and look! A rainbow came out!
 sfx: onEnter sparkle
 tap: rainbow "A rainbow!" grow chime
 

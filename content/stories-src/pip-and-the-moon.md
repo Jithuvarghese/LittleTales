@@ -12,7 +12,7 @@ cover: night | moon 75 25 26 float | pip 40 65 45 happy
 
 ## Page
 scene: night | moon 75 25 26 float | pip 35 66 42 idle
-text: Pip looked up at the big, round moon.
+text: Look! Pip looked up... at the big, round moon.
 tap: moon "Hello, moon!" wiggle twinkle
 tap: pip "I am Pip!" bounce
 sfx: onEnter twinkle
@@ -26,7 +26,7 @@ prompt: Ask: Are you sleepy?
 
 ## Page
 scene: night | moon 75 25 26 | tree 15 60 34 | luna 18 40 26 happy | pip 50 68 38 happy
-text: Luna the owl flew down from the tree.
+text: Hoo, hoo! Luna the owl flew down from the tree.
 tap: luna "Hoo, hoo!" bounce
 tap: tree "Rustle, rustle." wiggle
 
@@ -42,13 +42,14 @@ tap: star "Twinkle!" spin twinkle
 
 ## Page
 scene: night | moon 75 25 26 | star 20 15 9 float | star 45 22 9 float | star 60 10 9 float | pip 45 66 42 happy
-text: "And the stars keep it company."
+text: "And the stars keep it company. Twinkle, twinkle!"
+speaker: luna
 sfx: onEnter sparkle
 tap: pip "So many stars!" bounce
 
 ## Page
 scene: night | moon 75 25 26 | cloud 40 22 26 float | pip 45 68 40 thinking
-text: A soft cloud floated by the moon.
+text: A soft cloud floated by... puff, puff. Can you see it?
 tap: cloud "Puff, puff." grow whoosh
 
 ## Page
@@ -63,11 +64,13 @@ tap: pip "Good night!" wiggle
 
 ## Page
 scene: room | bed 50 70 50 | lamp 85 55 22 | pip 50 58 34 idle
-text: Pip curled up in a cosy bed.
+text: Pip curled up in a cosy bed... snug as a bug.
+delivery: sleepy
 tap: lamp "Click!" grow click
 
 ## Page
 scene: night | moon 75 25 26 float | pip 40 68 40 happy
-text: The moon smiled and shone all night long.
+text: Shh... the moon smiled, and shone, all night long.
+delivery: whisper
 sfx: onEnter chime
 prompt: Say good night to the moon together.

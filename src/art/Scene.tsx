@@ -33,6 +33,7 @@ export function Scene({ scene, children, className = '', label, pulse }: Props) 
   return (
     <div
       className={`relative aspect-[16/10] w-full overflow-hidden rounded-blob border-[5px] border-outline ${className}`}
+      data-scene=""
       role={label ? 'img' : undefined}
       aria-label={label || undefined}
     >

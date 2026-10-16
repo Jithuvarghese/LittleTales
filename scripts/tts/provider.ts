@@ -1,65 +1,55 @@
 /**
- * Text-to-speech provider interface. Engines run locally on the developer's
- * machine only; nothing is sent to an online service. Swap engines (or move to
- * recorded human voices) by adding a provider here, without touching content.
+ * Text-to-speech provider interface. Engines run on the developer's machine
+ * (or produce files offline); the website never calls a speech service. Swap
+ * engines, or move to recorded human voices, without touching content or app code.
  */
 import { spawn } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { existsSync, writeFileSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-export type VoiceSettings = {
-  piper?: { model: string; speaker?: number };
-  kokoro?: { voice: string };
-  speed: number;
-};
-
 export type WordTiming = { word: string; startMs: number; endMs: number };
+
+/** One clip to synthesise: text, engine voice id (may be a blend "a,b") and speed. */
+export type SynthJob = { text: string; voice: string; speed: number; out: string };
 
 export interface TtsProvider {
   readonly id: string;
   /** Throws with setup instructions if the engine or model is missing. */
-  check(voice: VoiceSettings): Promise<void>;
-  /** Writes a WAV file for the text. May return word timings if the engine provides them. */
-  synthesize(text: string, voice: VoiceSettings, outWav: string): Promise<WordTiming[] | null>;
+  check(): Promise<void>;
+  /** Synthesises many clips (WAV). Returns engine word timings per job when available. */
+  synthesizeBatch(jobs: SynthJob[], onProgress?: (done: number) => void): Promise<(WordTiming[] | null)[]>;
 }
 
 export const MODELS_DIR = 'tools/models';
 
-export function run(cmd: string, args: string[], input?: string): Promise<string> {
+/** ffmpeg/ffprobe may not be on PATH right after installing; FFMPEG_DIR can point at its bin folder. */
+export const bin = (name: string) => (process.env.FFMPEG_DIR ? join(process.env.FFMPEG_DIR, name) : name);
+
+export function run(cmd: string, args: string[], input?: string, onLine?: (line: string) => void): Promise<string> {
   return new Promise((resolve, reject) => {
     const p = spawn(cmd, args, { stdio: ['pipe', 'pipe', 'pipe'] });
     let out = '';
     let err = '';
-    p.stdout.on('data', (d) => (out += d));
-    p.stderr.on('data', (d) => (err += d));
+    let partial = '';
+    p.stdout.on('data', (d: Buffer) => {
+      const text = d.toString();
+      out += text;
+      if (onLine) {
+        partial += text;
+        const lines = partial.split('\n');
+        partial = lines.pop() ?? '';
+        lines.forEach((l) => l.trim() && onLine(l));
+      }
+    });
+    p.stderr.on('data', (d: Buffer) => (err += d.toString()));
     p.on('error', reject);
-    p.on('close', (code) => (code === 0 ? resolve(out) : reject(new Error(`${cmd} exited ${code}: ${err.slice(-500)}`))));
+    p.on('close', (code: number) => (code === 0 ? resolve(out) : reject(new Error(`${cmd} exited ${code}: ${err.slice(-800)}`))));
     if (input !== undefined) p.stdin.end(input);
     else p.stdin.end();
   });
 }
 
-/** Piper (MIT engine; check each voice model's own licence before use). */
-export const piper: TtsProvider = {
-  id: 'piper',
-  async check(voice) {
-    const model = voice.piper?.model;
-    if (!model) throw new Error('No piper model configured for this voice in config/voices.json');
-    if (!existsSync(join(MODELS_DIR, model)))
-      throw new Error(`Missing ${join(MODELS_DIR, model)}. See docs/AUDIO_GUIDE.md ("Install Piper").`);
-    await run('piper', ['--help']).catch(() => {
-      throw new Error('The "piper" command was not found. Install it with: pip install piper-tts');
-    });
-  },
-  async synthesize(text, voice, outWav) {
-    const args = ['--model', join(MODELS_DIR, voice.piper!.model), '--output_file', outWav, '--length_scale', String(1 / voice.speed), '--sentence_silence', '0.35'];
-    if (voice.piper!.speaker !== undefined) args.push('--speaker', String(voice.piper!.speaker));
-    await run('piper', args, text);
-    return null;
-  },
-};
-
-/** Kokoro-82M (Apache-2.0 model) via the small Python helper in scripts/tts/kokoro_say.py. */
+/** Kokoro-82M (Apache-2.0), batch mode so the model loads once. Supports voice blends "a,b". */
 export const kokoro: TtsProvider = {
   id: 'kokoro',
   async check() {
@@ -67,22 +57,123 @@ export const kokoro: TtsProvider = {
       throw new Error('Kokoro is not installed. Run: pip install kokoro soundfile  (see docs/AUDIO_GUIDE.md)');
     });
   },
-  async synthesize(text, voice, outWav) {
-    const out = await run('python', ['scripts/tts/kokoro_say.py', '--voice', voice.kokoro!.voice, '--speed', String(voice.speed), '--out', outWav], text);
-    try {
-      const parsed = JSON.parse(out.trim().split('\n').pop() ?? 'null');
-      return Array.isArray(parsed) && parsed.length ? (parsed as WordTiming[]) : null;
-    } catch {
-      return null;
-    }
+  async synthesizeBatch(jobs, onProgress) {
+    const file = join('tools', 'kokoro-jobs.json');
+    writeFileSync(file, JSON.stringify(jobs));
+    const byOut = new Map<string, WordTiming[] | null>();
+    await run('python', ['scripts/tts/kokoro_say.py', '--batch', file], undefined, (line) => {
+      try {
+        const r = JSON.parse(line) as { out: string; timings: WordTiming[] | null };
+        byOut.set(r.out, r.timings?.length ? r.timings : null);
+        onProgress?.(byOut.size);
+      } catch {
+        /* not a result line */
+      }
+    });
+    return jobs.map((j) => byOut.get(j.out) ?? null);
   },
 };
 
-export const providers: Record<string, TtsProvider> = { piper, kokoro };
+/** Piper (MIT engine; each voice model has its own licence). "voice" is a model file name. */
+export const piper: TtsProvider = {
+  id: 'piper',
+  async check() {
+    await run('piper', ['--help']).catch(() => {
+      throw new Error('The "piper" command was not found. Install it with: pip install piper-tts');
+    });
+  },
+  async synthesizeBatch(jobs, onProgress) {
+    let n = 0;
+    for (const j of jobs) {
+      const model = join(MODELS_DIR, j.voice);
+      if (!existsSync(model)) throw new Error(`Missing ${model}. See docs/AUDIO_GUIDE.md.`);
+      await run('piper', ['--model', model, '--output_file', j.out, '--length_scale', String(1 / j.speed)], j.text);
+      onProgress?.(++n);
+    }
+    return jobs.map(() => null);
+  },
+};
+
+/**
+ * Optional paid service (Tier 3). Used only on the developer's machine during
+ * generation; the key lives in a git-ignored .env file and the website never calls it.
+ * "voice" is the service's voice id. Requires the account's plan to allow commercial use.
+ */
+export const elevenlabs: TtsProvider = {
+  id: 'elevenlabs',
+  async check() {
+    loadEnv();
+    if (!process.env.ELEVENLABS_API_KEY) throw new Error('Set ELEVENLABS_API_KEY in .env (see .env.example).');
+  },
+  async synthesizeBatch(jobs, onProgress) {
+    loadEnv();
+    const key = process.env.ELEVENLABS_API_KEY!;
+    const model = process.env.ELEVENLABS_MODEL ?? 'eleven_multilingual_v2';
+    let n = 0;
+    const out: (WordTiming[] | null)[] = [];
+    for (const j of jobs) {
+      const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(j.voice)}/with-timestamps?output_format=pcm_24000`, {
+        method: 'POST',
+        headers: { 'xi-api-key': key, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: j.text, model_id: model, voice_settings: { stability: 0.4, similarity_boost: 0.75, style: 0.5, speed: Math.min(1.2, Math.max(0.7, j.speed)) } }),
+      });
+      if (!res.ok) throw new Error(`Voice service error ${res.status}: ${(await res.text()).slice(0, 300)}`);
+      const data = (await res.json()) as { audio_base64: string; alignment?: { characters: string[]; character_start_times_seconds: number[]; character_end_times_seconds: number[] } };
+      writeWav(j.out, Buffer.from(data.audio_base64, 'base64'), 24000);
+      out.push(data.alignment ? charsToWords(data.alignment) : null);
+      onProgress?.(++n);
+    }
+    return out;
+  },
+};
+
+export const providers: Record<string, TtsProvider> = { kokoro, piper, elevenlabs };
+
+function loadEnv() {
+  if (!existsSync('.env')) return;
+  for (const line of readFileSync('.env', 'utf8').split(/\r?\n/)) {
+    const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)\s*$/);
+    if (m && !process.env[m[1]!]) process.env[m[1]!] = m[2]!.replace(/^["']|["']$/g, '');
+  }
+}
+
+function writeWav(path: string, pcm: Buffer, rate: number) {
+  const h = Buffer.alloc(44);
+  h.write('RIFF', 0);
+  h.writeUInt32LE(36 + pcm.length, 4);
+  h.write('WAVEfmt ', 8);
+  h.writeUInt32LE(16, 16);
+  h.writeUInt16LE(1, 20);
+  h.writeUInt16LE(1, 22);
+  h.writeUInt32LE(rate, 24);
+  h.writeUInt32LE(rate * 2, 28);
+  h.writeUInt16LE(2, 32);
+  h.writeUInt16LE(16, 34);
+  h.write('data', 36);
+  h.writeUInt32LE(pcm.length, 40);
+  writeFileSync(path, Buffer.concat([h, pcm]));
+}
+
+function charsToWords(a: { characters: string[]; character_start_times_seconds: number[]; character_end_times_seconds: number[] }): WordTiming[] {
+  const words: WordTiming[] = [];
+  let cur: WordTiming | null = null;
+  a.characters.forEach((c, i) => {
+    if (/\s/.test(c)) {
+      if (cur) words.push(cur);
+      cur = null;
+      return;
+    }
+    if (!cur) cur = { word: '', startMs: Math.round(a.character_start_times_seconds[i]! * 1000), endMs: 0 };
+    cur.word += c;
+    cur.endMs = Math.round(a.character_end_times_seconds[i]! * 1000);
+  });
+  if (cur) words.push(cur);
+  return words;
+}
 
 /**
  * Duration-proportional word timings: each word gets time in proportion to its
- * length (plus a little for punctuation pauses). Used when no aligner result exists.
+ * length (plus a little for punctuation pauses). Used when no engine timings exist.
  */
 export function estimateTimings(text: string, durationMs: number, leadMs = 80, tailMs = 120): WordTiming[] {
   const words = text.split(/\s+/).filter(Boolean);

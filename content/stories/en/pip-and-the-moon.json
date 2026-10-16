@@ -41,7 +41,7 @@
   "pages": [
     {
       "type": "story",
-      "text": "Pip looked up at the big, round moon.",
+      "text": "Look! Pip looked up... at the big, round moon.",
       "scene": {
         "backdrop": "night",
         "props": [
@@ -63,8 +63,56 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/pip-and-the-moon/p1.mp3"
+        "src": "audio/narration/en/pip-and-the-moon/p1.mp3",
+        "wordTimings": [
+          {
+            "word": "Look!",
+            "startMs": 575,
+            "endMs": 1150
+          },
+          {
+            "word": "Pip",
+            "startMs": 1559,
+            "endMs": 1784
+          },
+          {
+            "word": "looked",
+            "startMs": 1784,
+            "endMs": 2009
+          },
+          {
+            "word": "up...",
+            "startMs": 2009,
+            "endMs": 2509
+          },
+          {
+            "word": "at",
+            "startMs": 2931,
+            "endMs": 3019
+          },
+          {
+            "word": "the",
+            "startMs": 3019,
+            "endMs": 3106
+          },
+          {
+            "word": "big,",
+            "startMs": 3106,
+            "endMs": 3381
+          },
+          {
+            "word": "round",
+            "startMs": 3431,
+            "endMs": 3731
+          },
+          {
+            "word": "moon.",
+            "startMs": 3731,
+            "endMs": 4306
+          }
+        ]
       },
       "sfx": [
         {
@@ -85,6 +133,7 @@
           "onTap": {
             "sfx": "audio/sfx/twinkle.mp3",
             "say": "Hello, moon!",
+            "sayAudio": "audio/narration/en/pip-and-the-moon/p1-moon.mp3",
             "animate": "wiggle"
           }
         },
@@ -99,6 +148,7 @@
           "label": "pip",
           "onTap": {
             "say": "I am Pip!",
+            "sayAudio": "audio/narration/en/pip-and-the-moon/p1-pip.mp3",
             "animate": "bounce"
           }
         }
@@ -129,8 +179,47 @@
           }
         ]
       },
+      "delivery": "sleepy",
+      "speaker": "pip",
       "narration": {
-        "src": "audio/narration/en/pip-and-the-moon/p2.mp3"
+        "src": "audio/narration/en/pip-and-the-moon/p2.mp3",
+        "wordTimings": [
+          {
+            "word": "\"Moon,",
+            "startMs": 675,
+            "endMs": 1125
+          },
+          {
+            "word": "are",
+            "startMs": 1200,
+            "endMs": 1338
+          },
+          {
+            "word": "you",
+            "startMs": 1338,
+            "endMs": 1538
+          },
+          {
+            "word": "sleepy",
+            "startMs": 1538,
+            "endMs": 2025
+          },
+          {
+            "word": "too?\"",
+            "startMs": 2025,
+            "endMs": 2775
+          },
+          {
+            "word": "asked",
+            "startMs": 3325,
+            "endMs": 3763
+          },
+          {
+            "word": "Pip.",
+            "startMs": 3763,
+            "endMs": 4600
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -145,6 +234,7 @@
           "label": "moon",
           "onTap": {
             "say": "Not yet!",
+            "sayAudio": "audio/narration/en/pip-and-the-moon/p2-moon.mp3",
             "animate": "wiggle"
           }
         }
@@ -153,7 +243,7 @@
     },
     {
       "type": "story",
-      "text": "Luna the owl flew down from the tree.",
+      "text": "Hoo, hoo! Luna the owl flew down from the tree.",
       "scene": {
         "backdrop": "night",
         "props": [
@@ -187,8 +277,61 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
-        "src": "audio/narration/en/pip-and-the-moon/p3.mp3"
+        "src": "audio/narration/en/pip-and-the-moon/p3.mp3",
+        "wordTimings": [
+          {
+            "word": "Hoo,",
+            "startMs": 525,
+            "endMs": 800
+          },
+          {
+            "word": "hoo!",
+            "startMs": 875,
+            "endMs": 1400
+          },
+          {
+            "word": "Luna",
+            "startMs": 1851,
+            "endMs": 2114
+          },
+          {
+            "word": "the",
+            "startMs": 2114,
+            "endMs": 2264
+          },
+          {
+            "word": "owl",
+            "startMs": 2264,
+            "endMs": 2538
+          },
+          {
+            "word": "flew",
+            "startMs": 2538,
+            "endMs": 2776
+          },
+          {
+            "word": "down",
+            "startMs": 2776,
+            "endMs": 3051
+          },
+          {
+            "word": "from",
+            "startMs": 3051,
+            "endMs": 3188
+          },
+          {
+            "word": "the",
+            "startMs": 3188,
+            "endMs": 3276
+          },
+          {
+            "word": "tree.",
+            "startMs": 3276,
+            "endMs": 3901
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -203,6 +346,7 @@
           "label": "luna",
           "onTap": {
             "say": "Hoo, hoo!",
+            "sayAudio": "audio/narration/en/pip-and-the-moon/p3-luna.mp3",
             "animate": "bounce"
           }
         },
@@ -217,6 +361,7 @@
           "label": "tree",
           "onTap": {
             "say": "Rustle, rustle.",
+            "sayAudio": "audio/narration/en/pip-and-the-moon/p3-tree.mp3",
             "animate": "wiggle"
           }
         }
@@ -243,7 +388,8 @@
           "prop": "ball",
           "label": "ball"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/pip-and-the-moon/q4.mp3"
     },
     {
       "type": "story",
@@ -289,8 +435,62 @@
           }
         ]
       },
+      "delivery": "narrator",
+      "speaker": "luna",
       "narration": {
-        "src": "audio/narration/en/pip-and-the-moon/p4.mp3"
+        "src": "audio/narration/en/pip-and-the-moon/p4.mp3",
+        "wordTimings": [
+          {
+            "word": "\"The",
+            "startMs": 525,
+            "endMs": 638
+          },
+          {
+            "word": "moon",
+            "startMs": 638,
+            "endMs": 1038
+          },
+          {
+            "word": "stays",
+            "startMs": 1038,
+            "endMs": 1475
+          },
+          {
+            "word": "up",
+            "startMs": 1475,
+            "endMs": 1738
+          },
+          {
+            "word": "to",
+            "startMs": 1738,
+            "endMs": 1875
+          },
+          {
+            "word": "light",
+            "startMs": 1875,
+            "endMs": 2175
+          },
+          {
+            "word": "the",
+            "startMs": 2175,
+            "endMs": 2312
+          },
+          {
+            "word": "sky,\"",
+            "startMs": 2312,
+            "endMs": 3400
+          },
+          {
+            "word": "said",
+            "startMs": 3595,
+            "endMs": 3820
+          },
+          {
+            "word": "Luna.",
+            "startMs": 3820,
+            "endMs": 4495
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -306,6 +506,7 @@
           "onTap": {
             "sfx": "audio/sfx/twinkle.mp3",
             "say": "Twinkle!",
+            "sayAudio": "audio/narration/en/pip-and-the-moon/p4-star.mp3",
             "animate": "spin"
           }
         }
@@ -313,7 +514,7 @@
     },
     {
       "type": "story",
-      "text": "\"And the stars keep it company.\"",
+      "text": "\"And the stars keep it company. Twinkle, twinkle!\"",
       "scene": {
         "backdrop": "night",
         "props": [
@@ -355,8 +556,52 @@
           }
         ]
       },
+      "delivery": "excited",
+      "speaker": "luna",
       "narration": {
-        "src": "audio/narration/en/pip-and-the-moon/p5.mp3"
+        "src": "audio/narration/en/pip-and-the-moon/p5.mp3",
+        "wordTimings": [
+          {
+            "word": "\"And",
+            "startMs": 475,
+            "endMs": 612
+          },
+          {
+            "word": "the",
+            "startMs": 612,
+            "endMs": 712
+          },
+          {
+            "word": "stars",
+            "startMs": 712,
+            "endMs": 1250
+          },
+          {
+            "word": "keep",
+            "startMs": 1250,
+            "endMs": 1525
+          },
+          {
+            "word": "it",
+            "startMs": 1525,
+            "endMs": 1675
+          },
+          {
+            "word": "company.",
+            "startMs": 1675,
+            "endMs": 2800
+          },
+          {
+            "word": "Twinkle,",
+            "startMs": 2600,
+            "endMs": 3150
+          },
+          {
+            "word": "twinkle!\"",
+            "startMs": 3200,
+            "endMs": 4325
+          }
+        ]
       },
       "sfx": [
         {
@@ -376,6 +621,7 @@
           "label": "pip",
           "onTap": {
             "say": "So many stars!",
+            "sayAudio": "audio/narration/en/pip-and-the-moon/p5-pip.mp3",
             "animate": "bounce"
           }
         }
@@ -383,7 +629,7 @@
     },
     {
       "type": "story",
-      "text": "A soft cloud floated by the moon.",
+      "text": "A soft cloud floated by... puff, puff. Can you see it?",
       "scene": {
         "backdrop": "night",
         "props": [
@@ -411,8 +657,66 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
-        "src": "audio/narration/en/pip-and-the-moon/p6.mp3"
+        "src": "audio/narration/en/pip-and-the-moon/p6.mp3",
+        "wordTimings": [
+          {
+            "word": "A",
+            "startMs": 475,
+            "endMs": 575
+          },
+          {
+            "word": "soft",
+            "startMs": 575,
+            "endMs": 950
+          },
+          {
+            "word": "cloud",
+            "startMs": 950,
+            "endMs": 1350
+          },
+          {
+            "word": "floated",
+            "startMs": 1350,
+            "endMs": 1700
+          },
+          {
+            "word": "by...",
+            "startMs": 1700,
+            "endMs": 2300
+          },
+          {
+            "word": "puff,",
+            "startMs": 2392,
+            "endMs": 2617
+          },
+          {
+            "word": "puff.",
+            "startMs": 2680,
+            "endMs": 3392
+          },
+          {
+            "word": "Can",
+            "startMs": 3399,
+            "endMs": 3574
+          },
+          {
+            "word": "you",
+            "startMs": 3574,
+            "endMs": 3749
+          },
+          {
+            "word": "see",
+            "startMs": 3749,
+            "endMs": 3986
+          },
+          {
+            "word": "it?",
+            "startMs": 3986,
+            "endMs": 4474
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -428,6 +732,7 @@
           "onTap": {
             "sfx": "audio/sfx/whoosh.mp3",
             "say": "Puff, puff.",
+            "sayAudio": "audio/narration/en/pip-and-the-moon/p6-cloud.mp3",
             "animate": "grow"
           }
         }
@@ -463,8 +768,51 @@
           }
         ]
       },
+      "delivery": "sleepy",
       "narration": {
-        "src": "audio/narration/en/pip-and-the-moon/p7.mp3"
+        "src": "audio/narration/en/pip-and-the-moon/p7.mp3",
+        "wordTimings": [
+          {
+            "word": "Pip",
+            "startMs": 675,
+            "endMs": 1012
+          },
+          {
+            "word": "waved.",
+            "startMs": 1012,
+            "endMs": 2050
+          },
+          {
+            "word": "\"Good",
+            "startMs": 3112,
+            "endMs": 3337
+          },
+          {
+            "word": "night,",
+            "startMs": 3337,
+            "endMs": 3662
+          },
+          {
+            "word": "moon.",
+            "startMs": 3750,
+            "endMs": 4612
+          },
+          {
+            "word": "Good",
+            "startMs": 4965,
+            "endMs": 5215
+          },
+          {
+            "word": "night,",
+            "startMs": 5215,
+            "endMs": 5590
+          },
+          {
+            "word": "stars.\"",
+            "startMs": 5678,
+            "endMs": 6740
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -479,6 +827,7 @@
           "label": "pip",
           "onTap": {
             "say": "Good night!",
+            "sayAudio": "audio/narration/en/pip-and-the-moon/p7-pip.mp3",
             "animate": "wiggle"
           }
         }
@@ -506,11 +855,12 @@
           "label": "scared",
           "face": "scared"
         }
-      ]
+      ],
+      "questionAudio": "audio/narration/en/pip-and-the-moon/q9.mp3"
     },
     {
       "type": "story",
-      "text": "Pip curled up in a cosy bed.",
+      "text": "Pip curled up in a cosy bed... snug as a bug.",
       "scene": {
         "backdrop": "room",
         "props": [
@@ -537,8 +887,66 @@
           }
         ]
       },
+      "delivery": "sleepy",
       "narration": {
-        "src": "audio/narration/en/pip-and-the-moon/p8.mp3"
+        "src": "audio/narration/en/pip-and-the-moon/p8.mp3",
+        "wordTimings": [
+          {
+            "word": "Pip",
+            "startMs": 550,
+            "endMs": 888
+          },
+          {
+            "word": "curled",
+            "startMs": 888,
+            "endMs": 1300
+          },
+          {
+            "word": "up",
+            "startMs": 1300,
+            "endMs": 1538
+          },
+          {
+            "word": "in",
+            "startMs": 1538,
+            "endMs": 1612
+          },
+          {
+            "word": "a",
+            "startMs": 1612,
+            "endMs": 1725
+          },
+          {
+            "word": "cosy",
+            "startMs": 1725,
+            "endMs": 2312
+          },
+          {
+            "word": "bed...",
+            "startMs": 2312,
+            "endMs": 3125
+          },
+          {
+            "word": "snug",
+            "startMs": 4085,
+            "endMs": 4523
+          },
+          {
+            "word": "as",
+            "startMs": 4523,
+            "endMs": 4697
+          },
+          {
+            "word": "a",
+            "startMs": 4697,
+            "endMs": 4797
+          },
+          {
+            "word": "bug.",
+            "startMs": 4797,
+            "endMs": 5660
+          }
+        ]
       },
       "sfx": [],
       "hotspots": [
@@ -554,6 +962,7 @@
           "onTap": {
             "sfx": "audio/sfx/click.mp3",
             "say": "Click!",
+            "sayAudio": "audio/narration/en/pip-and-the-moon/p8-lamp.mp3",
             "animate": "grow"
           }
         }
@@ -561,7 +970,7 @@
     },
     {
       "type": "story",
-      "text": "The moon smiled and shone all night long.",
+      "text": "Shh... the moon smiled, and shone, all night long.",
       "scene": {
         "backdrop": "night",
         "props": [
@@ -583,8 +992,56 @@
           }
         ]
       },
+      "delivery": "whisper",
       "narration": {
-        "src": "audio/narration/en/pip-and-the-moon/p9.mp3"
+        "src": "audio/narration/en/pip-and-the-moon/p9.mp3",
+        "wordTimings": [
+          {
+            "word": "Shh...",
+            "startMs": 650,
+            "endMs": 1975
+          },
+          {
+            "word": "the",
+            "startMs": 1978,
+            "endMs": 2091
+          },
+          {
+            "word": "moon",
+            "startMs": 2091,
+            "endMs": 2478
+          },
+          {
+            "word": "smiled,",
+            "startMs": 2478,
+            "endMs": 3278
+          },
+          {
+            "word": "and",
+            "startMs": 3415,
+            "endMs": 3628
+          },
+          {
+            "word": "shone,",
+            "startMs": 3628,
+            "endMs": 4078
+          },
+          {
+            "word": "all",
+            "startMs": 4153,
+            "endMs": 4403
+          },
+          {
+            "word": "night",
+            "startMs": 4403,
+            "endMs": 4678
+          },
+          {
+            "word": "long.",
+            "startMs": 4678,
+            "endMs": 5503
+          }
+        ]
       },
       "sfx": [
         {

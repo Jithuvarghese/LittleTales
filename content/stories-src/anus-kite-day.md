@@ -23,13 +23,13 @@ tap: kite "Ready to fly!" wiggle
 
 ## Page
 scene: village | kite 50 30 20 | pip 30 68 32 happy
-text: Anu ran fast. Up, up went the kite!
+text: Anu ran fast. Up, up, UP went the kite! Whoosh!
 sfx: onEnter whoosh
 tap: kite "Up, up!" spin whoosh
 
 ## Page
 scene: village | kite 25 22 14 float | kite 50 18 14 float | kite 75 25 14 float | pip 50 70 30 happy
-text: The sky was full of kites. One, two, three!
+text: The sky was full of kites. Let's count! One, two, three!
 sfx: onEnter sparkle
 
 > quiz count: How many kites are in the sky? | kite 3 | 2 3 4
@@ -56,7 +56,8 @@ tap: coco "Got it!" bounce pop
 
 ## Page
 scene: village | kite 55 20 22 float | pip 30 68 30 celebrate | coco 72 30 20 celebrate
-text: The kite danced high again. Hooray!
+text: The kite danced high again. Hooray! Hooray!
+delivery: proud
 sfx: onEnter tada
 
 ## Page

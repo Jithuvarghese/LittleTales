@@ -1,7 +1,8 @@
 import { Howl, Howler } from 'howler';
 import manifest from '../../content/index.json';
 import { channels, useSettings, type Channel } from '@/app/settingsStore';
-import { playMelody, playTones, sfxNames, type SfxName } from './synth';
+import { playAmbience, playBand, playMelody, playTones, sfxNames, type AmbienceName, type SfxName } from './synth';
+import { performance as perform, splitParts, type Delivery, type Part, type Role } from '@/content/voicing';
 
 /** Music drops to this fraction of its level while a voice is speaking. */
 export const DUCK_LEVEL = 0.4;
@@ -16,6 +17,10 @@ export type SayOptions = {
   onEnd?: () => void;
   rate?: number;
   wordTimings?: { startMs: number; endMs: number }[];
+  /** Who performs the line and how (used when no recording exists). */
+  role?: Role;
+  delivery?: Delivery;
+  speaker?: Role;
 };
 
 /** Tracks overlapping voice clips so music ducks once and restores after the last ends. */
@@ -35,6 +40,15 @@ export class Ducker {
 }
 
 const knownFiles = new Set<string>((manifest as { audio?: string[] }).audio ?? []);
+const EXTS = ['.mp3', '.ogg', '.m4a', '.wav', '.webm'];
+/** Finds the recorded file for a path, accepting any delivered format (mp3 preferred). */
+export function resolveAudio(src: string | undefined, files: Set<string> = knownFiles): string | null {
+  if (!src) return null;
+  if (files.has(src)) return src;
+  const stem = src.replace(/\.(mp3|ogg|m4a|wav|webm)$/, '');
+  for (const e of EXTS) if (files.has(stem + e)) return stem + e;
+  return null;
+}
 const baseName = (src: string) => src.split('/').pop()!.replace(/\.(mp3|ogg|m4a|wav)$/, '');
 
 /**
@@ -54,6 +68,32 @@ export function rankVoice(v: Pick<SpeechSynthesisVoice, 'name' | 'lang' | 'local
   if (/(en-gb|en-in|en-au)/i.test(v.lang)) score += 5;
   if (/(desktop|espeak|zira|david|mark|hazel)/.test(n)) score -= 30;
   return score;
+}
+
+const MALE = /(guy|ryan|davis|andrew|brian|christopher|eric|roger|thomas|william|daniel|george|james|oliver|male|liam|ravi|prabhat)/i;
+
+/** Picks a distinct device voice per role so characters do not all sound the same. */
+export function voiceForRole<V extends Pick<SpeechSynthesisVoice, 'name' | 'lang' | 'localService'>>(role: Role, all: V[]): V | null {
+  const ranked = all.filter((v) => rankVoice(v) >= 0).sort((a, b) => rankVoice(b) - rankVoice(a));
+  if (!ranked.length) return null;
+  const male = ranked.filter((v) => MALE.test(v.name));
+  const female = ranked.filter((v) => !MALE.test(v.name));
+  const pick = (list: V[], i: number) => list[Math.min(i, list.length - 1)] ?? ranked[0]!;
+  switch (role) {
+    case 'bumble':
+      return male.length ? pick(male, 0) : pick(ranked, 1);
+    case 'zig':
+      return male.length ? pick(male, 1) : pick(ranked, 2);
+    case 'pip':
+    case 'songHost':
+      return pick(female, 1);
+    case 'coco':
+      return pick(female, 2);
+    case 'luna':
+      return pick(female, 3);
+    default:
+      return ranked[0]!;
+  }
 }
 
 let chosenVoice: SpeechSynthesisVoice | null = null;
@@ -94,6 +134,9 @@ class AudioManagerImpl {
   private voice: Howl | null = null;
   private wordTimer: ReturnType<typeof setInterval> | null = null;
   private preloaded = new Map<string, Howl>();
+  private speechToken = 0;
+  private stopAmbienceFn: (() => void) | null = null;
+  private currentAmbience: string | null = null;
   readonly ducker = new Ducker((d) => this.applyDuck(d));
   unlocked = false;
 
@@ -145,8 +188,9 @@ class AudioManagerImpl {
 
   /** Plays a short effect. Accepts a built-in name or a file path. */
   sfx(nameOrSrc: string, channel: 'sfx' | 'ui' = 'sfx') {
-    if (knownFiles.has(nameOrSrc)) {
-      new Howl({ src: [`/${nameOrSrc}`], volume: channelGain(channel) }).play();
+    const file = nameOrSrc.includes('/') ? resolveAudio(nameOrSrc) : null;
+    if (file) {
+      new Howl({ src: [`/${file}`], volume: channelGain(channel) }).play();
       return;
     }
     const name = baseName(nameOrSrc) as SfxName;
@@ -161,8 +205,9 @@ class AudioManagerImpl {
     if (this.currentMusic === key) return;
     this.stopMusic();
     this.currentMusic = key;
-    if (src && knownFiles.has(src)) {
-      this.musicHowl = new Howl({ src: [`/${src}`], loop: true, volume: 0, html5: true });
+    const musicFile = resolveAudio(src);
+    if (musicFile) {
+      this.musicHowl = new Howl({ src: [`/${musicFile}`], loop: true, volume: 0, html5: true });
       this.musicHowl.play();
       this.musicHowl.fade(0, channelGain('music'), 1500);
       return;
@@ -171,6 +216,14 @@ class AudioManagerImpl {
     const melody = useSettings.getState().bedtime ? 'lullaby' : baseName(key).replace(/-\d+$/, '');
     const dest = this.gains.music;
     if (this.ctx && dest) this.stopMusicFn = playMelody(this.ctx, dest, melody);
+  }
+
+  /** Song backing band with a clear beat; onBeat fires on every beat (for clap-along). */
+  band(melody: string, onBeat?: (beat: number) => void) {
+    this.stopMusic();
+    this.currentMusic = `band:${melody}`;
+    const dest = this.gains.music;
+    if (this.ctx && dest) this.stopMusicFn = playBand(this.ctx, dest, melody, onBeat);
   }
 
   stopMusic() {
@@ -187,8 +240,9 @@ class AudioManagerImpl {
 
   preload(srcs: (string | undefined)[]) {
     for (const src of srcs) {
-      if (!src || !knownFiles.has(src) || this.preloaded.has(src)) continue;
-      this.preloaded.set(src, new Howl({ src: [`/${src}`], preload: true }));
+      const file = resolveAudio(src);
+      if (!src || !file || this.preloaded.has(src)) continue;
+      this.preloaded.set(src, new Howl({ src: [`/${file}`], preload: true }));
     }
   }
 
@@ -207,8 +261,9 @@ class AudioManagerImpl {
       opts.onEnd?.();
     };
 
-    if (opts.src && knownFiles.has(opts.src)) {
-      const howl = this.preloaded.get(opts.src) ?? new Howl({ src: [`/${opts.src}`] });
+    const voiceFile = resolveAudio(opts.src);
+    if (opts.src && voiceFile) {
+      const howl = this.preloaded.get(opts.src) ?? new Howl({ src: [`/${voiceFile}`] });
       howl.volume(channelGain(channel));
       howl.once('end', done);
       howl.once('loaderror', done);
@@ -238,44 +293,73 @@ class AudioManagerImpl {
       this.evenWords(words.length, 420, opts.onWord, done);
       return;
     }
+    const parts: Part[] = splitParts(text, { role: opts.role, delivery: opts.delivery, speaker: opts.speaker });
+    const token = ++this.speechToken;
+    let wordOffset = 0;
+    let anyBoundary = false;
+    let all: SpeechSynthesisVoice[] = [];
     try {
+      all = speechSynthesis.getVoices();
       speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      const voice = bestVoice();
-      if (voice) u.voice = voice;
-      u.lang = voice?.lang ?? 'en-GB';
-      // Natural pace and pitch: slowing or raising the pitch is what makes these voices sound robotic.
-      u.rate = opts.rate ?? 0.92;
-      u.pitch = 1;
-      u.volume = channelGain(channel);
-      // Map character offsets to word indices for boundary events.
-      const starts: number[] = [];
-      let pos = 0;
-      for (const w of words) {
-        const at = text.indexOf(w, pos);
-        starts.push(at);
-        pos = at + w.length;
-      }
-      let gotBoundary = false;
-      u.onboundary = (e) => {
-        if (e.name && e.name !== 'word') return;
-        gotBoundary = true;
-        let idx = 0;
-        while (idx + 1 < starts.length && starts[idx + 1]! <= e.charIndex) idx++;
-        opts.onWord?.(idx);
-      };
-      u.onend = done;
-      u.onerror = done;
-      speechSynthesis.speak(u);
-      // Some voices never fire boundaries: fall back to even-spaced highlighting.
-      setTimeout(() => {
-        if (!gotBoundary && !this.wordTimer) this.evenWords(words.length, 480, opts.onWord);
-      }, 700);
-      // Safety net in case onend never fires.
-      setTimeout(done, Math.max(4000, words.length * 900));
     } catch {
-      this.evenWords(words.length, 420, opts.onWord, done);
+      /* ignore */
     }
+
+    const speakPart = (i: number) => {
+      if (token !== this.speechToken) return;
+      if (i >= parts.length) return done();
+      const part = parts[i]!;
+      const partWords = part.text.split(/\s+/).filter(Boolean);
+      const offset = wordOffset;
+      wordOffset += partWords.length;
+      const p = perform(part.role, part.delivery);
+      const next = () => {
+        this.clearWordTimer();
+        setTimeout(() => speakPart(i + 1), i + 1 < parts.length ? p.pauseMs : 0);
+      };
+      try {
+        const u = new SpeechSynthesisUtterance(part.text);
+        const voice = voiceForRole(part.role, all) ?? bestVoice();
+        if (voice) u.voice = voice;
+        u.lang = voice?.lang ?? 'en-GB';
+        u.rate = Math.min(1.6, Math.max(0.5, (opts.rate ?? 1) * p.rate * 1.05));
+        u.pitch = Math.min(2, Math.max(0.1, p.pitch));
+        u.volume = channelGain(channel) * p.volume;
+        const starts: number[] = [];
+        let pos = 0;
+        for (const w of partWords) {
+          const at = part.text.indexOf(w, pos);
+          starts.push(at);
+          pos = at + w.length;
+        }
+        u.onboundary = (e) => {
+          if (e.name && e.name !== 'word') return;
+          anyBoundary = true;
+          let idx = 0;
+          while (idx + 1 < starts.length && starts[idx + 1]! <= e.charIndex) idx++;
+          opts.onWord?.(offset + idx);
+        };
+        u.onstart = () => {
+          opts.onWord?.(offset);
+          // Voices that never report word boundaries get even-spaced highlighting.
+          if (anyBoundary) return;
+          let k = 0;
+          this.clearWordTimer();
+          this.wordTimer = setInterval(() => {
+            if (anyBoundary || ++k >= partWords.length) return this.clearWordTimer();
+            opts.onWord?.(offset + k);
+          }, 430 / u.rate);
+        };
+        u.onend = next;
+        u.onerror = next;
+        speechSynthesis.speak(u);
+      } catch {
+        next();
+      }
+    };
+    speakPart(0);
+    // Safety net in case the speech engine never reports the end.
+    setTimeout(() => token === this.speechToken && done(), Math.max(5000, words.length * 1100));
   }
 
   private evenWords(count: number, msPerWord: number, onWord?: (i: number) => void, onDone?: () => void) {
@@ -297,7 +381,19 @@ class AudioManagerImpl {
     this.wordTimer = null;
   }
 
+  /** Quiet scene bed (birds, sea, night...) under narration; ducks with the music. */
+  ambience(name: AmbienceName | 'none' | undefined) {
+    if ((name ?? null) === this.currentAmbience) return;
+    this.stopAmbienceFn?.();
+    this.stopAmbienceFn = null;
+    this.currentAmbience = name ?? null;
+    const dest = this.gains.music;
+    if (!name || name === 'none' || !this.ctx || !dest) return;
+    this.stopAmbienceFn = playAmbience(this.ctx, dest, name);
+  }
+
   stopVoice() {
+    this.speechToken++;
     this.clearWordTimer();
     this.voice?.stop();
     this.voice = null;
@@ -310,6 +406,7 @@ class AudioManagerImpl {
 
   stopAll() {
     this.stopVoice();
+    this.ambience('none');
     this.stopMusic();
   }
 }

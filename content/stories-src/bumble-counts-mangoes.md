@@ -12,23 +12,24 @@ cover: meadow | tree 70 45 50 | mango 64 34 10 | mango 78 40 10 | bumble 30 65 4
 
 ## Page
 scene: meadow | tree 70 45 50 | bumble 30 65 42 happy
-text: Bumble the bear loved sweet, yellow mangoes.
+text: Bumble the bear loved mangoes. Sweet, yellow, yummy mangoes!
 tap: bumble "Yum, yum!" bounce
 
 ## Page
 scene: meadow | tree 70 45 50 | mango 64 34 10 | bumble 30 65 42 thinking
-text: One mango hung on the big tree.
+text: Look up high! One mango hung on the big tree. One!
 tap: mango "One!" grow pop
 prompt: Count with your child: one!
 
 ## Page
 scene: meadow | tree 70 45 50 | mango 64 34 10 | mango 78 40 10 | bumble 30 65 42 happy
-text: Then Bumble saw two mangoes.
+text: Then Bumble saw another. One... two mangoes!
 tap: mango "Mango!" grow pop
 
 ## Page
 scene: meadow | tree 70 45 50 | mango 60 32 10 | mango 72 30 10 | mango 80 42 10 | bumble 30 65 42 celebrate
-text: One, two, three mangoes!
+text: One, two, three mangoes! Can you count them too?
+delivery: excited
 sfx: onEnter chime
 
 > quiz count: How many mangoes are there? | mango 3 | 2 3 4
@@ -62,6 +63,7 @@ tap: pip "Thank you!" bounce
 
 ## Page
 scene: meadow | mango 50 40 14 float | pip 30 68 32 celebrate | bumble 70 66 38 celebrate
-text: And one to share with you!
+text: And one to share... with you! Yum, yum!
+delivery: proud
 sfx: onEnter tada
 prompt: Pretend to take a bite. Mmm!

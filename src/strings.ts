@@ -78,6 +78,7 @@ export const strings = {
   songs: {
     listen: 'Listen',
     singAlong: 'Sing along',
+    rhymeTime: 'Rhyme time',
     instrumental: 'Music only',
     playAll: 'Play all',
   },

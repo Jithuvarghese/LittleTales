@@ -28,6 +28,8 @@ const songs = () => import('@/features/songs/Songs');
 const SongsList = lazy(() => songs().then((m) => ({ default: m.SongsList })));
 const RhymePlayer = lazy(() => songs().then((m) => ({ default: m.RhymePlayer })));
 const StickerBook = lazy(() => import('@/features/rewards/StickerBook').then((m) => ({ default: m.StickerBook })));
+// Recording studio exists only in development; the production build drops it entirely.
+const Studio = import.meta.env.DEV ? lazy(() => import('@/features/studio/Studio').then((m) => ({ default: m.Studio }))) : null;
 const ParentArea = lazy(() => import('@/features/parent/ParentArea').then((m) => ({ default: m.ParentArea })));
 
 function Loading() {
@@ -77,6 +79,7 @@ export function App() {
                 <Route path="songs/:id" element={<RhymePlayer />} />
                 <Route path="stickers" element={<StickerBook />} />
                 <Route path="grown-ups" element={<ParentArea />} />
+                {Studio && <Route path="studio" element={<Studio />} />}
                 <Route path="*" element={<HomePage />} />
               </Route>
             </Routes>

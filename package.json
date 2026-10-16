@@ -24,7 +24,12 @@
     "audio:samples": "tsx scripts/tts/generate.ts --samples",
     "audio:review": "tsx scripts/tts/review.ts",
     "test:e2e": "playwright test",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "audio:export-lines": "tsx scripts/tts/export-lines.ts",
+    "audio:import": "tsx scripts/tts/import-clips.ts",
+    "audio:bakeoff": "tsx scripts/tts/bakeoff.ts",
+    "audio:estimate": "tsx scripts/tts/generate.ts --estimate",
+    "audio:ab": "tsx scripts/tts/ab.ts"
   },
   "dependencies": {
     "@fontsource/opendyslexic": "^5.3.0",

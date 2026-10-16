@@ -12,12 +12,12 @@ cover: meadow | ball 50 75 14 | pip 30 62 36 happy | zig 70 60 36 happy
 
 ## Page
 scene: meadow | ball 60 76 14 | pip 35 62 40 idle
-text: Pip had a bright blue ball.
+text: Bounce, bounce! Pip had a bright blue ball.
 tap: ball "Bounce!" bounce boing
 
 ## Page
 scene: meadow | ball 60 76 14 | pip 35 62 40 thinking
-text: But playing ball alone was not much fun.
+text: But playing ball all alone... was not much fun.
 prompt: Ask: Is it more fun to play together?
 
 > quiz feelings: How does Pip feel? | pip
@@ -42,7 +42,7 @@ tap: zig "Beep boop!" bounce
 
 ## Page
 scene: meadow | ball 50 40 14 float | zig 75 62 32 happy | pip 25 62 34 happy
-text: Pip threw the ball. Zig caught it!
+text: Pip threw the ball... and Zig caught it! Wheee!
 sfx: onEnter boing
 tap: ball "Wheee!" spin whoosh
 
@@ -53,7 +53,8 @@ tap: ball "Wheee!" spin whoosh
 
 ## Page
 scene: meadow | ball 50 76 14 | zig 72 60 32 celebrate | pip 28 60 34 celebrate
-text: They played and laughed all afternoon.
+text: Throw, catch, giggle! They played and laughed all afternoon.
+delivery: excited
 sfx: onEnter tada
 
 ## Page

@@ -1,14 +1,35 @@
 {
-  "engine": "piper",
-  "defaults": { "speed": 0.85, "sentencePauseMs": 350 },
-  "voices": {
-    "narrator": { "piper": { "model": "en_US-amy-medium.onnx" }, "kokoro": { "voice": "af_heart" }, "speed": 0.85 },
-    "songHost": { "piper": { "model": "en_US-amy-medium.onnx" }, "kokoro": { "voice": "af_bella" }, "speed": 0.9 },
-    "pip": { "piper": { "model": "en_US-amy-medium.onnx", "speaker": 0 }, "kokoro": { "voice": "af_sky" }, "speed": 0.95 },
-    "bumble": { "piper": { "model": "en_US-ryan-medium.onnx" }, "kokoro": { "voice": "am_michael" }, "speed": 0.8 },
-    "luna": { "piper": { "model": "en_GB-alba-medium.onnx" }, "kokoro": { "voice": "bf_emma" }, "speed": 0.8 },
-    "zig": { "piper": { "model": "en_US-ryan-medium.onnx" }, "kokoro": { "voice": "am_puck" }, "speed": 1.0 },
-    "coco": { "piper": { "model": "en_US-amy-medium.onnx" }, "kokoro": { "voice": "af_nova" }, "speed": 1.0 },
-    "letters": { "piper": { "model": "en_US-amy-medium.onnx" }, "kokoro": { "voice": "af_heart" }, "speed": 0.8 }
-  }
+  "engine": "kokoro",
+  "ageRate": 0.88,
+  "leadInMs": 150,
+  "roles": {
+    "narrator": { "kokoro": "af_heart", "piper": { "model": "en_US-amy-medium.onnx" }, "rate": 1, "pitch": 1, "chain": "narrator" },
+    "pip": { "kokoro": "af_sky,af_heart", "piper": { "model": "en_US-amy-medium.onnx" }, "rate": 1.06, "pitch": 1.12, "chain": "bright" },
+    "bumble": { "kokoro": "am_michael", "piper": { "model": "en_US-ryan-medium.onnx" }, "rate": 0.9, "pitch": 0.9, "chain": "warm" },
+    "luna": { "kokoro": "bf_emma", "piper": { "model": "en_GB-alba-medium.onnx" }, "rate": 0.85, "pitch": 0.94, "chain": "warm" },
+    "zig": { "kokoro": "am_puck", "piper": { "model": "en_US-ryan-medium.onnx" }, "rate": 1, "pitch": 1.05, "chain": "robot" },
+    "coco": { "kokoro": "af_nova,af_bella", "piper": { "model": "en_US-amy-medium.onnx" }, "rate": 1.12, "pitch": 1.18, "chain": "bright" },
+    "quizHost": { "kokoro": "af_bella", "piper": { "model": "en_US-amy-medium.onnx" }, "rate": 1, "pitch": 1.03, "chain": "narrator" },
+    "teacher": { "kokoro": "af_heart,af_bella", "piper": { "model": "en_US-amy-medium.onnx" }, "rate": 0.92, "pitch": 1, "chain": "narrator" },
+    "songHost": { "kokoro": "af_bella", "piper": { "model": "en_US-amy-medium.onnx" }, "rate": 1, "pitch": 1.05, "chain": "bright" }
+  },
+  "deliveries": {
+    "narrator": { "rate": 1, "pitch": 1, "volume": 1, "pauseMs": 380 },
+    "excited": { "rate": 1.1, "pitch": 1.08, "volume": 1, "pauseMs": 260 },
+    "whisper": { "rate": 0.85, "pitch": 1, "volume": 0.6, "pauseMs": 520, "chain": "whisper" },
+    "sleepy": { "rate": 0.8, "pitch": 0.95, "volume": 0.8, "pauseMs": 600 },
+    "sad": { "rate": 0.86, "pitch": 0.94, "volume": 0.85, "pauseMs": 500 },
+    "surprised": { "rate": 1.04, "pitch": 1.12, "volume": 1, "pauseMs": 450 },
+    "silly": { "rate": 1.15, "pitch": 1.16, "volume": 1, "pauseMs": 250 },
+    "proud": { "rate": 1, "pitch": 1.05, "volume": 1, "pauseMs": 380 },
+    "gentle": { "rate": 0.9, "pitch": 1, "volume": 0.9, "pauseMs": 450 }
+  },
+  "chains": {
+    "narrator": "highpass=f=80,lowpass=f=12000,equalizer=f=200:t=q:w=1:g=2,equalizer=f=4000:t=q:w=1.2:g=3,acompressor=threshold=0.1:ratio=3:attack=10:release=150,aecho=0.85:0.5:35:0.12",
+    "warm": "highpass=f=70,lowpass=f=10000,equalizer=f=200:t=q:w=1:g=3,equalizer=f=3500:t=q:w=1.2:g=2,acompressor=threshold=0.1:ratio=3:attack=10:release=150",
+    "bright": "highpass=f=110,lowpass=f=13000,equalizer=f=250:t=q:w=1:g=1,equalizer=f=5000:t=q:w=1.2:g=4,acompressor=threshold=0.1:ratio=3:attack=8:release=120",
+    "robot": "highpass=f=120,lowpass=f=9000,equalizer=f=1800:t=q:w=1:g=3,aecho=0.8:0.7:12:0.35,flanger=delay=2:depth=1,acompressor=threshold=0.1:ratio=3",
+    "whisper": "highpass=f=200,lowpass=f=9000,equalizer=f=5000:t=q:w=1:g=4,acompressor=threshold=0.08:ratio=4"
+  },
+  "overrides": {}
 }

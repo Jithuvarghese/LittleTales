@@ -176,3 +176,235 @@ export function playMelody(ctx: AudioContext, dest: AudioNode, id: string): () =
     }
   };
 }
+
+export type AmbienceName = 'birds' | 'sea' | 'night' | 'rain' | 'wind' | 'farm';
+
+function noiseBuffer(ctx: AudioContext, seconds = 2) {
+  const buf = ctx.createBuffer(1, ctx.sampleRate * seconds, ctx.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+  return buf;
+}
+
+/** One bird call: a few quick rising/falling chirps. */
+function chirp(ctx: AudioContext, dest: AudioNode, at: number, base: number, notes: number) {
+  for (let n = 0; n < notes; n++) {
+    const t = at + n * (0.07 + Math.random() * 0.05);
+    const osc = ctx.createOscillator();
+    const g = ctx.createGain();
+    const f = base * (0.9 + Math.random() * 0.3);
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(f, t);
+    osc.frequency.exponentialRampToValueAtTime(f * (Math.random() > 0.5 ? 1.5 : 0.7), t + 0.06);
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.05, t + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
+    osc.connect(g).connect(dest);
+    osc.start(t);
+    osc.stop(t + 0.1);
+  }
+}
+
+/**
+ * Quiet, looping scene beds synthesised in code: chirping birds, the sea, night
+ * crickets, rain, wind and a farmyard. Returns a stop function.
+ */
+export function playAmbience(ctx: AudioContext, dest: AudioNode, name: AmbienceName): () => void {
+  const out = ctx.createGain();
+  out.gain.value = 0;
+  out.gain.linearRampToValueAtTime(name === 'birds' ? 0.9 : 0.5, ctx.currentTime + 1.5);
+  out.connect(dest);
+  const nodes: AudioScheduledSourceNode[] = [];
+  const timers: ReturnType<typeof setInterval>[] = [];
+
+  const noise = (type: BiquadFilterType, freq: number, q = 1, gain = 0.2) => {
+    const src = ctx.createBufferSource();
+    src.buffer = noiseBuffer(ctx);
+    src.loop = true;
+    const f = ctx.createBiquadFilter();
+    f.type = type;
+    f.frequency.value = freq;
+    f.Q.value = q;
+    const g = ctx.createGain();
+    g.gain.value = gain;
+    src.connect(f).connect(g).connect(out);
+    src.start();
+    nodes.push(src);
+    return { f, g };
+  };
+
+  if (name === 'birds' || name === 'farm') {
+    // Chirping birds: random calls from a few "birds" with their own pitch.
+    const birds = [2600, 3400, 4200];
+    timers.push(
+      setInterval(() => {
+        if (Math.random() < 0.55) {
+          const b = birds[Math.floor(Math.random() * birds.length)]!;
+          chirp(ctx, out, ctx.currentTime + Math.random() * 0.3, b, 2 + Math.floor(Math.random() * 4));
+        }
+      }, 700),
+    );
+    noise('lowpass', 500, 0.5, 0.02); // soft breeze
+  }
+  if (name === 'sea') {
+    const { g } = noise('lowpass', 700, 0.7, 0.12);
+    // Waves: slow swells.
+    const lfo = ctx.createOscillator();
+    const depth = ctx.createGain();
+    lfo.frequency.value = 0.12;
+    depth.gain.value = 0.1;
+    lfo.connect(depth).connect(g.gain);
+    lfo.start();
+    nodes.push(lfo);
+  }
+  if (name === 'rain') noise('highpass', 2500, 0.5, 0.06);
+  if (name === 'wind') {
+    const { f } = noise('bandpass', 400, 2, 0.12);
+    const lfo = ctx.createOscillator();
+    const depth = ctx.createGain();
+    lfo.frequency.value = 0.08;
+    depth.gain.value = 250;
+    lfo.connect(depth).connect(f.frequency);
+    lfo.start();
+    nodes.push(lfo);
+  }
+  if (name === 'night') {
+    // Crickets: short high trills in a slow rhythm.
+    timers.push(
+      setInterval(() => {
+        const t = ctx.currentTime;
+        for (let i = 0; i < 3; i++) {
+          const osc = ctx.createOscillator();
+          const g = ctx.createGain();
+          osc.frequency.value = 4600 + Math.random() * 300;
+          g.gain.setValueAtTime(0.0001, t + i * 0.05);
+          g.gain.exponentialRampToValueAtTime(0.012, t + i * 0.05 + 0.01);
+          g.gain.exponentialRampToValueAtTime(0.0001, t + i * 0.05 + 0.04);
+          osc.connect(g).connect(out);
+          osc.start(t + i * 0.05);
+          osc.stop(t + i * 0.05 + 0.05);
+        }
+      }, 900),
+    );
+  }
+
+  return () => {
+    timers.forEach(clearInterval);
+    try {
+      out.gain.cancelScheduledValues(ctx.currentTime);
+      out.gain.setTargetAtTime(0, ctx.currentTime, 0.3);
+    } catch {
+      /* ignore */
+    }
+    setTimeout(() => {
+      nodes.forEach((n) => {
+        try {
+          n.stop();
+        } catch {
+          /* already stopped */
+        }
+      });
+      out.disconnect();
+    }, 1200);
+  };
+}
+
+/** Default ambience for a backdrop when content does not set one. */
+export const ambienceFor = (backdrop?: string): AmbienceName | 'none' =>
+  backdrop === 'night' || backdrop === 'snow'
+    ? 'night'
+    : backdrop === 'sea' || backdrop === 'beach'
+      ? 'sea'
+      : backdrop === 'meadow' || backdrop === 'forest' || backdrop === 'village'
+        ? 'birds'
+        : 'none';
+
+/**
+ * Band backing for songs: plucked melody (ukulele-like), bass on every beat,
+ * kick and clap, so children can clap along. Calls onBeat with the beat index.
+ */
+export function playBand(ctx: AudioContext, dest: AudioNode, id: string, onBeat?: (beat: number) => void): () => void {
+  const mel = melodies[id] ?? melodies.play!;
+  const beat = 60 / mel.bpm;
+  const totalBeats = mel.notes.reduce((s, [, b]) => s + b, 0);
+  const loopLen = totalBeats * beat;
+  const clapBuf = noiseBuffer(ctx, 0.2);
+  const bus = ctx.createGain();
+  bus.connect(dest);
+  let start = ctx.currentTime + 0.1;
+  let stopped = false;
+  let beatCount = 0;
+  const beatTimers: ReturnType<typeof setTimeout>[] = [];
+
+  const pluck = (f: number, t: number, d: number, v = 0.16) => {
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = 'triangle';
+    o.frequency.value = f;
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(v, t + 0.005);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + Math.min(0.6, d));
+    o.connect(g).connect(bus);
+    o.start(t);
+    o.stop(t + Math.min(0.65, d + 0.05));
+  };
+  const kick = (t: number) => {
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.frequency.setValueAtTime(130, t);
+    o.frequency.exponentialRampToValueAtTime(50, t + 0.15);
+    g.gain.setValueAtTime(0.35, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.2);
+    o.connect(g).connect(bus);
+    o.start(t);
+    o.stop(t + 0.22);
+  };
+  const clap = (t: number) => {
+    const src = ctx.createBufferSource();
+    src.buffer = clapBuf;
+    const f = ctx.createBiquadFilter();
+    f.type = 'bandpass';
+    f.frequency.value = 1500;
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0.18, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
+    src.connect(f).connect(g).connect(bus);
+    src.start(t);
+  };
+
+  const schedule = () => {
+    // Melody (plucked) and bass following the current melody note.
+    let t = start;
+    const noteAt: { t: number; note: number }[] = [];
+    for (const [note, beats] of mel.notes) {
+      const d = beats * beat;
+      if (note > 0) {
+        pluck(midiToHz(note), t, d);
+        noteAt.push({ t, note });
+      }
+      t += d;
+    }
+    for (let b = 0; b < Math.round(totalBeats); b++) {
+      const bt = start + b * beat;
+      const current = [...noteAt].reverse().find((n) => n.t <= bt + 0.001)?.note ?? 60;
+      pluck(midiToHz(current - 24), bt, beat * 0.9, 0.22);
+      if (b % 2 === 0) kick(bt);
+      else clap(bt);
+      const idx = beatCount++;
+      const delay = (bt - ctx.currentTime) * 1000;
+      beatTimers.push(setTimeout(() => !stopped && onBeat?.(idx), Math.max(0, delay)));
+    }
+    start += loopLen;
+  };
+
+  schedule();
+  const timer = setInterval(() => {
+    if (!stopped && start - ctx.currentTime < 1.5) schedule();
+  }, 300);
+  return () => {
+    stopped = true;
+    clearInterval(timer);
+    beatTimers.forEach(clearTimeout);
+    bus.disconnect();
+  };
+}

@@ -46,7 +46,7 @@
   "pages": [
     {
       "type": "story",
-      "text": "In the quiet forest, Luna the owl woke up.",
+      "text": "Hoo, hoo... In the quiet forest, Luna the owl woke up.",
       "scene": {
         "backdrop": "night",
         "props": [
@@ -73,6 +73,7 @@
           }
         ]
       },
+      "delivery": "gentle",
       "narration": {
         "src": "audio/narration/en/luna-and-the-sleepy-forest/p1.mp3"
       },
@@ -89,6 +90,7 @@
           "label": "luna",
           "onTap": {
             "say": "Hoo, hoo!",
+            "sayAudio": "audio/narration/en/luna-and-the-sleepy-forest/p1-luna.mp3",
             "animate": "bounce"
           }
         },
@@ -103,6 +105,7 @@
           "label": "moon",
           "onTap": {
             "say": "Good evening!",
+            "sayAudio": "audio/narration/en/luna-and-the-sleepy-forest/p1-moon.mp3",
             "animate": "wiggle"
           }
         }
@@ -131,6 +134,8 @@
           }
         ]
       },
+      "delivery": "sleepy",
+      "speaker": "luna",
       "narration": {
         "src": "audio/narration/en/luna-and-the-sleepy-forest/p2.mp3"
       },
@@ -140,7 +145,7 @@
     },
     {
       "type": "story",
-      "text": "Two bunnies yawned a big yawn.",
+      "text": "Two bunnies yawned a big, big yawn. Yaaawn! Can you yawn too?",
       "scene": {
         "backdrop": "night",
         "props": [
@@ -167,6 +172,7 @@
           }
         ]
       },
+      "delivery": "sleepy",
       "narration": {
         "src": "audio/narration/en/luna-and-the-sleepy-forest/p3.mp3"
       },
@@ -183,6 +189,7 @@
           "label": "rabbit",
           "onTap": {
             "say": "Yaaawn!",
+            "sayAudio": "audio/narration/en/luna-and-the-sleepy-forest/p3-rabbit.mp3",
             "animate": "grow"
           }
         }
@@ -233,6 +240,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/luna-and-the-sleepy-forest/p4.mp3"
       },
@@ -249,6 +257,7 @@
           "label": "nest",
           "onTap": {
             "say": "Cosy nest.",
+            "sayAudio": "audio/narration/en/luna-and-the-sleepy-forest/p4-nest.mp3",
             "animate": "wiggle"
           }
         }
@@ -256,7 +265,7 @@
     },
     {
       "type": "story",
-      "text": "Bumble the bear was already snoring.",
+      "text": "Bumble the bear was already snoring. Zzz... zzz...",
       "scene": {
         "backdrop": "night",
         "props": [],
@@ -277,6 +286,7 @@
           }
         ]
       },
+      "delivery": "sleepy",
       "narration": {
         "src": "audio/narration/en/luna-and-the-sleepy-forest/p5.mp3"
       },
@@ -293,6 +303,7 @@
           "label": "bumble",
           "onTap": {
             "say": "Zzz... zzz...",
+            "sayAudio": "audio/narration/en/luna-and-the-sleepy-forest/p5-bumble.mp3",
             "animate": "grow"
           }
         }
@@ -345,6 +356,8 @@
           }
         ]
       },
+      "delivery": "whisper",
+      "speaker": "luna",
       "narration": {
         "src": "audio/narration/en/luna-and-the-sleepy-forest/p6.mp3"
       },
@@ -361,6 +374,7 @@
           "label": "frog",
           "onTap": {
             "say": "Ribbit... shh.",
+            "sayAudio": "audio/narration/en/luna-and-the-sleepy-forest/p6-frog.mp3",
             "animate": "wiggle"
           }
         }
@@ -368,7 +382,7 @@
     },
     {
       "type": "story",
-      "text": "The stars came out, one by one.",
+      "text": "The stars came out... one by one by one.",
       "scene": {
         "backdrop": "night",
         "props": [
@@ -409,6 +423,7 @@
           }
         ]
       },
+      "delivery": "whisper",
       "narration": {
         "src": "audio/narration/en/luna-and-the-sleepy-forest/p7.mp3"
       },
@@ -443,6 +458,7 @@
           }
         ]
       },
+      "delivery": "sleepy",
       "narration": {
         "src": "audio/narration/en/luna-and-the-sleepy-forest/p8.mp3"
       },
@@ -474,6 +490,8 @@
           }
         ]
       },
+      "delivery": "whisper",
+      "speaker": "luna",
       "narration": {
         "src": "audio/narration/en/luna-and-the-sleepy-forest/p9.mp3"
       },

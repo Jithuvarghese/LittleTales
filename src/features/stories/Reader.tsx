@@ -198,6 +198,7 @@ export function Reader() {
           {page?.type === 'story' ? (
             <StoryPageView
               page={page}
+              storyAmbience={story.ambience}
               mode={mode}
               onNarrationEnd={() => {
                 if (autoAdvance) advanceTimer.current = setTimeout(() => go(1), 1400);

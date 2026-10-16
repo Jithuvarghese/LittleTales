@@ -8,6 +8,7 @@
 import { readFileSync, readdirSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, basename } from 'node:path';
 import { characterId, story } from '../src/content/schema';
+import { inferDelivery, inferSpeaker } from '../src/content/voicing';
 
 const SRC = 'content/stories-src';
 const OUT = 'content/stories/en';
@@ -131,6 +132,15 @@ export function convert(md: string) {
         case 'prompt':
           page.parentPrompt = value;
           break;
+        case 'delivery':
+          page.delivery = value;
+          break;
+        case 'speaker':
+          page.speaker = value;
+          break;
+        case 'ambience':
+          page.ambience = value;
+          break;
         case 'sfx': {
           const [trigger, name] = value.split(/\s+/);
           (page.sfx as unknown[]).push({ trigger, src: `audio/sfx/${name}.mp3` });
@@ -147,13 +157,21 @@ export function convert(md: string) {
             id: target,
             label: target,
             shape: { x: it.x - it.size / 2, y: it.y - it.size / 2, w: it.size, h: it.size },
-            onTap: { say, ...(animate ? { animate } : {}), ...(sfx ? { sfx: `audio/sfx/${sfx}.mp3` } : {}) },
+            onTap: { say, sayAudio: `audio/narration/en/${meta.id}/p${n}-${target}.mp3`, ...(animate ? { animate } : {}), ...(sfx ? { sfx: `audio/sfx/${sfx}.mp3` } : {}) },
           });
           break;
         }
       }
     }
     page.narration = { src: `audio/narration/en/${meta.id}/p${n}.mp3` };
+    // Voicing: explicit lines win; otherwise infer from the words so every page is performed.
+    const text = String(page.text ?? '');
+    page.delivery ??= inferDelivery(text);
+    if (!page.speaker && /["“]/.test(text)) {
+      const cast = meta.characters!.split(',').map((s) => s.trim());
+      const who = inferSpeaker(text, cast) ?? (page.scene as { characters: { id: string; expression?: string }[] } | undefined)?.characters.find((c) => c.expression === 'talking')?.id;
+      if (who) page.speaker = who;
+    }
     pages.push(page);
   }
 
@@ -166,6 +184,7 @@ export function convert(md: string) {
     durationTag: meta.duration,
     theme: meta.theme || undefined,
     music: meta.music ? { src: `audio/music/${meta.music}.mp3`, volume: 0.4 } : undefined,
+    ambience: meta.ambience || undefined,
     characters: meta.characters!.split(',').map((s) => s.trim()),
     coverScene: meta.cover ? parseScene(meta.cover).scene : undefined,
     pages,

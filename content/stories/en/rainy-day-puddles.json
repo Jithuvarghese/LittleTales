@@ -46,7 +46,7 @@
   "pages": [
     {
       "type": "story",
-      "text": "Drip, drop! It was raining in the village.",
+      "text": "Drip, drop! Drip, drop! It was raining in the village.",
       "scene": {
         "backdrop": "village",
         "props": [
@@ -75,6 +75,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/rainy-day-puddles/p1.mp3"
       },
@@ -97,6 +98,7 @@
           "onTap": {
             "sfx": "audio/sfx/splash.mp3",
             "say": "Drip, drop!",
+            "sayAudio": "audio/narration/en/rainy-day-puddles/p1-cloud.mp3",
             "animate": "grow"
           }
         }
@@ -125,6 +127,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/rainy-day-puddles/p2.mp3"
       },
@@ -142,6 +145,7 @@
           "onTap": {
             "sfx": "audio/sfx/pop.mp3",
             "say": "Pop it open!",
+            "sayAudio": "audio/narration/en/rainy-day-puddles/p2-umbrella.mp3",
             "animate": "grow"
           }
         }
@@ -149,7 +153,7 @@
     },
     {
       "type": "story",
-      "text": "Out he went, splish, splash, splosh!",
+      "text": "Out he went... splish! Splash! Splosh!",
       "scene": {
         "backdrop": "village",
         "props": [
@@ -170,6 +174,7 @@
           }
         ]
       },
+      "delivery": "silly",
       "narration": {
         "src": "audio/narration/en/rainy-day-puddles/p3.mp3"
       },
@@ -228,6 +233,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/rainy-day-puddles/p4.mp3"
       },
@@ -244,6 +250,7 @@
           "label": "coco",
           "onTap": {
             "say": "Thank you, Bumble!",
+            "sayAudio": "audio/narration/en/rainy-day-puddles/p4-coco.mp3",
             "animate": "bounce"
           }
         }
@@ -251,7 +258,7 @@
     },
     {
       "type": "story",
-      "text": "Oh no! Bumble's sock got all wet.",
+      "text": "Oh no! Bumble's sock got all wet. Squelch!",
       "scene": {
         "backdrop": "village",
         "props": [
@@ -272,6 +279,7 @@
           }
         ]
       },
+      "delivery": "surprised",
       "narration": {
         "src": "audio/narration/en/rainy-day-puddles/p5.mp3"
       },
@@ -289,6 +297,7 @@
           "onTap": {
             "sfx": "audio/sfx/splash.mp3",
             "say": "Squelch!",
+            "sayAudio": "audio/narration/en/rainy-day-puddles/p5-sock.mp3",
             "animate": "wiggle"
           }
         }
@@ -325,6 +334,8 @@
           }
         ]
       },
+      "delivery": "excited",
+      "speaker": "coco",
       "narration": {
         "src": "audio/narration/en/rainy-day-puddles/p6.mp3"
       },
@@ -364,7 +375,7 @@
     },
     {
       "type": "story",
-      "text": "Then the rain stopped and a rainbow came out!",
+      "text": "Then the rain stopped... and look! A rainbow came out!",
       "scene": {
         "backdrop": "village",
         "props": [
@@ -392,6 +403,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/rainy-day-puddles/p7.mp3"
       },
@@ -414,6 +426,7 @@
           "onTap": {
             "sfx": "audio/sfx/chime.mp3",
             "say": "A rainbow!",
+            "sayAudio": "audio/narration/en/rainy-day-puddles/p7-rainbow.mp3",
             "animate": "grow"
           }
         }
@@ -449,6 +462,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/rainy-day-puddles/p8.mp3"
       },
@@ -465,6 +479,7 @@
           "label": "cup",
           "onTap": {
             "say": "Warm and yummy.",
+            "sayAudio": "audio/narration/en/rainy-day-puddles/p8-cup.mp3",
             "animate": "bounce"
           }
         }
@@ -493,6 +508,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/rainy-day-puddles/p9.mp3"
       },

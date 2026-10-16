@@ -12,7 +12,7 @@ cover: meadow | flower 30 70 22 | flower 70 72 22 | zig 50 55 40 happy
 
 ## Page
 scene: meadow | zig 50 60 42 idle
-text: Zig the little robot found a garden.
+text: Beep, boop! Zig the little robot found a garden.
 tap: zig "Beep boop!" bounce click
 
 ## Page
@@ -22,7 +22,7 @@ tap: flower "Pink!" wiggle sparkle
 
 ## Page
 scene: meadow | apple 40 64 20 | zig 72 60 36 thinking
-text: A red apple sat on the grass.
+text: A red apple sat on the grass. What else is red?
 tap: apple "Red!" bounce pop
 prompt: Ask: What else is red?
 
@@ -48,7 +48,8 @@ tap: butterfly "Purple!" spin sparkle
 
 ## Page
 scene: meadow | rainbow 50 40 60 | zig 50 68 34 celebrate
-text: Then all the colours made a rainbow!
+text: And then... all the colours made a rainbow!
+delivery: surprised
 sfx: onEnter sparkle
 tap: rainbow "Red, yellow, blue!" grow chime
 
@@ -59,5 +60,5 @@ tap: rainbow "Red, yellow, blue!" grow chime
 
 ## Page
 scene: meadow | rainbow 50 40 60 | flower 20 76 16 | flower 80 76 16 | zig 50 68 34 happy
-text: "Beep boop," said Zig. "I love colours!"
+text: "Beep boop," said Zig. "I love colours! Do you?"
 prompt: Ask: What is your favourite colour?

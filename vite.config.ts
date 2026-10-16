@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import { studioPlugin } from './scripts/studio/plugin';
 import { fileURLToPath, URL } from 'node:url';
 
 // Normalise the Windows drive letter so one module never loads under two paths.
@@ -12,6 +13,7 @@ const src = fileURLToPath(new URL('./src', import.meta.url)).replace(/^[a-z]:/, 
 export default defineConfig({
   plugins: [
     react(),
+    studioPlugin(),
     // Service worker for caching only (no install prompt): app shell and every
     // story chunk are precached; audio and images are cached as they are used.
     VitePWA({

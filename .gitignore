@@ -1,5 +1,6 @@
 # spec kept local only
 PROJECT_SPEC.md
+VOICE_UPGRADE.md
 
 node_modules
 dist
@@ -29,3 +30,14 @@ test-results/
 playwright-report/
 tools/samples/
 tools/audio-review.html
+
+# voice tooling output
+tools/bakeoff/
+tools/notebooks/out/
+tools/notebooks/*.json
+tools/kokoro-jobs.json
+tools/tts-tmp/
+tools/import-tmp/
+tools/ab/
+tools/generate.log
+tools/shots/

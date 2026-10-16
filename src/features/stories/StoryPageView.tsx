@@ -3,13 +3,15 @@ import type { StoryPage } from '@/content/schema';
 import { Scene, type Pulse } from '@/art/Scene';
 import { AudioManager } from '@/services/AudioManager';
 import { useSettings } from '@/app/settingsStore';
+import { ambienceFor } from '@/services/synth';
+import type { Role } from '@/content/voicing';
 
 export type ReadingMode = 'read-to-me' | 'parent-reads' | 'i-try';
 
-type Props = { page: StoryPage; mode: ReadingMode; onNarrationEnd: () => void };
+type Props = { page: StoryPage; mode: ReadingMode; onNarrationEnd: () => void; storyAmbience?: string };
 
 /** One story page: illustration with hotspots plus large, highlightable text. */
-export function StoryPageView({ page, mode, onNarrationEnd }: Props) {
+export function StoryPageView({ page, mode, onNarrationEnd, storyAmbience }: Props) {
   const [word, setWord] = useState(-1);
   const [pulse, setPulse] = useState<Pulse | null>(null);
   const letterCase = useSettings((s) => s.letterCase);
@@ -17,6 +19,7 @@ export function StoryPageView({ page, mode, onNarrationEnd }: Props) {
 
   useEffect(() => {
     setWord(-1);
+    AudioManager.ambience((page.ambience ?? storyAmbience ?? ambienceFor(page.scene?.backdrop)) as Parameters<typeof AudioManager.ambience>[0]);
     page.sfx.filter((s) => s.trigger === 'onEnter').forEach((s) => AudioManager.sfx(s.src));
     if (mode !== 'read-to-me') return;
     const wordSfx = new Map(
@@ -26,6 +29,8 @@ export function StoryPageView({ page, mode, onNarrationEnd }: Props) {
       AudioManager.say(page.text, {
         src: page.narration?.src,
         wordTimings: page.narration?.wordTimings,
+        delivery: page.delivery,
+        speaker: page.speaker as Role | undefined,
         onWord: (i) => {
           setWord(i);
           const sfx = wordSfx.get(i);
@@ -60,7 +65,15 @@ export function StoryPageView({ page, mode, onNarrationEnd }: Props) {
                 style={{ left: `${h.shape.x}%`, top: `${h.shape.y}%`, width: `${h.shape.w}%`, height: `${h.shape.h}%`, minWidth: 72, minHeight: 72 }}
                 onClick={() => {
                   if (h.onTap.sfx) AudioManager.sfx(h.onTap.sfx);
-                  if (h.onTap.say) AudioManager.say(h.onTap.say, { channel: 'narration', rate: 0.9 });
+                  if (h.onTap.say) {
+                    const isCharacter = page.scene?.characters.some((c) => c.id === h.id);
+                    AudioManager.say(h.onTap.say, {
+                      channel: 'narration',
+                      src: h.onTap.sayAudio,
+                      role: isCharacter ? (h.id as Role) : 'narrator',
+                      delivery: 'silly',
+                    });
+                  }
                   setPulse((p) => ({ id: h.id, anim: h.onTap.animate ?? 'wiggle', n: (p?.n ?? 0) + 1 }));
                 }}
               />

@@ -59,6 +59,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/the-big-blue-sea/p1.mp3"
       },
@@ -76,6 +77,7 @@
           "onTap": {
             "sfx": "audio/sfx/whoosh.mp3",
             "say": "Sail away!",
+            "sayAudio": "audio/narration/en/the-big-blue-sea/p1-boat.mp3",
             "animate": "wiggle"
           }
         }
@@ -83,7 +85,7 @@
     },
     {
       "type": "story",
-      "text": "Down below swam a happy orange fish.",
+      "text": "Blub, blub! Down below swam a happy orange fish.",
       "scene": {
         "backdrop": "sea",
         "props": [
@@ -105,6 +107,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/the-big-blue-sea/p2.mp3"
       },
@@ -122,6 +125,7 @@
           "onTap": {
             "sfx": "audio/sfx/splash.mp3",
             "say": "Blub, blub!",
+            "sayAudio": "audio/narration/en/the-big-blue-sea/p2-fish.mp3",
             "animate": "wiggle"
           }
         }
@@ -129,7 +133,7 @@
     },
     {
       "type": "story",
-      "text": "An octopus waved all eight arms.",
+      "text": "An octopus waved all eight arms. Wiggle, wiggle! Can you wave?",
       "scene": {
         "backdrop": "sea",
         "props": [
@@ -150,6 +154,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/the-big-blue-sea/p3.mp3"
       },
@@ -166,6 +171,7 @@
           "label": "octopus",
           "onTap": {
             "say": "Hello, hello, hello!",
+            "sayAudio": "audio/narration/en/the-big-blue-sea/p3-octopus.mp3",
             "animate": "spin"
           }
         }
@@ -218,6 +224,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/the-big-blue-sea/p4.mp3"
       },
@@ -234,6 +241,7 @@
           "label": "turtle",
           "onTap": {
             "say": "Slow and steady.",
+            "sayAudio": "audio/narration/en/the-big-blue-sea/p4-turtle.mp3",
             "animate": "float"
           }
         }
@@ -274,6 +282,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/the-big-blue-sea/p5.mp3"
       },
@@ -302,7 +311,7 @@
     },
     {
       "type": "story",
-      "text": "Then a giant whale swam up. Whoosh!",
+      "text": "Then... a GIANT whale swam up. Whoosh!",
       "scene": {
         "backdrop": "sea",
         "props": [
@@ -323,6 +332,7 @@
           }
         ]
       },
+      "delivery": "surprised",
       "narration": {
         "src": "audio/narration/en/the-big-blue-sea/p6.mp3"
       },
@@ -345,6 +355,7 @@
           "onTap": {
             "sfx": "audio/sfx/splash.mp3",
             "say": "Hello, little fox!",
+            "sayAudio": "audio/narration/en/the-big-blue-sea/p6-whale.mp3",
             "animate": "grow"
           }
         }
@@ -373,6 +384,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/the-big-blue-sea/p7.mp3"
       },
@@ -433,6 +445,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/the-big-blue-sea/p8.mp3"
       },
@@ -449,6 +462,7 @@
           "label": "sun",
           "onTap": {
             "say": "Welcome back!",
+            "sayAudio": "audio/narration/en/the-big-blue-sea/p8-sun.mp3",
             "animate": "grow"
           }
         }
@@ -477,6 +491,8 @@
           }
         ]
       },
+      "delivery": "narrator",
+      "speaker": "pip",
       "narration": {
         "src": "audio/narration/en/the-big-blue-sea/p9.mp3"
       },

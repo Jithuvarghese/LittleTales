@@ -31,12 +31,14 @@ const NoteIcon = () => (
     <circle cx="44" cy="40" r="7" fill="#c9a0ff" />
   </svg>
 );
-const EarIcon = () => (
-  <svg viewBox="0 0 64 64" fill="none" stroke="var(--outline)" strokeWidth="4" strokeLinecap="round" aria-hidden>
-    <path d="M10 24h10l14-12v40L20 40H10z" fill="#ffcb47" />
-    <path d="M42 22q8 10 0 20M48 16q14 16 0 32" />
-  </svg>
-);
+function ClapIcon({ dim }: { dim?: boolean }) {
+  return (
+    <svg viewBox="0 0 64 64" aria-hidden fill="none" stroke="var(--outline)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" opacity={dim ? 0.35 : 1}>
+      <path d="M22 54l-10-18q-2-5 3-6l4 4V14a4 4 0 0 1 8 0v14l6-16a4 4 0 0 1 7 3l-4 16 8-10a4 4 0 0 1 6 5L38 50q-6 8-16 4z" fill="#ffd98a" />
+      <path d="M44 6l2 6M54 12l-5 4M56 24h-6" />
+    </svg>
+  );
+}
 
 export function SongsList() {
   const navigate = useNavigate();
@@ -65,7 +67,7 @@ export function SongsList() {
   );
 }
 
-type Mode = 'listen' | 'sing' | 'instrumental';
+type Mode = 'sing' | 'chant' | 'instrumental';
 
 export function RhymePlayer() {
   const { id = '' } = useParams();
@@ -79,7 +81,8 @@ export function RhymePlayer() {
   const [line, setLine] = useState(-1);
   const [word, setWord] = useState(-1);
   const [playing, setPlaying] = useState(false);
-  const [mode, setMode] = useState<Mode>('listen');
+  const [mode, setMode] = useState<Mode>('chant');
+  const [beat, setBeat] = useState(-1);
   const [pulse, setPulse] = useState<Pulse | null>(null);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const cancelled = useRef(false);
@@ -96,6 +99,7 @@ export function RhymePlayer() {
     setPlaying(false);
     setLine(-1);
     setWord(-1);
+    setBeat(-1);
   }, []);
 
   const finished = useCallback(() => {
@@ -111,6 +115,19 @@ export function RhymePlayer() {
     }
   }, [playAll, id, navigate]);
 
+  /** Highlights each line's words evenly between its start and the next line's start. */
+  const scheduleLines = useCallback((starts: number[], endMs: number) => {
+    if (!rhyme) return;
+    rhyme.lines.forEach((l, i) => {
+      const words = l.text.split(/\s+/);
+      const from = starts[i]!;
+      const to = starts[i + 1] ?? endMs;
+      const per = (to - from) / words.length;
+      words.forEach((_, w) => timers.current.push(setTimeout(() => { setLine(i); setWord(w); }, from + w * per)));
+    });
+    timers.current.push(setTimeout(finished, endMs + 400));
+  }, [rhyme, finished]);
+
   const start = useCallback(
     (m: Mode) => {
       if (!rhyme) return;
@@ -118,44 +135,30 @@ export function RhymePlayer() {
       cancelled.current = false;
       setMode(m);
       setPlaying(true);
-      AudioManager.music(m === 'instrumental' && rhyme.instrumental ? rhyme.instrumental : `audio/music/${rhyme.melody ?? 'play'}.mp3`);
-      if (m === 'listen') {
-        // Chanted verse over the music bed, one line at a time with word highlighting.
-        const speakLine = (i: number) => {
-          if (cancelled.current) return;
-          if (i >= rhyme.lines.length) return finished();
-          setLine(i);
-          const l = rhyme.lines[i]!;
-          AudioManager.say(l.text, {
-            src: l.narration?.src,
-            wordTimings: l.narration?.wordTimings,
-            rate: 0.9,
-            onWord: setWord,
-            onEnd: () => timers.current.push(setTimeout(() => speakLine(i + 1), 250)),
-          });
-        };
-        timers.current.push(setTimeout(() => speakLine(0), 800));
-      } else {
-        // Sing along / music only: bouncing highlight in time with the tempo.
-        const beat = 60000 / rhyme.tempo;
-        let t = 800;
-        rhyme.lines.forEach((l, i) => {
-          const words = l.text.split(/\s+/);
-          const per = (beat * 8) / words.length;
-          words.forEach((_, w) => {
-            timers.current.push(setTimeout(() => { setLine(i); setWord(w); }, t + w * per));
-          });
-          t += beat * 8;
-        });
-        timers.current.push(setTimeout(finished, t + 500));
+      if (m === 'sing' && rhyme.vocal) {
+        // Real singing: line start times come from the studio tap-timing tool.
+        AudioManager.say(rhyme.lines.map((l) => l.text).join(' '), { src: rhyme.vocal, channel: 'narration', onEnd: finished });
+        const gap = 2600;
+        const starts = rhyme.lineTimings?.length === rhyme.lines.length ? rhyme.lineTimings : rhyme.lines.map((_, i) => 400 + i * gap);
+        scheduleLines(starts, starts[starts.length - 1]! + gap);
+        return;
       }
+      if (m === 'instrumental' && rhyme.instrumental) {
+        AudioManager.music(rhyme.instrumental);
+      }
+      // Rhyme time: chant along to the band, four beats per line after a one-bar count-in.
+      const beatMs = 60000 / (rhyme.tempo || 96);
+      if (m !== 'instrumental' || !rhyme.instrumental) AudioManager.band(rhyme.melody ?? 'play', setBeat);
+      const countIn = beatMs * 4;
+      const starts = rhyme.lines.map((_, i) => countIn + i * beatMs * 4);
+      scheduleLines(starts, countIn + rhyme.lines.length * beatMs * 4);
     },
-    [rhyme, stop, finished],
+    [rhyme, stop, finished, scheduleLines],
   );
 
   // Auto-play when coming from "Play all".
   useEffect(() => {
-    if (rhyme && playAll) start('listen');
+    if (rhyme && playAll) start(rhyme.vocal ? 'sing' : 'chant');
     return () => stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rhyme]);
@@ -191,19 +194,28 @@ export function RhymePlayer() {
               style={{ left: `${h.shape.x}%`, top: `${h.shape.y}%`, width: `${h.shape.w}%`, height: `${h.shape.h}%`, minWidth: 72, minHeight: 72 }}
               onClick={() => {
                 if (h.onTap.sfx) AudioManager.sfx(h.onTap.sfx);
-                if (h.onTap.say && !playing) AudioManager.say(h.onTap.say);
+                if (h.onTap.say && !playing) AudioManager.say(h.onTap.say, { role: 'songHost', delivery: 'silly', src: h.onTap.sayAudio });
                 setPulse((p) => ({ id: h.id, anim: h.onTap.animate ?? 'wiggle', n: (p?.n ?? 0) + 1 }));
               }}
             />
           ))}
         </Scene>
+        {playing && mode !== 'sing' && (
+          <div className="mt-3 flex justify-center gap-3" aria-hidden>
+            {[0, 1, 2, 3].map((b) => (
+              <motion.div key={b} className="h-12 w-12" animate={beat >= 0 && beat % 4 === b && !reduce ? { scale: [1, 1.35, 1] } : { scale: 1 }} transition={{ duration: 0.25 }}>
+                <ClapIcon dim={!(beat >= 0 && beat % 4 === b)} />
+              </motion.div>
+            ))}
+          </div>
+        )}
         <div className="mt-4 flex flex-wrap justify-center gap-4">
           {playing ? (
             <BigButton label={strings.pause} icon={<PlayIcon playing />} onClick={stop} />
           ) : (
             <>
-              <BigButton size="big" showLabel label={strings.songs.listen} icon={<EarIcon />} onClick={() => start('listen')} className="!h-32 !w-32" />
-              <BigButton size="big" showLabel label={strings.songs.singAlong} icon={<MicIcon />} onClick={() => start('sing')} className="!h-32 !w-32" />
+              {rhyme.vocal && <BigButton size="big" showLabel label={strings.songs.singAlong} icon={<MicIcon />} onClick={() => start('sing')} className="!h-32 !w-32" />}
+              <BigButton size="big" showLabel label={strings.songs.rhymeTime} icon={<ClapIcon />} onClick={() => start('chant')} className="!h-32 !w-32" />
               {rhyme.instrumental && <BigButton size="big" showLabel label={strings.songs.instrumental} icon={<NoteIcon />} onClick={() => start('instrumental')} className="!h-32 !w-32" />}
             </>
           )}
@@ -214,7 +226,7 @@ export function RhymePlayer() {
           <p key={i} className={`story-text transition-opacity ${line === i ? 'opacity-100' : 'opacity-50'}`} style={{ fontSize: 'calc(var(--story-size) * 0.6)' }}>
             {l.text.split(/\s+/).map((w, wi) => (
               <span key={wi} className="relative mx-1 inline-block">
-                {line === i && wi === word && mode !== 'listen' && (
+                {line === i && wi === word && (
                   <motion.span layoutId="ball" className="absolute -top-4 left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-hint" aria-hidden />
                 )}
                 <span className={`rounded-lg px-1 ${line === i && wi === word ? 'bg-accent' : ''}`}>{w}</span>

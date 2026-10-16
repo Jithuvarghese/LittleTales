@@ -17,12 +17,12 @@ tap: boat "Sail away!" wiggle whoosh
 
 ## Page
 scene: sea | fish 40 50 24 float | pip 80 20 18 happy
-text: Down below swam a happy orange fish.
+text: Blub, blub! Down below swam a happy orange fish.
 tap: fish "Blub, blub!" wiggle splash
 
 ## Page
 scene: sea | octopus 50 55 34 | pip 80 20 18 happy
-text: An octopus waved all eight arms.
+text: An octopus waved all eight arms. Wiggle, wiggle! Can you wave?
 tap: octopus "Hello, hello, hello!" spin
 prompt: Wave your arms like an octopus!
 
@@ -45,7 +45,7 @@ sfx: onEnter sparkle
 
 ## Page
 scene: sea | whale 50 55 50 | pip 82 18 16 surprised
-text: Then a giant whale swam up. Whoosh!
+text: Then... a GIANT whale swam up. Whoosh!
 sfx: onEnter whoosh
 tap: whale "Hello, little fox!" grow splash
 

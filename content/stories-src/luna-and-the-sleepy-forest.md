@@ -12,7 +12,8 @@ cover: night | tree 30 50 40 | moon 78 22 22 | luna 60 60 36 happy
 
 ## Page
 scene: night | moon 78 22 22 | tree 25 52 44 | luna 60 58 36 idle
-text: In the quiet forest, Luna the owl woke up.
+text: Hoo, hoo... In the quiet forest, Luna the owl woke up.
+delivery: gentle
 tap: luna "Hoo, hoo!" bounce
 tap: moon "Good evening!" wiggle
 
@@ -23,7 +24,7 @@ prompt: Ask: Who do you say good night to?
 
 ## Page
 scene: night | rabbit 40 70 26 | rabbit 60 72 22 | luna 75 40 26 happy
-text: Two bunnies yawned a big yawn.
+text: Two bunnies yawned a big, big yawn. Yaaawn! Can you yawn too?
 tap: rabbit "Yaaawn!" grow
 prompt: Can you do a big yawn?
 
@@ -36,7 +37,7 @@ tap: nest "Cosy nest." wiggle
 
 ## Page
 scene: night | bumble 45 64 42 sleepy | luna 80 40 26 happy
-text: Bumble the bear was already snoring.
+text: Bumble the bear was already snoring. Zzz... zzz...
 tap: bumble "Zzz... zzz..." grow
 
 > quiz feelings: How does Bumble feel? | bumble
@@ -51,7 +52,8 @@ tap: frog "Ribbit... shh." wiggle
 
 ## Page
 scene: night | moon 78 22 22 | star 30 15 8 float | star 52 20 8 float | tree 25 55 40 | luna 25 38 22 happy
-text: The stars came out, one by one.
+text: The stars came out... one by one by one.
+delivery: whisper
 sfx: onEnter twinkle
 
 ## Page

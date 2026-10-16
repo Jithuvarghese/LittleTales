@@ -18,6 +18,8 @@ export const category = z.enum([
   'learning',
 ]);
 export const backdrop = z.enum(['meadow', 'night', 'sea', 'room', 'forest', 'beach', 'village', 'snow']);
+export const delivery = z.enum(['narrator', 'excited', 'whisper', 'sleepy', 'sad', 'surprised', 'silly', 'proud', 'gentle']);
+export const ambience = z.enum(['birds', 'sea', 'night', 'rain', 'wind', 'farm', 'none']);
 export const animName = z.enum(['wiggle', 'bounce', 'spin', 'float', 'grow', 'none']);
 
 export const wordTiming = z.object({
@@ -64,6 +66,8 @@ export const hotspot = z.object({
   onTap: z.object({
     sfx: z.string().optional(),
     say: z.string().optional(),
+    /** Recorded or generated clip for the sound word (performed on its own). */
+    sayAudio: z.string().optional(),
     animate: animName.optional(),
   }),
 });
@@ -74,6 +78,10 @@ export const storyPage = z.object({
   image: z.string().optional(),
   animation: z.string().optional(),
   scene: scene.optional(),
+  delivery: delivery.optional(),
+  /** Character who speaks the quoted words on this page. */
+  speaker: characterId.optional(),
+  ambience: ambience.optional(),
   narration: narration.optional(),
   sfx: z.array(sfx).default([]),
   hotspots: z.array(hotspot).default([]),
@@ -140,6 +148,7 @@ export const story = z
     coverScene: scene.optional(),
     theme: themeId.optional(),
     music: music.optional(),
+    ambience: ambience.optional(),
     characters: z.array(characterId),
     pages: z.array(page).min(1),
   })
@@ -158,7 +167,9 @@ export const rhyme = z.object({
   tempo: z.number().min(40).max(160).default(90),
   scene,
   hotspots: z.array(hotspot).default([]),
+  /** Recorded singing; start time of each line in ms (from the studio tap-timing tool). */
   vocal: z.string().optional(),
+  lineTimings: z.array(z.number().nonnegative()).optional(),
   instrumental: z.string().optional(),
   counting: z.object({ prop: z.string(), from: z.number().int() }).optional(),
   lines: z.array(rhymeLine).min(1),
@@ -198,3 +209,4 @@ export type Sticker = z.infer<typeof sticker>;
 export type Category = z.infer<typeof category>;
 export type WordTiming = z.infer<typeof wordTiming>;
 export type AnimName = z.infer<typeof animName>;
+export type Ambience = z.infer<typeof ambience>;

@@ -47,7 +47,7 @@
   "pages": [
     {
       "type": "story",
-      "text": "Pip had a bright blue ball.",
+      "text": "Bounce, bounce! Pip had a bright blue ball.",
       "scene": {
         "backdrop": "meadow",
         "props": [
@@ -68,6 +68,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/pip-makes-a-friend/p1.mp3"
       },
@@ -85,6 +86,7 @@
           "onTap": {
             "sfx": "audio/sfx/boing.mp3",
             "say": "Bounce!",
+            "sayAudio": "audio/narration/en/pip-makes-a-friend/p1-ball.mp3",
             "animate": "bounce"
           }
         }
@@ -92,7 +94,7 @@
     },
     {
       "type": "story",
-      "text": "But playing ball alone was not much fun.",
+      "text": "But playing ball all alone... was not much fun.",
       "scene": {
         "backdrop": "meadow",
         "props": [
@@ -113,6 +115,7 @@
           }
         ]
       },
+      "delivery": "sad",
       "narration": {
         "src": "audio/narration/en/pip-makes-a-friend/p2.mp3"
       },
@@ -174,6 +177,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/pip-makes-a-friend/p3.mp3"
       },
@@ -191,6 +195,7 @@
           "onTap": {
             "sfx": "audio/sfx/click.mp3",
             "say": "Beep?",
+            "sayAudio": "audio/narration/en/pip-makes-a-friend/p3-zig.mp3",
             "animate": "wiggle"
           }
         }
@@ -219,6 +224,8 @@
           }
         ]
       },
+      "delivery": "excited",
+      "speaker": "pip",
       "narration": {
         "src": "audio/narration/en/pip-makes-a-friend/p4.mp3"
       },
@@ -235,6 +242,7 @@
           "label": "pip",
           "onTap": {
             "say": "Let us play!",
+            "sayAudio": "audio/narration/en/pip-makes-a-friend/p4-pip.mp3",
             "animate": "bounce"
           }
         }
@@ -263,6 +271,7 @@
           }
         ]
       },
+      "delivery": "silly",
       "narration": {
         "src": "audio/narration/en/pip-makes-a-friend/p5.mp3"
       },
@@ -279,6 +288,7 @@
           "label": "zig",
           "onTap": {
             "say": "Beep boop!",
+            "sayAudio": "audio/narration/en/pip-makes-a-friend/p5-zig.mp3",
             "animate": "bounce"
           }
         }
@@ -286,7 +296,7 @@
     },
     {
       "type": "story",
-      "text": "Pip threw the ball. Zig caught it!",
+      "text": "Pip threw the ball... and Zig caught it! Wheee!",
       "scene": {
         "backdrop": "meadow",
         "props": [
@@ -315,6 +325,7 @@
           }
         ]
       },
+      "delivery": "silly",
       "narration": {
         "src": "audio/narration/en/pip-makes-a-friend/p6.mp3"
       },
@@ -337,6 +348,7 @@
           "onTap": {
             "sfx": "audio/sfx/whoosh.mp3",
             "say": "Wheee!",
+            "sayAudio": "audio/narration/en/pip-makes-a-friend/p6-ball.mp3",
             "animate": "spin"
           }
         }
@@ -367,7 +379,7 @@
     },
     {
       "type": "story",
-      "text": "They played and laughed all afternoon.",
+      "text": "Throw, catch, giggle! They played and laughed all afternoon.",
       "scene": {
         "backdrop": "meadow",
         "props": [
@@ -395,6 +407,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/pip-makes-a-friend/p7.mp3"
       },
@@ -436,6 +449,8 @@
           }
         ]
       },
+      "delivery": "narrator",
+      "speaker": "zig",
       "narration": {
         "src": "audio/narration/en/pip-makes-a-friend/p8.mp3"
       },
@@ -474,6 +489,8 @@
           }
         ]
       },
+      "delivery": "excited",
+      "speaker": "pip",
       "narration": {
         "src": "audio/narration/en/pip-makes-a-friend/p9.mp3"
       },
@@ -491,6 +508,7 @@
           "onTap": {
             "sfx": "audio/sfx/sparkle.mp3",
             "say": "Friends!",
+            "sayAudio": "audio/narration/en/pip-makes-a-friend/p9-heart.mp3",
             "animate": "grow"
           }
         }

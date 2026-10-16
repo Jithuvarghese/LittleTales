@@ -22,7 +22,8 @@ sfx: onEnter splash
 
 ## Page
 scene: beach | ant 50 60 14 | leaf 70 30 16
-text: Splash! A wave pulled the ant into the water.
+text: Splash! A wave pulled the ant into the water. Oh no!
+delivery: surprised
 tap: ant "Help! Help!" wiggle splash
 prompt: Ask: How can someone help the ant?
 
@@ -39,7 +40,8 @@ tap: leaf "Float, float." float
 
 ## Page
 scene: beach | leaf 40 72 18 | ant 40 66 12
-text: The ant climbed on the leaf and floated to shore.
+text: The ant climbed on the leaf... and floated, safe, to shore.
+delivery: gentle
 sfx: onEnter chime
 
 ## Page
@@ -49,7 +51,8 @@ prompt: Ask: When did someone help you?
 
 ## Page
 scene: forest | tree 65 48 40 | bird 65 28 18 | hat 20 64 20
-text: Later, a hunter crept close to the dove's tree.
+text: Later... tiptoe, tiptoe... a hunter crept close to the dove's tree.
+delivery: whisper
 tap: hat "Tiptoe, tiptoe." wiggle
 
 ## Page

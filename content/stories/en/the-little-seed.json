@@ -39,7 +39,7 @@
   "pages": [
     {
       "type": "story",
-      "text": "Pip found a tiny seed in the grass.",
+      "text": "Look! Pip found a tiny, tiny seed in the grass.",
       "scene": {
         "backdrop": "meadow",
         "props": [],
@@ -53,6 +53,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/the-little-seed/p1.mp3"
       },
@@ -69,6 +70,7 @@
           "label": "pip",
           "onTap": {
             "say": "A tiny seed!",
+            "sayAudio": "audio/narration/en/the-little-seed/p1-pip.mp3",
             "animate": "bounce"
           }
         }
@@ -91,6 +93,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/the-little-seed/p2.mp3"
       },
@@ -104,7 +107,7 @@
     },
     {
       "type": "story",
-      "text": "Pitter, patter! The rain gave it a drink.",
+      "text": "Pitter, patter, pitter, patter! The rain gave it a drink.",
       "scene": {
         "backdrop": "meadow",
         "props": [
@@ -126,6 +129,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/the-little-seed/p3.mp3"
       },
@@ -148,6 +152,7 @@
           "onTap": {
             "sfx": "audio/sfx/splash.mp3",
             "say": "Pitter, patter!",
+            "sayAudio": "audio/narration/en/the-little-seed/p3-cloud.mp3",
             "animate": "grow"
           }
         }
@@ -176,6 +181,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/the-little-seed/p4.mp3"
       },
@@ -192,6 +198,7 @@
           "label": "sun",
           "onTap": {
             "say": "Grow, grow!",
+            "sayAudio": "audio/narration/en/the-little-seed/p4-sun.mp3",
             "animate": "grow"
           }
         }
@@ -220,6 +227,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/the-little-seed/p5.mp3"
       },
@@ -237,6 +245,7 @@
           "onTap": {
             "sfx": "audio/sfx/pop.mp3",
             "say": "Hello, shoot!",
+            "sayAudio": "audio/narration/en/the-little-seed/p5-leaf.mp3",
             "animate": "wiggle"
           }
         }
@@ -270,7 +279,7 @@
     },
     {
       "type": "story",
-      "text": "Day by day, it grew taller and taller.",
+      "text": "Day by day, it grew taller... and taller... and TALLER! Can you stretch up tall?",
       "scene": {
         "backdrop": "meadow",
         "props": [
@@ -297,6 +306,7 @@
           }
         ]
       },
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/the-little-seed/p6.mp3"
       },
@@ -306,7 +316,7 @@
     },
     {
       "type": "story",
-      "text": "One morning, a big pink flower opened up!",
+      "text": "One morning... ta-da! A big pink flower opened up!",
       "scene": {
         "backdrop": "meadow",
         "props": [
@@ -334,6 +344,7 @@
           }
         ]
       },
+      "delivery": "surprised",
       "narration": {
         "src": "audio/narration/en/the-little-seed/p7.mp3"
       },
@@ -351,6 +362,7 @@
           "onTap": {
             "sfx": "audio/sfx/sparkle.mp3",
             "say": "Ta-da!",
+            "sayAudio": "audio/narration/en/the-little-seed/p7-flower.mp3",
             "animate": "grow"
           }
         },
@@ -365,6 +377,7 @@
           "label": "bee",
           "onTap": {
             "say": "Buzz, buzz!",
+            "sayAudio": "audio/narration/en/the-little-seed/p7-bee.mp3",
             "animate": "spin"
           }
         }
@@ -424,6 +437,7 @@
           }
         ]
       },
+      "delivery": "narrator",
       "narration": {
         "src": "audio/narration/en/the-little-seed/p8.mp3"
       },
@@ -440,6 +454,7 @@
           "label": "butterfly",
           "onTap": {
             "say": "Flutter!",
+            "sayAudio": "audio/narration/en/the-little-seed/p8-butterfly.mp3",
             "animate": "spin"
           }
         }
@@ -474,6 +489,8 @@
           }
         ]
       },
+      "delivery": "excited",
+      "speaker": "pip",
       "narration": {
         "src": "audio/narration/en/the-little-seed/p9.mp3"
       },

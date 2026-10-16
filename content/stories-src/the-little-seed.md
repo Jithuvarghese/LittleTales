@@ -12,7 +12,7 @@ cover: meadow | flower 55 62 34 | pip 25 65 34 happy
 
 ## Page
 scene: meadow | pip 40 64 40 thinking
-text: Pip found a tiny seed in the grass.
+text: Look! Pip found a tiny, tiny seed in the grass.
 tap: pip "A tiny seed!" bounce
 prompt: Ask: What do you think will grow?
 
@@ -23,7 +23,7 @@ sfx: onEnter pop
 
 ## Page
 scene: meadow | cloud 55 20 30 float | pip 30 64 36 happy
-text: Pitter, patter! The rain gave it a drink.
+text: Pitter, patter, pitter, patter! The rain gave it a drink.
 tap: cloud "Pitter, patter!" grow splash
 sfx: onEnter splash
 
@@ -44,12 +44,13 @@ tap: leaf "Hello, shoot!" wiggle pop
 
 ## Page
 scene: meadow | leaf 50 64 20 | leaf 60 60 18 | pip 25 64 34 happy
-text: Day by day, it grew taller and taller.
+text: Day by day, it grew taller... and taller... and TALLER! Can you stretch up tall?
 prompt: Stretch up tall like a growing plant!
 
 ## Page
 scene: meadow | flower 55 58 40 | bee 75 30 16 float | pip 25 64 34 celebrate
-text: One morning, a big pink flower opened up!
+text: One morning... ta-da! A big pink flower opened up!
+delivery: surprised
 tap: flower "Ta-da!" grow sparkle
 tap: bee "Buzz, buzz!" spin
 
