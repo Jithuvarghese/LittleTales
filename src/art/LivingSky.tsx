@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useSettings } from '@/app/settingsStore';
 
@@ -54,8 +55,14 @@ const Cloud = () => (
 export function LivingSky({ calm = false }: { calm?: boolean }) {
   const reduce = useReducedMotion();
   const bedtime = useSettings((s) => s.bedtime);
-  const theme = useSettings((s) => s.theme);
-  const night = bedtime || theme === 'starry-night';
+  // Follow the theme actually on screen (a story can switch to its own night theme).
+  const [shown, setShown] = useState(() => document.documentElement.dataset.theme);
+  useEffect(() => {
+    const obs = new MutationObserver(() => setShown(document.documentElement.dataset.theme));
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    return () => obs.disconnect();
+  }, []);
+  const night = bedtime || shown === 'starry-night';
   const still = reduce || calm;
 
   return (

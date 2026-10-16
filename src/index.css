@@ -63,3 +63,8 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+.story-page-text {
+  /* Never larger than the column allows, even on short or narrow screens. */
+  font-size: min(var(--story-size), calc(1.2rem + 2.6vw), calc(1rem + 4.5vh));
+}

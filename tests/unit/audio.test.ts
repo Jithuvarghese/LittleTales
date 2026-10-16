@@ -75,3 +75,26 @@ describe('rankVoice', () => {
     expect(rankVoice(v('Google français', 'fr-FR'))).toBe(-1);
   });
 });
+
+describe('interrupting speech', () => {
+  it('never reports "finished" when stopped early (no surprise page turns or repeats) and restores music', () => {
+    vi.useFakeTimers();
+    let ended = 0;
+    AudioManager.say('One two three four five', { onEnd: () => ended++ });
+    vi.advanceTimersByTime(500);
+    AudioManager.stopVoice();
+    vi.advanceTimersByTime(10000);
+    expect(ended).toBe(0);
+    expect(AudioManager.ducker.isDucked).toBe(false);
+    vi.useRealTimers();
+  });
+  it('a new line replaces the old one without the old one finishing', () => {
+    vi.useFakeTimers();
+    const ends: string[] = [];
+    AudioManager.say('first line here', { onEnd: () => ends.push('first') });
+    AudioManager.say('second', { onEnd: () => ends.push('second') });
+    vi.advanceTimersByTime(10000);
+    expect(ends).toEqual(['second']);
+    vi.useRealTimers();
+  });
+});

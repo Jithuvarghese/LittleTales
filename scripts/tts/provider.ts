@@ -188,3 +188,39 @@ export function estimateTimings(text: string, durationMs: number, leadMs = 80, t
     return timing;
   });
 }
+
+/**
+ * Clean finishing for any voice clip: remove hiss, gate the silent gaps, fade the
+ * edges (no clicks), then two-pass linear loudness normalisation so quiet
+ * background noise is never pumped up. Keeps the clip length unchanged so word
+ * timings stay in sync. Writes a 44.1 kHz mono MP3.
+ */
+export const CLEAN_CHAIN =
+  // Steep cut below the engine's 12 kHz limit removes the faint whistle tone.
+  'lowpass=f=10500,lowpass=f=10500,lowpass=f=10500,lowpass=f=10500,' +
+  'afftdn=nf=-36:tn=1,' +
+  'agate=threshold=0.02:ratio=10:attack=3:release=150:range=0.005,' +
+  'afade=t=in:d=0.015,areverse,afade=t=in:d=0.06,areverse';
+
+/** Runs ffmpeg and returns its stderr (where loudnorm prints its measurements). */
+function ffmpegStderr(args: string[]): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const p = spawn(bin('ffmpeg'), args);
+    let err = '';
+    p.stderr.on('data', (d: Buffer) => (err += d.toString()));
+    p.on('error', reject);
+    p.on('close', () => resolve(err));
+  });
+}
+
+export async function finishClip(input: string, out: string, lufs = -16, concat = false) {
+  const src = concat ? ['-f', 'concat', '-safe', '0', '-i', input] : ['-i', input];
+  const txt = await ffmpegStderr(['-hide_banner', '-nostats', ...src, '-af', `${CLEAN_CHAIN},loudnorm=I=${lufs}:TP=-2:LRA=11:print_format=json`, '-f', 'null', '-']);
+  const m = (k: string) => txt.match(new RegExp(`"${k}"\\s*:\\s*"(-?[\\d.]+|-inf)"`))?.[1];
+  const [I, TP, LRA, TH, offset] = ['input_i', 'input_tp', 'input_lra', 'input_thresh', 'target_offset'].map(m);
+  const norm =
+    I && TP && LRA && TH && I !== '-inf'
+      ? `loudnorm=I=${lufs}:TP=-2:LRA=11:measured_I=${I}:measured_TP=${TP}:measured_LRA=${LRA}:measured_thresh=${TH}:offset=${offset ?? 0}:linear=true`
+      : `loudnorm=I=${lufs}:TP=-2:LRA=11`;
+  await run(bin('ffmpeg'), ['-y', '-loglevel', 'error', ...src, '-af', `${CLEAN_CHAIN},${norm}`, '-ar', '44100', '-ac', '1', '-b:a', '112k', out]);
+}

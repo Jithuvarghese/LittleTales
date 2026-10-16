@@ -225,7 +225,7 @@ export function RhymePlayer() {
         {rhyme.lines.map((l, i) => (
           <p key={i} className={`story-text rounded-2xl px-2 transition-all ${line === i ? 'bg-accent/30 opacity-100' : 'opacity-75'}`} style={{ fontSize: 'calc(var(--story-size) * 0.6)' }}>
             {l.text.split(/\s+/).map((w, wi) => (
-              <span key={wi} className="relative mx-1 inline-block">
+              <span key={wi} className="relative mr-[0.3em] inline-block">
                 {line === i && wi === word && (
                   <motion.span layoutId="ball" className="absolute -top-4 left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-hint" aria-hidden />
                 )}

@@ -66,6 +66,9 @@ export function Reader() {
   const autoAdvance = useSettings((s) => s.autoAdvance);
   const { addStars, completeStory, awardSticker } = useProgress.getState();
   const advanceTimer = useRef<ReturnType<typeof setTimeout>>();
+  const finishedRef = useRef(false);
+  // Never leave an automatic page turn pending after leaving the reader.
+  useEffect(() => () => clearTimeout(advanceTimer.current), []);
 
   useEffect(() => {
     setStory(undefined);
@@ -73,6 +76,8 @@ export function Reader() {
     setIndex(0);
     setFinished(false);
     setSticker(null);
+    finishedRef.current = false;
+    clearTimeout(advanceTimer.current);
     void loadStory(id).then(setStory);
   }, [id]);
 
@@ -98,13 +103,15 @@ export function Reader() {
 
   const go = useCallback(
     (delta: number) => {
-      if (!story) return;
+      // Once the story has ended, nothing (taps or timers) can end it again.
+      if (!story || finishedRef.current) return;
       clearTimeout(advanceTimer.current);
       AudioManager.stopVoice();
       const target = index + delta;
       if (target < 0) return;
       if (delta > 0 && story.pages[index]?.type === 'story') addStars(1);
       if (target >= story.pages.length) {
+        finishedRef.current = true;
         completeStory(story.id);
         setSticker(awardSticker());
         setFinished(true);
@@ -157,17 +164,19 @@ export function Reader() {
     const st = stickerData.stickers.find((s) => s.id === sticker);
     const nextStory = storyIndex[(storyIndex.findIndex((s) => s.id === story.id) + 1) % storyIndex.length]!;
     return (
-      <div className="flex flex-1 flex-col items-center justify-center gap-6 p-4">
+      <div className="flex flex-1 flex-col items-center justify-center gap-4 px-4 pb-4">
         <Celebration count={20} />
-        <CharacterHost character={story.characters[0]} expression="celebrate" size={180} />
-        <p className="font-ui text-4xl font-extrabold text-center">{strings.storyEnd.wellDone}</p>
-        {st && (
-          <motion.div initial={{ scale: 0, rotate: -30 }} animate={{ scale: 1, rotate: 0 }} className="h-32 w-32 rounded-full border-[6px] border-outline bg-surface p-3" aria-label={st.label} role="img">
-            <Prop id={st.prop} />
-          </motion.div>
-        )}
-        <div className="flex flex-wrap justify-center gap-6">
-          <BigButton size="huge" showLabel label={strings.storyEnd.again} icon={<AgainIcon />} onClick={() => { setFinished(false); setIndex(0); }} />
+        <div className="flex items-center gap-4">
+          <CharacterHost character={story.characters[0]} expression="celebrate" size={130} />
+          {st && (
+            <motion.div initial={{ scale: 0, rotate: -30 }} animate={{ scale: 1, rotate: 0 }} className="h-28 w-28 rounded-full border-[6px] border-outline bg-surface p-3" aria-label={st.label} role="img">
+              <Prop id={st.prop} />
+            </motion.div>
+          )}
+        </div>
+        <p className="text-center font-ui text-3xl font-extrabold sm:text-4xl">{strings.storyEnd.wellDone}</p>
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+          <BigButton size="huge" showLabel label={strings.storyEnd.again} icon={<AgainIcon />} onClick={() => { finishedRef.current = false; setFinished(false); setIndex(0); }} />
           <BigButton size="huge" showLabel label={strings.storyEnd.nextStory} icon={<BookIcon />} onClick={() => navigate(`/stories/${nextStory.id}`)} />
           <BigButton size="huge" showLabel label={strings.home} icon={<HomeIcon />} onClick={() => navigate('/')} />
         </div>
@@ -176,7 +185,7 @@ export function Reader() {
   }
 
   return (
-    <div className="flex flex-1 flex-col gap-3 px-4 pb-4">
+    <div className="flex flex-1 flex-col gap-3 px-3 pb-4 pt-2 sm:px-4">
       <ProgressTrail total={story.pages.length} current={index} />
       <AnimatePresence mode="wait" custom={dir}>
         <motion.div

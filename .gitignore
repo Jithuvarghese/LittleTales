@@ -41,3 +41,6 @@ tools/import-tmp/
 tools/ab/
 tools/generate.log
 tools/shots/
+tools/*.log
+tools/before.mp3
+tools/after.mp3

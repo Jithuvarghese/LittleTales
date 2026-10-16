@@ -10,8 +10,11 @@ const base = process.argv[2] ?? 'http://127.0.0.1:5173';
 const sizes = [
   { name: 'phone', width: 390, height: 844 },
   { name: 'tablet', width: 1180, height: 820 },
+  { name: 'laptop', width: 1366, height: 650 },
+  { name: 'tablet-portrait', width: 820, height: 1180 },
   { name: 'desktop', width: 1600, height: 900 },
 ];
+const stories = ['pip-and-the-moon', 'bumble-counts-mangoes', 'coco-visits-the-farm', 'zig-and-the-colour-garden', 'the-little-seed', 'luna-and-the-sleepy-forest', 'pip-makes-a-friend', 'rainy-day-puddles', 'the-ant-and-the-dove', 'anus-kite-day', 'the-big-blue-sea'];
 const screens = ['/', '/stories', '/stories/pip-and-the-moon', '/letters', '/letters/find', '/letters/meet', '/letters/bubbles', '/numbers', '/numbers/meet', '/numbers/count', '/songs', '/songs/twinkle-twinkle', '/stickers', '/grown-ups'];
 
 async function problems(page: Page) {
@@ -56,6 +59,21 @@ async function problems(page: Page) {
         if (ox > 4 && oy > 4) issues.push(`overlap: "${a.e.getAttribute('aria-label') ?? a.e.textContent?.trim().slice(0, 16)}" / "${b.e.getAttribute('aria-label') ?? b.e.textContent?.trim().slice(0, 16)}"`);
       }
     }
+    // Text: must stay on screen, not overflow its box, and never sit under a picture.
+    const scenes = [...document.querySelectorAll('[data-scene]')].map((e) => e.getBoundingClientRect());
+    for (const t of document.querySelectorAll('p, h1, h2, h3, .story-text')) {
+      const r = t.getBoundingClientRect();
+      if (!r.width || getComputedStyle(t).visibility === 'hidden' || t.closest('.sr-only')) continue;
+      const label = (t.textContent ?? '').trim().slice(0, 24);
+      if (r.right > W + 1 || r.left < -1) issues.push(`text off-screen: "${label}"`);
+      if (t.scrollWidth > t.clientWidth + 2) issues.push(`text overflows its box: "${label}"`);
+      for (const sr of scenes) {
+        if (t.closest('[data-scene]')) continue;
+        const ox = Math.min(r.right, sr.right) - Math.max(r.left, sr.left);
+        const oy = Math.min(r.bottom, sr.bottom) - Math.max(r.top, sr.top);
+        if (ox > 4 && oy > 4) issues.push(`text overlaps picture: "${label}"`);
+      }
+    }
     return [...new Set(issues)].slice(0, 12);
   });
 }
@@ -64,7 +82,8 @@ async function main() {
   mkdirSync('tools/shots', { recursive: true });
   const browser = await chromium.launch();
   let total = 0;
-  for (const size of sizes) {
+  const only = process.env.SIZES?.split(',');
+  for (const size of sizes.filter((x) => !only || only.includes(x.name))) {
     const page = await browser.newPage({ viewport: { width: size.width, height: size.height } });
     page.setDefaultTimeout(180000);
     // tsx adds a __name helper to functions sent into the page; provide it there.
@@ -81,6 +100,34 @@ async function main() {
       const p = await problems(page);
       total += p.length;
       if (p.length) console.log(`${name}:\n  ${p.join('\n  ')}`);
+    }
+    // Walk every page of every story in "Grown-up reads" mode (no narration timing needed).
+    for (const story of stories) {
+      await page.goto(`${base}/stories/${story}`);
+      const startBtn = page.getByRole('button', { name: 'Tap to start!' });
+      if (await startBtn.isVisible().catch(() => false)) await startBtn.click();
+      await page.getByRole('button', { name: 'Grown-up reads' }).click();
+      for (let i = 0; i < 25; i++) {
+        await page.waitForTimeout(700);
+        const p = await problems(page);
+        const next = page.getByRole('button', { name: 'Next' });
+        const skip = page.getByRole('button', { name: 'Skip' });
+        if (await next.isVisible().catch(() => false)) {
+          const box = await next.boundingBox();
+          if (box && box.y + box.height > size.height + 1) p.push('Next button is below the bottom of the screen');
+        }
+        if (process.env.ALL_SHOTS) await page.screenshot({ path: `tools/shots/${size.name}_${story}_p${i + 1}.png` });
+        if (p.length) {
+          total += p.length;
+          const name = `${size.name}_${story}_page${i + 1}`;
+          await page.screenshot({ path: `tools/shots/${name}.png` });
+          console.log(`${name}:\n  ${p.join('\n  ')}`);
+        }
+        if (await page.getByText('Well done! You earned a sticker!').isVisible().catch(() => false)) break;
+        if (await next.isVisible().catch(() => false)) await next.click();
+        else if (await skip.isVisible().catch(() => false)) await skip.click();
+        else break;
+      }
     }
     await page.close();
   }

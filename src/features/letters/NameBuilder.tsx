@@ -28,13 +28,16 @@ export function NameBuilder() {
     AudioManager.sfx('tada');
     AudioManager.say(`${useSettings.getState().childName}! ${strings.praise[4]}`);
     useProgress.getState().addStars(3);
-    const t = setTimeout(() => setPos(0), 5000);
-    return () => clearTimeout(t);
   }, [done]);
 
   const press = (k: string) => {
     setPressed((p) => ({ key: k, n: (p?.n ?? 0) + 1 }));
-    if (done || !target) return;
+    // After finishing, the next key press starts the name again (no automatic repeats).
+    if (done) {
+      setPos(0);
+      return;
+    }
+    if (!target) return;
     if (k === target) {
       AudioManager.sfx('chime');
       sayLetterName(k);

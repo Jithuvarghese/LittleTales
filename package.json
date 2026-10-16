@@ -29,7 +29,8 @@
     "audio:import": "tsx scripts/tts/import-clips.ts",
     "audio:bakeoff": "tsx scripts/tts/bakeoff.ts",
     "audio:estimate": "tsx scripts/tts/generate.ts --estimate",
-    "audio:ab": "tsx scripts/tts/ab.ts"
+    "audio:ab": "tsx scripts/tts/ab.ts",
+    "audio:polish": "tsx scripts/tts/polish.ts"
   },
   "dependencies": {
     "@fontsource/opendyslexic": "^5.3.0",

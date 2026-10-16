@@ -197,7 +197,7 @@ function chirp(ctx: AudioContext, dest: AudioNode, at: number, base: number, not
     osc.frequency.setValueAtTime(f, t);
     osc.frequency.exponentialRampToValueAtTime(f * (Math.random() > 0.5 ? 1.5 : 0.7), t + 0.06);
     g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(0.05, t + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.022, t + 0.01);
     g.gain.exponentialRampToValueAtTime(0.0001, t + 0.08);
     osc.connect(g).connect(dest);
     osc.start(t);
@@ -238,13 +238,13 @@ export function playAmbience(ctx: AudioContext, dest: AudioNode, name: AmbienceN
     const birds = [2600, 3400, 4200];
     timers.push(
       setInterval(() => {
-        if (Math.random() < 0.55) {
+        if (Math.random() < 0.3) {
           const b = birds[Math.floor(Math.random() * birds.length)]!;
           chirp(ctx, out, ctx.currentTime + Math.random() * 0.3, b, 2 + Math.floor(Math.random() * 4));
         }
-      }, 700),
+      }, 1400),
     );
-    noise('lowpass', 500, 0.5, 0.02); // soft breeze
+    noise('lowpass', 500, 0.5, 0.015); // soft breeze
   }
   if (name === 'sea') {
     const { g } = noise('lowpass', 700, 0.7, 0.12);
@@ -278,13 +278,13 @@ export function playAmbience(ctx: AudioContext, dest: AudioNode, name: AmbienceN
           const g = ctx.createGain();
           osc.frequency.value = 4600 + Math.random() * 300;
           g.gain.setValueAtTime(0.0001, t + i * 0.05);
-          g.gain.exponentialRampToValueAtTime(0.012, t + i * 0.05 + 0.01);
+          g.gain.exponentialRampToValueAtTime(0.006, t + i * 0.05 + 0.01);
           g.gain.exponentialRampToValueAtTime(0.0001, t + i * 0.05 + 0.04);
           osc.connect(g).connect(out);
           osc.start(t + i * 0.05);
           osc.stop(t + i * 0.05 + 0.05);
         }
-      }, 900),
+      }, 1600),
     );
   }
 

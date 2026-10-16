@@ -16,7 +16,7 @@
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { bin, estimateTimings, providers, run, type SynthJob, type WordTiming } from './provider';
+import { bin, estimateTimings, finishClip, providers, run, type SynthJob, type WordTiming } from './provider';
 import { splitParts, uiLineSrc, type Delivery, type Part, type Role } from '../../src/content/voicing';
 import { strings } from '../../src/strings';
 
@@ -232,7 +232,7 @@ async function main() {
       const r = config.roles[s.role] ?? config.roles.narrator;
       const d = config.deliveries[s.delivery] ?? config.deliveries.narrator;
       const chain = config.chains[d.chain ?? r.chain] ?? config.chains.narrator;
-      const filter = `${await pitchFilter(r.pitch * d.pitch)}${chain},silenceremove=start_periods=1:start_threshold=-50dB,areverse,silenceremove=start_periods=1:start_threshold=-50dB,areverse`;
+      const filter = `${await pitchFilter(r.pitch * d.pitch)}${chain},silenceremove=start_periods=1:start_threshold=-50dB,areverse,silenceremove=start_periods=1:start_threshold=-50dB,areverse,afade=t=in:d=0.01,areverse,afade=t=in:d=0.025,areverse`;
       await run(bin('ffmpeg'), ['-y', '-loglevel', 'error', '-i', s.raw, '-af', filter, '-ar', '24000', '-ac', '1', '-c:a', 'pcm_s16le', s.processed]);
       s.ms = await durationMs(s.processed);
       s.timings = engineTimings[i] ?? null;
@@ -265,7 +265,7 @@ async function main() {
       const lufs = (LUFS + 20 * Math.log10(vol)).toFixed(1);
       const mp3 = join('public', c.out);
       mkdirSync(dirname(mp3), { recursive: true });
-      await run(bin('ffmpeg'), ['-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', listFile, '-af', `loudnorm=I=${lufs}:TP=-1.5:LRA=11`, '-ar', '44100', '-ac', '1', '-b:a', '96k', mp3]);
+      await finishClip(listFile, mp3, Number(lufs), true);
       c.apply?.(timings);
       cache[c.out] = jobHash(c.text, voiceSettingsFor(c.parts, engineId), engineId);
     });

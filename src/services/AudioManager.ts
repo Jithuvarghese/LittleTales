@@ -135,6 +135,7 @@ class AudioManagerImpl {
   private wordTimer: ReturnType<typeof setInterval> | null = null;
   private preloaded = new Map<string, Howl>();
   private speechToken = 0;
+  private cancelCurrent: (() => void) | null = null;
   private stopAmbienceFn: (() => void) | null = null;
   private currentAmbience: string | null = null;
   readonly ducker = new Ducker((d) => this.applyDuck(d));
@@ -253,21 +254,33 @@ class AudioManagerImpl {
     const words = text.split(/\s+/).filter(Boolean);
     this.ducker.start();
     let finished = false;
+    // Natural end: restore music and tell the caller (e.g. to turn the page).
     const done = () => {
       if (finished) return;
       finished = true;
+      this.cancelCurrent = null;
       this.clearWordTimer();
       this.ducker.end();
       opts.onEnd?.();
+    };
+    // Interrupted (Next pressed, page left): restore music but never report "finished".
+    this.cancelCurrent = () => {
+      if (finished) return;
+      finished = true;
+      this.cancelCurrent = null;
+      this.clearWordTimer();
+      this.ducker.end();
     };
 
     const voiceFile = resolveAudio(opts.src);
     if (opts.src && voiceFile) {
       const howl = this.preloaded.get(opts.src) ?? new Howl({ src: [`/${voiceFile}`] });
       howl.volume(channelGain(channel));
+      // A reused (preloaded) clip must not carry listeners from an earlier, interrupted play.
+      howl.off('end');
+      howl.off('loaderror');
       howl.once('end', done);
       howl.once('loaderror', done);
-      howl.once('stop', done);
       howl.play();
       this.voice = howl;
       const timings = opts.wordTimings;
@@ -393,6 +406,7 @@ class AudioManagerImpl {
   }
 
   stopVoice() {
+    this.cancelCurrent?.();
     this.speechToken++;
     this.clearWordTimer();
     this.voice?.stop();
