@@ -118,6 +118,16 @@ function collectClips(only?: string): { clips: Clip[]; dirty: Map<string, unknow
       }
     }
   }
+  if (!only || only === 'colours') {
+    const list = JSON.parse(readFileSync('content/colours.en.json', 'utf8')).colours;
+    for (const c of list) {
+      const name = c.name[0].toUpperCase() + c.name.slice(1);
+      const like = `${name}! Like ${c.like}!`;
+      clips.push({ out: c.audio, text: like, parts: [{ text: like, role: 'teacher', delivery: 'excited' }] });
+      const find = `Pop the ${c.name} balloon!`;
+      clips.push({ out: `audio/colours/en/find-${c.name}.mp3`, text: find, parts: [{ text: find, role: 'teacher', delivery: 'excited' }] });
+    }
+  }
   if (!only || only === 'words') {
     const list = JSON.parse(readFileSync('content/words.en.json', 'utf8')).words;
     for (const w of list) {

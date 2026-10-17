@@ -36,6 +36,11 @@ const MatchGame = lazy(() => import('@/features/games/MatchGame').then((m) => ({
 const WordBuilder = lazy(() => import('@/features/letters/WordBuilder').then((m) => ({ default: m.WordBuilder })));
 const CastGallery = import.meta.env.DEV ? lazy(() => import('@/features/studio/CastGallery').then((m) => ({ default: m.CastGallery }))) : null;
 const StoryPreview = import.meta.env.DEV ? lazy(() => import('@/features/studio/StoryPreview').then((m) => ({ default: m.StoryPreview }))) : null;
+const colourz = () => import('@/features/colours/Colours');
+const ColoursHub = lazy(() => colourz().then((m) => ({ default: m.ColoursHub })));
+const MeetColour = lazy(() => colourz().then((m) => ({ default: m.MeetColour })));
+const FindColour = lazy(() => colourz().then((m) => ({ default: m.FindColour })));
+const PaintIt = lazy(() => colourz().then((m) => ({ default: m.PaintIt })));
 const ParentArea = lazy(() => import('@/features/parent/ParentArea').then((m) => ({ default: m.ParentArea })));
 
 function Loading() {
@@ -74,6 +79,10 @@ export function App() {
                 <Route path="letters/find" element={<FindKey />} />
                 <Route path="letters/bubbles" element={<FallingLetters />} />
                 <Route path="letters/name" element={<WordBuilder />} />
+                <Route path="colours" element={<ColoursHub />} />
+                <Route path="colours/meet" element={<MeetColour />} />
+                <Route path="colours/find" element={<FindColour />} />
+                <Route path="colours/paint" element={<PaintIt />} />
                 <Route path="games" element={<GamesHub />} />
                 <Route path="games/catch" element={<CatchGame />} />
                 <Route path="games/match" element={<MatchGame />} />

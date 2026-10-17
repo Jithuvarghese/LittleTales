@@ -17,6 +17,7 @@ export const strings = {
     songs: 'Songs and Rhymes',
     stickers: 'My Stickers',
     games: 'Games',
+    colours: 'Colours',
     grownUps: 'Grown-ups',
   },
   themes: {
@@ -90,6 +91,17 @@ export const strings = {
     rhymeTime: 'Rhyme time',
     instrumental: 'Music only',
     playAll: 'Play all',
+  },
+  colours: {
+    meet: 'Meet the colours',
+    find: 'Pop the colour',
+    paint: 'Paint it!',
+    like: (name: string, thing: string) => `${name}! Like ${thing}!`,
+    findPrompt: (name: string) => `Pop the ${name} balloon!`,
+    thatIs: (tapped: string, target: string) => `That one is ${tapped}. Can you find ${target}?`,
+    beautiful: 'What a beautiful picture!',
+    pickPaint: 'Pick a paint colour',
+    clear: 'Start again',
   },
   games: {
     catch: 'Catch!',

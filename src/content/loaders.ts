@@ -3,12 +3,15 @@ import lettersRaw from '../../content/letters.en.json';
 import numbersRaw from '../../content/numbers.en.json';
 import stickersRaw from '../../content/stickers.json';
 import wordsRaw from '../../content/words.en.json';
+import coloursRaw from '../../content/colours.en.json';
 import {
   lettersFile,
   numbersFile,
   rhyme,
   stickersFile,
   wordsFile,
+  coloursFile,
+  type ColourEntry,
   story,
   type Category,
   type Rhyme,
@@ -60,3 +63,5 @@ export const letters = lettersFile.parse(lettersRaw).letters;
 export const numbers = numbersFile.parse(numbersRaw).numbers;
 export const stickerData = stickersFile.parse(stickersRaw);
 export const words = wordsFile.parse(wordsRaw).words;
+export const colours = coloursFile.parse(coloursRaw).colours;
+export type { ColourEntry };
