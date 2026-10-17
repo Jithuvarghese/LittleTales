@@ -140,26 +140,13 @@
       ],
       "theme": "starry-night",
       "coverScene": {
-        "backdrop": "night",
-        "props": [
-          {
-            "x": 30,
-            "y": 50,
-            "size": 40,
-            "prop": "tree"
-          },
-          {
-            "x": 78,
-            "y": 22,
-            "size": 22,
-            "prop": "moon"
-          }
-        ],
+        "backdrop": "forest-night",
+        "props": [],
         "characters": [
           {
-            "x": 60,
+            "x": 56,
             "y": 60,
-            "size": 36,
+            "size": 26,
             "id": "luna",
             "pose": "happy"
           }
@@ -217,12 +204,12 @@
       ],
       "theme": "sunny-meadow",
       "coverScene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
             "x": 50,
-            "y": 75,
-            "size": 14,
+            "y": 78,
+            "size": 12,
             "prop": "ball"
           }
         ],
@@ -230,16 +217,17 @@
           {
             "x": 30,
             "y": 62,
-            "size": 36,
+            "size": 26,
             "id": "pip",
             "pose": "happy"
           },
           {
             "x": 70,
-            "y": 60,
-            "size": 36,
+            "y": 62,
+            "size": 26,
             "id": "zig",
-            "pose": "happy"
+            "pose": "happy",
+            "facing": "left"
           }
         ]
       }
@@ -259,26 +247,20 @@
       ],
       "theme": "under-the-sea",
       "coverScene": {
-        "backdrop": "village",
+        "backdrop": "rain",
         "props": [
           {
-            "x": 40,
-            "y": 18,
-            "size": 30,
-            "prop": "cloud"
-          },
-          {
-            "x": 60,
-            "y": 55,
-            "size": 30,
+            "x": 62,
+            "y": 54,
+            "size": 26,
             "prop": "umbrella"
           }
         ],
         "characters": [
           {
-            "x": 40,
+            "x": 38,
             "y": 66,
-            "size": 36,
+            "size": 26,
             "id": "bumble",
             "pose": "happy"
           }
@@ -295,7 +277,7 @@
       "ageBand": "5-7",
       "durationTag": "medium",
       "characters": [
-        "pip"
+        "bird"
       ],
       "theme": "sunny-meadow",
       "coverScene": {
@@ -303,17 +285,18 @@
         "props": [
           {
             "x": 35,
-            "y": 72,
-            "size": 16,
+            "y": 74,
+            "size": 14,
             "prop": "ant"
           }
         ],
         "characters": [
           {
-            "x": 65,
+            "x": 64,
             "y": 40,
-            "size": 22,
-            "id": "bird"
+            "size": 20,
+            "id": "bird",
+            "pose": "happy"
           }
         ]
       }
@@ -335,20 +318,28 @@
         "backdrop": "sea",
         "props": [
           {
-            "x": 40,
+            "x": 36,
             "y": 50,
-            "size": 22,
+            "size": 18,
             "anim": "float",
             "prop": "fish"
           },
           {
-            "x": 70,
+            "x": 68,
             "y": 60,
-            "size": 34,
+            "size": 30,
             "prop": "whale"
           }
         ],
-        "characters": []
+        "characters": [
+          {
+            "x": 20,
+            "y": 76,
+            "size": 16,
+            "id": "turtle",
+            "pose": "happy"
+          }
+        ]
       }
     },
     {
@@ -400,26 +391,28 @@
       ],
       "theme": "candy-land",
       "coverScene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 30,
-            "y": 70,
-            "size": 22,
+            "x": 26,
+            "y": 72,
+            "size": 18,
+            "anim": "sway",
             "prop": "flower"
           },
           {
-            "x": 70,
-            "y": 72,
-            "size": 22,
+            "x": 74,
+            "y": 74,
+            "size": 18,
+            "anim": "sway",
             "prop": "flower"
           }
         ],
         "characters": [
           {
             "x": 50,
-            "y": 55,
-            "size": 40,
+            "y": 60,
+            "size": 28,
             "id": "zig",
             "pose": "happy"
           }
@@ -633,12 +626,14 @@
     "audio/narration/en/luna-and-the-sleepy-forest/p2.mp3",
     "audio/narration/en/luna-and-the-sleepy-forest/p3-rabbit.mp3",
     "audio/narration/en/luna-and-the-sleepy-forest/p3.mp3",
+    "audio/narration/en/luna-and-the-sleepy-forest/p4-bird.mp3",
     "audio/narration/en/luna-and-the-sleepy-forest/p4-nest.mp3",
     "audio/narration/en/luna-and-the-sleepy-forest/p4.mp3",
     "audio/narration/en/luna-and-the-sleepy-forest/p5-bumble.mp3",
     "audio/narration/en/luna-and-the-sleepy-forest/p5.mp3",
     "audio/narration/en/luna-and-the-sleepy-forest/p6-frog.mp3",
     "audio/narration/en/luna-and-the-sleepy-forest/p6.mp3",
+    "audio/narration/en/luna-and-the-sleepy-forest/p7-star.mp3",
     "audio/narration/en/luna-and-the-sleepy-forest/p7.mp3",
     "audio/narration/en/luna-and-the-sleepy-forest/p8.mp3",
     "audio/narration/en/luna-and-the-sleepy-forest/p9.mp3",
@@ -683,10 +678,12 @@
     "audio/narration/en/pip-makes-a-friend/p9.mp3",
     "audio/narration/en/pip-makes-a-friend/q3.mp3",
     "audio/narration/en/pip-makes-a-friend/q8.mp3",
+    "audio/narration/en/rainy-day-puddles/p1-bumble.mp3",
     "audio/narration/en/rainy-day-puddles/p1-cloud.mp3",
     "audio/narration/en/rainy-day-puddles/p1.mp3",
     "audio/narration/en/rainy-day-puddles/p2-umbrella.mp3",
     "audio/narration/en/rainy-day-puddles/p2.mp3",
+    "audio/narration/en/rainy-day-puddles/p3-bumble.mp3",
     "audio/narration/en/rainy-day-puddles/p3.mp3",
     "audio/narration/en/rainy-day-puddles/p4-coco.mp3",
     "audio/narration/en/rainy-day-puddles/p4.mp3",
@@ -720,6 +717,7 @@
     "audio/narration/en/the-ant-and-the-dove/q10.mp3",
     "audio/narration/en/the-ant-and-the-dove/q5.mp3",
     "audio/narration/en/the-big-blue-sea/p1-boat.mp3",
+    "audio/narration/en/the-big-blue-sea/p1-pip.mp3",
     "audio/narration/en/the-big-blue-sea/p1.mp3",
     "audio/narration/en/the-big-blue-sea/p2-fish.mp3",
     "audio/narration/en/the-big-blue-sea/p2.mp3",
@@ -727,10 +725,12 @@
     "audio/narration/en/the-big-blue-sea/p3.mp3",
     "audio/narration/en/the-big-blue-sea/p4-turtle.mp3",
     "audio/narration/en/the-big-blue-sea/p4.mp3",
+    "audio/narration/en/the-big-blue-sea/p5-shell.mp3",
     "audio/narration/en/the-big-blue-sea/p5.mp3",
     "audio/narration/en/the-big-blue-sea/p6-whale.mp3",
     "audio/narration/en/the-big-blue-sea/p6.mp3",
     "audio/narration/en/the-big-blue-sea/p7.mp3",
+    "audio/narration/en/the-big-blue-sea/p8-boat.mp3",
     "audio/narration/en/the-big-blue-sea/p8-sun.mp3",
     "audio/narration/en/the-big-blue-sea/p8.mp3",
     "audio/narration/en/the-big-blue-sea/p9.mp3",
@@ -759,12 +759,14 @@
     "audio/narration/en/zig-and-the-colour-garden/p1-zig.mp3",
     "audio/narration/en/zig-and-the-colour-garden/p1.mp3",
     "audio/narration/en/zig-and-the-colour-garden/p2-flower.mp3",
+    "audio/narration/en/zig-and-the-colour-garden/p2-zig.mp3",
     "audio/narration/en/zig-and-the-colour-garden/p2.mp3",
     "audio/narration/en/zig-and-the-colour-garden/p3-apple.mp3",
     "audio/narration/en/zig-and-the-colour-garden/p3.mp3",
     "audio/narration/en/zig-and-the-colour-garden/p4-leaf.mp3",
     "audio/narration/en/zig-and-the-colour-garden/p4.mp3",
     "audio/narration/en/zig-and-the-colour-garden/p5-sun.mp3",
+    "audio/narration/en/zig-and-the-colour-garden/p5-zig.mp3",
     "audio/narration/en/zig-and-the-colour-garden/p5.mp3",
     "audio/narration/en/zig-and-the-colour-garden/p6-butterfly.mp3",
     "audio/narration/en/zig-and-the-colour-garden/p6.mp3",

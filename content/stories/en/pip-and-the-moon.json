@@ -266,15 +266,8 @@
       "type": "story",
       "text": "Hoo, hoo! Luna the owl flew down from the tree.",
       "scene": {
-        "backdrop": "forest",
-        "props": [
-          {
-            "x": 80,
-            "y": 18,
-            "size": 16,
-            "prop": "moon"
-          }
-        ],
+        "backdrop": "forest-night",
+        "props": [],
         "characters": [
           {
             "x": 22,

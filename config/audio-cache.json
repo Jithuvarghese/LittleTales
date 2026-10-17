@@ -103,7 +103,7 @@
   "audio/narration/en/pip-makes-a-friend/p4.mp3": "0c6e212241099d36",
   "audio/narration/en/pip-makes-a-friend/p5-zig.mp3": "1c27e3b9dded10ba",
   "audio/narration/en/pip-makes-a-friend/p6-ball.mp3": "28c344789c55d492",
-  "audio/narration/en/pip-makes-a-friend/p5.mp3": "ca92a7fd63fe1989",
+  "audio/narration/en/pip-makes-a-friend/p5.mp3": "95788123fa1e6970",
   "audio/narration/en/pip-makes-a-friend/p6.mp3": "126a1dafd2fec1fc",
   "audio/narration/en/pip-makes-a-friend/q8.mp3": "a822ac78042b92a4",
   "audio/narration/en/pip-makes-a-friend/p7.mp3": "d8b5a9acd91635a0",
@@ -154,7 +154,7 @@
   "audio/narration/en/the-big-blue-sea/p3-octopus.mp3": "1a55043e50145c2d",
   "audio/narration/en/the-big-blue-sea/q4.mp3": "dc6874be4916fdc0",
   "audio/narration/en/the-big-blue-sea/p4-turtle.mp3": "473fa2ec5673ce77",
-  "audio/narration/en/the-big-blue-sea/p4.mp3": "7bbb29535185e620",
+  "audio/narration/en/the-big-blue-sea/p4.mp3": "9de96dc5882be986",
   "audio/narration/en/the-big-blue-sea/p5.mp3": "c6f9d76c6548a57e",
   "audio/narration/en/the-big-blue-sea/q7.mp3": "9e7efa8d2d4b2ddf",
   "audio/narration/en/the-big-blue-sea/p6-whale.mp3": "16f46f7c0c71b888",
@@ -385,5 +385,14 @@
   "audio/colours/en/black.mp3": "772f90a2b3def6f3",
   "audio/colours/en/find-black.mp3": "9bcee6ed02de4fbc",
   "audio/colours/en/white.mp3": "56a4a627db816cb9",
-  "audio/colours/en/find-white.mp3": "0b154941472d3815"
+  "audio/colours/en/find-white.mp3": "0b154941472d3815",
+  "audio/narration/en/luna-and-the-sleepy-forest/p7-star.mp3": "96d18140f6397301",
+  "audio/narration/en/luna-and-the-sleepy-forest/p4-bird.mp3": "f7f35b88b6276ec6",
+  "audio/narration/en/rainy-day-puddles/p1-bumble.mp3": "d8b5fc4069b6d740",
+  "audio/narration/en/rainy-day-puddles/p3-bumble.mp3": "52646ef51f5b487c",
+  "audio/narration/en/the-big-blue-sea/p1-pip.mp3": "da63af2792c21f03",
+  "audio/narration/en/the-big-blue-sea/p5-shell.mp3": "32998960b21697c0",
+  "audio/narration/en/the-big-blue-sea/p8-boat.mp3": "33c4bc9ba7fd5b50",
+  "audio/narration/en/zig-and-the-colour-garden/p2-zig.mp3": "291f286dd72c85b4",
+  "audio/narration/en/zig-and-the-colour-garden/p5-zig.mp3": "f9f09ab8f718cae0"
 }

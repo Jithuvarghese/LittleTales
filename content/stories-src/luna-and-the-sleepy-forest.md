@@ -7,23 +7,26 @@ duration: short
 theme: starry-night
 music: lullaby-01
 characters: luna, bumble
-cover: night | tree 30 50 40 | moon 78 22 22 | luna 60 60 36 happy
+cover: forest-night | luna 56 60 26 happy
 ---
 
 ## Page
-scene: night | moon 78 22 22 | tree 25 52 44 | luna 60 58 36 idle
+scene: forest-night | luna 56 60 26 sleepy
 text: Hoo, hoo... In the quiet forest, Luna the owl woke up.
 delivery: gentle
+camera: zoom-in
+cue: 6 luna happy
 tap: luna "Hoo, hoo!" bounce
-tap: moon "Good evening!" wiggle
 
 ## Page
-scene: night | moon 78 22 22 | luna 45 58 36 talking
+scene: forest-night | luna 46 60 26 talk
 text: "Time to say good night to everyone," she said.
+speaker: luna
+camera: pan-right
 prompt: Ask: Who do you say good night to?
 
 ## Page
-scene: night | rabbit 40 70 26 | rabbit 60 72 22 | luna 75 40 26 happy
+scene: forest-night | rabbit 38 70 18 sleepy | rabbit 58 72 16 sleepy left | luna 78 44 18 happy left
 text: Two bunnies yawned a big, big yawn. Yaaawn! Can you yawn too?
 tap: rabbit "Yaaawn!" grow
 prompt: Can you do a big yawn?
@@ -31,13 +34,15 @@ prompt: Can you do a big yawn?
 > quiz count: How many bunnies are sleepy? | rabbit 2 | 1 2 3
 
 ## Page
-scene: night | nest 50 60 34 | bird 46 50 16 | luna 78 40 26 happy
+scene: forest-night | nest 50 72 24 | bird 50 62 12 sleepy | luna 78 44 18 happy left
 text: A little bird snuggled in her nest.
 tap: nest "Cosy nest." wiggle
+tap: bird "Tweet... night night." bounce
 
 ## Page
-scene: night | bumble 45 64 42 sleepy | luna 80 40 26 happy
+scene: forest-night | bumble 44 64 28 sleep | luna 80 44 18 happy left
 text: Bumble the bear was already snoring. Zzz... zzz...
+camera: zoom-in
 tap: bumble "Zzz... zzz..." grow
 
 > quiz feelings: How does Bumble feel? | bumble
@@ -46,22 +51,28 @@ tap: bumble "Zzz... zzz..." grow
 - angry
 
 ## Page
-scene: night | frog 40 72 24 | luna 75 40 26 talking
+scene: forest-night | frog 38 74 18 happy | luna 72 46 20 talk left
 text: "Shh," said Luna softly to the frog.
+speaker: luna
 tap: frog "Ribbit... shh." wiggle
 
 ## Page
-scene: night | moon 78 22 22 | star 30 15 8 float | star 52 20 8 float | tree 25 55 40 | luna 25 38 22 happy
+scene: night-sky | star 30 15 8 twinkle | star 52 20 8 twinkle | star 70 12 7 twinkle | luna 26 60 20 happy
 text: The stars came out... one by one by one.
 delivery: whisper
+effects: stars
+camera: pan-left
 sfx: onEnter twinkle
+tap: star "Twinkle!" twinkle twinkle
 
 ## Page
-scene: night | moon 78 22 22 | luna 50 58 36 happy
+scene: forest-night | luna 50 60 24 sleepy
 text: The forest was quiet, cosy and calm.
+camera: zoom-out
 prompt: Take three slow, sleepy breaths together.
 
 ## Page
-scene: night | moon 78 22 22 float | luna 50 58 34 sleepy
+scene: night-sky | moon 78 24 22 float | luna 48 62 24 sleep
 text: "Good night, forest," whispered Luna.
+speaker: luna
 sfx: onEnter chime
