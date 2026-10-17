@@ -15,7 +15,7 @@ const sizes = [
   { name: 'desktop', width: 1600, height: 900 },
 ];
 const stories = ['pip-and-the-moon', 'bumble-counts-mangoes', 'coco-visits-the-farm', 'zig-and-the-colour-garden', 'the-little-seed', 'luna-and-the-sleepy-forest', 'pip-makes-a-friend', 'rainy-day-puddles', 'the-ant-and-the-dove', 'anus-kite-day', 'the-big-blue-sea'];
-const screens = ['/', '/colours', '/colours/meet', '/colours/find', '/colours/paint', '/games', '/games/catch', '/games/match', '/letters/name', '/stories', '/stories/pip-and-the-moon', '/letters', '/letters/find', '/letters/meet', '/letters/bubbles', '/numbers', '/numbers/meet', '/numbers/count', '/songs', '/songs/twinkle-twinkle', '/stickers', '/grown-ups'];
+const screens = ['/', '/flags', '/flags/meet', '/flags/find', '/flags/pairs', '/colours', '/colours/meet', '/colours/find', '/colours/paint', '/games', '/games/catch', '/games/match', '/letters/name', '/stories', '/stories/pip-and-the-moon', '/letters', '/letters/find', '/letters/meet', '/letters/bubbles', '/numbers', '/numbers/meet', '/numbers/count', '/songs', '/songs/twinkle-twinkle', '/stickers', '/grown-ups'];
 
 async function problems(page: Page) {
   return page.evaluate(() => {

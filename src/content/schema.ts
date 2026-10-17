@@ -218,6 +218,10 @@ export const colourEntry = z.object({ name: z.string(), hex: z.string().regex(/^
 export const coloursFile = z.object({ locale, colours: z.array(colourEntry).min(6) });
 export type ColourEntry = z.infer<typeof colourEntry>;
 
+export const flagEntry = z.object({ id: z.string(), name: z.string(), continent: z.string(), audio: z.string() });
+export const flagsFile = z.object({ locale, flags: z.array(flagEntry).min(6) });
+export type FlagEntry = z.infer<typeof flagEntry>;
+
 export const sticker = z.object({ id: z.string(), album: z.string(), prop: z.string(), label: z.string() });
 export const stickersFile = z.object({ albums: z.array(z.object({ id: z.string(), label: z.string(), backdrop })), stickers: z.array(sticker) });
 

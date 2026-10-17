@@ -19,6 +19,7 @@ import { dirname, join } from 'node:path';
 import { bin, estimateTimings, finishClip, providers, run, type SynthJob, type WordTiming } from './provider';
 import { reactionSrc, reactions, splitParts, uiLineSrc, type Delivery, type Part, type Reaction, type Role } from '../../src/content/voicing';
 import { strings } from '../../src/strings';
+import { allBreakLines } from '../../src/app/breakTasks';
 
 type Clip = { out: string; text: string; parts: Part[]; apply?: (t: WordTiming[]) => void };
 type Sentence = { clip: number; part: number; display: string; spoken: string; role: Role; delivery: Delivery; raw: string; processed: string; ms: number; timings: WordTiming[] | null };
@@ -98,6 +99,7 @@ function collectClips(only?: string): { clips: Clip[]; dirty: Map<string, unknow
       [strings.screenTime.dailyDone, 'gentle'],
       [strings.quiz.countAloud, 'excited'],
       ...strings.praise.map((t) => [t, 'excited'] as [string, Delivery]),
+      ...allBreakLines.map((t) => [t, 'excited'] as [string, Delivery]),
     ];
     for (const [text, delivery] of lines) clips.push({ out: uiLineSrc(text), text, parts: [{ text, role: 'quizHost', delivery }] });
   }
@@ -126,6 +128,15 @@ function collectClips(only?: string): { clips: Clip[]; dirty: Map<string, unknow
       clips.push({ out: c.audio, text: like, parts: [{ text: like, role: 'teacher', delivery: 'excited' }] });
       const find = `Pop the ${c.name} balloon!`;
       clips.push({ out: `audio/colours/en/find-${c.name}.mp3`, text: find, parts: [{ text: find, role: 'teacher', delivery: 'excited' }] });
+    }
+  }
+  if (!only || only === 'flags') {
+    const list = JSON.parse(readFileSync('content/flags.en.json', 'utf8')).flags;
+    for (const f of list) {
+      const intro = strings.flags.intro(f.name, f.continent);
+      clips.push({ out: f.audio, text: intro, parts: [{ text: intro, role: 'teacher', delivery: 'excited' }] });
+      const find = strings.flags.findPrompt(f.name);
+      clips.push({ out: `audio/flags/en/find-${f.id}.mp3`, text: find, parts: [{ text: find, role: 'quizHost', delivery: 'excited' }] });
     }
   }
   if (!only || only === 'words') {

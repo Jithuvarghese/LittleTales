@@ -41,6 +41,11 @@ const ColoursHub = lazy(() => colourz().then((m) => ({ default: m.ColoursHub }))
 const MeetColour = lazy(() => colourz().then((m) => ({ default: m.MeetColour })));
 const FindColour = lazy(() => colourz().then((m) => ({ default: m.FindColour })));
 const PaintIt = lazy(() => colourz().then((m) => ({ default: m.PaintIt })));
+const flagz = () => import('@/features/flags/Flags');
+const FlagsHub = lazy(() => flagz().then((m) => ({ default: m.FlagsHub })));
+const MeetFlag = lazy(() => flagz().then((m) => ({ default: m.MeetFlag })));
+const FindFlag = lazy(() => flagz().then((m) => ({ default: m.FindFlag })));
+const FlagPairs = lazy(() => flagz().then((m) => ({ default: m.FlagPairs })));
 const ParentArea = lazy(() => import('@/features/parent/ParentArea').then((m) => ({ default: m.ParentArea })));
 
 function Loading() {
@@ -83,6 +88,10 @@ export function App() {
                 <Route path="colours/meet" element={<MeetColour />} />
                 <Route path="colours/find" element={<FindColour />} />
                 <Route path="colours/paint" element={<PaintIt />} />
+                <Route path="flags" element={<FlagsHub />} />
+                <Route path="flags/meet" element={<MeetFlag />} />
+                <Route path="flags/find" element={<FindFlag />} />
+                <Route path="flags/pairs" element={<FlagPairs />} />
                 <Route path="games" element={<GamesHub />} />
                 <Route path="games/catch" element={<CatchGame />} />
                 <Route path="games/match" element={<MatchGame />} />

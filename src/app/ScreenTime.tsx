@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { taskFor, type BreakTask } from './breakTasks';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { CharacterHost } from '@/components/CharacterHost';
 import { AudioManager } from '@/services/AudioManager';
@@ -21,6 +22,8 @@ export function ScreenTime() {
   const sessionSeconds = useRef(0);
   const navigate = useNavigate();
   const reduce = useReducedMotion();
+  const { pathname } = useLocation();
+  const [task, setTask] = useState<BreakTask>(() => taskFor(pathname));
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -34,9 +37,13 @@ export function ScreenTime() {
         AudioManager.say(strings.screenTime.dailyDone, { role: 'quizHost', delivery: 'gentle', src: uiLineSrc(strings.screenTime.dailyDone) });
       } else if (sessionMinutes > 0 && sessionSeconds.current >= sessionMinutes * 60) {
         sessionSeconds.current = 0;
+        // A small task linked to what the child was doing (count, find a colour, hop like a bunny).
+        const t = taskFor(location.pathname);
+        setTask(t);
         setOverlay('stretch');
         AudioManager.stopVoice();
-        AudioManager.say(strings.screenTime.stretch, { role: 'quizHost', delivery: 'excited', src: uiLineSrc(strings.screenTime.stretch) });
+        AudioManager.say(strings.screenTime.stretch, { role: 'quizHost', delivery: 'excited', src: uiLineSrc(strings.screenTime.stretch), talker: t.host });
+        AudioManager.say(t.text, { role: 'quizHost', delivery: 'excited', src: uiLineSrc(t.text), talker: t.host, queue: true });
       }
     }, TICK_S * 1000);
     return () => clearInterval(t);
@@ -63,12 +70,12 @@ export function ScreenTime() {
             exit={{ scale: 0.9, opacity: 0 }}
           >
             <motion.div animate={!reduce && !daily ? { y: [0, -14, 0] } : undefined} transition={{ repeat: Infinity, duration: 1.2 }}>
-              <CharacterHost character={daily ? 'luna' : 'pip'} expression={daily ? 'sleepy' : 'celebrate'} size={150} />
+              <CharacterHost character={daily ? 'luna' : task.host} pose={daily ? 'sleepy' : task.pose} size={150} />
             </motion.div>
             <h2 id="break-title" className="font-ui text-3xl font-extrabold leading-tight sm:text-4xl">
               {daily ? strings.screenTime.dailyTitle : strings.screenTime.stretchTitle}
             </h2>
-            <p className="font-ui text-xl leading-snug sm:text-2xl">{daily ? strings.screenTime.dailyDone : strings.screenTime.stretchHow}</p>
+            <p className="font-ui text-xl leading-snug sm:text-2xl">{daily ? strings.screenTime.dailyDone : task.text}</p>
             {daily ? (
               <button type="button" onClick={() => { setOverlay(null); navigate('/grown-ups'); }} className="min-h-[56px] rounded-full px-6 font-ui text-lg underline">
                 {strings.nav.grownUps}
@@ -76,7 +83,12 @@ export function ScreenTime() {
             ) : (
               <button
                 type="button"
-                onClick={() => { AudioManager.sfx('chime', 'ui'); setOverlay(null); }}
+                onClick={() => {
+                  AudioManager.sfx('tada', 'ui');
+                  AudioManager.react(task.host, 'yay');
+                  useProgress.getState().addStars(1);
+                  setOverlay(null);
+                }}
                 className="min-h-[72px] w-full max-w-xs rounded-blob border-[5px] border-outline bg-accent px-8 font-ui text-2xl font-extrabold text-[#2b1d16] shadow-[0_6px_0_var(--outline)]"
               >
                 {strings.screenTime.keepGoing}

@@ -18,6 +18,7 @@ export const strings = {
     stickers: 'My Stickers',
     games: 'Games',
     colours: 'Colours',
+    flags: 'Flags',
     grownUps: 'Grown-ups',
   },
   themes: {
@@ -91,6 +92,14 @@ export const strings = {
     rhymeTime: 'Rhyme time',
     instrumental: 'Music only',
     playAll: 'Play all',
+  },
+  flags: {
+    meet: 'Meet the flags',
+    find: 'Find the flag',
+    pairs: 'Flag pairs',
+    intro: (name: string, continent: string) => `This is the flag of ${name}! ${name[0]!.toUpperCase() + name.slice(1)} is in ${continent}.`,
+    findPrompt: (name: string) => `Which is the flag of ${name}?`,
+    thatIs: (name: string) => `That is the flag of ${name}. Try again!`,
   },
   colours: {
     meet: 'Meet the colours',

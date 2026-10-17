@@ -4,6 +4,7 @@ import numbersRaw from '../../content/numbers.en.json';
 import stickersRaw from '../../content/stickers.json';
 import wordsRaw from '../../content/words.en.json';
 import coloursRaw from '../../content/colours.en.json';
+import flagsRaw from '../../content/flags.en.json';
 import {
   lettersFile,
   numbersFile,
@@ -11,6 +12,8 @@ import {
   stickersFile,
   wordsFile,
   coloursFile,
+  flagsFile,
+  type FlagEntry,
   type ColourEntry,
   story,
   type Category,
@@ -64,4 +67,5 @@ export const numbers = numbersFile.parse(numbersRaw).numbers;
 export const stickerData = stickersFile.parse(stickersRaw);
 export const words = wordsFile.parse(wordsRaw).words;
 export const colours = coloursFile.parse(coloursRaw).colours;
-export type { ColourEntry };
+export type { ColourEntry, FlagEntry };
+export const flags = flagsFile.parse(flagsRaw).flags;
