@@ -45,3 +45,4 @@ tools/*.log
 tools/before.mp3
 tools/after.mp3
 tools/shoot.ts
+tools/storyshots.ts

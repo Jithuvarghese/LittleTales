@@ -30,7 +30,7 @@
         "y": 66,
         "size": 36,
         "id": "bumble",
-        "expression": "happy"
+        "pose": "happy"
       }
     ]
   },
@@ -154,7 +154,8 @@
             "animate": "grow"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -175,7 +176,7 @@
             "y": 62,
             "size": 40,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -233,7 +234,8 @@
             "animate": "grow"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -254,7 +256,7 @@
             "y": 66,
             "size": 36,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -300,7 +302,8 @@
           "src": "audio/sfx/splash.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -339,14 +342,14 @@
             "y": 36,
             "size": 26,
             "id": "coco",
-            "expression": "happy"
+            "pose": "happy"
           },
           {
             "x": 60,
             "y": 66,
             "size": 36,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -413,7 +416,8 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -434,7 +438,7 @@
             "y": 64,
             "size": 36,
             "id": "bumble",
-            "expression": "surprised"
+            "pose": "surprised"
           }
         ]
       },
@@ -503,7 +507,8 @@
           }
         }
       ],
-      "parentPrompt": "Ask: What do you wear when it rains?"
+      "parentPrompt": "Ask: What do you wear when it rains?",
+      "timeline": []
     },
     {
       "type": "story",
@@ -524,14 +529,14 @@
             "y": 40,
             "size": 24,
             "id": "coco",
-            "expression": "happy"
+            "pose": "happy"
           },
           {
             "x": 60,
             "y": 66,
             "size": 36,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -568,7 +573,8 @@
         ]
       },
       "sfx": [],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -711,7 +717,8 @@
             "animate": "grow"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -732,14 +739,14 @@
             "y": 62,
             "size": 34,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy"
           },
           {
             "x": 78,
             "y": 50,
             "size": 24,
             "id": "coco",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -796,7 +803,8 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -817,7 +825,7 @@
             "y": 58,
             "size": 32,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -864,7 +872,8 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: What do you like to do on a rainy day?"
+      "parentPrompt": "Ask: What do you like to do on a rainy day?",
+      "timeline": []
     }
   ]
 }

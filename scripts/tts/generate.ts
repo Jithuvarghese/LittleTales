@@ -17,7 +17,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { bin, estimateTimings, finishClip, providers, run, type SynthJob, type WordTiming } from './provider';
-import { splitParts, uiLineSrc, type Delivery, type Part, type Role } from '../../src/content/voicing';
+import { reactionSrc, reactions, splitParts, uiLineSrc, type Delivery, type Part, type Reaction, type Role } from '../../src/content/voicing';
 import { strings } from '../../src/strings';
 
 type Clip = { out: string; text: string; parts: Part[]; apply?: (t: WordTiming[]) => void };
@@ -109,6 +109,13 @@ function collectClips(only?: string): { clips: Clip[]; dirty: Map<string, unknow
       clips.push({ out: l.audio.sound, text: snd, parts: [{ text: snd, role: 'teacher', delivery: 'gentle' }] });
       const word = `${l.letter}, as in ${l.word}!`;
       clips.push({ out: l.audio.word, text: word, parts: [{ text: word, role: 'teacher', delivery: 'excited' }] });
+    }
+  }
+  if (!only || only === 'reactions') {
+    for (const who of ['pip', 'bumble', 'luna', 'zig', 'coco'] as const) {
+      for (const [r, text] of Object.entries(reactions)) {
+        clips.push({ out: reactionSrc(who, r as Reaction), text, parts: [{ text, role: who, delivery: r === 'hmm' ? 'gentle' : 'silly' }] });
+      }
     }
   }
   if (!only || only === 'words') {

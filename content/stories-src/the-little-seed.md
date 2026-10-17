@@ -7,34 +7,44 @@ duration: short
 theme: sunny-meadow
 music: mary-01
 characters: pip
-cover: meadow | flower 55 62 34 | pip 25 65 34 happy
+cover: meadow-day | flower 58 62 26 sway | pip 28 64 26 happy
 ---
 
 ## Page
-scene: meadow | pip 40 64 40 thinking
+scene: meadow-day | pip 40 64 28 think
 text: Look! Pip found a tiny, tiny seed in the grass.
+camera: zoom-in
+cue: 0 pip surprised
+cue: 3 pip happy
 tap: pip "A tiny seed!" bounce
 prompt: Ask: What do you think will grow?
 
 ## Page
-scene: meadow | pip 40 64 40 happy
+scene: meadow-day | pip 40 64 28 happy
 text: Pip dug a little hole and planted it.
+cue: 2 pip dance
 sfx: onEnter pop
 
 ## Page
-scene: meadow | cloud 55 20 30 float | pip 30 64 36 happy
+scene: rain | cloud 54 18 26 float | pip 30 64 26 happy
 text: Pitter, patter, pitter, patter! The rain gave it a drink.
+effects: rain
+cue: 5 pip cheer
 tap: cloud "Pitter, patter!" grow splash
 sfx: onEnter splash
 
 ## Page
-scene: meadow | sun 75 20 24 | pip 30 64 36 happy
+scene: meadow-day | pip 30 64 26 talk
 text: The warm sun said, "Grow, little seed!"
-tap: sun "Grow, grow!" grow
+speaker: pip
+effects: sunrays
+camera: pan-right
+tap: pip "Grow, grow!" bounce
 
 ## Page
-scene: meadow | leaf 55 72 14 | pip 30 64 36 celebrate
+scene: meadow-day | leaf 56 76 12 sway | pip 30 64 26 surprised
 text: Pop! A tiny green shoot peeked out.
+cue: 1 pip cheer
 tap: leaf "Hello, shoot!" wiggle pop
 
 > quiz sequence: What happens next? | leaf
@@ -43,14 +53,17 @@ tap: leaf "Hello, shoot!" wiggle pop
 - ball
 
 ## Page
-scene: meadow | leaf 50 64 20 | leaf 60 60 18 | pip 25 64 34 happy
+scene: meadow-day | leaf 52 66 16 sway | leaf 62 62 14 sway | pip 26 64 26 happy
 text: Day by day, it grew taller... and taller... and taller! Can you stretch up tall?
+cue: 7 pip cheer
 prompt: Stretch up tall like a growing plant!
 
 ## Page
-scene: meadow | flower 55 58 40 | bee 75 30 16 float | pip 25 64 34 celebrate
+scene: meadow-day | flower 58 58 32 sway | bee 78 30 14 float | pip 26 64 26 surprised
 text: One morning... ta-da! A big pink flower opened up!
 delivery: surprised
+effects: petals
+cue: 2 pip cheer
 tap: flower "Ta-da!" grow sparkle
 tap: bee "Buzz, buzz!" spin
 
@@ -60,11 +73,15 @@ tap: bee "Buzz, buzz!" spin
 - cup
 
 ## Page
-scene: meadow | flower 55 58 40 | butterfly 75 30 18 float | pip 25 64 34 happy
+scene: meadow-day | flower 58 58 32 sway | butterfly 78 30 16 float | bird 30 26 14 happy | pip 24 66 24 happy
 text: Bees and butterflies came to visit.
+effects: petals
 tap: butterfly "Flutter!" spin
 
 ## Page
-scene: meadow | flower 40 58 34 | flower 65 60 30 | pip 20 66 30 happy
+scene: meadow-sunset | flower 40 58 28 sway | flower 66 60 24 sway | pip 20 66 24 cheer
 text: "From one tiny seed," said Pip, "a flower grew!"
+speaker: pip
+effects: sunrays
+camera: zoom-out
 sfx: onEnter chime

@@ -182,13 +182,13 @@ export function Studio() {
           )}
           <div className="flex flex-wrap items-center gap-3">
             {!recording ? (
-              <button type="button" onClick={start} className="min-h-[56px] rounded-2xl border-4 border-outline bg-[#e85d4a] px-6 text-xl font-bold text-white">● Record</button>
+              <button type="button" onClick={start} className="min-h-[56px] rounded-2xl border-4 border-outline bg-[#e85d4a] px-6 text-xl font-bold text-white">Record</button>
             ) : (
-              <button type="button" onClick={stop} className="min-h-[56px] animate-pulse rounded-2xl border-4 border-outline bg-outline px-6 text-xl font-bold text-white">■ Stop</button>
+              <button type="button" onClick={stop} className="min-h-[56px] animate-pulse rounded-2xl border-4 border-outline bg-outline px-6 text-xl font-bold text-white">Stop</button>
             )}
-            <button type="button" disabled={!take} onClick={replay} className="min-h-[56px] rounded-2xl border-4 border-outline px-6 text-xl font-bold disabled:opacity-40">▶ Replay</button>
-            <button type="button" disabled={!take} onClick={start} className="min-h-[56px] rounded-2xl border-4 border-outline px-6 text-xl font-bold disabled:opacity-40">↺ Re-record</button>
-            <button type="button" disabled={!take} onClick={save} className="min-h-[56px] rounded-2xl border-4 border-outline bg-primary px-6 text-xl font-bold text-on-primary disabled:opacity-40">✓ Save &amp; next</button>
+            <button type="button" disabled={!take} onClick={replay} className="min-h-[56px] rounded-2xl border-4 border-outline px-6 text-xl font-bold disabled:opacity-40">Replay</button>
+            <button type="button" disabled={!take} onClick={start} className="min-h-[56px] rounded-2xl border-4 border-outline px-6 text-xl font-bold disabled:opacity-40">Re-record</button>
+            <button type="button" disabled={!take} onClick={save} className="min-h-[56px] rounded-2xl border-4 border-outline bg-primary px-6 text-xl font-bold text-on-primary disabled:opacity-40">Save &amp; next</button>
             <label className="ml-auto flex items-center gap-2">
               <input type="checkbox" checked={line.flagged} onChange={(e) => flag(e.target.checked)} /> Flag for redo
             </label>
@@ -218,8 +218,8 @@ export function Studio() {
           )}
           {message && <p role="status">{message}</p>}
           <div className="flex justify-between">
-            <button type="button" onClick={() => { setTake(null); setIndex((i) => Math.max(0, i - 1)); }} className="underline">← Previous line</button>
-            <button type="button" onClick={() => { setTake(null); setIndex((i) => i + 1); }} className="underline">Skip →</button>
+            <button type="button" onClick={() => { setTake(null); setIndex((i) => Math.max(0, i - 1)); }} className="underline">Previous line</button>
+            <button type="button" onClick={() => { setTake(null); setIndex((i) => i + 1); }} className="underline">Skip</button>
           </div>
           <p className="text-sm opacity-70">Keys: Space record/stop · R replay · Enter save. See docs/RECORDING_GUIDE.md.</p>
         </section>

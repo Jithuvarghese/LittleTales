@@ -17,10 +17,18 @@ export const category = z.enum([
   'fairy-tales',
   'learning',
 ]);
-export const backdrop = z.enum(['meadow', 'night', 'sea', 'room', 'forest', 'beach', 'village', 'snow']);
+export const backdrop = z.enum([
+  // presets
+  'meadow-day', 'meadow-sunset', 'forest', 'forest-night', 'night-sky', 'sea', 'beach', 'bedroom', 'kitchen', 'farm', 'city', 'rain', 'snow',
+  // older names (mapped onto presets)
+  'meadow', 'night', 'room', 'village',
+]);
+export const pose = z.enum(['idle', 'talk', 'happy', 'cheer', 'think', 'sleepy', 'sleep', 'sad-soft', 'surprised', 'wave', 'dance', 'walk']);
+export const effect = z.enum(['leaves', 'snow', 'rain', 'fireflies', 'bubbles', 'stars', 'clouds', 'sunrays', 'petals']);
+export const camera = z.enum(['still', 'zoom-in', 'zoom-out', 'pan-left', 'pan-right']);
 export const delivery = z.enum(['narrator', 'excited', 'whisper', 'sleepy', 'sad', 'surprised', 'silly', 'proud', 'gentle']);
 export const ambience = z.enum(['birds', 'sea', 'night', 'rain', 'wind', 'farm', 'none']);
-export const animName = z.enum(['wiggle', 'bounce', 'spin', 'float', 'grow', 'none']);
+export const animName = z.enum(['wiggle', 'bounce', 'spin', 'float', 'grow', 'twinkle', 'sway', 'none']);
 
 export const wordTiming = z.object({
   word: z.string(),
@@ -44,12 +52,20 @@ const placed = z.object({
 });
 
 export const sceneProp = placed.extend({ prop: z.string() });
-export const sceneCharacter = placed.extend({ id: characterId, expression: expression.optional() });
+/** Any cast member (main cast or supporting cast); ids are checked against the cast by the validator. */
+export const sceneCharacter = placed.extend({
+  id: z.string().regex(/^[a-z0-9]+$/),
+  expression: expression.optional(),
+  pose: pose.optional(),
+  facing: z.enum(['left', 'right']).optional(),
+});
 
 export const scene = z.object({
   backdrop,
   props: z.array(sceneProp).default([]),
   characters: z.array(sceneCharacter).default([]),
+  effects: z.array(effect).optional(),
+  camera: camera.optional(),
 });
 
 export const sfxTrigger = z.union([
@@ -80,12 +96,14 @@ export const storyPage = z.object({
   scene: scene.optional(),
   delivery: delivery.optional(),
   /** Character who speaks the quoted words on this page. */
-  speaker: characterId.optional(),
+  speaker: z.string().regex(/^[a-z0-9]+$/).optional(),
   ambience: ambience.optional(),
   narration: narration.optional(),
   sfx: z.array(sfx).default([]),
   hotspots: z.array(hotspot).default([]),
   parentPrompt: z.string().optional(),
+  /** Pose changes synced to narration: at word N, character X takes pose P. */
+  timeline: z.array(z.object({ word: z.number().int().nonnegative(), id: z.string(), pose })).default([]),
 });
 
 const reward = z.object({ stars: z.number().int().min(0).default(1) }).default({ stars: 1 });
@@ -149,7 +167,7 @@ export const story = z
     theme: themeId.optional(),
     music: music.optional(),
     ambience: ambience.optional(),
-    characters: z.array(characterId),
+    characters: z.array(z.string().regex(/^[a-z0-9]+$/)),
     pages: z.array(page).min(1),
   })
   .refine((s) => s.pages.filter((p) => p.type === 'story').length >= 8, {
@@ -214,3 +232,5 @@ export type Category = z.infer<typeof category>;
 export type WordTiming = z.infer<typeof wordTiming>;
 export type AnimName = z.infer<typeof animName>;
 export type Ambience = z.infer<typeof ambience>;
+export type PoseName = z.infer<typeof pose>;
+export type EffectName = z.infer<typeof effect>;

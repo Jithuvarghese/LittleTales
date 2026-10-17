@@ -30,7 +30,7 @@
         "y": 60,
         "size": 36,
         "id": "luna",
-        "expression": "happy"
+        "pose": "happy"
       }
     ]
   },
@@ -69,7 +69,7 @@
             "y": 58,
             "size": 36,
             "id": "luna",
-            "expression": "idle"
+            "pose": "idle"
           }
         ]
       },
@@ -166,7 +166,8 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -245,34 +246,34 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: Who do you say good night to?"
+      "parentPrompt": "Ask: Who do you say good night to?",
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Two bunnies yawned a big, big yawn. Yaaawn! Can you yawn too?",
       "scene": {
         "backdrop": "night",
-        "props": [
+        "props": [],
+        "characters": [
           {
             "x": 40,
             "y": 70,
             "size": 26,
-            "prop": "rabbit"
+            "id": "rabbit"
           },
           {
             "x": 60,
             "y": 72,
             "size": 22,
-            "prop": "rabbit"
-          }
-        ],
-        "characters": [
+            "id": "rabbit"
+          },
           {
             "x": 75,
             "y": 40,
             "size": 26,
             "id": "luna",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -360,7 +361,8 @@
           }
         }
       ],
-      "parentPrompt": "Can you do a big yawn?"
+      "parentPrompt": "Can you do a big yawn?",
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -389,21 +391,21 @@
             "y": 60,
             "size": 34,
             "prop": "nest"
-          },
+          }
+        ],
+        "characters": [
           {
             "x": 46,
             "y": 50,
             "size": 16,
-            "prop": "bird"
-          }
-        ],
-        "characters": [
+            "id": "bird"
+          },
           {
             "x": 78,
             "y": 40,
             "size": 26,
             "id": "luna",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -465,7 +467,8 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -479,14 +482,14 @@
             "y": 64,
             "size": 42,
             "id": "bumble",
-            "expression": "sleepy"
+            "pose": "sleepy"
           },
           {
             "x": 80,
             "y": 40,
             "size": 26,
             "id": "luna",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -553,7 +556,8 @@
             "animate": "grow"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -585,15 +589,14 @@
       "text": "\"Shh,\" said Luna softly to the frog.",
       "scene": {
         "backdrop": "night",
-        "props": [
+        "props": [],
+        "characters": [
           {
             "x": 40,
             "y": 72,
             "size": 24,
-            "prop": "frog"
-          }
-        ],
-        "characters": [
+            "id": "frog"
+          },
           {
             "x": 75,
             "y": 40,
@@ -662,7 +665,8 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -703,7 +707,7 @@
             "y": 38,
             "size": 22,
             "id": "luna",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -764,7 +768,8 @@
           "src": "audio/sfx/twinkle.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     },
     {
       "type": "story",
@@ -785,7 +790,7 @@
             "y": 58,
             "size": 36,
             "id": "luna",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -832,7 +837,8 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Take three slow, sleepy breaths together."
+      "parentPrompt": "Take three slow, sleepy breaths together.",
+      "timeline": []
     },
     {
       "type": "story",
@@ -854,7 +860,7 @@
             "y": 58,
             "size": 34,
             "id": "luna",
-            "expression": "sleepy"
+            "pose": "sleepy"
           }
         ]
       },
@@ -896,7 +902,8 @@
           "src": "audio/sfx/chime.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     }
   ]
 }

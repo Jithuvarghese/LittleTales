@@ -30,7 +30,7 @@
         "y": 55,
         "size": 40,
         "id": "zig",
-        "expression": "happy"
+        "pose": "happy"
       }
     ]
   },
@@ -55,7 +55,7 @@
             "y": 60,
             "size": 42,
             "id": "zig",
-            "expression": "idle"
+            "pose": "idle"
           }
         ]
       },
@@ -128,7 +128,8 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -149,7 +150,7 @@
             "y": 60,
             "size": 36,
             "id": "zig",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -202,7 +203,8 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -307,7 +309,8 @@
           }
         }
       ],
-      "parentPrompt": "Ask: What else is red?"
+      "parentPrompt": "Ask: What else is red?",
+      "timeline": []
     },
     {
       "type": "story",
@@ -328,7 +331,7 @@
             "y": 60,
             "size": 36,
             "id": "zig",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -391,7 +394,8 @@
             "animate": "spin"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -444,7 +448,7 @@
             "y": 60,
             "size": 38,
             "id": "zig",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -496,7 +500,8 @@
             "animate": "grow"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -518,7 +523,7 @@
             "y": 62,
             "size": 36,
             "id": "zig",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -581,7 +586,8 @@
             "animate": "spin"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -675,7 +681,8 @@
             "animate": "grow"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -736,7 +743,7 @@
             "y": 68,
             "size": 34,
             "id": "zig",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -794,7 +801,8 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: What is your favourite colour?"
+      "parentPrompt": "Ask: What is your favourite colour?",
+      "timeline": []
     }
   ]
 }

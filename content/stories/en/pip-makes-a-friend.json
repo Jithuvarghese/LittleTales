@@ -24,14 +24,14 @@
         "y": 62,
         "size": 36,
         "id": "pip",
-        "expression": "happy"
+        "pose": "happy"
       },
       {
         "x": 70,
         "y": 60,
         "size": 36,
         "id": "zig",
-        "expression": "happy"
+        "pose": "happy"
       }
     ]
   },
@@ -64,7 +64,7 @@
             "y": 62,
             "size": 40,
             "id": "pip",
-            "expression": "idle"
+            "pose": "idle"
           }
         ]
       },
@@ -132,7 +132,8 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -210,7 +211,8 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: Is it more fun to play together?"
+      "parentPrompt": "Ask: Is it more fun to play together?",
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -331,7 +333,8 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -425,7 +428,8 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -439,14 +443,14 @@
             "y": 62,
             "size": 34,
             "id": "zig",
-            "expression": "happy"
+            "pose": "happy"
           },
           {
             "x": 30,
             "y": 62,
             "size": 38,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -508,7 +512,8 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -530,14 +535,14 @@
             "y": 62,
             "size": 32,
             "id": "zig",
-            "expression": "happy"
+            "pose": "happy"
           },
           {
             "x": 25,
             "y": 62,
             "size": 34,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -615,7 +620,8 @@
             "animate": "spin"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -728,7 +734,8 @@
           "src": "audio/sfx/tada.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     },
     {
       "type": "story",
@@ -749,14 +756,14 @@
             "y": 62,
             "size": 32,
             "id": "zig",
-            "expression": "happy"
+            "pose": "happy"
           },
           {
             "x": 35,
             "y": 62,
             "size": 34,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -804,7 +811,8 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: Who is your friend?"
+      "parentPrompt": "Ask: Who is your friend?",
+      "timeline": []
     },
     {
       "type": "story",
@@ -826,14 +834,14 @@
             "y": 62,
             "size": 32,
             "id": "zig",
-            "expression": "happy"
+            "pose": "happy"
           },
           {
             "x": 35,
             "y": 62,
             "size": 34,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -892,7 +900,8 @@
             "animate": "grow"
           }
         }
-      ]
+      ],
+      "timeline": []
     }
   ]
 }

@@ -10,28 +10,36 @@
       "ageBand": "3-7",
       "durationTag": "short",
       "characters": [
+        "anu",
         "pip",
         "coco"
       ],
       "theme": "sunny-meadow",
       "coverScene": {
-        "backdrop": "village",
+        "backdrop": "city",
         "props": [
           {
-            "x": 60,
-            "y": 25,
-            "size": 24,
+            "x": 66,
+            "y": 24,
+            "size": 18,
             "anim": "float",
             "prop": "kite"
           }
         ],
         "characters": [
           {
-            "x": 35,
-            "y": 66,
-            "size": 36,
+            "x": 36,
+            "y": 64,
+            "size": 26,
+            "id": "anu",
+            "pose": "happy"
+          },
+          {
+            "x": 58,
+            "y": 70,
+            "size": 20,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       }
@@ -51,34 +59,34 @@
       ],
       "theme": "sunny-meadow",
       "coverScene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
             "x": 70,
-            "y": 45,
-            "size": 50,
+            "y": 46,
+            "size": 44,
             "prop": "tree"
           },
           {
             "x": 64,
             "y": 34,
-            "size": 10,
+            "size": 9,
             "prop": "mango"
           },
           {
             "x": 78,
             "y": 40,
-            "size": 10,
+            "size": 9,
             "prop": "mango"
           }
         ],
         "characters": [
           {
             "x": 30,
-            "y": 65,
-            "size": 45,
+            "y": 64,
+            "size": 28,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       }
@@ -97,28 +105,22 @@
       ],
       "theme": "sunny-meadow",
       "coverScene": {
-        "backdrop": "meadow",
-        "props": [
-          {
-            "x": 75,
-            "y": 50,
-            "size": 34,
-            "prop": "house"
-          },
-          {
-            "x": 40,
-            "y": 65,
-            "size": 30,
-            "prop": "cow"
-          }
-        ],
+        "backdrop": "farm",
+        "props": [],
         "characters": [
           {
-            "x": 20,
-            "y": 35,
+            "x": 34,
+            "y": 66,
             "size": 26,
+            "id": "cow",
+            "pose": "happy"
+          },
+          {
+            "x": 68,
+            "y": 40,
+            "size": 22,
             "id": "coco",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       }
@@ -159,7 +161,7 @@
             "y": 60,
             "size": 36,
             "id": "luna",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       }
@@ -179,23 +181,23 @@
       ],
       "theme": "starry-night",
       "coverScene": {
-        "backdrop": "night",
+        "backdrop": "night-sky",
         "props": [
           {
-            "x": 75,
-            "y": 25,
-            "size": 26,
+            "x": 76,
+            "y": 24,
+            "size": 24,
             "anim": "float",
             "prop": "moon"
           }
         ],
         "characters": [
           {
-            "x": 40,
-            "y": 65,
-            "size": 45,
+            "x": 42,
+            "y": 62,
+            "size": 30,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       }
@@ -230,14 +232,14 @@
             "y": 62,
             "size": 36,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           },
           {
             "x": 70,
             "y": 60,
             "size": 36,
             "id": "zig",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       }
@@ -278,7 +280,7 @@
             "y": 66,
             "size": 36,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       }
@@ -304,16 +306,16 @@
             "y": 72,
             "size": 16,
             "prop": "ant"
-          },
+          }
+        ],
+        "characters": [
           {
             "x": 65,
             "y": 40,
             "size": 22,
-            "anim": "float",
-            "prop": "bird"
+            "id": "bird"
           }
-        ],
-        "characters": []
+        ]
       }
     },
     {
@@ -363,22 +365,23 @@
       ],
       "theme": "sunny-meadow",
       "coverScene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 55,
+            "x": 58,
             "y": 62,
-            "size": 34,
+            "size": 26,
+            "anim": "sway",
             "prop": "flower"
           }
         ],
         "characters": [
           {
-            "x": 25,
-            "y": 65,
-            "size": 34,
+            "x": 28,
+            "y": 64,
+            "size": 26,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       }
@@ -418,7 +421,7 @@
             "y": 55,
             "size": 40,
             "id": "zig",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       }
@@ -545,6 +548,7 @@
     "audio/letters/en/z-name.mp3",
     "audio/letters/en/z-sound.mp3",
     "audio/letters/en/z-word.mp3",
+    "audio/narration/en/anus-kite-day/p1-anu.mp3",
     "audio/narration/en/anus-kite-day/p1-pip.mp3",
     "audio/narration/en/anus-kite-day/p1.mp3",
     "audio/narration/en/anus-kite-day/p2-kite.mp3",
@@ -554,6 +558,7 @@
     "audio/narration/en/anus-kite-day/p4.mp3",
     "audio/narration/en/anus-kite-day/p5-coco.mp3",
     "audio/narration/en/anus-kite-day/p5.mp3",
+    "audio/narration/en/anus-kite-day/p6-anu.mp3",
     "audio/narration/en/anus-kite-day/p6-tree.mp3",
     "audio/narration/en/anus-kite-day/p6.mp3",
     "audio/narration/en/anus-kite-day/p7-coco.mp3",
@@ -594,6 +599,7 @@
     "audio/narration/en/coco-visits-the-farm/p6-cat.mp3",
     "audio/narration/en/coco-visits-the-farm/p6-dog.mp3",
     "audio/narration/en/coco-visits-the-farm/p6.mp3",
+    "audio/narration/en/coco-visits-the-farm/p7-hen.mp3",
     "audio/narration/en/coco-visits-the-farm/p7-nest.mp3",
     "audio/narration/en/coco-visits-the-farm/p7.mp3",
     "audio/narration/en/coco-visits-the-farm/p8-coco.mp3",
@@ -632,6 +638,7 @@
     "audio/narration/en/pip-and-the-moon/p5.mp3",
     "audio/narration/en/pip-and-the-moon/p6-cloud.mp3",
     "audio/narration/en/pip-and-the-moon/p6.mp3",
+    "audio/narration/en/pip-and-the-moon/p7-luna.mp3",
     "audio/narration/en/pip-and-the-moon/p7-pip.mp3",
     "audio/narration/en/pip-and-the-moon/p7.mp3",
     "audio/narration/en/pip-and-the-moon/p8-lamp.mp3",
@@ -715,6 +722,7 @@
     "audio/narration/en/the-little-seed/p2.mp3",
     "audio/narration/en/the-little-seed/p3-cloud.mp3",
     "audio/narration/en/the-little-seed/p3.mp3",
+    "audio/narration/en/the-little-seed/p4-pip.mp3",
     "audio/narration/en/the-little-seed/p4-sun.mp3",
     "audio/narration/en/the-little-seed/p4.mp3",
     "audio/narration/en/the-little-seed/p5-leaf.mp3",
@@ -766,6 +774,26 @@
     "audio/numbers/en/7.mp3",
     "audio/numbers/en/8.mp3",
     "audio/numbers/en/9.mp3",
+    "audio/reactions/en/bumble-giggle.mp3",
+    "audio/reactions/en/bumble-hmm.mp3",
+    "audio/reactions/en/bumble-whee.mp3",
+    "audio/reactions/en/bumble-yay.mp3",
+    "audio/reactions/en/coco-giggle.mp3",
+    "audio/reactions/en/coco-hmm.mp3",
+    "audio/reactions/en/coco-whee.mp3",
+    "audio/reactions/en/coco-yay.mp3",
+    "audio/reactions/en/luna-giggle.mp3",
+    "audio/reactions/en/luna-hmm.mp3",
+    "audio/reactions/en/luna-whee.mp3",
+    "audio/reactions/en/luna-yay.mp3",
+    "audio/reactions/en/pip-giggle.mp3",
+    "audio/reactions/en/pip-hmm.mp3",
+    "audio/reactions/en/pip-whee.mp3",
+    "audio/reactions/en/pip-yay.mp3",
+    "audio/reactions/en/zig-giggle.mp3",
+    "audio/reactions/en/zig-hmm.mp3",
+    "audio/reactions/en/zig-whee.mp3",
+    "audio/reactions/en/zig-yay.mp3",
     "audio/ui/en/brilliant.mp3",
     "audio/ui/en/great-job.mp3",
     "audio/ui/en/great-typing-time-for-a-little-stretch.mp3",

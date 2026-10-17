@@ -16,16 +16,16 @@
         "y": 72,
         "size": 16,
         "prop": "ant"
-      },
+      }
+    ],
+    "characters": [
       {
         "x": 65,
         "y": 40,
         "size": 22,
-        "anim": "float",
-        "prop": "bird"
+        "id": "bird"
       }
-    ],
-    "characters": []
+    ]
   },
   "theme": "sunny-meadow",
   "music": {
@@ -130,7 +130,8 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -204,7 +205,8 @@
           "src": "audio/sfx/splash.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     },
     {
       "type": "story",
@@ -307,7 +309,8 @@
           }
         }
       ],
-      "parentPrompt": "Ask: How can someone help the ant?"
+      "parentPrompt": "Ask: How can someone help the ant?",
+      "timeline": []
     },
     {
       "type": "story",
@@ -316,12 +319,6 @@
         "backdrop": "forest",
         "props": [
           {
-            "x": 55,
-            "y": 30,
-            "size": 24,
-            "prop": "bird"
-          },
-          {
             "x": 50,
             "y": 60,
             "size": 16,
@@ -329,7 +326,14 @@
             "prop": "leaf"
           }
         ],
-        "characters": []
+        "characters": [
+          {
+            "x": 55,
+            "y": 30,
+            "size": 24,
+            "id": "bird"
+          }
+        ]
       },
       "delivery": "narrator",
       "narration": {
@@ -414,7 +418,8 @@
             "animate": "float"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -528,7 +533,8 @@
           "src": "audio/sfx/chime.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     },
     {
       "type": "story",
@@ -541,15 +547,16 @@
             "y": 74,
             "size": 14,
             "prop": "ant"
-          },
+          }
+        ],
+        "characters": [
           {
             "x": 65,
             "y": 30,
             "size": 22,
-            "prop": "bird"
+            "id": "bird"
           }
-        ],
-        "characters": []
+        ]
       },
       "delivery": "excited",
       "narration": {
@@ -619,7 +626,8 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: When did someone help you?"
+      "parentPrompt": "Ask: When did someone help you?",
+      "timeline": []
     },
     {
       "type": "story",
@@ -634,19 +642,20 @@
             "prop": "tree"
           },
           {
-            "x": 65,
-            "y": 28,
-            "size": 18,
-            "prop": "bird"
-          },
-          {
             "x": 20,
             "y": 64,
             "size": 20,
             "prop": "hat"
           }
         ],
-        "characters": []
+        "characters": [
+          {
+            "x": 65,
+            "y": 28,
+            "size": 18,
+            "id": "bird"
+          }
+        ]
       },
       "delivery": "whisper",
       "narration": {
@@ -726,7 +735,8 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -818,7 +828,8 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -855,20 +866,20 @@
         "backdrop": "forest",
         "props": [
           {
-            "x": 55,
-            "y": 20,
-            "size": 22,
-            "anim": "float",
-            "prop": "bird"
-          },
-          {
             "x": 30,
             "y": 50,
             "size": 36,
             "prop": "tree"
           }
         ],
-        "characters": []
+        "characters": [
+          {
+            "x": 55,
+            "y": 20,
+            "size": 22,
+            "id": "bird"
+          }
+        ]
       },
       "delivery": "surprised",
       "narration": {
@@ -943,7 +954,8 @@
             "animate": "spin"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -958,12 +970,6 @@
             "prop": "ant"
           },
           {
-            "x": 60,
-            "y": 50,
-            "size": 20,
-            "prop": "bird"
-          },
-          {
             "x": 50,
             "y": 25,
             "size": 14,
@@ -971,7 +977,14 @@
             "prop": "heart"
           }
         ],
-        "characters": []
+        "characters": [
+          {
+            "x": 60,
+            "y": 50,
+            "size": 20,
+            "id": "bird"
+          }
+        ]
       },
       "delivery": "narrator",
       "narration": {
@@ -1026,7 +1039,8 @@
         }
       ],
       "hotspots": [],
-      "parentPrompt": "This is a retelling of one of Aesop's fables."
+      "parentPrompt": "This is a retelling of one of Aesop's fables.",
+      "timeline": []
     }
   ]
 }

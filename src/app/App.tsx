@@ -35,6 +35,7 @@ const CatchGame = lazy(() => import('@/features/games/CatchGame').then((m) => ({
 const MatchGame = lazy(() => import('@/features/games/MatchGame').then((m) => ({ default: m.MatchGame })));
 const WordBuilder = lazy(() => import('@/features/letters/WordBuilder').then((m) => ({ default: m.WordBuilder })));
 const CastGallery = import.meta.env.DEV ? lazy(() => import('@/features/studio/CastGallery').then((m) => ({ default: m.CastGallery }))) : null;
+const StoryPreview = import.meta.env.DEV ? lazy(() => import('@/features/studio/StoryPreview').then((m) => ({ default: m.StoryPreview }))) : null;
 const ParentArea = lazy(() => import('@/features/parent/ParentArea').then((m) => ({ default: m.ParentArea })));
 
 function Loading() {
@@ -89,6 +90,7 @@ export function App() {
                 <Route path="grown-ups" element={<ParentArea />} />
                 {Studio && <Route path="studio" element={<Studio />} />}
                 {CastGallery && <Route path="cast" element={<CastGallery />} />}
+                {StoryPreview && <Route path="preview/:id?" element={<StoryPreview />} />}
                 <Route path="*" element={<HomePage />} />
               </Route>
             </Routes>

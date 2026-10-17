@@ -68,3 +68,30 @@ body {
   /* Never larger than the column allows, even on short or narrow screens. */
   font-size: min(var(--story-size), calc(1.2rem + 2.6vw), calc(1rem + 4.5vh));
 }
+
+/* ---------- Ambient scene motion (all gentle; nothing flashes faster than 3 times a second) ---------- */
+@keyframes lt-drift { from { transform: translateX(-60px); } to { transform: translateX(200px); } }
+@keyframes lt-twinkle { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+@keyframes lt-sway { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
+@keyframes lt-wave { from { transform: translateX(0); } to { transform: translateX(20px); } }
+@keyframes lt-spin { to { transform: rotate(360deg); } }
+@keyframes lt-fall { from { transform: translate(0, -10vh) rotate(0deg); } to { transform: translate(var(--lt-dx, 20px), 110%) rotate(var(--lt-rot, 200deg)); } }
+@keyframes lt-rise { from { transform: translateY(0) scale(0.8); opacity: 0; } 15% { opacity: 0.9; } to { transform: translateY(-120%) scale(1.1); opacity: 0; } }
+@keyframes lt-glow { 0%, 100% { opacity: 0.15; transform: translate(0, 0); } 50% { opacity: 1; transform: translate(6px, -8px); } }
+@keyframes lt-rays { 0%, 100% { opacity: 0.18; } 50% { opacity: 0.35; } }
+@keyframes lt-pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(255, 210, 63, 0.8); } 100% { box-shadow: 0 0 0 18px rgba(255, 210, 63, 0); } }
+
+.lt-drift { animation: lt-drift 60s linear infinite; }
+.lt-twinkle { animation: lt-twinkle 3s ease-in-out infinite; }
+.lt-sway { animation: lt-sway 3.2s ease-in-out infinite; transform-box: fill-box; }
+.lt-wave { animation: lt-wave 2.6s ease-in-out infinite alternate; }
+.lt-spin { animation: lt-spin 40s linear infinite; }
+.lt-fall { animation: lt-fall linear infinite; }
+.lt-rise { animation: lt-rise ease-in infinite; }
+.lt-glow { animation: lt-glow ease-in-out infinite; }
+.lt-rays { animation: lt-rays 6s ease-in-out infinite; }
+.lt-hint-pulse { animation: lt-pulse-ring 1.4s ease-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lt-drift, .lt-twinkle, .lt-sway, .lt-wave, .lt-spin, .lt-fall, .lt-rise, .lt-glow, .lt-rays, .lt-hint-pulse { animation: none !important; }
+}

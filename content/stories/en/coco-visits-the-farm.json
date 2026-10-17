@@ -9,28 +9,22 @@
   "ageBand": "3-5",
   "durationTag": "short",
   "coverScene": {
-    "backdrop": "meadow",
-    "props": [
-      {
-        "x": 75,
-        "y": 50,
-        "size": 34,
-        "prop": "house"
-      },
-      {
-        "x": 40,
-        "y": 65,
-        "size": 30,
-        "prop": "cow"
-      }
-    ],
+    "backdrop": "farm",
+    "props": [],
     "characters": [
       {
-        "x": 20,
-        "y": 35,
+        "x": 34,
+        "y": 66,
         "size": 26,
+        "id": "cow",
+        "pose": "happy"
+      },
+      {
+        "x": 68,
+        "y": 40,
+        "size": 22,
         "id": "coco",
-        "expression": "happy"
+        "pose": "happy"
       }
     ]
   },
@@ -47,24 +41,18 @@
       "type": "story",
       "text": "Flap, flap, flap! Coco the parrot flew to the farm.",
       "scene": {
-        "backdrop": "meadow",
-        "props": [
-          {
-            "x": 75,
-            "y": 50,
-            "size": 34,
-            "prop": "house"
-          }
-        ],
+        "backdrop": "farm",
+        "props": [],
         "characters": [
           {
-            "x": 25,
+            "x": 30,
             "y": 40,
-            "size": 30,
+            "size": 24,
             "id": "coco",
-            "expression": "happy"
+            "pose": "dance"
           }
-        ]
+        ],
+        "camera": "pan-right"
       },
       "delivery": "excited",
       "narration": {
@@ -127,10 +115,10 @@
         {
           "id": "coco",
           "shape": {
-            "x": 10,
-            "y": 25,
-            "w": 30,
-            "h": 30
+            "x": 18,
+            "y": 28,
+            "w": 24,
+            "h": 24
           },
           "label": "coco",
           "onTap": {
@@ -138,21 +126,13 @@
             "sayAudio": "audio/narration/en/coco-visits-the-farm/p1-coco.mp3",
             "animate": "bounce"
           }
-        },
+        }
+      ],
+      "timeline": [
         {
-          "id": "house",
-          "shape": {
-            "x": 58,
-            "y": 33,
-            "w": 34,
-            "h": 34
-          },
-          "label": "house",
-          "onTap": {
-            "say": "This is the farm house.",
-            "sayAudio": "audio/narration/en/coco-visits-the-farm/p1-house.mp3",
-            "animate": "wiggle"
-          }
+          "word": 4,
+          "id": "coco",
+          "pose": "happy"
         }
       ]
     },
@@ -160,22 +140,23 @@
       "type": "story",
       "text": "\"Hello, cow!\" said Coco. The cow said... \"Moooo!\"",
       "scene": {
-        "backdrop": "meadow",
-        "props": [
-          {
-            "x": 55,
-            "y": 62,
-            "size": 36,
-            "prop": "cow"
-          }
-        ],
+        "backdrop": "farm",
+        "props": [],
         "characters": [
           {
-            "x": 20,
-            "y": 35,
-            "size": 26,
+            "x": 60,
+            "y": 64,
+            "size": 30,
+            "id": "cow",
+            "pose": "idle",
+            "facing": "left"
+          },
+          {
+            "x": 24,
+            "y": 44,
+            "size": 22,
             "id": "coco",
-            "expression": "talking"
+            "pose": "talk"
           }
         ]
       },
@@ -231,10 +212,10 @@
         {
           "id": "cow",
           "shape": {
-            "x": 37,
-            "y": 44,
-            "w": 36,
-            "h": 36
+            "x": 45,
+            "y": 49,
+            "w": 30,
+            "h": 30
           },
           "label": "cow",
           "onTap": {
@@ -244,38 +225,48 @@
           }
         }
       ],
-      "parentPrompt": "Can you say moo like a cow?"
+      "parentPrompt": "Can you say moo like a cow?",
+      "timeline": [
+        {
+          "word": 6,
+          "id": "cow",
+          "pose": "happy"
+        }
+      ]
     },
     {
       "type": "story",
       "text": "Two ducks waddled by. \"Quack, quack!\"",
       "scene": {
-        "backdrop": "meadow",
-        "props": [
-          {
-            "x": 50,
-            "y": 68,
-            "size": 30,
-            "prop": "duck"
-          },
-          {
-            "x": 72,
-            "y": 72,
-            "size": 22,
-            "prop": "duck"
-          }
-        ],
+        "backdrop": "meadow-day",
+        "props": [],
         "characters": [
           {
-            "x": 20,
-            "y": 35,
-            "size": 26,
+            "x": 46,
+            "y": 68,
+            "size": 22,
+            "id": "duck",
+            "pose": "walk"
+          },
+          {
+            "x": 70,
+            "y": 72,
+            "size": 18,
+            "id": "duck",
+            "pose": "walk"
+          },
+          {
+            "x": 18,
+            "y": 40,
+            "size": 20,
             "id": "coco",
-            "expression": "happy"
+            "pose": "happy"
           }
-        ]
+        ],
+        "camera": "pan-left"
       },
       "delivery": "silly",
+      "speaker": "duck",
       "narration": {
         "src": "audio/narration/en/coco-visits-the-farm/p3.mp3",
         "wordTimings": [
@@ -301,13 +292,13 @@
           },
           {
             "word": "\"Quack,",
-            "startMs": 2373,
-            "endMs": 2623
+            "startMs": 2223,
+            "endMs": 2498
           },
           {
             "word": "quack!\"",
-            "startMs": 2673,
-            "endMs": 3298
+            "startMs": 2548,
+            "endMs": 3148
           }
         ]
       },
@@ -317,9 +308,9 @@
           "id": "duck",
           "shape": {
             "x": 35,
-            "y": 53,
-            "w": 30,
-            "h": 30
+            "y": 57,
+            "w": 22,
+            "h": 22
           },
           "label": "duck",
           "onTap": {
@@ -328,7 +319,8 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -359,26 +351,27 @@
       "type": "story",
       "text": "A pink pig rolled in the mud. \"Oink!\"",
       "scene": {
-        "backdrop": "meadow",
-        "props": [
-          {
-            "x": 50,
-            "y": 66,
-            "size": 34,
-            "prop": "pig"
-          }
-        ],
+        "backdrop": "farm",
+        "props": [],
         "characters": [
           {
-            "x": 20,
-            "y": 35,
+            "x": 50,
+            "y": 68,
             "size": 26,
+            "id": "pig",
+            "pose": "dance"
+          },
+          {
+            "x": 20,
+            "y": 40,
+            "size": 20,
             "id": "coco",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
       "delivery": "silly",
+      "speaker": "pig",
       "narration": {
         "src": "audio/narration/en/coco-visits-the-farm/p4.mp3",
         "wordTimings": [
@@ -419,8 +412,8 @@
           },
           {
             "word": "\"Oink!\"",
-            "startMs": 2713,
-            "endMs": 3263
+            "startMs": 2551,
+            "endMs": 3001
           }
         ]
       },
@@ -429,10 +422,10 @@
         {
           "id": "pig",
           "shape": {
-            "x": 33,
-            "y": 49,
-            "w": 34,
-            "h": 34
+            "x": 37,
+            "y": 55,
+            "w": 26,
+            "h": 26
           },
           "label": "pig",
           "onTap": {
@@ -442,32 +435,35 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "A little goat said, \"Maa, maa!\" Can you say maa?",
       "scene": {
-        "backdrop": "meadow",
-        "props": [
-          {
-            "x": 55,
-            "y": 64,
-            "size": 34,
-            "prop": "goat"
-          }
-        ],
+        "backdrop": "farm",
+        "props": [],
         "characters": [
           {
-            "x": 20,
-            "y": 35,
+            "x": 58,
+            "y": 66,
             "size": 26,
+            "id": "goat",
+            "pose": "talk",
+            "facing": "left"
+          },
+          {
+            "x": 22,
+            "y": 42,
+            "size": 20,
             "id": "coco",
-            "expression": "thinking"
+            "pose": "think"
           }
         ]
       },
       "delivery": "excited",
+      "speaker": "goat",
       "narration": {
         "src": "audio/narration/en/coco-visits-the-farm/p5.mp3",
         "wordTimings": [
@@ -493,33 +489,33 @@
           },
           {
             "word": "\"Maa,",
-            "startMs": 2258,
-            "endMs": 2433
+            "startMs": 2283,
+            "endMs": 2508
           },
           {
             "word": "maa!\"",
-            "startMs": 2483,
-            "endMs": 3033
+            "startMs": 2583,
+            "endMs": 3108
           },
           {
             "word": "Can",
-            "startMs": 3609,
-            "endMs": 3809
+            "startMs": 3232,
+            "endMs": 3432
           },
           {
             "word": "you",
-            "startMs": 3809,
-            "endMs": 3972
+            "startMs": 3432,
+            "endMs": 3595
           },
           {
             "word": "say",
-            "startMs": 3972,
-            "endMs": 4209
+            "startMs": 3595,
+            "endMs": 3832
           },
           {
             "word": "maa?",
-            "startMs": 4209,
-            "endMs": 4734
+            "startMs": 3832,
+            "endMs": 4357
           }
         ]
       },
@@ -528,10 +524,10 @@
         {
           "id": "goat",
           "shape": {
-            "x": 38,
-            "y": 47,
-            "w": 34,
-            "h": 34
+            "x": 45,
+            "y": 53,
+            "w": 26,
+            "h": 26
           },
           "label": "goat",
           "onTap": {
@@ -540,34 +536,37 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "The cat said, \"Meow.\" The dog said, \"Woof!\"",
       "scene": {
-        "backdrop": "meadow",
-        "props": [
-          {
-            "x": 45,
-            "y": 70,
-            "size": 26,
-            "prop": "cat"
-          },
-          {
-            "x": 70,
-            "y": 68,
-            "size": 30,
-            "prop": "dog"
-          }
-        ],
+        "backdrop": "meadow-day",
+        "props": [],
         "characters": [
           {
-            "x": 20,
-            "y": 35,
-            "size": 26,
+            "x": 38,
+            "y": 68,
+            "size": 22,
+            "id": "cat",
+            "pose": "talk"
+          },
+          {
+            "x": 66,
+            "y": 68,
+            "size": 24,
+            "id": "dog",
+            "pose": "happy",
+            "facing": "left"
+          },
+          {
+            "x": 16,
+            "y": 38,
+            "size": 18,
             "id": "coco",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -622,10 +621,10 @@
         {
           "id": "cat",
           "shape": {
-            "x": 32,
+            "x": 27,
             "y": 57,
-            "w": 26,
-            "h": 26
+            "w": 22,
+            "h": 22
           },
           "label": "cat",
           "onTap": {
@@ -637,10 +636,10 @@
         {
           "id": "dog",
           "shape": {
-            "x": 55,
-            "y": 53,
-            "w": 30,
-            "h": 30
+            "x": 54,
+            "y": 56,
+            "w": 24,
+            "h": 24
           },
           "label": "dog",
           "onTap": {
@@ -648,6 +647,18 @@
             "sayAudio": "audio/narration/en/coco-visits-the-farm/p6-dog.mp3",
             "animate": "bounce"
           }
+        }
+      ],
+      "timeline": [
+        {
+          "word": 4,
+          "id": "dog",
+          "pose": "talk"
+        },
+        {
+          "word": 4,
+          "id": "cat",
+          "pose": "happy"
         }
       ]
     },
@@ -679,36 +690,44 @@
       "type": "story",
       "text": "In the barn, Coco found eggs in a nest.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "farm",
         "props": [
           {
-            "x": 40,
-            "y": 72,
-            "size": 12,
-            "prop": "egg"
-          },
-          {
-            "x": 52,
-            "y": 74,
-            "size": 12,
-            "prop": "egg"
-          },
-          {
-            "x": 46,
-            "y": 74,
-            "size": 30,
+            "x": 62,
+            "y": 78,
+            "size": 22,
             "prop": "nest"
+          },
+          {
+            "x": 58,
+            "y": 72,
+            "size": 8,
+            "prop": "egg"
+          },
+          {
+            "x": 66,
+            "y": 72,
+            "size": 8,
+            "prop": "egg"
           }
         ],
         "characters": [
           {
-            "x": 20,
-            "y": 35,
-            "size": 26,
+            "x": 40,
+            "y": 68,
+            "size": 22,
+            "id": "hen",
+            "pose": "idle"
+          },
+          {
+            "x": 18,
+            "y": 40,
+            "size": 20,
             "id": "coco",
-            "expression": "happy"
+            "pose": "surprised"
           }
-        ]
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "narrator",
       "narration": {
@@ -764,12 +783,27 @@
       "sfx": [],
       "hotspots": [
         {
+          "id": "hen",
+          "shape": {
+            "x": 29,
+            "y": 57,
+            "w": 22,
+            "h": 22
+          },
+          "label": "hen",
+          "onTap": {
+            "say": "Cluck, cluck!",
+            "sayAudio": "audio/narration/en/coco-visits-the-farm/p7-hen.mp3",
+            "animate": "bounce"
+          }
+        },
+        {
           "id": "nest",
           "shape": {
-            "x": 31,
-            "y": 59,
-            "w": 30,
-            "h": 30
+            "x": 51,
+            "y": 67,
+            "w": 22,
+            "h": 22
           },
           "label": "nest",
           "onTap": {
@@ -778,40 +812,50 @@
             "animate": "grow"
           }
         }
+      ],
+      "timeline": [
+        {
+          "word": 4,
+          "id": "coco",
+          "pose": "happy"
+        }
       ]
     },
     {
       "type": "story",
       "text": "Moo! Quack! Oink! All the animals sang a farm song together.",
       "scene": {
-        "backdrop": "meadow",
-        "props": [
-          {
-            "x": 25,
-            "y": 66,
-            "size": 26,
-            "prop": "cow"
-          },
-          {
-            "x": 50,
-            "y": 70,
-            "size": 24,
-            "prop": "pig"
-          },
-          {
-            "x": 72,
-            "y": 72,
-            "size": 20,
-            "prop": "duck"
-          }
-        ],
+        "backdrop": "farm",
+        "props": [],
         "characters": [
           {
-            "x": 50,
-            "y": 30,
-            "size": 26,
+            "x": 20,
+            "y": 68,
+            "size": 20,
+            "id": "cow",
+            "pose": "dance"
+          },
+          {
+            "x": 42,
+            "y": 70,
+            "size": 18,
+            "id": "pig",
+            "pose": "dance"
+          },
+          {
+            "x": 62,
+            "y": 72,
+            "size": 16,
+            "id": "duck",
+            "pose": "dance"
+          },
+          {
+            "x": 82,
+            "y": 44,
+            "size": 18,
             "id": "coco",
-            "expression": "celebrate"
+            "pose": "cheer",
+            "facing": "left"
           }
         ]
       },
@@ -886,10 +930,10 @@
         {
           "id": "coco",
           "shape": {
-            "x": 37,
-            "y": 17,
-            "w": 26,
-            "h": 26
+            "x": 73,
+            "y": 35,
+            "w": 18,
+            "h": 18
           },
           "label": "coco",
           "onTap": {
@@ -898,38 +942,39 @@
             "animate": "spin"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "\"Bye, farm friends!\" Coco flew home, happy.",
       "scene": {
-        "backdrop": "meadow",
-        "props": [
+        "backdrop": "meadow-sunset",
+        "props": [],
+        "characters": [
           {
-            "x": 80,
-            "y": 20,
-            "size": 20,
-            "prop": "sun"
+            "x": 34,
+            "y": 42,
+            "size": 24,
+            "id": "coco",
+            "pose": "wave"
           },
           {
             "x": 70,
-            "y": 54,
-            "size": 30,
-            "prop": "house"
+            "y": 68,
+            "size": 20,
+            "id": "cow",
+            "pose": "wave",
+            "facing": "left"
           }
         ],
-        "characters": [
-          {
-            "x": 30,
-            "y": 40,
-            "size": 30,
-            "id": "coco",
-            "expression": "happy"
-          }
-        ]
+        "effects": [
+          "sunrays"
+        ],
+        "camera": "zoom-out"
       },
       "delivery": "excited",
+      "speaker": "coco",
       "narration": {
         "src": "audio/narration/en/coco-visits-the-farm/p9.mp3",
         "wordTimings": [
@@ -940,39 +985,40 @@
           },
           {
             "word": "farm",
-            "startMs": 750,
-            "endMs": 1050
+            "startMs": 775,
+            "endMs": 1100
           },
           {
             "word": "friends!\"",
-            "startMs": 1050,
-            "endMs": 1800
+            "startMs": 1100,
+            "endMs": 1925
           },
           {
             "word": "Coco",
-            "startMs": 1923,
-            "endMs": 2273
+            "startMs": 1819,
+            "endMs": 2169
           },
           {
             "word": "flew",
-            "startMs": 2273,
-            "endMs": 2498
+            "startMs": 2169,
+            "endMs": 2394
           },
           {
             "word": "home,",
-            "startMs": 2498,
-            "endMs": 2748
+            "startMs": 2394,
+            "endMs": 2644
           },
           {
             "word": "happy.",
-            "startMs": 2798,
-            "endMs": 3498
+            "startMs": 2694,
+            "endMs": 3394
           }
         ]
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: Which farm animal do you like best?"
+      "parentPrompt": "Ask: Which farm animal do you like best?",
+      "timeline": []
     }
   ]
 }

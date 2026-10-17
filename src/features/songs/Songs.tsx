@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { Character } from '@/art/cast/Character';
 import { loadRhyme, rhymeIndex } from '@/content/loaders';
 import type { Rhyme } from '@/content/schema';
 import { Scene, type Pulse } from '@/art/Scene';
@@ -178,7 +179,26 @@ export function RhymePlayer() {
     <div className="flex flex-1 flex-col items-center gap-4 px-4 pb-6 lg:flex-row lg:items-start">
       <div className="w-full max-w-3xl lg:w-3/5">
         <h1 className="mb-2 text-center font-ui text-4xl font-extrabold">{rhyme.title}</h1>
-        <Scene scene={rhyme.scene} pulse={pulse}>
+        <Scene scene={{ ...rhyme.scene, characters: rhyme.scene.characters.filter((c) => c.id !== 'coco') }} pulse={pulse}>
+          {/* Coco performs: dances while the rhyme plays, notes float up on the beat */}
+          <div className="pointer-events-none absolute bottom-[4%] right-[3%] z-10 w-[24%]">
+            <motion.div key={playing ? `beat-${Math.floor(beat / 2)}` : 'rest'} animate={playing && !reduce ? { y: [0, -6, 0] } : undefined} transition={{ duration: 0.3 }}>
+              <Character id="coco" pose={playing ? 'dance' : 'wave'} size="100%" />
+            </motion.div>
+            {playing && !reduce && (
+              <AnimatePresence>
+                <motion.span
+                  key={`note-${beat}`}
+                  className="absolute -top-2 left-1/2 h-8 w-8"
+                  initial={{ y: 0, opacity: 0, x: (beat % 3) * 12 - 12 }}
+                  animate={{ y: -60, opacity: [0, 1, 0] }}
+                  transition={{ duration: 1.4 }}
+                >
+                  <svg viewBox="0 0 32 32" aria-hidden stroke="#4a2f27" strokeWidth="2.5" fill="none"><path d="M12 24V6l14-3v17" /><circle cx="9" cy="24" r="4" fill={['#c9a0ff', '#ff8fb8', '#ffcb47'][beat % 3]} /><circle cx="23" cy="20" r="4" fill={['#c9a0ff', '#ff8fb8', '#ffcb47'][beat % 3]} /></svg>
+                </motion.span>
+              </AnimatePresence>
+            )}
+          </div>
           {rhyme.counting &&
             Array.from({ length: stars }, (_, i) => (
               <motion.div key={i} className="absolute h-[14%] w-[9%]" style={{ left: `${15 + i * 14}%`, top: '18%' }} animate={reduce ? undefined : { y: [0, -6, 0] }} transition={{ repeat: Infinity, duration: 2, delay: i * 0.2 }}>
