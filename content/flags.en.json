@@ -1,0 +1,161 @@
+{
+  "locale": "en",
+  "flags": [
+    {
+      "id": "india",
+      "name": "India",
+      "continent": "Asia",
+      "audio": "audio/flags/en/india.mp3"
+    },
+    {
+      "id": "japan",
+      "name": "Japan",
+      "continent": "Asia",
+      "audio": "audio/flags/en/japan.mp3"
+    },
+    {
+      "id": "china",
+      "name": "China",
+      "continent": "Asia",
+      "audio": "audio/flags/en/china.mp3"
+    },
+    {
+      "id": "bangladesh",
+      "name": "Bangladesh",
+      "continent": "Asia",
+      "audio": "audio/flags/en/bangladesh.mp3"
+    },
+    {
+      "id": "thailand",
+      "name": "Thailand",
+      "continent": "Asia",
+      "audio": "audio/flags/en/thailand.mp3"
+    },
+    {
+      "id": "indonesia",
+      "name": "Indonesia",
+      "continent": "Asia",
+      "audio": "audio/flags/en/indonesia.mp3"
+    },
+    {
+      "id": "france",
+      "name": "France",
+      "continent": "Europe",
+      "audio": "audio/flags/en/france.mp3"
+    },
+    {
+      "id": "italy",
+      "name": "Italy",
+      "continent": "Europe",
+      "audio": "audio/flags/en/italy.mp3"
+    },
+    {
+      "id": "germany",
+      "name": "Germany",
+      "continent": "Europe",
+      "audio": "audio/flags/en/germany.mp3"
+    },
+    {
+      "id": "ireland",
+      "name": "Ireland",
+      "continent": "Europe",
+      "audio": "audio/flags/en/ireland.mp3"
+    },
+    {
+      "id": "belgium",
+      "name": "Belgium",
+      "continent": "Europe",
+      "audio": "audio/flags/en/belgium.mp3"
+    },
+    {
+      "id": "netherlands",
+      "name": "the Netherlands",
+      "continent": "Europe",
+      "audio": "audio/flags/en/netherlands.mp3"
+    },
+    {
+      "id": "poland",
+      "name": "Poland",
+      "continent": "Europe",
+      "audio": "audio/flags/en/poland.mp3"
+    },
+    {
+      "id": "ukraine",
+      "name": "Ukraine",
+      "continent": "Europe",
+      "audio": "audio/flags/en/ukraine.mp3"
+    },
+    {
+      "id": "greece",
+      "name": "Greece",
+      "continent": "Europe",
+      "audio": "audio/flags/en/greece.mp3"
+    },
+    {
+      "id": "sweden",
+      "name": "Sweden",
+      "continent": "Europe",
+      "audio": "audio/flags/en/sweden.mp3"
+    },
+    {
+      "id": "finland",
+      "name": "Finland",
+      "continent": "Europe",
+      "audio": "audio/flags/en/finland.mp3"
+    },
+    {
+      "id": "norway",
+      "name": "Norway",
+      "continent": "Europe",
+      "audio": "audio/flags/en/norway.mp3"
+    },
+    {
+      "id": "denmark",
+      "name": "Denmark",
+      "continent": "Europe",
+      "audio": "audio/flags/en/denmark.mp3"
+    },
+    {
+      "id": "uk",
+      "name": "the United Kingdom",
+      "continent": "Europe",
+      "audio": "audio/flags/en/uk.mp3"
+    },
+    {
+      "id": "nigeria",
+      "name": "Nigeria",
+      "continent": "Africa",
+      "audio": "audio/flags/en/nigeria.mp3"
+    },
+    {
+      "id": "usa",
+      "name": "the United States",
+      "continent": "North America",
+      "audio": "audio/flags/en/usa.mp3"
+    },
+    {
+      "id": "canada",
+      "name": "Canada",
+      "continent": "North America",
+      "audio": "audio/flags/en/canada.mp3"
+    },
+    {
+      "id": "brazil",
+      "name": "Brazil",
+      "continent": "South America",
+      "audio": "audio/flags/en/brazil.mp3"
+    },
+    {
+      "id": "colombia",
+      "name": "Colombia",
+      "continent": "South America",
+      "audio": "audio/flags/en/colombia.mp3"
+    },
+    {
+      "id": "argentina",
+      "name": "Argentina",
+      "continent": "South America",
+      "audio": "audio/flags/en/argentina.mp3"
+    }
+  ]
+}

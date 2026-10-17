@@ -34,6 +34,18 @@ const GamesHub = lazy(() => games().then((m) => ({ default: m.GamesHub })));
 const CatchGame = lazy(() => import('@/features/games/CatchGame').then((m) => ({ default: m.CatchGame })));
 const MatchGame = lazy(() => import('@/features/games/MatchGame').then((m) => ({ default: m.MatchGame })));
 const WordBuilder = lazy(() => import('@/features/letters/WordBuilder').then((m) => ({ default: m.WordBuilder })));
+const CastGallery = import.meta.env.DEV ? lazy(() => import('@/features/studio/CastGallery').then((m) => ({ default: m.CastGallery }))) : null;
+const StoryPreview = import.meta.env.DEV ? lazy(() => import('@/features/studio/StoryPreview').then((m) => ({ default: m.StoryPreview }))) : null;
+const colourz = () => import('@/features/colours/Colours');
+const ColoursHub = lazy(() => colourz().then((m) => ({ default: m.ColoursHub })));
+const MeetColour = lazy(() => colourz().then((m) => ({ default: m.MeetColour })));
+const FindColour = lazy(() => colourz().then((m) => ({ default: m.FindColour })));
+const PaintIt = lazy(() => colourz().then((m) => ({ default: m.PaintIt })));
+const flagz = () => import('@/features/flags/Flags');
+const FlagsHub = lazy(() => flagz().then((m) => ({ default: m.FlagsHub })));
+const MeetFlag = lazy(() => flagz().then((m) => ({ default: m.MeetFlag })));
+const FindFlag = lazy(() => flagz().then((m) => ({ default: m.FindFlag })));
+const FlagPairs = lazy(() => flagz().then((m) => ({ default: m.FlagPairs })));
 const ParentArea = lazy(() => import('@/features/parent/ParentArea').then((m) => ({ default: m.ParentArea })));
 
 function Loading() {
@@ -72,6 +84,14 @@ export function App() {
                 <Route path="letters/find" element={<FindKey />} />
                 <Route path="letters/bubbles" element={<FallingLetters />} />
                 <Route path="letters/name" element={<WordBuilder />} />
+                <Route path="colours" element={<ColoursHub />} />
+                <Route path="colours/meet" element={<MeetColour />} />
+                <Route path="colours/find" element={<FindColour />} />
+                <Route path="colours/paint" element={<PaintIt />} />
+                <Route path="flags" element={<FlagsHub />} />
+                <Route path="flags/meet" element={<MeetFlag />} />
+                <Route path="flags/find" element={<FindFlag />} />
+                <Route path="flags/pairs" element={<FlagPairs />} />
                 <Route path="games" element={<GamesHub />} />
                 <Route path="games/catch" element={<CatchGame />} />
                 <Route path="games/match" element={<MatchGame />} />
@@ -87,6 +107,8 @@ export function App() {
                 <Route path="stickers" element={<StickerBook />} />
                 <Route path="grown-ups" element={<ParentArea />} />
                 {Studio && <Route path="studio" element={<Studio />} />}
+                {CastGallery && <Route path="cast" element={<CastGallery />} />}
+                {StoryPreview && <Route path="preview/:id?" element={<StoryPreview />} />}
                 <Route path="*" element={<HomePage />} />
               </Route>
             </Routes>

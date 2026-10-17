@@ -51,6 +51,15 @@ const AgainIcon = () => (
   </svg>
 );
 
+/** Background of the nearest story page before a quiz, shown dimmed behind it. */
+function lastBackdrop(story: Story, index: number) {
+  for (let i = index - 1; i >= 0; i--) {
+    const p = story.pages[i];
+    if (p?.type === 'story' && p.scene) return p.scene.backdrop;
+  }
+  return undefined;
+}
+
 export function Reader() {
   const { id = '' } = useParams();
   const navigate = useNavigate();
@@ -119,7 +128,7 @@ export function Reader() {
         AudioManager.say(strings.storyEnd.wellDone);
         return;
       }
-      AudioManager.sfx('whoosh', 'ui');
+      AudioManager.sfx('pageturn', 'ui');
       setDir(delta);
       setIndex(target);
     },
@@ -166,8 +175,19 @@ export function Reader() {
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-4 px-4 pb-4">
         <Celebration count={20} />
-        <div className="flex items-center gap-4">
-          <CharacterHost character={story.characters[0]} expression="celebrate" size={130} />
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          {/* Celebration: the story's characters dance in their own world */}
+          <div className="w-[min(26rem,80vw)]">
+            <Scene
+              scene={{
+                backdrop: lastBackdrop(story, story.pages.length) ?? 'meadow-day',
+                props: [],
+                effects: ['stars'],
+                camera: 'still',
+                characters: story.characters.slice(0, 3).map((id, i, all) => ({ id, x: ((i + 1) / (all.length + 1)) * 100, y: 62, size: all.length > 2 ? 26 : 32, pose: i % 2 ? 'cheer' : 'dance' })),
+              }}
+            />
+          </div>
           {st && (
             <motion.div initial={{ scale: 0, rotate: -30 }} animate={{ scale: 1, rotate: 0 }} className="h-28 w-28 rounded-full border-[6px] border-outline bg-surface p-3" aria-label={st.label} role="img">
               <Prop id={st.prop} />
@@ -214,7 +234,12 @@ export function Reader() {
               }}
             />
           ) : page ? (
-            <Quiz page={page} onDone={(stars) => { addStars(stars); go(1); }} />
+            <Quiz
+              page={page}
+              host={story.characters[0]}
+              backdrop={lastBackdrop(story, index)}
+              onDone={(stars) => { addStars(stars); go(1); }}
+            />
           ) : null}
         </motion.div>
       </AnimatePresence>

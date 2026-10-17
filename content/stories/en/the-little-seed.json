@@ -9,22 +9,23 @@
   "ageBand": "3-7",
   "durationTag": "short",
   "coverScene": {
-    "backdrop": "meadow",
+    "backdrop": "meadow-day",
     "props": [
       {
-        "x": 55,
+        "x": 58,
         "y": 62,
-        "size": 34,
+        "size": 26,
+        "anim": "sway",
         "prop": "flower"
       }
     ],
     "characters": [
       {
-        "x": 25,
-        "y": 65,
-        "size": 34,
+        "x": 28,
+        "y": 64,
+        "size": 26,
         "id": "pip",
-        "expression": "happy"
+        "pose": "happy"
       }
     ]
   },
@@ -41,17 +42,18 @@
       "type": "story",
       "text": "Look! Pip found a tiny, tiny seed in the grass.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [],
         "characters": [
           {
             "x": 40,
             "y": 64,
-            "size": 40,
+            "size": 28,
             "id": "pip",
-            "expression": "thinking"
+            "pose": "think"
           }
-        ]
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "excited",
       "narration": {
@@ -114,10 +116,10 @@
         {
           "id": "pip",
           "shape": {
-            "x": 20,
-            "y": 44,
-            "w": 40,
-            "h": 40
+            "x": 26,
+            "y": 50,
+            "w": 28,
+            "h": 28
           },
           "label": "pip",
           "onTap": {
@@ -127,21 +129,33 @@
           }
         }
       ],
-      "parentPrompt": "Ask: What do you think will grow?"
+      "parentPrompt": "Ask: What do you think will grow?",
+      "timeline": [
+        {
+          "word": 0,
+          "id": "pip",
+          "pose": "surprised"
+        },
+        {
+          "word": 3,
+          "id": "pip",
+          "pose": "happy"
+        }
+      ]
     },
     {
       "type": "story",
       "text": "Pip dug a little hole and planted it.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [],
         "characters": [
           {
             "x": 40,
             "y": 64,
-            "size": 40,
+            "size": 28,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -197,18 +211,25 @@
           "src": "audio/sfx/pop.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": [
+        {
+          "word": 2,
+          "id": "pip",
+          "pose": "dance"
+        }
+      ]
     },
     {
       "type": "story",
       "text": "Pitter, patter, pitter, patter! The rain gave it a drink.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "rain",
         "props": [
           {
-            "x": 55,
-            "y": 20,
-            "size": 30,
+            "x": 54,
+            "y": 18,
+            "size": 26,
             "anim": "float",
             "prop": "cloud"
           }
@@ -217,10 +238,13 @@
           {
             "x": 30,
             "y": 64,
-            "size": 36,
+            "size": 26,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
+        ],
+        "effects": [
+          "rain"
         ]
       },
       "delivery": "excited",
@@ -289,10 +313,10 @@
         {
           "id": "cloud",
           "shape": {
-            "x": 40,
+            "x": 41,
             "y": 5,
-            "w": 30,
-            "h": 30
+            "w": 26,
+            "h": 26
           },
           "label": "cloud",
           "onTap": {
@@ -302,32 +326,37 @@
             "animate": "grow"
           }
         }
+      ],
+      "timeline": [
+        {
+          "word": 5,
+          "id": "pip",
+          "pose": "cheer"
+        }
       ]
     },
     {
       "type": "story",
       "text": "The warm sun said, \"Grow, little seed!\"",
       "scene": {
-        "backdrop": "meadow",
-        "props": [
-          {
-            "x": 75,
-            "y": 20,
-            "size": 24,
-            "prop": "sun"
-          }
-        ],
+        "backdrop": "meadow-day",
+        "props": [],
         "characters": [
           {
             "x": 30,
             "y": 64,
-            "size": 36,
+            "size": 26,
             "id": "pip",
-            "expression": "happy"
+            "pose": "talk"
           }
-        ]
+        ],
+        "effects": [
+          "sunrays"
+        ],
+        "camera": "pan-right"
       },
       "delivery": "excited",
+      "speaker": "pip",
       "narration": {
         "src": "audio/narration/en/the-little-seed/p4.mp3",
         "wordTimings": [
@@ -353,50 +382,52 @@
           },
           {
             "word": "\"Grow,",
-            "startMs": 2156,
-            "endMs": 2431
+            "startMs": 2157,
+            "endMs": 2432
           },
           {
             "word": "little",
-            "startMs": 2468,
-            "endMs": 2694
+            "startMs": 2469,
+            "endMs": 2695
           },
           {
             "word": "seed!\"",
-            "startMs": 2694,
-            "endMs": 3331
+            "startMs": 2695,
+            "endMs": 3307
           }
         ]
       },
       "sfx": [],
       "hotspots": [
         {
-          "id": "sun",
+          "id": "pip",
           "shape": {
-            "x": 63,
-            "y": 8,
-            "w": 24,
-            "h": 24
+            "x": 17,
+            "y": 51,
+            "w": 26,
+            "h": 26
           },
-          "label": "sun",
+          "label": "pip",
           "onTap": {
             "say": "Grow, grow!",
-            "sayAudio": "audio/narration/en/the-little-seed/p4-sun.mp3",
-            "animate": "grow"
+            "sayAudio": "audio/narration/en/the-little-seed/p4-pip.mp3",
+            "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Pop! A tiny green shoot peeked out.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 55,
-            "y": 72,
-            "size": 14,
+            "x": 56,
+            "y": 76,
+            "size": 12,
+            "anim": "sway",
             "prop": "leaf"
           }
         ],
@@ -404,9 +435,9 @@
           {
             "x": 30,
             "y": 64,
-            "size": 36,
+            "size": 26,
             "id": "pip",
-            "expression": "celebrate"
+            "pose": "surprised"
           }
         ]
       },
@@ -456,10 +487,10 @@
         {
           "id": "leaf",
           "shape": {
-            "x": 48,
-            "y": 65,
-            "w": 14,
-            "h": 14
+            "x": 50,
+            "y": 70,
+            "w": 12,
+            "h": 12
           },
           "label": "leaf",
           "onTap": {
@@ -468,6 +499,13 @@
             "sayAudio": "audio/narration/en/the-little-seed/p5-leaf.mp3",
             "animate": "wiggle"
           }
+        }
+      ],
+      "timeline": [
+        {
+          "word": 1,
+          "id": "pip",
+          "pose": "cheer"
         }
       ]
     },
@@ -502,28 +540,30 @@
       "type": "story",
       "text": "Day by day, it grew taller... and taller... and taller! Can you stretch up tall?",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 50,
-            "y": 64,
-            "size": 20,
+            "x": 52,
+            "y": 66,
+            "size": 16,
+            "anim": "sway",
             "prop": "leaf"
           },
           {
-            "x": 60,
-            "y": 60,
-            "size": 18,
+            "x": 62,
+            "y": 62,
+            "size": 14,
+            "anim": "sway",
             "prop": "leaf"
           }
         ],
         "characters": [
           {
-            "x": 25,
+            "x": 26,
             "y": 64,
-            "size": 34,
+            "size": 26,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -610,36 +650,47 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Stretch up tall like a growing plant!"
+      "parentPrompt": "Stretch up tall like a growing plant!",
+      "timeline": [
+        {
+          "word": 7,
+          "id": "pip",
+          "pose": "cheer"
+        }
+      ]
     },
     {
       "type": "story",
       "text": "One morning... ta-da! A big pink flower opened up!",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 55,
+            "x": 58,
             "y": 58,
-            "size": 40,
+            "size": 32,
+            "anim": "sway",
             "prop": "flower"
           },
           {
-            "x": 75,
+            "x": 78,
             "y": 30,
-            "size": 16,
+            "size": 14,
             "anim": "float",
             "prop": "bee"
           }
         ],
         "characters": [
           {
-            "x": 25,
+            "x": 26,
             "y": 64,
-            "size": 34,
+            "size": 26,
             "id": "pip",
-            "expression": "celebrate"
+            "pose": "surprised"
           }
+        ],
+        "effects": [
+          "petals"
         ]
       },
       "delivery": "surprised",
@@ -698,10 +749,10 @@
         {
           "id": "flower",
           "shape": {
-            "x": 35,
-            "y": 38,
-            "w": 40,
-            "h": 40
+            "x": 42,
+            "y": 42,
+            "w": 32,
+            "h": 32
           },
           "label": "flower",
           "onTap": {
@@ -714,10 +765,10 @@
         {
           "id": "bee",
           "shape": {
-            "x": 67,
-            "y": 22,
-            "w": 16,
-            "h": 16
+            "x": 71,
+            "y": 23,
+            "w": 14,
+            "h": 14
           },
           "label": "bee",
           "onTap": {
@@ -725,6 +776,13 @@
             "sayAudio": "audio/narration/en/the-little-seed/p7-bee.mp3",
             "animate": "spin"
           }
+        }
+      ],
+      "timeline": [
+        {
+          "word": 2,
+          "id": "pip",
+          "pose": "cheer"
         }
       ]
     },
@@ -757,30 +815,41 @@
       "type": "story",
       "text": "Bees and butterflies came to visit.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 55,
+            "x": 58,
             "y": 58,
-            "size": 40,
+            "size": 32,
+            "anim": "sway",
             "prop": "flower"
           },
           {
-            "x": 75,
+            "x": 78,
             "y": 30,
-            "size": 18,
+            "size": 16,
             "anim": "float",
             "prop": "butterfly"
           }
         ],
         "characters": [
           {
-            "x": 25,
-            "y": 64,
-            "size": 34,
+            "x": 30,
+            "y": 26,
+            "size": 14,
+            "id": "bird",
+            "pose": "happy"
+          },
+          {
+            "x": 24,
+            "y": 66,
+            "size": 24,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
+        ],
+        "effects": [
+          "petals"
         ]
       },
       "delivery": "narrator",
@@ -824,10 +893,10 @@
         {
           "id": "butterfly",
           "shape": {
-            "x": 66,
-            "y": 21,
-            "w": 18,
-            "h": 18
+            "x": 70,
+            "y": 22,
+            "w": 16,
+            "h": 16
           },
           "label": "butterfly",
           "onTap": {
@@ -836,24 +905,27 @@
             "animate": "spin"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "\"From one tiny seed,\" said Pip, \"a flower grew!\"",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-sunset",
         "props": [
           {
             "x": 40,
             "y": 58,
-            "size": 34,
+            "size": 28,
+            "anim": "sway",
             "prop": "flower"
           },
           {
-            "x": 65,
+            "x": 66,
             "y": 60,
-            "size": 30,
+            "size": 24,
+            "anim": "sway",
             "prop": "flower"
           }
         ],
@@ -861,11 +933,15 @@
           {
             "x": 20,
             "y": 66,
-            "size": 30,
+            "size": 24,
             "id": "pip",
-            "expression": "happy"
+            "pose": "cheer"
           }
-        ]
+        ],
+        "effects": [
+          "sunrays"
+        ],
+        "camera": "zoom-out"
       },
       "delivery": "excited",
       "speaker": "pip",
@@ -925,7 +1001,8 @@
           "src": "audio/sfx/chime.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     }
   ]
 }

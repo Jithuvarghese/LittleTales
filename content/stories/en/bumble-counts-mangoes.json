@@ -9,34 +9,34 @@
   "ageBand": "3-5",
   "durationTag": "short",
   "coverScene": {
-    "backdrop": "meadow",
+    "backdrop": "meadow-day",
     "props": [
       {
         "x": 70,
-        "y": 45,
-        "size": 50,
+        "y": 46,
+        "size": 44,
         "prop": "tree"
       },
       {
         "x": 64,
         "y": 34,
-        "size": 10,
+        "size": 9,
         "prop": "mango"
       },
       {
         "x": 78,
         "y": 40,
-        "size": 10,
+        "size": 9,
         "prop": "mango"
       }
     ],
     "characters": [
       {
         "x": 30,
-        "y": 65,
-        "size": 45,
+        "y": 64,
+        "size": 28,
         "id": "bumble",
-        "expression": "happy"
+        "pose": "happy"
       }
     ]
   },
@@ -54,24 +54,25 @@
       "type": "story",
       "text": "Bumble the bear loved mangoes. Sweet, yellow, yummy mangoes!",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 70,
-            "y": 45,
-            "size": 50,
+            "x": 72,
+            "y": 46,
+            "size": 44,
             "prop": "tree"
           }
         ],
         "characters": [
           {
             "x": 30,
-            "y": 65,
-            "size": 42,
+            "y": 64,
+            "size": 28,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy"
           }
-        ]
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "excited",
       "narration": {
@@ -129,10 +130,10 @@
         {
           "id": "bumble",
           "shape": {
-            "x": 9,
-            "y": 44,
-            "w": 42,
-            "h": 42
+            "x": 16,
+            "y": 50,
+            "w": 28,
+            "h": 28
           },
           "label": "bumble",
           "onTap": {
@@ -141,34 +142,42 @@
             "animate": "bounce"
           }
         }
+      ],
+      "timeline": [
+        {
+          "word": 6,
+          "id": "bumble",
+          "pose": "dance"
+        }
       ]
     },
     {
       "type": "story",
       "text": "Look up high! One mango hung on the big tree. One!",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 70,
-            "y": 45,
-            "size": 50,
+            "x": 72,
+            "y": 46,
+            "size": 44,
             "prop": "tree"
           },
           {
-            "x": 64,
+            "x": 66,
             "y": 34,
-            "size": 10,
+            "size": 9,
+            "anim": "bounce",
             "prop": "mango"
           }
         ],
         "characters": [
           {
             "x": 30,
-            "y": 65,
-            "size": 42,
+            "y": 64,
+            "size": 28,
             "id": "bumble",
-            "expression": "thinking"
+            "pose": "think"
           }
         ]
       },
@@ -238,10 +247,10 @@
         {
           "id": "mango",
           "shape": {
-            "x": 59,
-            "y": 29,
-            "w": 10,
-            "h": 10
+            "x": 61.5,
+            "y": 29.5,
+            "w": 9,
+            "h": 9
           },
           "label": "mango",
           "onTap": {
@@ -252,40 +261,49 @@
           }
         }
       ],
-      "parentPrompt": "Count with your child: one!"
+      "parentPrompt": "Count with your child: one!",
+      "timeline": [
+        {
+          "word": 9,
+          "id": "bumble",
+          "pose": "surprised"
+        }
+      ]
     },
     {
       "type": "story",
       "text": "Then Bumble saw another. One... two mangoes!",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 70,
-            "y": 45,
-            "size": 50,
+            "x": 72,
+            "y": 46,
+            "size": 44,
             "prop": "tree"
           },
           {
-            "x": 64,
+            "x": 66,
             "y": 34,
-            "size": 10,
+            "size": 9,
+            "anim": "bounce",
             "prop": "mango"
           },
           {
-            "x": 78,
+            "x": 80,
             "y": 40,
-            "size": 10,
+            "size": 9,
+            "anim": "bounce",
             "prop": "mango"
           }
         ],
         "characters": [
           {
             "x": 30,
-            "y": 65,
-            "size": 42,
+            "y": 64,
+            "size": 28,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
@@ -335,10 +353,10 @@
         {
           "id": "mango",
           "shape": {
-            "x": 59,
-            "y": 29,
-            "w": 10,
-            "h": 10
+            "x": 61.5,
+            "y": 29.5,
+            "w": 9,
+            "h": 9
           },
           "label": "mango",
           "onTap": {
@@ -348,47 +366,60 @@
             "animate": "grow"
           }
         }
+      ],
+      "timeline": [
+        {
+          "word": 5,
+          "id": "bumble",
+          "pose": "cheer"
+        }
       ]
     },
     {
       "type": "story",
       "text": "One, two, three mangoes! Can you count them too?",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 70,
-            "y": 45,
-            "size": 50,
+            "x": 72,
+            "y": 46,
+            "size": 44,
             "prop": "tree"
           },
           {
-            "x": 60,
+            "x": 62,
             "y": 32,
-            "size": 10,
+            "size": 9,
+            "anim": "bounce",
             "prop": "mango"
           },
           {
-            "x": 72,
+            "x": 74,
             "y": 30,
-            "size": 10,
+            "size": 9,
+            "anim": "bounce",
             "prop": "mango"
           },
           {
-            "x": 80,
+            "x": 82,
             "y": 42,
-            "size": 10,
+            "size": 9,
+            "anim": "bounce",
             "prop": "mango"
           }
         ],
         "characters": [
           {
             "x": 30,
-            "y": 65,
-            "size": 42,
+            "y": 64,
+            "size": 28,
             "id": "bumble",
-            "expression": "celebrate"
+            "pose": "cheer"
           }
+        ],
+        "effects": [
+          "petals"
         ]
       },
       "delivery": "excited",
@@ -448,7 +479,8 @@
           "src": "audio/sfx/chime.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -470,37 +502,39 @@
       "type": "story",
       "text": "Pip came by with a big basket.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 70,
-            "y": 45,
-            "size": 50,
+            "x": 74,
+            "y": 46,
+            "size": 40,
             "prop": "tree"
           },
           {
-            "x": 35,
-            "y": 78,
-            "size": 22,
+            "x": 36,
+            "y": 80,
+            "size": 18,
             "prop": "basket"
           }
         ],
         "characters": [
           {
-            "x": 15,
+            "x": 14,
             "y": 66,
-            "size": 30,
+            "size": 22,
             "id": "pip",
-            "expression": "happy"
+            "pose": "walk"
           },
           {
-            "x": 45,
-            "y": 62,
-            "size": 38,
+            "x": 52,
+            "y": 64,
+            "size": 26,
             "id": "bumble",
-            "expression": "idle"
+            "pose": "happy",
+            "facing": "left"
           }
-        ]
+        ],
+        "camera": "pan-right"
       },
       "delivery": "narrator",
       "narration": {
@@ -548,10 +582,10 @@
         {
           "id": "basket",
           "shape": {
-            "x": 24,
-            "y": 67,
-            "w": 22,
-            "h": 22
+            "x": 27,
+            "y": 71,
+            "w": 18,
+            "h": 18
           },
           "label": "basket",
           "onTap": {
@@ -563,10 +597,10 @@
         {
           "id": "pip",
           "shape": {
-            "x": 0,
-            "y": 51,
-            "w": 30,
-            "h": 30
+            "x": 3,
+            "y": 55,
+            "w": 22,
+            "h": 22
           },
           "label": "pip",
           "onTap": {
@@ -575,46 +609,53 @@
             "animate": "bounce"
           }
         }
+      ],
+      "timeline": [
+        {
+          "word": 6,
+          "id": "pip",
+          "pose": "wave"
+        }
       ]
     },
     {
       "type": "story",
       "text": "\"Let us pick them and share,\" said Bumble.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 70,
-            "y": 45,
-            "size": 50,
+            "x": 74,
+            "y": 46,
+            "size": 40,
             "prop": "tree"
           },
           {
-            "x": 60,
+            "x": 64,
             "y": 32,
-            "size": 10,
+            "size": 9,
             "prop": "mango"
           },
           {
-            "x": 72,
+            "x": 76,
             "y": 30,
-            "size": 10,
+            "size": 9,
             "prop": "mango"
           },
           {
-            "x": 80,
+            "x": 82,
             "y": 42,
-            "size": 10,
+            "size": 9,
             "prop": "mango"
           }
         ],
         "characters": [
           {
-            "x": 40,
-            "y": 62,
-            "size": 38,
+            "x": 38,
+            "y": 64,
+            "size": 26,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "talk"
           }
         ]
       },
@@ -667,7 +708,8 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: Who do you like to share with?"
+      "parentPrompt": "Ask: Who do you like to share with?",
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -698,30 +740,30 @@
       "type": "story",
       "text": "Plop, plop, plop! Three mangoes in the basket.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
             "x": 50,
-            "y": 72,
-            "size": 30,
+            "y": 76,
+            "size": 26,
             "prop": "basket"
           },
           {
             "x": 44,
-            "y": 62,
-            "size": 10,
+            "y": 68,
+            "size": 9,
             "prop": "mango"
           },
           {
             "x": 54,
-            "y": 60,
-            "size": 10,
+            "y": 66,
+            "size": 9,
             "prop": "mango"
           },
           {
             "x": 50,
-            "y": 66,
-            "size": 10,
+            "y": 72,
+            "size": 9,
             "prop": "mango"
           }
         ],
@@ -729,16 +771,17 @@
           {
             "x": 20,
             "y": 64,
-            "size": 30,
+            "size": 22,
             "id": "pip",
-            "expression": "happy"
+            "pose": "cheer"
           },
           {
             "x": 80,
             "y": 62,
-            "size": 36,
+            "size": 26,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "cheer",
+            "facing": "left"
           }
         ]
       },
@@ -798,10 +841,10 @@
         {
           "id": "basket",
           "shape": {
-            "x": 35,
-            "y": 57,
-            "w": 30,
-            "h": 30
+            "x": 37,
+            "y": 63,
+            "w": 26,
+            "h": 26
           },
           "label": "basket",
           "onTap": {
@@ -811,42 +854,49 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "One for Pip and one for Bumble.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-sunset",
         "props": [
           {
             "x": 30,
-            "y": 60,
-            "size": 12,
+            "y": 58,
+            "size": 10,
+            "anim": "float",
             "prop": "mango"
           },
           {
             "x": 70,
-            "y": 60,
-            "size": 12,
+            "y": 58,
+            "size": 10,
+            "anim": "float",
             "prop": "mango"
           }
         ],
         "characters": [
           {
             "x": 30,
-            "y": 72,
-            "size": 30,
+            "y": 70,
+            "size": 22,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           },
           {
             "x": 70,
-            "y": 70,
-            "size": 36,
+            "y": 68,
+            "size": 26,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy",
+            "facing": "left"
           }
+        ],
+        "effects": [
+          "sunrays"
         ]
       },
       "delivery": "narrator",
@@ -895,10 +945,10 @@
         {
           "id": "pip",
           "shape": {
-            "x": 15,
-            "y": 57,
-            "w": 30,
-            "h": 30
+            "x": 19,
+            "y": 59,
+            "w": 22,
+            "h": 22
           },
           "label": "pip",
           "onTap": {
@@ -907,18 +957,19 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "And one to share... with you! Yum, yum!",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-sunset",
         "props": [
           {
             "x": 50,
-            "y": 40,
-            "size": 14,
+            "y": 34,
+            "size": 12,
             "anim": "float",
             "prop": "mango"
           }
@@ -927,18 +978,23 @@
           {
             "x": 30,
             "y": 68,
-            "size": 32,
+            "size": 22,
             "id": "pip",
-            "expression": "celebrate"
+            "pose": "dance"
           },
           {
             "x": 70,
             "y": 66,
-            "size": 38,
+            "size": 26,
             "id": "bumble",
-            "expression": "celebrate"
+            "pose": "dance",
+            "facing": "left"
           }
-        ]
+        ],
+        "effects": [
+          "sunrays"
+        ],
+        "camera": "zoom-out"
       },
       "delivery": "proud",
       "narration": {
@@ -993,7 +1049,8 @@
         }
       ],
       "hotspots": [],
-      "parentPrompt": "Pretend to take a bite. Mmm!"
+      "parentPrompt": "Pretend to take a bite. Mmm!",
+      "timeline": []
     }
   ]
 }

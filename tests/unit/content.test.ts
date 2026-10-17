@@ -36,7 +36,7 @@ describe('markdown story converter', () => {
     const { scene } = parseScene('night | moon 70 25 22 float | pip 40 65 40 happy');
     expect(scene.backdrop).toBe('night');
     expect(scene.props).toEqual([{ prop: 'moon', x: 70, y: 25, size: 22, anim: 'float' }]);
-    expect(scene.characters).toEqual([{ id: 'pip', x: 40, y: 65, size: 40, expression: 'happy' }]);
+    expect(scene.characters).toEqual([{ id: 'pip', x: 40, y: 65, size: 40, pose: 'happy' }]);
   });
 
   it('round-trips a shipped story source', () => {

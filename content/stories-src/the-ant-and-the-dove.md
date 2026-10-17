@@ -6,30 +6,35 @@ ageBand: 5-7
 duration: medium
 theme: sunny-meadow
 music: frere-01
-characters: pip
-cover: forest | ant 35 72 16 | bird 65 40 22 float
+characters: bird
+cover: forest | ant 35 74 14 | bird 64 40 20 happy
 ---
 
 ## Page
-scene: forest | ant 45 72 18 | sun 82 18 16
+scene: forest | ant 44 76 16 wiggle
 text: Once upon a time, a little ant was very thirsty.
+effects: leaves
+camera: zoom-in
 tap: ant "I need a drink!" wiggle
 
 ## Page
-scene: beach | ant 30 74 16
+scene: beach | ant 30 76 14
 text: She walked to the river to have a sip.
+camera: pan-right
 sfx: onEnter splash
 
 ## Page
-scene: beach | ant 50 60 14 | leaf 70 30 16
+scene: beach | ant 50 60 12 bounce | leaf 70 30 14
 text: Splash! A wave pulled the ant into the water. Oh no!
 delivery: surprised
+camera: zoom-in
 tap: ant "Help! Help!" wiggle splash
 prompt: Ask: How can someone help the ant?
 
 ## Page
-scene: forest | bird 55 30 24 | leaf 50 60 16 float
+scene: forest | bird 54 34 20 talk | leaf 50 66 14 float
 text: A kind dove saw her and dropped a leaf.
+effects: leaves
 tap: bird "Coo, coo! Climb on!" bounce
 tap: leaf "Float, float." float
 
@@ -39,25 +44,28 @@ tap: leaf "Float, float." float
 - cup
 
 ## Page
-scene: beach | leaf 40 72 18 | ant 40 66 12
+scene: beach | leaf 40 74 16 float | ant 40 68 10
 text: The ant climbed on the leaf... and floated, safe, to shore.
 delivery: gentle
+camera: pan-left
 sfx: onEnter chime
 
 ## Page
-scene: forest | ant 30 74 14 | bird 65 30 22
+scene: forest | ant 30 76 12 | bird 64 46 20 happy left
 text: "Thank you, dove!" said the ant. "I will help you one day."
 prompt: Ask: When did someone help you?
 
 ## Page
-scene: forest | tree 65 48 40 | bird 65 28 18 | hat 20 64 20
+scene: forest | bird 66 34 16 sleepy left | hat 22 66 16 wiggle
 text: Later... tiptoe, tiptoe... a hunter crept close to the dove's tree.
 delivery: whisper
+camera: pan-right
 tap: hat "Tiptoe, tiptoe." wiggle
 
 ## Page
-scene: forest | ant 30 74 14 | hat 30 58 20
+scene: forest | ant 30 76 12 bounce | hat 30 60 16
 text: The ant gave the hunter's foot a tiny nip!
+camera: zoom-in
 tap: ant "Nip!" bounce pop
 
 > quiz sequence: What happens next? | ant, hat
@@ -66,13 +74,15 @@ tap: ant "Nip!" bounce pop
 - car
 
 ## Page
-scene: forest | bird 55 20 22 float | tree 30 50 36
+scene: meadow-day | bird 56 30 20 cheer
 text: "Ouch!" The dove heard him and flew safely away.
+camera: zoom-out
 sfx: onEnter whoosh
 tap: bird "Thank you, ant!" spin
 
 ## Page
-scene: forest | ant 35 74 14 | bird 60 50 20 | heart 50 25 14 float
+scene: meadow-sunset | ant 36 76 12 | bird 60 56 18 happy left | heart 50 24 12 float
 text: One good turn deserves another. Friends help friends.
+effects: sunrays
 sfx: onEnter chime
 prompt: This is a retelling of one of Aesop's fables.

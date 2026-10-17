@@ -79,3 +79,29 @@ You can also write `content/stories/en/<id>.json` by hand. The schema is in `src
 
 ## Reaching 100+ stories
 Pick ideas from `content/STORY_BACKLOG.md`, write 5–10 at a time with the template above, validate, read each one aloud once, and tick it off in the backlog.
+
+## Scene composer (animated pages)
+
+Every story page is a small animated scene assembled from shared parts.
+
+### Backgrounds
+`meadow-day`, `meadow-sunset`, `forest`, `forest-night`, `night-sky`, `sea` (underwater), `beach`, `bedroom`, `kitchen`, `farm`, `city`, `rain`, `snow`. Each has gentle built-in motion (drifting clouds, twinkling stars, swaying grass and seaweed, waves). Older names (`meadow`, `night`, `room`, `village`) still work.
+
+### Characters
+Any cast member can act in a scene: the main cast (`pip`, `bumble`, `luna`, `zig`, `coco`) and the supporting cast (`cat`, `dog`, `cow`, `duck`, `rabbit`, `elephant`, `monkey`, `frog`, `lion`, `pig`, `sheep`, `mouse`, `panda`, `tiger`, `penguin`, `hen`, `squirrel`, `turtle`, `goat`, `bird`, `anu`, `kid1`–`kid4`, `grandma`, `grandpa`). See them all at `/cast` while running `npm run dev`.
+
+`scene: farm | cow 60 64 26 happy left | coco 24 44 22 talk`
+- Pose (optional): `idle`, `talk`, `happy`, `cheer`, `think`, `sleepy`, `sleep`, `sad-soft`, `surprised`, `wave`, `dance`, `walk`.
+- Add `left` to make a character face left.
+- Keep characters at about 18–30 in size so they stay under ~55% of the scene height and the text area stays clear.
+- Characters without a pose react to the line's mood automatically (surprised on "Oh no!", sleepy at bedtime, dancing on silly lines).
+
+### Page lines
+- `effects: fireflies, stars` — ambient layers: `leaves`, `snow`, `rain`, `fireflies`, `bubbles`, `stars`, `clouds`, `sunrays`, `petals` (each background has a sensible default).
+- `camera: zoom-in` — slow drift: `still`, `zoom-in`, `zoom-out`, `pan-left`, `pan-right`.
+- `cue: 4 pip surprised` — at word 4 of the narration (counting from 0), Pip changes pose. Add as many cues as needed.
+- `speaker: luna` — who says the quoted words. A speech bubble appears over that character and its mouth moves with the voice.
+- Prop animations: `float`, `sway`, `twinkle`, `bounce`, `wiggle` after a prop (`kite 56 22 16 sway`).
+
+### Preview
+`npm run content:preview -- my-story` opens every page side by side with the word timings, cues and a checklist (missing speaker, nothing to tap, character too large, no timings yet).

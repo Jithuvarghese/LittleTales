@@ -1,3 +1,5 @@
+import { Character } from './cast/Character';
+import { species } from './cast/species';
 import type { ReactNode } from 'react';
 
 /**
@@ -93,6 +95,8 @@ type PropProps = { id: string; size?: number | string; title?: string; color?: s
 
 /** Renders a prop by id; unknown ids fall back to a friendly star, never a crash. */
 export function Prop({ id, size = '100%', title, color, className }: PropProps) {
+  // Animals that are cast members are drawn as characters, so they look the same everywhere.
+  if (species[id] && !color) return <Character id={id} pose="happy" size={size} label={title ?? species[id]!.name} className={className} />;
   const def = propIndex[id] ?? propIndex.star!;
   return (
     <svg

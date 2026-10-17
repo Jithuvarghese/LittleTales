@@ -13,19 +13,20 @@
     "props": [
       {
         "x": 35,
-        "y": 72,
-        "size": 16,
+        "y": 74,
+        "size": 14,
         "prop": "ant"
-      },
-      {
-        "x": 65,
-        "y": 40,
-        "size": 22,
-        "anim": "float",
-        "prop": "bird"
       }
     ],
-    "characters": []
+    "characters": [
+      {
+        "x": 64,
+        "y": 40,
+        "size": 20,
+        "id": "bird",
+        "pose": "happy"
+      }
+    ]
   },
   "theme": "sunny-meadow",
   "music": {
@@ -33,7 +34,7 @@
     "volume": 0.4
   },
   "characters": [
-    "pip"
+    "bird"
   ],
   "pages": [
     {
@@ -43,19 +44,18 @@
         "backdrop": "forest",
         "props": [
           {
-            "x": 45,
-            "y": 72,
-            "size": 18,
-            "prop": "ant"
-          },
-          {
-            "x": 82,
-            "y": 18,
+            "x": 44,
+            "y": 76,
             "size": 16,
-            "prop": "sun"
+            "anim": "wiggle",
+            "prop": "ant"
           }
         ],
-        "characters": []
+        "characters": [],
+        "effects": [
+          "leaves"
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "sad",
       "narration": {
@@ -119,9 +119,9 @@
           "id": "ant",
           "shape": {
             "x": 36,
-            "y": 63,
-            "w": 18,
-            "h": 18
+            "y": 68,
+            "w": 16,
+            "h": 16
           },
           "label": "ant",
           "onTap": {
@@ -130,7 +130,8 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -140,12 +141,13 @@
         "props": [
           {
             "x": 30,
-            "y": 74,
-            "size": 16,
+            "y": 76,
+            "size": 14,
             "prop": "ant"
           }
         ],
-        "characters": []
+        "characters": [],
+        "camera": "pan-right"
       },
       "delivery": "narrator",
       "narration": {
@@ -204,7 +206,8 @@
           "src": "audio/sfx/splash.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     },
     {
       "type": "story",
@@ -215,17 +218,19 @@
           {
             "x": 50,
             "y": 60,
-            "size": 14,
+            "size": 12,
+            "anim": "bounce",
             "prop": "ant"
           },
           {
             "x": 70,
             "y": 30,
-            "size": 16,
+            "size": 14,
             "prop": "leaf"
           }
         ],
-        "characters": []
+        "characters": [],
+        "camera": "zoom-in"
       },
       "delivery": "surprised",
       "narration": {
@@ -293,10 +298,10 @@
         {
           "id": "ant",
           "shape": {
-            "x": 43,
-            "y": 53,
-            "w": 14,
-            "h": 14
+            "x": 44,
+            "y": 54,
+            "w": 12,
+            "h": 12
           },
           "label": "ant",
           "onTap": {
@@ -307,7 +312,8 @@
           }
         }
       ],
-      "parentPrompt": "Ask: How can someone help the ant?"
+      "parentPrompt": "Ask: How can someone help the ant?",
+      "timeline": []
     },
     {
       "type": "story",
@@ -316,20 +322,25 @@
         "backdrop": "forest",
         "props": [
           {
-            "x": 55,
-            "y": 30,
-            "size": 24,
-            "prop": "bird"
-          },
-          {
             "x": 50,
-            "y": 60,
-            "size": 16,
+            "y": 66,
+            "size": 14,
             "anim": "float",
             "prop": "leaf"
           }
         ],
-        "characters": []
+        "characters": [
+          {
+            "x": 54,
+            "y": 34,
+            "size": 20,
+            "id": "bird",
+            "pose": "talk"
+          }
+        ],
+        "effects": [
+          "leaves"
+        ]
       },
       "delivery": "narrator",
       "narration": {
@@ -387,10 +398,10 @@
         {
           "id": "bird",
           "shape": {
-            "x": 43,
-            "y": 18,
-            "w": 24,
-            "h": 24
+            "x": 44,
+            "y": 24,
+            "w": 20,
+            "h": 20
           },
           "label": "bird",
           "onTap": {
@@ -402,10 +413,10 @@
         {
           "id": "leaf",
           "shape": {
-            "x": 42,
-            "y": 52,
-            "w": 16,
-            "h": 16
+            "x": 43,
+            "y": 59,
+            "w": 14,
+            "h": 14
           },
           "label": "leaf",
           "onTap": {
@@ -414,7 +425,8 @@
             "animate": "float"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -448,18 +460,20 @@
         "props": [
           {
             "x": 40,
-            "y": 72,
-            "size": 18,
+            "y": 74,
+            "size": 16,
+            "anim": "float",
             "prop": "leaf"
           },
           {
             "x": 40,
-            "y": 66,
-            "size": 12,
+            "y": 68,
+            "size": 10,
             "prop": "ant"
           }
         ],
-        "characters": []
+        "characters": [],
+        "camera": "pan-left"
       },
       "delivery": "gentle",
       "narration": {
@@ -528,7 +542,8 @@
           "src": "audio/sfx/chime.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     },
     {
       "type": "story",
@@ -538,18 +553,21 @@
         "props": [
           {
             "x": 30,
-            "y": 74,
-            "size": 14,
+            "y": 76,
+            "size": 12,
             "prop": "ant"
-          },
-          {
-            "x": 65,
-            "y": 30,
-            "size": 22,
-            "prop": "bird"
           }
         ],
-        "characters": []
+        "characters": [
+          {
+            "x": 64,
+            "y": 46,
+            "size": 20,
+            "id": "bird",
+            "pose": "happy",
+            "facing": "left"
+          }
+        ]
       },
       "delivery": "excited",
       "narration": {
@@ -619,7 +637,8 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: When did someone help you?"
+      "parentPrompt": "Ask: When did someone help you?",
+      "timeline": []
     },
     {
       "type": "story",
@@ -628,25 +647,24 @@
         "backdrop": "forest",
         "props": [
           {
-            "x": 65,
-            "y": 48,
-            "size": 40,
-            "prop": "tree"
-          },
-          {
-            "x": 65,
-            "y": 28,
-            "size": 18,
-            "prop": "bird"
-          },
-          {
-            "x": 20,
-            "y": 64,
-            "size": 20,
+            "x": 22,
+            "y": 66,
+            "size": 16,
+            "anim": "wiggle",
             "prop": "hat"
           }
         ],
-        "characters": []
+        "characters": [
+          {
+            "x": 66,
+            "y": 34,
+            "size": 16,
+            "id": "bird",
+            "pose": "sleepy",
+            "facing": "left"
+          }
+        ],
+        "camera": "pan-right"
       },
       "delivery": "whisper",
       "narration": {
@@ -714,10 +732,10 @@
         {
           "id": "hat",
           "shape": {
-            "x": 10,
-            "y": 54,
-            "w": 20,
-            "h": 20
+            "x": 14,
+            "y": 58,
+            "w": 16,
+            "h": 16
           },
           "label": "hat",
           "onTap": {
@@ -726,7 +744,8 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -736,18 +755,20 @@
         "props": [
           {
             "x": 30,
-            "y": 74,
-            "size": 14,
+            "y": 76,
+            "size": 12,
+            "anim": "bounce",
             "prop": "ant"
           },
           {
             "x": 30,
-            "y": 58,
-            "size": 20,
+            "y": 60,
+            "size": 16,
             "prop": "hat"
           }
         ],
-        "characters": []
+        "characters": [],
+        "camera": "zoom-in"
       },
       "delivery": "excited",
       "narration": {
@@ -805,10 +826,10 @@
         {
           "id": "ant",
           "shape": {
-            "x": 23,
-            "y": 67,
-            "w": 14,
-            "h": 14
+            "x": 24,
+            "y": 70,
+            "w": 12,
+            "h": 12
           },
           "label": "ant",
           "onTap": {
@@ -818,7 +839,8 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -852,23 +874,18 @@
       "type": "story",
       "text": "\"Ouch!\" The dove heard him and flew safely away.",
       "scene": {
-        "backdrop": "forest",
-        "props": [
+        "backdrop": "meadow-day",
+        "props": [],
+        "characters": [
           {
-            "x": 55,
-            "y": 20,
-            "size": 22,
-            "anim": "float",
-            "prop": "bird"
-          },
-          {
-            "x": 30,
-            "y": 50,
-            "size": 36,
-            "prop": "tree"
+            "x": 56,
+            "y": 30,
+            "size": 20,
+            "id": "bird",
+            "pose": "cheer"
           }
         ],
-        "characters": []
+        "camera": "zoom-out"
       },
       "delivery": "surprised",
       "narration": {
@@ -931,10 +948,10 @@
         {
           "id": "bird",
           "shape": {
-            "x": 44,
-            "y": 9,
-            "w": 22,
-            "h": 22
+            "x": 46,
+            "y": 20,
+            "w": 20,
+            "h": 20
           },
           "label": "bird",
           "onTap": {
@@ -943,35 +960,42 @@
             "animate": "spin"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "One good turn deserves another. Friends help friends.",
       "scene": {
-        "backdrop": "forest",
+        "backdrop": "meadow-sunset",
         "props": [
           {
-            "x": 35,
-            "y": 74,
-            "size": 14,
+            "x": 36,
+            "y": 76,
+            "size": 12,
             "prop": "ant"
           },
           {
-            "x": 60,
-            "y": 50,
-            "size": 20,
-            "prop": "bird"
-          },
-          {
             "x": 50,
-            "y": 25,
-            "size": 14,
+            "y": 24,
+            "size": 12,
             "anim": "float",
             "prop": "heart"
           }
         ],
-        "characters": []
+        "characters": [
+          {
+            "x": 60,
+            "y": 56,
+            "size": 18,
+            "id": "bird",
+            "pose": "happy",
+            "facing": "left"
+          }
+        ],
+        "effects": [
+          "sunrays"
+        ]
       },
       "delivery": "narrator",
       "narration": {
@@ -1026,7 +1050,8 @@
         }
       ],
       "hotspots": [],
-      "parentPrompt": "This is a retelling of one of Aesop's fables."
+      "parentPrompt": "This is a retelling of one of Aesop's fables.",
+      "timeline": []
     }
   ]
 }

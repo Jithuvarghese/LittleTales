@@ -91,3 +91,8 @@ export const lineSlug = (text: string) =>
   text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48);
 
 export const uiLineSrc = (text: string) => `audio/ui/en/${lineSlug(text)}.mp3`;
+
+/** Tiny non-word reactions each main character can make. */
+export const reactions = { giggle: 'Hee hee hee!', yay: 'Yaaay!', hmm: 'Hmm?', whee: 'Wheee!' } as const;
+export type Reaction = keyof typeof reactions;
+export const reactionSrc = (who: string, r: Reaction) => `audio/reactions/en/${who}-${r}.mp3`;

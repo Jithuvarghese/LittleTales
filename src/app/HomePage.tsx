@@ -4,8 +4,9 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { BigButton } from '@/components/BigButton';
 import { CharacterHost } from '@/components/CharacterHost';
 import { ThemePicker } from '@/components/ThemePicker';
-import { AbcIcon, BookIcon, GamesIcon, LockIcon, MusicIcon, NumbersIcon, StarIcon } from '@/art/Icons';
+import { AbcIcon, BookIcon, ColoursIcon, GamesIcon, LockIcon, MusicIcon, NumbersIcon, StarIcon } from '@/art/Icons';
 import { AudioManager } from '@/services/AudioManager';
+import { Flag } from '@/art/flags';
 import { useSettings } from './settingsStore';
 import { strings } from '@/strings';
 
@@ -13,6 +14,8 @@ const destinations: { to: string; label: string; icon: ReactNode; tint: string }
   { to: '/stories', label: strings.nav.stories, icon: <BookIcon />, tint: '#ffe1d6' },
   { to: '/letters', label: strings.nav.letters, icon: <AbcIcon />, tint: '#fff1c4' },
   { to: '/numbers', label: strings.nav.numbers, icon: <NumbersIcon />, tint: '#dff5d8' },
+  { to: '/colours', label: strings.nav.colours, icon: <ColoursIcon />, tint: '#ffe6f1' },
+  { to: '/flags', label: strings.nav.flags, icon: <Flag id="india" className="h-full w-full" />, tint: '#e6f6ff' },
   { to: '/songs', label: strings.nav.songs, icon: <MusicIcon />, tint: '#efe2ff' },
   { to: '/games', label: strings.nav.games, icon: <GamesIcon />, tint: '#d6f1ff' },
   { to: '/stickers', label: strings.nav.stickers, icon: <StarIcon />, tint: '#fff6c9' },

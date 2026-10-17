@@ -9,23 +9,23 @@
   "ageBand": "3-5",
   "durationTag": "short",
   "coverScene": {
-    "backdrop": "night",
+    "backdrop": "night-sky",
     "props": [
       {
-        "x": 75,
-        "y": 25,
-        "size": 26,
+        "x": 76,
+        "y": 24,
+        "size": 24,
         "anim": "float",
         "prop": "moon"
       }
     ],
     "characters": [
       {
-        "x": 40,
-        "y": 65,
-        "size": 45,
+        "x": 42,
+        "y": 62,
+        "size": 30,
         "id": "pip",
-        "expression": "happy"
+        "pose": "happy"
       }
     ]
   },
@@ -43,25 +43,29 @@
       "type": "story",
       "text": "Look! Pip looked up... at the big, round moon.",
       "scene": {
-        "backdrop": "night",
+        "backdrop": "night-sky",
         "props": [
           {
-            "x": 75,
-            "y": 25,
-            "size": 26,
+            "x": 76,
+            "y": 24,
+            "size": 24,
             "anim": "float",
             "prop": "moon"
           }
         ],
         "characters": [
           {
-            "x": 35,
-            "y": 66,
-            "size": 42,
+            "x": 34,
+            "y": 64,
+            "size": 30,
             "id": "pip",
-            "expression": "idle"
+            "pose": "idle"
           }
-        ]
+        ],
+        "effects": [
+          "fireflies"
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "excited",
       "narration": {
@@ -124,26 +128,26 @@
         {
           "id": "moon",
           "shape": {
-            "x": 62,
+            "x": 64,
             "y": 12,
-            "w": 26,
-            "h": 26
+            "w": 24,
+            "h": 24
           },
           "label": "moon",
           "onTap": {
             "sfx": "audio/sfx/twinkle.mp3",
             "say": "Hello, moon!",
             "sayAudio": "audio/narration/en/pip-and-the-moon/p1-moon.mp3",
-            "animate": "wiggle"
+            "animate": "twinkle"
           }
         },
         {
           "id": "pip",
           "shape": {
-            "x": 14,
-            "y": 45,
-            "w": 42,
-            "h": 42
+            "x": 19,
+            "y": 49,
+            "w": 30,
+            "h": 30
           },
           "label": "pip",
           "onTap": {
@@ -153,31 +157,47 @@
           }
         }
       ],
-      "parentPrompt": "Ask: Can you see the moon tonight?"
+      "parentPrompt": "Ask: Can you see the moon tonight?",
+      "timeline": [
+        {
+          "word": 0,
+          "id": "pip",
+          "pose": "surprised"
+        },
+        {
+          "word": 3,
+          "id": "pip",
+          "pose": "happy"
+        }
+      ]
     },
     {
       "type": "story",
       "text": "\"Moon, are you sleepy too?\" asked Pip.",
       "scene": {
-        "backdrop": "night",
+        "backdrop": "night-sky",
         "props": [
           {
-            "x": 75,
-            "y": 25,
-            "size": 26,
+            "x": 76,
+            "y": 24,
+            "size": 24,
             "anim": "float",
             "prop": "moon"
           }
         ],
         "characters": [
           {
-            "x": 35,
-            "y": 66,
-            "size": 42,
+            "x": 34,
+            "y": 64,
+            "size": 30,
             "id": "pip",
-            "expression": "thinking"
+            "pose": "talk"
           }
-        ]
+        ],
+        "effects": [
+          "fireflies"
+        ],
+        "camera": "pan-right"
       },
       "delivery": "sleepy",
       "speaker": "pip",
@@ -226,10 +246,10 @@
         {
           "id": "moon",
           "shape": {
-            "x": 62,
+            "x": 64,
             "y": 12,
-            "w": 26,
-            "h": 26
+            "w": 24,
+            "h": 24
           },
           "label": "moon",
           "onTap": {
@@ -239,43 +259,36 @@
           }
         }
       ],
-      "parentPrompt": "Ask: Are you sleepy?"
+      "parentPrompt": "Ask: Are you sleepy?",
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Hoo, hoo! Luna the owl flew down from the tree.",
       "scene": {
-        "backdrop": "night",
-        "props": [
-          {
-            "x": 75,
-            "y": 25,
-            "size": 26,
-            "prop": "moon"
-          },
-          {
-            "x": 15,
-            "y": 60,
-            "size": 34,
-            "prop": "tree"
-          }
-        ],
+        "backdrop": "forest-night",
+        "props": [],
         "characters": [
           {
-            "x": 18,
-            "y": 40,
-            "size": 26,
+            "x": 22,
+            "y": 42,
+            "size": 22,
             "id": "luna",
-            "expression": "happy"
+            "pose": "wave"
           },
           {
-            "x": 50,
-            "y": 68,
-            "size": 38,
+            "x": 60,
+            "y": 64,
+            "size": 28,
             "id": "pip",
-            "expression": "happy"
+            "pose": "idle",
+            "facing": "left"
           }
-        ]
+        ],
+        "effects": [
+          "fireflies"
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "excited",
       "narration": {
@@ -338,10 +351,10 @@
         {
           "id": "luna",
           "shape": {
-            "x": 5,
-            "y": 27,
-            "w": 26,
-            "h": 26
+            "x": 11,
+            "y": 31,
+            "w": 22,
+            "h": 22
           },
           "label": "luna",
           "onTap": {
@@ -349,21 +362,19 @@
             "sayAudio": "audio/narration/en/pip-and-the-moon/p3-luna.mp3",
             "animate": "bounce"
           }
+        }
+      ],
+      "parentPrompt": "Ask: Where do owls live?",
+      "timeline": [
+        {
+          "word": 0,
+          "id": "luna",
+          "pose": "happy"
         },
         {
-          "id": "tree",
-          "shape": {
-            "x": -2,
-            "y": 43,
-            "w": 34,
-            "h": 34
-          },
-          "label": "tree",
-          "onTap": {
-            "say": "Rustle, rustle.",
-            "sayAudio": "audio/narration/en/pip-and-the-moon/p3-tree.mp3",
-            "animate": "wiggle"
-          }
+          "word": 2,
+          "id": "pip",
+          "pose": "surprised"
         }
       ]
     },
@@ -395,45 +406,47 @@
       "type": "story",
       "text": "\"The moon stays up to light the sky,\" said Luna.",
       "scene": {
-        "backdrop": "night",
+        "backdrop": "night-sky",
         "props": [
           {
-            "x": 75,
-            "y": 25,
-            "size": 26,
+            "x": 76,
+            "y": 24,
+            "size": 24,
             "prop": "moon"
           },
           {
             "x": 30,
             "y": 18,
-            "size": 10,
-            "anim": "float",
+            "size": 8,
+            "anim": "twinkle",
             "prop": "star"
           },
           {
             "x": 50,
             "y": 12,
-            "size": 8,
-            "anim": "float",
+            "size": 7,
+            "anim": "twinkle",
             "prop": "star"
           }
         ],
         "characters": [
           {
-            "x": 25,
-            "y": 55,
-            "size": 30,
+            "x": 28,
+            "y": 60,
+            "size": 26,
             "id": "luna",
-            "expression": "talking"
+            "pose": "talk"
           },
           {
-            "x": 60,
-            "y": 68,
-            "size": 38,
+            "x": 66,
+            "y": 64,
+            "size": 26,
             "id": "pip",
-            "expression": "idle"
+            "pose": "think",
+            "facing": "left"
           }
-        ]
+        ],
+        "camera": "pan-left"
       },
       "delivery": "narrator",
       "speaker": "luna",
@@ -497,63 +510,75 @@
         {
           "id": "star",
           "shape": {
-            "x": 25,
-            "y": 13,
-            "w": 10,
-            "h": 10
+            "x": 26,
+            "y": 14,
+            "w": 8,
+            "h": 8
           },
           "label": "star",
           "onTap": {
             "sfx": "audio/sfx/twinkle.mp3",
             "say": "Twinkle!",
             "sayAudio": "audio/narration/en/pip-and-the-moon/p4-star.mp3",
-            "animate": "spin"
+            "animate": "twinkle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "\"And the stars keep it company. Twinkle, twinkle!\"",
       "scene": {
-        "backdrop": "night",
+        "backdrop": "night-sky",
         "props": [
           {
-            "x": 75,
-            "y": 25,
-            "size": 26,
+            "x": 76,
+            "y": 24,
+            "size": 24,
             "prop": "moon"
           },
           {
             "x": 20,
             "y": 15,
-            "size": 9,
-            "anim": "float",
+            "size": 8,
+            "anim": "twinkle",
             "prop": "star"
           },
           {
-            "x": 45,
+            "x": 44,
             "y": 22,
-            "size": 9,
-            "anim": "float",
+            "size": 8,
+            "anim": "twinkle",
             "prop": "star"
           },
           {
             "x": 60,
             "y": 10,
-            "size": 9,
-            "anim": "float",
+            "size": 8,
+            "anim": "twinkle",
             "prop": "star"
           }
         ],
         "characters": [
           {
-            "x": 45,
-            "y": 66,
-            "size": 42,
+            "x": 72,
+            "y": 62,
+            "size": 22,
+            "id": "luna",
+            "pose": "talk",
+            "facing": "left"
+          },
+          {
+            "x": 36,
+            "y": 64,
+            "size": 28,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
+        ],
+        "effects": [
+          "stars"
         ]
       },
       "delivery": "excited",
@@ -613,10 +638,10 @@
         {
           "id": "pip",
           "shape": {
-            "x": 24,
-            "y": 45,
-            "w": 42,
-            "h": 42
+            "x": 22,
+            "y": 50,
+            "w": 28,
+            "h": 28
           },
           "label": "pip",
           "onTap": {
@@ -625,37 +650,48 @@
             "animate": "bounce"
           }
         }
+      ],
+      "timeline": [
+        {
+          "word": 6,
+          "id": "pip",
+          "pose": "cheer"
+        }
       ]
     },
     {
       "type": "story",
       "text": "A soft cloud floated by... puff, puff. Can you see it?",
       "scene": {
-        "backdrop": "night",
+        "backdrop": "night-sky",
         "props": [
           {
-            "x": 75,
-            "y": 25,
-            "size": 26,
+            "x": 76,
+            "y": 24,
+            "size": 24,
             "prop": "moon"
           },
           {
             "x": 40,
             "y": 22,
-            "size": 26,
+            "size": 24,
             "anim": "float",
             "prop": "cloud"
           }
         ],
         "characters": [
           {
-            "x": 45,
-            "y": 68,
-            "size": 40,
+            "x": 44,
+            "y": 64,
+            "size": 30,
             "id": "pip",
-            "expression": "thinking"
+            "pose": "think"
           }
-        ]
+        ],
+        "effects": [
+          "fireflies"
+        ],
+        "camera": "pan-right"
       },
       "delivery": "narrator",
       "narration": {
@@ -723,10 +759,10 @@
         {
           "id": "cloud",
           "shape": {
-            "x": 27,
-            "y": 9,
-            "w": 26,
-            "h": 26
+            "x": 28,
+            "y": 10,
+            "w": 24,
+            "h": 24
           },
           "label": "cloud",
           "onTap": {
@@ -736,39 +772,45 @@
             "animate": "grow"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Pip waved. \"Good night, moon. Good night, stars.\"",
       "scene": {
-        "backdrop": "night",
+        "backdrop": "night-sky",
         "props": [
           {
-            "x": 75,
-            "y": 25,
-            "size": 26,
+            "x": 76,
+            "y": 24,
+            "size": 24,
             "prop": "moon"
           }
         ],
         "characters": [
           {
-            "x": 40,
-            "y": 68,
-            "size": 42,
+            "x": 36,
+            "y": 64,
+            "size": 28,
             "id": "pip",
-            "expression": "happy"
+            "pose": "wave"
           },
           {
             "x": 70,
-            "y": 60,
-            "size": 28,
+            "y": 62,
+            "size": 24,
             "id": "luna",
-            "expression": "happy"
+            "pose": "sleepy",
+            "facing": "left"
           }
+        ],
+        "effects": [
+          "fireflies"
         ]
       },
       "delivery": "sleepy",
+      "speaker": "pip",
       "narration": {
         "src": "audio/narration/en/pip-and-the-moon/p7.mp3",
         "wordTimings": [
@@ -784,33 +826,33 @@
           },
           {
             "word": "\"Good",
-            "startMs": 3112,
-            "endMs": 3337
+            "startMs": 3147,
+            "endMs": 3397
           },
           {
             "word": "night,",
-            "startMs": 3337,
-            "endMs": 3662
+            "startMs": 3397,
+            "endMs": 3722
           },
           {
             "word": "moon.",
-            "startMs": 3750,
-            "endMs": 4612
+            "startMs": 3809,
+            "endMs": 4647
           },
           {
             "word": "Good",
-            "startMs": 4965,
-            "endMs": 5215
+            "startMs": 4886,
+            "endMs": 5136
           },
           {
             "word": "night,",
-            "startMs": 5215,
-            "endMs": 5590
+            "startMs": 5136,
+            "endMs": 5461
           },
           {
             "word": "stars.\"",
-            "startMs": 5678,
-            "endMs": 6740
+            "startMs": 5523,
+            "endMs": 6561
           }
         ]
       },
@@ -819,10 +861,10 @@
         {
           "id": "pip",
           "shape": {
-            "x": 19,
-            "y": 47,
-            "w": 42,
-            "h": 42
+            "x": 22,
+            "y": 50,
+            "w": 28,
+            "h": 28
           },
           "label": "pip",
           "onTap": {
@@ -830,8 +872,24 @@
             "sayAudio": "audio/narration/en/pip-and-the-moon/p7-pip.mp3",
             "animate": "wiggle"
           }
+        },
+        {
+          "id": "luna",
+          "shape": {
+            "x": 58,
+            "y": 50,
+            "w": 24,
+            "h": 24
+          },
+          "label": "luna",
+          "onTap": {
+            "say": "Hoo... night night.",
+            "sayAudio": "audio/narration/en/pip-and-the-moon/p7-luna.mp3",
+            "animate": "bounce"
+          }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -862,30 +920,31 @@
       "type": "story",
       "text": "Pip curled up in a cosy bed... snug as a bug.",
       "scene": {
-        "backdrop": "room",
+        "backdrop": "bedroom",
         "props": [
           {
             "x": 50,
-            "y": 70,
-            "size": 50,
+            "y": 76,
+            "size": 48,
             "prop": "bed"
           },
           {
-            "x": 85,
-            "y": 55,
-            "size": 22,
+            "x": 86,
+            "y": 58,
+            "size": 18,
             "prop": "lamp"
           }
         ],
         "characters": [
           {
             "x": 50,
-            "y": 58,
-            "size": 34,
+            "y": 60,
+            "size": 24,
             "id": "pip",
-            "expression": "idle"
+            "pose": "sleepy"
           }
-        ]
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "sleepy",
       "narration": {
@@ -953,10 +1012,10 @@
         {
           "id": "lamp",
           "shape": {
-            "x": 74,
-            "y": 44,
-            "w": 22,
-            "h": 22
+            "x": 77,
+            "y": 49,
+            "w": 18,
+            "h": 18
           },
           "label": "lamp",
           "onTap": {
@@ -966,17 +1025,18 @@
             "animate": "grow"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Shh... the moon smiled, and shone, all night long.",
       "scene": {
-        "backdrop": "night",
+        "backdrop": "night-sky",
         "props": [
           {
-            "x": 75,
-            "y": 25,
+            "x": 74,
+            "y": 26,
             "size": 26,
             "anim": "float",
             "prop": "moon"
@@ -985,12 +1045,16 @@
         "characters": [
           {
             "x": 40,
-            "y": 68,
-            "size": 40,
+            "y": 66,
+            "size": 28,
             "id": "pip",
-            "expression": "happy"
+            "pose": "sleep"
           }
-        ]
+        ],
+        "effects": [
+          "fireflies"
+        ],
+        "camera": "zoom-out"
       },
       "delivery": "whisper",
       "narration": {
@@ -1050,7 +1114,8 @@
         }
       ],
       "hotspots": [],
-      "parentPrompt": "Say good night to the moon together."
+      "parentPrompt": "Say good night to the moon together.",
+      "timeline": []
     }
   ]
 }

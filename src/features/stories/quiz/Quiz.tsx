@@ -10,6 +10,8 @@ import { Celebration } from '@/components/Celebration';
 import { AudioManager } from '@/services/AudioManager';
 import { sfxNames, type SfxName } from '@/services/synth';
 import { strings } from '@/strings';
+import { Character } from '@/art/cast/Character';
+import { Background } from '@/art/scene/Backgrounds';
 import { numbers } from '@/content/loaders';
 import { ArrowRightIcon, QuestionIcon, SkipIcon } from '@/art/Icons';
 import { uiLineSrc } from '@/content/voicing';
@@ -32,10 +34,10 @@ function OptionArt({ o }: { o: QuizOption }) {
   return <span className="font-ui text-3xl font-bold">{o.label}</span>;
 }
 
-type Props = { page: QuizPage; onDone: (stars: number) => void };
+type Props = { page: QuizPage; onDone: (stars: number) => void; host?: string; backdrop?: string };
 
 /** Renders any of the 7 quiz types from JSON. Never blocks: skip is always available. */
-export function Quiz({ page, onDone }: Props) {
+export function Quiz({ page, onDone, host = 'pip', backdrop }: Props) {
   const [state, dispatch] = useReducer(quizReducer, initialQuiz);
   const [counted, setCounted] = useState<number[]>([]);
   const doneRef = useRef(false);
@@ -78,7 +80,9 @@ export function Quiz({ page, onDone }: Props) {
     const label = options[correctIndex]?.label ?? '';
     const line = state.status === 'correct' ? strings.quiz.great : strings.quiz.itWas(label);
     let t: ReturnType<typeof setTimeout> | undefined;
+    AudioManager.react(host, 'yay');
     AudioManager.say(line, {
+      queue: true,
       role: 'quizHost',
       delivery: 'excited',
       src: state.status === 'correct' ? uiLineSrc(line) : undefined,
@@ -92,7 +96,7 @@ export function Quiz({ page, onDone }: Props) {
     if (isFinished(state)) return;
     const correct = i === correctIndex;
     if (!correct) {
-      AudioManager.sfx('boop');
+      AudioManager.sfx('oops');
       if (state.misses === 0) AudioManager.say(strings.quiz.tryAgain, { role: 'quizHost', delivery: 'gentle', src: uiLineSrc(strings.quiz.tryAgain) });
     }
     dispatch({ type: 'answer', correct, index: i });
@@ -108,9 +112,19 @@ export function Quiz({ page, onDone }: Props) {
   const finished = isFinished(state);
 
   return (
-    <div className="flex flex-1 flex-col items-center gap-4 p-4">
+    <div className="relative isolate flex flex-1 flex-col items-center gap-4 overflow-hidden rounded-blob p-4">
+      {/* The story's world, softly dimmed behind the quiz */}
+      {backdrop && (
+        <div className="pointer-events-none absolute inset-0 -z-10 opacity-30" aria-hidden>
+          <Background name={backdrop} />
+        </div>
+      )}
       {finished && <Celebration />}
-      <div className="flex items-center gap-4">
+      <div className="relative flex items-center gap-3">
+        {/* Host reacts: cheers when right, a gentle wave to try again, never sad */}
+        <div className="hidden shrink-0 sm:block">
+          <Character id={host} size={110} pose={state.status === 'correct' || state.status === 'revealed' ? 'cheer' : state.status === 'hint' ? 'wave' : 'talk'} />
+        </div>
         <h2 className="story-text text-center font-bold" style={{ fontSize: 'calc(var(--story-size) * 0.8)' }}>
           {page.question}
         </h2>

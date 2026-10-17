@@ -9,12 +9,12 @@
   "ageBand": "3-7",
   "durationTag": "short",
   "coverScene": {
-    "backdrop": "meadow",
+    "backdrop": "meadow-day",
     "props": [
       {
         "x": 50,
-        "y": 75,
-        "size": 14,
+        "y": 78,
+        "size": 12,
         "prop": "ball"
       }
     ],
@@ -22,16 +22,17 @@
       {
         "x": 30,
         "y": 62,
-        "size": 36,
+        "size": 26,
         "id": "pip",
-        "expression": "happy"
+        "pose": "happy"
       },
       {
         "x": 70,
-        "y": 60,
-        "size": 36,
+        "y": 62,
+        "size": 26,
         "id": "zig",
-        "expression": "happy"
+        "pose": "happy",
+        "facing": "left"
       }
     ]
   },
@@ -49,24 +50,26 @@
       "type": "story",
       "text": "Bounce, bounce! Pip had a bright blue ball.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 60,
-            "y": 76,
-            "size": 14,
+            "x": 58,
+            "y": 78,
+            "size": 12,
+            "anim": "bounce",
             "prop": "ball"
           }
         ],
         "characters": [
           {
-            "x": 35,
+            "x": 34,
             "y": 62,
-            "size": 40,
+            "size": 28,
             "id": "pip",
-            "expression": "idle"
+            "pose": "happy"
           }
-        ]
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "excited",
       "narration": {
@@ -119,10 +122,10 @@
         {
           "id": "ball",
           "shape": {
-            "x": 53,
-            "y": 69,
-            "w": 14,
-            "h": 14
+            "x": 52,
+            "y": 72,
+            "w": 12,
+            "h": 12
           },
           "label": "ball",
           "onTap": {
@@ -132,28 +135,29 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "But playing ball all alone... was not much fun.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
             "x": 60,
-            "y": 76,
-            "size": 14,
+            "y": 80,
+            "size": 12,
             "prop": "ball"
           }
         ],
         "characters": [
           {
-            "x": 35,
+            "x": 36,
             "y": 62,
-            "size": 40,
+            "size": 28,
             "id": "pip",
-            "expression": "thinking"
+            "pose": "sad-soft"
           }
         ]
       },
@@ -210,7 +214,8 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: Is it more fun to play together?"
+      "parentPrompt": "Ask: Is it more fun to play together?",
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -241,31 +246,26 @@
       "type": "story",
       "text": "Behind a tree, Pip saw a little robot.",
       "scene": {
-        "backdrop": "meadow",
-        "props": [
-          {
-            "x": 80,
-            "y": 48,
-            "size": 36,
-            "prop": "tree"
-          }
-        ],
+        "backdrop": "forest",
+        "props": [],
         "characters": [
           {
             "x": 80,
             "y": 66,
-            "size": 26,
+            "size": 20,
             "id": "zig",
-            "expression": "thinking"
+            "pose": "think",
+            "facing": "left"
           },
           {
             "x": 30,
             "y": 62,
-            "size": 38,
+            "size": 26,
             "id": "pip",
-            "expression": "thinking"
+            "pose": "surprised"
           }
-        ]
+        ],
+        "camera": "pan-right"
       },
       "delivery": "narrator",
       "narration": {
@@ -318,10 +318,10 @@
         {
           "id": "zig",
           "shape": {
-            "x": 67,
-            "y": 53,
-            "w": 26,
-            "h": 26
+            "x": 70,
+            "y": 56,
+            "w": 20,
+            "h": 20
           },
           "label": "zig",
           "onTap": {
@@ -331,28 +331,30 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "\"Hello! I am Pip. Do you want to play?\"",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [],
         "characters": [
           {
             "x": 70,
             "y": 62,
-            "size": 34,
+            "size": 26,
             "id": "zig",
-            "expression": "thinking"
+            "pose": "think",
+            "facing": "left"
           },
           {
             "x": 30,
             "y": 62,
-            "size": 38,
+            "size": 28,
             "id": "pip",
-            "expression": "talking"
+            "pose": "talk"
           }
         ]
       },
@@ -413,10 +415,10 @@
         {
           "id": "pip",
           "shape": {
-            "x": 11,
-            "y": 43,
-            "w": 38,
-            "h": 38
+            "x": 16,
+            "y": 48,
+            "w": 28,
+            "h": 28
           },
           "label": "pip",
           "onTap": {
@@ -425,69 +427,78 @@
             "animate": "bounce"
           }
         }
+      ],
+      "timeline": [
+        {
+          "word": 0,
+          "id": "pip",
+          "pose": "wave"
+        }
       ]
     },
     {
       "type": "story",
       "text": "\"Beep boop! Yes, please! I am Zig.\"",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [],
         "characters": [
           {
             "x": 70,
             "y": 62,
-            "size": 34,
+            "size": 26,
             "id": "zig",
-            "expression": "happy"
+            "pose": "talk",
+            "facing": "left"
           },
           {
             "x": 30,
             "y": 62,
-            "size": 38,
+            "size": 28,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
         ]
       },
       "delivery": "silly",
+      "speaker": "zig",
       "narration": {
         "src": "audio/narration/en/pip-makes-a-friend/p5.mp3",
         "wordTimings": [
           {
             "word": "\"Beep",
-            "startMs": 525,
-            "endMs": 750
+            "startMs": 350,
+            "endMs": 575
           },
           {
             "word": "boop!",
-            "startMs": 750,
-            "endMs": 1350
+            "startMs": 575,
+            "endMs": 1150
           },
           {
             "word": "Yes,",
-            "startMs": 1807,
-            "endMs": 2007
+            "startMs": 964,
+            "endMs": 1164
           },
           {
             "word": "please!",
-            "startMs": 2057,
-            "endMs": 2782
+            "startMs": 1214,
+            "endMs": 1914
           },
           {
             "word": "I",
-            "startMs": 3242,
-            "endMs": 3392
+            "startMs": 1764,
+            "endMs": 1889
           },
           {
             "word": "am",
-            "startMs": 3392,
-            "endMs": 3554
+            "startMs": 1889,
+            "endMs": 2051
           },
           {
             "word": "Zig.\"",
-            "startMs": 3554,
-            "endMs": 4167
+            "startMs": 2051,
+            "endMs": 2689
           }
         ]
       },
@@ -496,10 +507,10 @@
         {
           "id": "zig",
           "shape": {
-            "x": 53,
-            "y": 45,
-            "w": 34,
-            "h": 34
+            "x": 57,
+            "y": 49,
+            "w": 26,
+            "h": 26
           },
           "label": "zig",
           "onTap": {
@@ -508,37 +519,48 @@
             "animate": "bounce"
           }
         }
+      ],
+      "timeline": [
+        {
+          "word": 2,
+          "id": "zig",
+          "pose": "cheer"
+        }
       ]
     },
     {
       "type": "story",
       "text": "Pip threw the ball... and Zig caught it! Wheee!",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
             "x": 50,
-            "y": 40,
-            "size": 14,
+            "y": 36,
+            "size": 12,
             "anim": "float",
             "prop": "ball"
           }
         ],
         "characters": [
           {
-            "x": 75,
+            "x": 76,
             "y": 62,
-            "size": 32,
+            "size": 24,
             "id": "zig",
-            "expression": "happy"
+            "pose": "cheer",
+            "facing": "left"
           },
           {
-            "x": 25,
+            "x": 24,
             "y": 62,
-            "size": 34,
+            "size": 26,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
+        ],
+        "effects": [
+          "petals"
         ]
       },
       "delivery": "silly",
@@ -602,10 +624,10 @@
         {
           "id": "ball",
           "shape": {
-            "x": 43,
-            "y": 33,
-            "w": 14,
-            "h": 14
+            "x": 44,
+            "y": 30,
+            "w": 12,
+            "h": 12
           },
           "label": "ball",
           "onTap": {
@@ -615,7 +637,8 @@
             "animate": "spin"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -645,30 +668,35 @@
       "type": "story",
       "text": "Throw, catch, giggle! They played and laughed all afternoon.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
             "x": 50,
-            "y": 76,
-            "size": 14,
+            "y": 78,
+            "size": 12,
+            "anim": "bounce",
             "prop": "ball"
           }
         ],
         "characters": [
           {
             "x": 72,
-            "y": 60,
-            "size": 32,
+            "y": 62,
+            "size": 24,
             "id": "zig",
-            "expression": "celebrate"
+            "pose": "dance",
+            "facing": "left"
           },
           {
             "x": 28,
-            "y": 60,
-            "size": 34,
+            "y": 62,
+            "size": 26,
             "id": "pip",
-            "expression": "celebrate"
+            "pose": "dance"
           }
+        ],
+        "effects": [
+          "petals"
         ]
       },
       "delivery": "excited",
@@ -728,36 +756,34 @@
           "src": "audio/sfx/tada.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "\"Will you play again tomorrow?\" asked Zig.",
       "scene": {
-        "backdrop": "meadow",
-        "props": [
-          {
-            "x": 80,
-            "y": 20,
-            "size": 20,
-            "prop": "sun"
-          }
-        ],
+        "backdrop": "meadow-sunset",
+        "props": [],
         "characters": [
           {
-            "x": 65,
+            "x": 66,
             "y": 62,
-            "size": 32,
+            "size": 24,
             "id": "zig",
-            "expression": "happy"
+            "pose": "talk",
+            "facing": "left"
           },
           {
-            "x": 35,
+            "x": 34,
             "y": 62,
-            "size": 34,
+            "size": 26,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
+        ],
+        "effects": [
+          "sunrays"
         ]
       },
       "delivery": "narrator",
@@ -804,38 +830,44 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: Who is your friend?"
+      "parentPrompt": "Ask: Who is your friend?",
+      "timeline": []
     },
     {
       "type": "story",
       "text": "\"Yes!\" said Pip. \"Friends play together.\"",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-sunset",
         "props": [
           {
             "x": 50,
-            "y": 30,
-            "size": 16,
+            "y": 26,
+            "size": 14,
             "anim": "float",
             "prop": "heart"
           }
         ],
         "characters": [
           {
-            "x": 65,
+            "x": 66,
             "y": 62,
-            "size": 32,
+            "size": 24,
             "id": "zig",
-            "expression": "happy"
+            "pose": "cheer",
+            "facing": "left"
           },
           {
-            "x": 35,
+            "x": 34,
             "y": 62,
-            "size": 34,
+            "size": 26,
             "id": "pip",
-            "expression": "happy"
+            "pose": "cheer"
           }
-        ]
+        ],
+        "effects": [
+          "sunrays"
+        ],
+        "camera": "zoom-out"
       },
       "delivery": "excited",
       "speaker": "pip",
@@ -879,10 +911,10 @@
         {
           "id": "heart",
           "shape": {
-            "x": 42,
-            "y": 22,
-            "w": 16,
-            "h": 16
+            "x": 43,
+            "y": 19,
+            "w": 14,
+            "h": 14
           },
           "label": "heart",
           "onTap": {
@@ -892,7 +924,8 @@
             "animate": "grow"
           }
         }
-      ]
+      ],
+      "timeline": []
     }
   ]
 }

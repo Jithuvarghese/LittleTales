@@ -200,7 +200,7 @@ function ChoiceRound({ question, options, correct, render, onNext }: { question:
           return (
             <Tile key={i} label={String(v)} state={s} className="min-h-[160px] min-w-[200px] max-w-md" onClick={() => {
               if (isFinished(state)) return;
-              if (i !== correct) AudioManager.sfx('boop');
+              if (i !== correct) AudioManager.sfx('oops');
               dispatch(quizReducer(state, { type: 'answer', correct: i === correct, index: i }));
             }}>
               {render(v)}

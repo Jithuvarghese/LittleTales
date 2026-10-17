@@ -9,28 +9,22 @@
   "ageBand": "3-5",
   "durationTag": "short",
   "coverScene": {
-    "backdrop": "village",
+    "backdrop": "rain",
     "props": [
       {
-        "x": 40,
-        "y": 18,
-        "size": 30,
-        "prop": "cloud"
-      },
-      {
-        "x": 60,
-        "y": 55,
-        "size": 30,
+        "x": 62,
+        "y": 54,
+        "size": 26,
         "prop": "umbrella"
       }
     ],
     "characters": [
       {
-        "x": 40,
+        "x": 38,
         "y": 66,
-        "size": 36,
+        "size": 26,
         "id": "bumble",
-        "expression": "happy"
+        "pose": "happy"
       }
     ]
   },
@@ -48,32 +42,21 @@
       "type": "story",
       "text": "Drip, drop! Drip, drop! It was raining in the village.",
       "scene": {
-        "backdrop": "village",
-        "props": [
-          {
-            "x": 40,
-            "y": 18,
-            "size": 30,
-            "anim": "float",
-            "prop": "cloud"
-          },
-          {
-            "x": 72,
-            "y": 22,
-            "size": 26,
-            "anim": "float",
-            "prop": "cloud"
-          }
-        ],
+        "backdrop": "rain",
+        "props": [],
         "characters": [
           {
             "x": 50,
             "y": 66,
-            "size": 40,
+            "size": 28,
             "id": "bumble",
-            "expression": "thinking"
+            "pose": "think"
           }
-        ]
+        ],
+        "effects": [
+          "rain"
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "excited",
       "narration": {
@@ -139,43 +122,44 @@
       ],
       "hotspots": [
         {
-          "id": "cloud",
+          "id": "bumble",
           "shape": {
-            "x": 25,
-            "y": 3,
-            "w": 30,
-            "h": 30
+            "x": 36,
+            "y": 52,
+            "w": 28,
+            "h": 28
           },
-          "label": "cloud",
+          "label": "bumble",
           "onTap": {
-            "sfx": "audio/sfx/splash.mp3",
-            "say": "Drip, drop!",
-            "sayAudio": "audio/narration/en/rainy-day-puddles/p1-cloud.mp3",
-            "animate": "grow"
+            "say": "Rain, rain!",
+            "sayAudio": "audio/narration/en/rainy-day-puddles/p1-bumble.mp3",
+            "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Bumble found a big purple umbrella.",
       "scene": {
-        "backdrop": "room",
+        "backdrop": "bedroom",
         "props": [
           {
             "x": 70,
-            "y": 55,
-            "size": 30,
+            "y": 56,
+            "size": 26,
+            "anim": "sway",
             "prop": "umbrella"
           }
         ],
         "characters": [
           {
-            "x": 35,
-            "y": 62,
-            "size": 40,
+            "x": 34,
+            "y": 64,
+            "size": 28,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "surprised"
           }
         ]
       },
@@ -220,10 +204,10 @@
         {
           "id": "umbrella",
           "shape": {
-            "x": 55,
-            "y": 40,
-            "w": 30,
-            "h": 30
+            "x": 57,
+            "y": 43,
+            "w": 26,
+            "h": 26
           },
           "label": "umbrella",
           "onTap": {
@@ -233,18 +217,25 @@
             "animate": "grow"
           }
         }
+      ],
+      "timeline": [
+        {
+          "word": 3,
+          "id": "bumble",
+          "pose": "happy"
+        }
       ]
     },
     {
       "type": "story",
       "text": "Out he went... splish! Splash! Splosh!",
       "scene": {
-        "backdrop": "village",
+        "backdrop": "rain",
         "props": [
           {
             "x": 50,
-            "y": 44,
-            "size": 30,
+            "y": 36,
+            "size": 26,
             "prop": "umbrella"
           }
         ],
@@ -252,10 +243,13 @@
           {
             "x": 50,
             "y": 66,
-            "size": 36,
+            "size": 26,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "dance"
           }
+        ],
+        "effects": [
+          "rain"
         ]
       },
       "delivery": "silly",
@@ -300,7 +294,25 @@
           "src": "audio/sfx/splash.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [
+        {
+          "id": "bumble",
+          "shape": {
+            "x": 37,
+            "y": 53,
+            "w": 26,
+            "h": 26
+          },
+          "label": "bumble",
+          "onTap": {
+            "sfx": "audio/sfx/splash.mp3",
+            "say": "Splash!",
+            "sayAudio": "audio/narration/en/rainy-day-puddles/p3-bumble.mp3",
+            "animate": "bounce"
+          }
+        }
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -331,23 +343,34 @@
       "type": "story",
       "text": "Coco the parrot hid under the umbrella too.",
       "scene": {
-        "backdrop": "village",
-        "props": [],
+        "backdrop": "rain",
+        "props": [
+          {
+            "x": 46,
+            "y": 32,
+            "size": 30,
+            "prop": "umbrella"
+          }
+        ],
         "characters": [
           {
-            "x": 30,
-            "y": 36,
-            "size": 26,
+            "x": 34,
+            "y": 52,
+            "size": 18,
             "id": "coco",
-            "expression": "happy"
+            "pose": "happy"
           },
           {
-            "x": 60,
+            "x": 58,
             "y": 66,
-            "size": 36,
+            "size": 26,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy",
+            "facing": "left"
           }
+        ],
+        "effects": [
+          "rain"
         ]
       },
       "delivery": "narrator",
@@ -401,10 +424,10 @@
         {
           "id": "coco",
           "shape": {
-            "x": 17,
-            "y": 23,
-            "w": 26,
-            "h": 26
+            "x": 25,
+            "y": 43,
+            "w": 18,
+            "h": 18
           },
           "label": "coco",
           "onTap": {
@@ -413,30 +436,37 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Oh no! Bumble's sock got all wet. Squelch!",
       "scene": {
-        "backdrop": "village",
+        "backdrop": "rain",
         "props": [
           {
-            "x": 35,
-            "y": 72,
-            "size": 16,
+            "x": 32,
+            "y": 76,
+            "size": 12,
+            "anim": "wiggle",
             "prop": "sock"
           }
         ],
         "characters": [
           {
             "x": 60,
-            "y": 64,
-            "size": 36,
+            "y": 66,
+            "size": 26,
             "id": "bumble",
-            "expression": "surprised"
+            "pose": "surprised",
+            "facing": "left"
           }
-        ]
+        ],
+        "effects": [
+          "rain"
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "surprised",
       "narration": {
@@ -489,10 +519,10 @@
         {
           "id": "sock",
           "shape": {
-            "x": 27,
-            "y": 64,
-            "w": 16,
-            "h": 16
+            "x": 26,
+            "y": 70,
+            "w": 12,
+            "h": 12
           },
           "label": "sock",
           "onTap": {
@@ -503,36 +533,34 @@
           }
         }
       ],
-      "parentPrompt": "Ask: What do you wear when it rains?"
+      "parentPrompt": "Ask: What do you wear when it rains?",
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Coco laughed. \"Puddles are fun!\"",
       "scene": {
-        "backdrop": "village",
-        "props": [
-          {
-            "x": 50,
-            "y": 20,
-            "size": 28,
-            "prop": "cloud"
-          }
-        ],
+        "backdrop": "rain",
+        "props": [],
         "characters": [
           {
-            "x": 30,
-            "y": 40,
-            "size": 24,
+            "x": 32,
+            "y": 50,
+            "size": 18,
             "id": "coco",
-            "expression": "happy"
+            "pose": "talk"
           },
           {
-            "x": 60,
+            "x": 62,
             "y": 66,
-            "size": 36,
+            "size": 26,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy",
+            "facing": "left"
           }
+        ],
+        "effects": [
+          "rain"
         ]
       },
       "delivery": "excited",
@@ -568,7 +596,14 @@
         ]
       },
       "sfx": [],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": [
+        {
+          "word": 0,
+          "id": "coco",
+          "pose": "happy"
+        }
+      ]
     },
     {
       "type": "quiz",
@@ -606,31 +641,36 @@
       "type": "story",
       "text": "Then the rain stopped... and look! A rainbow came out!",
       "scene": {
-        "backdrop": "village",
+        "backdrop": "city",
         "props": [
           {
             "x": 50,
             "y": 30,
-            "size": 60,
+            "size": 56,
             "prop": "rainbow"
           }
         ],
         "characters": [
           {
             "x": 30,
-            "y": 50,
-            "size": 22,
+            "y": 52,
+            "size": 18,
             "id": "coco",
-            "expression": "celebrate"
+            "pose": "cheer"
           },
           {
-            "x": 65,
+            "x": 66,
             "y": 66,
-            "size": 34,
+            "size": 24,
             "id": "bumble",
-            "expression": "celebrate"
+            "pose": "cheer",
+            "facing": "left"
           }
-        ]
+        ],
+        "effects": [
+          "sunrays"
+        ],
+        "camera": "zoom-out"
       },
       "delivery": "excited",
       "narration": {
@@ -698,10 +738,10 @@
         {
           "id": "rainbow",
           "shape": {
-            "x": 20,
-            "y": 0,
-            "w": 60,
-            "h": 60
+            "x": 22,
+            "y": 2,
+            "w": 56,
+            "h": 56
           },
           "label": "rainbow",
           "onTap": {
@@ -711,37 +751,40 @@
             "animate": "grow"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Back home, they had warm milk.",
       "scene": {
-        "backdrop": "room",
+        "backdrop": "kitchen",
         "props": [
           {
             "x": 50,
-            "y": 64,
-            "size": 22,
+            "y": 66,
+            "size": 16,
             "prop": "cup"
           }
         ],
         "characters": [
           {
-            "x": 25,
-            "y": 62,
-            "size": 34,
+            "x": 26,
+            "y": 64,
+            "size": 24,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "happy"
           },
           {
-            "x": 78,
-            "y": 50,
-            "size": 24,
+            "x": 76,
+            "y": 56,
+            "size": 18,
             "id": "coco",
-            "expression": "happy"
+            "pose": "happy",
+            "facing": "left"
           }
-        ]
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "narrator",
       "narration": {
@@ -784,10 +827,10 @@
         {
           "id": "cup",
           "shape": {
-            "x": 39,
-            "y": 53,
-            "w": 22,
-            "h": 22
+            "x": 42,
+            "y": 58,
+            "w": 16,
+            "h": 16
           },
           "label": "cup",
           "onTap": {
@@ -796,30 +839,32 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Rainy days can be happy days too.",
       "scene": {
-        "backdrop": "room",
+        "backdrop": "bedroom",
         "props": [
           {
             "x": 50,
-            "y": 70,
-            "size": 50,
+            "y": 76,
+            "size": 48,
             "prop": "bed"
           }
         ],
         "characters": [
           {
             "x": 50,
-            "y": 58,
-            "size": 32,
+            "y": 60,
+            "size": 22,
             "id": "bumble",
-            "expression": "happy"
+            "pose": "sleepy"
           }
-        ]
+        ],
+        "camera": "zoom-out"
       },
       "delivery": "narrator",
       "narration": {
@@ -864,7 +909,8 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: What do you like to do on a rainy day?"
+      "parentPrompt": "Ask: What do you like to do on a rainy day?",
+      "timeline": []
     }
   ]
 }

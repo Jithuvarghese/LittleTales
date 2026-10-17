@@ -10,32 +10,43 @@ export type SfxName =
   | 'boing'
   | 'sparkle'
   | 'boop'
+  | 'oops'
   | 'tada'
   | 'click'
+  | 'tick'
+  | 'pageturn'
   | 'twinkle'
   | 'splash'
   | 'drum'
   | 'bell';
 
 export const sfxNames: SfxName[] = [
-  'chime', 'pop', 'whoosh', 'boing', 'sparkle', 'boop', 'tada', 'click', 'twinkle', 'splash', 'drum', 'bell',
+  'chime', 'pop', 'whoosh', 'boing', 'sparkle', 'boop', 'oops', 'tada', 'click', 'tick', 'pageturn', 'twinkle', 'splash', 'drum', 'bell',
 ];
 
 type Tone = { f: number; t: number; d: number; type?: OscillatorType; v?: number; slide?: number };
 
+/**
+ * One soft, consistent sound set (sine and triangle only, no harsh buzzy waves).
+ * The same action always makes the same sound across the site.
+ */
+const oops: Tone[] = [{ f: 523, t: 0, d: 0.16, v: 0.35 }, { f: 392, t: 0.12, d: 0.24, v: 0.3 }];
 const recipes: Record<SfxName, Tone[]> = {
-  chime: [{ f: 880, t: 0, d: 0.5 }, { f: 1320, t: 0.08, d: 0.6, v: 0.6 }],
-  pop: [{ f: 600, t: 0, d: 0.08, slide: 1200, type: 'triangle' }],
-  whoosh: [{ f: 200, t: 0, d: 0.35, slide: 900, type: 'sawtooth', v: 0.15 }],
-  boing: [{ f: 180, t: 0, d: 0.4, slide: 520, type: 'triangle' }],
-  sparkle: [1568, 1976, 2349, 2637].map((f, i) => ({ f, t: i * 0.06, d: 0.25, v: 0.4 })),
-  boop: [{ f: 420, t: 0, d: 0.18, slide: 300, type: 'sine', v: 0.6 }],
-  tada: [523, 659, 784, 1047].map((f, i) => ({ f, t: i * 0.09, d: i === 3 ? 0.7 : 0.2, type: 'triangle' as const })),
-  click: [{ f: 1000, t: 0, d: 0.03, type: 'square', v: 0.15 }],
-  twinkle: [1760, 2093, 1760, 2637].map((f, i) => ({ f, t: i * 0.1, d: 0.3, v: 0.35 })),
-  splash: [{ f: 900, t: 0, d: 0.3, slide: 150, type: 'sawtooth', v: 0.12 }],
-  drum: [{ f: 140, t: 0, d: 0.25, slide: 60, type: 'sine', v: 1 }],
-  bell: [{ f: 1046, t: 0, d: 1.0, v: 0.6 }, { f: 2093, t: 0, d: 0.6, v: 0.25 }],
+  chime: [{ f: 880, t: 0, d: 0.5, v: 0.45 }, { f: 1320, t: 0.08, d: 0.6, v: 0.3 }],
+  pop: [{ f: 520, t: 0, d: 0.09, slide: 980, type: 'sine', v: 0.45 }],
+  whoosh: [{ f: 260, t: 0, d: 0.32, slide: 760, type: 'triangle', v: 0.1 }, { f: 380, t: 0.04, d: 0.3, slide: 1100, type: 'sine', v: 0.06 }],
+  boing: [{ f: 190, t: 0, d: 0.38, slide: 480, type: 'sine', v: 0.45 }],
+  sparkle: [1568, 1976, 2349, 2637].map((f, i) => ({ f, t: i * 0.06, d: 0.22, v: 0.22 })),
+  boop: oops,
+  oops,
+  tada: [523, 659, 784, 1047].map((f, i) => ({ f, t: i * 0.09, d: i === 3 ? 0.7 : 0.2, type: 'triangle' as const, v: 0.4 })),
+  click: [{ f: 760, t: 0, d: 0.05, type: 'sine', v: 0.18 }],
+  tick: [{ f: 1800, t: 0, d: 0.025, type: 'sine', v: 0.12 }],
+  pageturn: [{ f: 600, t: 0, d: 0.12, slide: 300, type: 'triangle', v: 0.1 }, { f: 900, t: 0.07, d: 0.14, slide: 420, type: 'sine', v: 0.08 }],
+  twinkle: [1760, 2093, 1760, 2637].map((f, i) => ({ f, t: i * 0.1, d: 0.28, v: 0.22 })),
+  splash: [{ f: 700, t: 0, d: 0.26, slide: 180, type: 'triangle', v: 0.16 }, { f: 1100, t: 0.03, d: 0.2, slide: 300, type: 'sine', v: 0.08 }],
+  drum: [{ f: 140, t: 0, d: 0.25, slide: 60, type: 'sine', v: 0.8 }],
+  bell: [{ f: 1046, t: 0, d: 1.0, v: 0.45 }, { f: 2093, t: 0, d: 0.6, v: 0.18 }],
 };
 
 export function playTones(ctx: AudioContext, dest: AudioNode, name: SfxName) {

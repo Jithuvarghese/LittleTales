@@ -9,23 +9,30 @@
   "ageBand": "3-7",
   "durationTag": "short",
   "coverScene": {
-    "backdrop": "village",
+    "backdrop": "city",
     "props": [
       {
-        "x": 60,
-        "y": 25,
-        "size": 24,
+        "x": 66,
+        "y": 24,
+        "size": 18,
         "anim": "float",
         "prop": "kite"
       }
     ],
     "characters": [
       {
-        "x": 35,
-        "y": 66,
-        "size": 36,
+        "x": 36,
+        "y": 64,
+        "size": 26,
+        "id": "anu",
+        "pose": "happy"
+      },
+      {
+        "x": 58,
+        "y": 70,
+        "size": 20,
         "id": "pip",
-        "expression": "happy"
+        "pose": "happy"
       }
     ]
   },
@@ -35,6 +42,7 @@
     "volume": 0.4
   },
   "characters": [
+    "anu",
     "pip",
     "coco"
   ],
@@ -43,24 +51,25 @@
       "type": "story",
       "text": "It was kite day in Anu's town, and Pip came too.",
       "scene": {
-        "backdrop": "village",
-        "props": [
-          {
-            "x": 80,
-            "y": 18,
-            "size": 18,
-            "prop": "sun"
-          }
-        ],
+        "backdrop": "city",
+        "props": [],
         "characters": [
           {
-            "x": 40,
-            "y": 66,
-            "size": 38,
+            "x": 34,
+            "y": 64,
+            "size": 26,
+            "id": "anu",
+            "pose": "wave"
+          },
+          {
+            "x": 58,
+            "y": 70,
+            "size": 20,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
-        ]
+        ],
+        "camera": "pan-right"
       },
       "delivery": "narrator",
       "narration": {
@@ -126,45 +135,63 @@
       "sfx": [],
       "hotspots": [
         {
-          "id": "pip",
+          "id": "anu",
           "shape": {
             "x": 21,
-            "y": 47,
-            "w": 38,
-            "h": 38
+            "y": 51,
+            "w": 26,
+            "h": 26
+          },
+          "label": "anu",
+          "onTap": {
+            "say": "Kite day!",
+            "sayAudio": "audio/narration/en/anus-kite-day/p1-anu.mp3",
+            "animate": "bounce"
+          }
+        },
+        {
+          "id": "pip",
+          "shape": {
+            "x": 48,
+            "y": 60,
+            "w": 20,
+            "h": 20
           },
           "label": "pip",
           "onTap": {
-            "say": "Kite day!",
+            "say": "Hooray!",
             "sayAudio": "audio/narration/en/anus-kite-day/p1-pip.mp3",
             "animate": "bounce"
           }
         }
       ],
-      "parentPrompt": "Kite festivals like Makar Sankranti are loved across India."
+      "parentPrompt": "Kite festivals like Makar Sankranti are loved across India.",
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Anu had a bright orange kite with a long tail.",
       "scene": {
-        "backdrop": "room",
+        "backdrop": "bedroom",
         "props": [
           {
-            "x": 50,
-            "y": 45,
-            "size": 34,
+            "x": 64,
+            "y": 40,
+            "size": 26,
+            "anim": "sway",
             "prop": "kite"
           }
         ],
         "characters": [
           {
-            "x": 25,
-            "y": 66,
-            "size": 32,
-            "id": "pip",
-            "expression": "happy"
+            "x": 32,
+            "y": 62,
+            "size": 26,
+            "id": "anu",
+            "pose": "happy"
           }
-        ]
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "narrator",
       "narration": {
@@ -227,10 +254,10 @@
         {
           "id": "kite",
           "shape": {
-            "x": 33,
-            "y": 28,
-            "w": 34,
-            "h": 34
+            "x": 51,
+            "y": 27,
+            "w": 26,
+            "h": 26
           },
           "label": "kite",
           "onTap": {
@@ -239,84 +266,94 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Anu ran fast. Up, up, up went the kite! Whoosh!",
       "scene": {
-        "backdrop": "village",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 50,
-            "y": 30,
-            "size": 20,
+            "x": 56,
+            "y": 22,
+            "size": 16,
+            "anim": "sway",
             "prop": "kite"
           }
         ],
         "characters": [
           {
-            "x": 30,
-            "y": 68,
-            "size": 32,
+            "x": 34,
+            "y": 66,
+            "size": 24,
+            "id": "anu",
+            "pose": "walk"
+          },
+          {
+            "x": 14,
+            "y": 70,
+            "size": 18,
             "id": "pip",
-            "expression": "happy"
+            "pose": "walk"
           }
-        ]
+        ],
+        "camera": "pan-right"
       },
-      "delivery": "surprised",
+      "delivery": "excited",
       "narration": {
         "src": "audio/narration/en/anus-kite-day/p3.mp3",
         "wordTimings": [
           {
             "word": "Anu",
-            "startMs": 550,
-            "endMs": 800
+            "startMs": 525,
+            "endMs": 775
           },
           {
             "word": "ran",
-            "startMs": 800,
-            "endMs": 1088
+            "startMs": 775,
+            "endMs": 1062
           },
           {
             "word": "fast.",
-            "startMs": 1088,
-            "endMs": 1825
+            "startMs": 1062,
+            "endMs": 1775
           },
           {
             "word": "Up,",
-            "startMs": 2338,
-            "endMs": 2488
+            "startMs": 1621,
+            "endMs": 1771
           },
           {
             "word": "up,",
-            "startMs": 2538,
-            "endMs": 2713
+            "startMs": 1821,
+            "endMs": 1996
           },
           {
             "word": "up",
-            "startMs": 2763,
-            "endMs": 2950
+            "startMs": 2046,
+            "endMs": 2234
           },
           {
             "word": "went",
-            "startMs": 2950,
-            "endMs": 3100
+            "startMs": 2234,
+            "endMs": 2384
           },
           {
             "word": "the",
-            "startMs": 3100,
-            "endMs": 3188
+            "startMs": 2384,
+            "endMs": 2471
           },
           {
             "word": "kite!",
-            "startMs": 3188,
-            "endMs": 3813
+            "startMs": 2471,
+            "endMs": 3046
           },
           {
             "word": "Whoosh!",
-            "startMs": 4549,
-            "endMs": 5299
+            "startMs": 3659,
+            "endMs": 4334
           }
         ]
       },
@@ -330,10 +367,10 @@
         {
           "id": "kite",
           "shape": {
-            "x": 40,
-            "y": 20,
-            "w": 20,
-            "h": 20
+            "x": 48,
+            "y": 14,
+            "w": 16,
+            "h": 16
           },
           "label": "kite",
           "onTap": {
@@ -343,44 +380,61 @@
             "animate": "spin"
           }
         }
+      ],
+      "timeline": [
+        {
+          "word": 4,
+          "id": "anu",
+          "pose": "cheer"
+        }
       ]
     },
     {
       "type": "story",
       "text": "The sky was full of kites. Let's count! One, two, three!",
       "scene": {
-        "backdrop": "village",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 25,
+            "x": 22,
+            "y": 20,
+            "size": 12,
+            "anim": "sway",
+            "prop": "kite"
+          },
+          {
+            "x": 48,
+            "y": 14,
+            "size": 12,
+            "anim": "sway",
+            "prop": "kite"
+          },
+          {
+            "x": 74,
             "y": 22,
-            "size": 14,
-            "anim": "float",
-            "prop": "kite"
-          },
-          {
-            "x": 50,
-            "y": 18,
-            "size": 14,
-            "anim": "float",
-            "prop": "kite"
-          },
-          {
-            "x": 75,
-            "y": 25,
-            "size": 14,
-            "anim": "float",
+            "size": 12,
+            "anim": "sway",
             "prop": "kite"
           }
         ],
         "characters": [
           {
-            "x": 50,
+            "x": 40,
             "y": 70,
-            "size": 30,
+            "size": 20,
+            "id": "anu",
+            "pose": "cheer"
+          },
+          {
+            "x": 64,
+            "y": 72,
+            "size": 16,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
+        ],
+        "effects": [
+          "clouds"
         ]
       },
       "delivery": "excited",
@@ -450,7 +504,8 @@
           "src": "audio/sfx/sparkle.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -472,32 +527,33 @@
       "type": "story",
       "text": "Coco the parrot flew next to Anu's kite.",
       "scene": {
-        "backdrop": "village",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 60,
+            "x": 64,
             "y": 20,
-            "size": 18,
-            "anim": "float",
+            "size": 14,
+            "anim": "sway",
             "prop": "kite"
           }
         ],
         "characters": [
           {
-            "x": 40,
-            "y": 36,
-            "size": 22,
+            "x": 44,
+            "y": 32,
+            "size": 18,
             "id": "coco",
-            "expression": "happy"
+            "pose": "happy"
           },
           {
-            "x": 30,
+            "x": 28,
             "y": 70,
-            "size": 30,
-            "id": "pip",
-            "expression": "happy"
+            "size": 20,
+            "id": "anu",
+            "pose": "happy"
           }
-        ]
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "narrator",
       "narration": {
@@ -550,10 +606,10 @@
         {
           "id": "coco",
           "shape": {
-            "x": 29,
-            "y": 25,
-            "w": 22,
-            "h": 22
+            "x": 35,
+            "y": 23,
+            "w": 18,
+            "h": 18
           },
           "label": "coco",
           "onTap": {
@@ -562,36 +618,39 @@
             "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Oh! The kite string caught on a tree.",
       "scene": {
-        "backdrop": "village",
+        "backdrop": "forest",
         "props": [
           {
-            "x": 60,
-            "y": 30,
-            "size": 18,
+            "x": 66,
+            "y": 26,
+            "size": 14,
             "prop": "kite"
-          },
-          {
-            "x": 72,
-            "y": 50,
-            "size": 34,
-            "prop": "tree"
           }
         ],
         "characters": [
           {
             "x": 30,
             "y": 68,
-            "size": 30,
+            "size": 22,
+            "id": "anu",
+            "pose": "surprised"
+          },
+          {
+            "x": 50,
+            "y": 72,
+            "size": 16,
             "id": "pip",
-            "expression": "surprised"
+            "pose": "surprised"
           }
-        ]
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "surprised",
       "narration": {
@@ -642,21 +701,22 @@
       "sfx": [],
       "hotspots": [
         {
-          "id": "tree",
+          "id": "anu",
           "shape": {
-            "x": 55,
-            "y": 33,
-            "w": 34,
-            "h": 34
+            "x": 19,
+            "y": 57,
+            "w": 22,
+            "h": 22
           },
-          "label": "tree",
+          "label": "anu",
           "onTap": {
-            "say": "Oops!",
-            "sayAudio": "audio/narration/en/anus-kite-day/p6-tree.mp3",
+            "say": "Oh no!",
+            "sayAudio": "audio/narration/en/anus-kite-day/p6-anu.mp3",
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -687,28 +747,29 @@
       "type": "story",
       "text": "Coco gently pulled the string free.",
       "scene": {
-        "backdrop": "village",
+        "backdrop": "forest",
         "props": [
           {
-            "x": 60,
-            "y": 30,
-            "size": 18,
+            "x": 66,
+            "y": 26,
+            "size": 14,
             "prop": "kite"
-          },
-          {
-            "x": 72,
-            "y": 50,
-            "size": 34,
-            "prop": "tree"
           }
         ],
         "characters": [
           {
             "x": 62,
-            "y": 24,
-            "size": 18,
+            "y": 20,
+            "size": 16,
             "id": "coco",
-            "expression": "happy"
+            "pose": "happy"
+          },
+          {
+            "x": 30,
+            "y": 68,
+            "size": 22,
+            "id": "anu",
+            "pose": "think"
           }
         ]
       },
@@ -753,10 +814,10 @@
         {
           "id": "coco",
           "shape": {
-            "x": 53,
-            "y": 15,
-            "w": 18,
-            "h": 18
+            "x": 54,
+            "y": 12,
+            "w": 16,
+            "h": 16
           },
           "label": "coco",
           "onTap": {
@@ -766,37 +827,55 @@
             "animate": "bounce"
           }
         }
+      ],
+      "timeline": [
+        {
+          "word": 4,
+          "id": "anu",
+          "pose": "happy"
+        }
       ]
     },
     {
       "type": "story",
       "text": "The kite danced high again. Hooray! Hooray!",
       "scene": {
-        "backdrop": "village",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 55,
-            "y": 20,
-            "size": 22,
-            "anim": "float",
+            "x": 58,
+            "y": 18,
+            "size": 18,
+            "anim": "sway",
             "prop": "kite"
           }
         ],
         "characters": [
           {
-            "x": 30,
+            "x": 32,
             "y": 68,
-            "size": 30,
-            "id": "pip",
-            "expression": "celebrate"
+            "size": 22,
+            "id": "anu",
+            "pose": "dance"
           },
           {
-            "x": 72,
-            "y": 30,
-            "size": 20,
+            "x": 54,
+            "y": 72,
+            "size": 16,
+            "id": "pip",
+            "pose": "cheer"
+          },
+          {
+            "x": 78,
+            "y": 34,
+            "size": 16,
             "id": "coco",
-            "expression": "celebrate"
+            "pose": "cheer",
+            "facing": "left"
           }
+        ],
+        "effects": [
+          "petals"
         ]
       },
       "delivery": "proud",
@@ -846,91 +925,100 @@
           "src": "audio/sfx/tada.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "\"Thank you, Coco,\" said Anu. \"Best kite day ever!\"",
       "scene": {
-        "backdrop": "village",
+        "backdrop": "meadow-sunset",
         "props": [
           {
-            "x": 80,
-            "y": 20,
-            "size": 18,
-            "prop": "sun"
-          },
-          {
             "x": 30,
-            "y": 66,
-            "size": 18,
+            "y": 62,
+            "size": 14,
             "prop": "kite"
           }
         ],
         "characters": [
           {
-            "x": 55,
-            "y": 66,
-            "size": 32,
-            "id": "pip",
-            "expression": "happy"
+            "x": 52,
+            "y": 64,
+            "size": 24,
+            "id": "anu",
+            "pose": "talk"
+          },
+          {
+            "x": 76,
+            "y": 40,
+            "size": 16,
+            "id": "coco",
+            "pose": "happy",
+            "facing": "left"
           }
-        ]
+        ],
+        "effects": [
+          "sunrays"
+        ],
+        "camera": "zoom-out"
       },
       "delivery": "proud",
+      "speaker": "anu",
       "narration": {
         "src": "audio/narration/en/anus-kite-day/p9.mp3",
         "wordTimings": [
           {
             "word": "\"Thank",
-            "startMs": 550,
-            "endMs": 800
+            "startMs": 650,
+            "endMs": 938
           },
           {
             "word": "you,",
-            "startMs": 800,
-            "endMs": 925
+            "startMs": 938,
+            "endMs": 1100
           },
           {
             "word": "Coco,\"",
-            "startMs": 975,
-            "endMs": 1775
+            "startMs": 1175,
+            "endMs": 1950
           },
           {
             "word": "said",
-            "startMs": 2689,
-            "endMs": 2889
+            "startMs": 2369,
+            "endMs": 2569
           },
           {
             "word": "Anu.",
-            "startMs": 2889,
-            "endMs": 3564
+            "startMs": 2569,
+            "endMs": 3244
           },
           {
             "word": "\"Best",
-            "startMs": 4234,
-            "endMs": 4484
+            "startMs": 3403,
+            "endMs": 3741
           },
           {
             "word": "kite",
-            "startMs": 4484,
-            "endMs": 4759
+            "startMs": 3741,
+            "endMs": 4053
           },
           {
             "word": "day",
-            "startMs": 4759,
-            "endMs": 5071
+            "startMs": 4053,
+            "endMs": 4378
           },
           {
             "word": "ever!\"",
-            "startMs": 5071,
-            "endMs": 5684
+            "startMs": 4378,
+            "endMs": 5078
           }
         ]
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: What colour kite would you fly?"
+      "parentPrompt": "Ask: What colour kite would you fly?",
+      "timeline": []
     }
   ]
 }

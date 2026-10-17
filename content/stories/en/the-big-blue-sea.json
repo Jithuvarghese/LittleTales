@@ -12,20 +12,28 @@
     "backdrop": "sea",
     "props": [
       {
-        "x": 40,
+        "x": 36,
         "y": 50,
-        "size": 22,
+        "size": 18,
         "anim": "float",
         "prop": "fish"
       },
       {
-        "x": 70,
+        "x": 68,
         "y": 60,
-        "size": 34,
+        "size": 30,
         "prop": "whale"
       }
     ],
-    "characters": []
+    "characters": [
+      {
+        "x": 20,
+        "y": 76,
+        "size": 16,
+        "id": "turtle",
+        "pose": "happy"
+      }
+    ]
   },
   "theme": "under-the-sea",
   "music": {
@@ -44,20 +52,21 @@
         "props": [
           {
             "x": 50,
-            "y": 56,
-            "size": 30,
+            "y": 58,
+            "size": 28,
             "prop": "boat"
           }
         ],
         "characters": [
           {
             "x": 50,
-            "y": 46,
-            "size": 20,
+            "y": 44,
+            "size": 18,
             "id": "pip",
-            "expression": "happy"
+            "pose": "wave"
           }
-        ]
+        ],
+        "camera": "pan-right"
       },
       "delivery": "narrator",
       "narration": {
@@ -110,10 +119,10 @@
         {
           "id": "boat",
           "shape": {
-            "x": 35,
-            "y": 41,
-            "w": 30,
-            "h": 30
+            "x": 36,
+            "y": 44,
+            "w": 28,
+            "h": 28
           },
           "label": "boat",
           "onTap": {
@@ -122,8 +131,24 @@
             "sayAudio": "audio/narration/en/the-big-blue-sea/p1-boat.mp3",
             "animate": "wiggle"
           }
+        },
+        {
+          "id": "pip",
+          "shape": {
+            "x": 41,
+            "y": 35,
+            "w": 18,
+            "h": 18
+          },
+          "label": "pip",
+          "onTap": {
+            "say": "Ahoy!",
+            "sayAudio": "audio/narration/en/the-big-blue-sea/p1-pip.mp3",
+            "animate": "bounce"
+          }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -133,21 +158,22 @@
         "props": [
           {
             "x": 40,
-            "y": 50,
-            "size": 24,
+            "y": 52,
+            "size": 20,
             "anim": "float",
             "prop": "fish"
           }
         ],
         "characters": [
           {
-            "x": 80,
-            "y": 20,
-            "size": 18,
+            "x": 82,
+            "y": 16,
+            "size": 14,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
-        ]
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "excited",
       "narration": {
@@ -205,10 +231,10 @@
         {
           "id": "fish",
           "shape": {
-            "x": 28,
-            "y": 38,
-            "w": 24,
-            "h": 24
+            "x": 30,
+            "y": 42,
+            "w": 20,
+            "h": 20
           },
           "label": "fish",
           "onTap": {
@@ -218,7 +244,8 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -228,18 +255,19 @@
         "props": [
           {
             "x": 50,
-            "y": 55,
-            "size": 34,
+            "y": 56,
+            "size": 30,
+            "anim": "wiggle",
             "prop": "octopus"
           }
         ],
         "characters": [
           {
-            "x": 80,
-            "y": 20,
-            "size": 18,
+            "x": 82,
+            "y": 16,
+            "size": 14,
             "id": "pip",
-            "expression": "happy"
+            "pose": "wave"
           }
         ]
       },
@@ -309,10 +337,10 @@
         {
           "id": "octopus",
           "shape": {
-            "x": 33,
-            "y": 38,
-            "w": 34,
-            "h": 34
+            "x": 35,
+            "y": 41,
+            "w": 30,
+            "h": 30
           },
           "label": "octopus",
           "onTap": {
@@ -322,7 +350,8 @@
           }
         }
       ],
-      "parentPrompt": "Wave your arms like an octopus!"
+      "parentPrompt": "Wave your arms like an octopus!",
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -353,25 +382,27 @@
       "text": "A slow turtle swam by. \"Take your time,\" she said.",
       "scene": {
         "backdrop": "sea",
-        "props": [
-          {
-            "x": 50,
-            "y": 62,
-            "size": 30,
-            "prop": "turtle"
-          }
-        ],
+        "props": [],
         "characters": [
           {
-            "x": 80,
-            "y": 20,
-            "size": 18,
+            "x": 46,
+            "y": 64,
+            "size": 24,
+            "id": "turtle",
+            "pose": "walk"
+          },
+          {
+            "x": 82,
+            "y": 16,
+            "size": 14,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
-        ]
+        ],
+        "camera": "pan-left"
       },
       "delivery": "narrator",
+      "speaker": "turtle",
       "narration": {
         "src": "audio/narration/en/the-big-blue-sea/p4.mp3",
         "wordTimings": [
@@ -402,28 +433,28 @@
           },
           {
             "word": "\"Take",
-            "startMs": 2351,
-            "endMs": 2564
+            "startMs": 2352,
+            "endMs": 2565
           },
           {
             "word": "your",
-            "startMs": 2564,
-            "endMs": 2676
+            "startMs": 2565,
+            "endMs": 2677
           },
           {
             "word": "time,\"",
-            "startMs": 2676,
-            "endMs": 3401
+            "startMs": 2677,
+            "endMs": 3402
           },
           {
             "word": "she",
-            "startMs": 3663,
-            "endMs": 3826
+            "startMs": 3665,
+            "endMs": 3828
           },
           {
             "word": "said.",
-            "startMs": 3826,
-            "endMs": 4488
+            "startMs": 3828,
+            "endMs": 4490
           }
         ]
       },
@@ -432,19 +463,20 @@
         {
           "id": "turtle",
           "shape": {
-            "x": 35,
-            "y": 47,
-            "w": 30,
-            "h": 30
+            "x": 34,
+            "y": 52,
+            "w": 24,
+            "h": 24
           },
           "label": "turtle",
           "onTap": {
             "say": "Slow and steady.",
             "sayAudio": "audio/narration/en/the-big-blue-sea/p4-turtle.mp3",
-            "animate": "float"
+            "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -454,30 +486,33 @@
         "props": [
           {
             "x": 30,
-            "y": 82,
-            "size": 14,
+            "y": 84,
+            "size": 12,
+            "anim": "twinkle",
             "prop": "shell"
           },
           {
             "x": 50,
-            "y": 84,
-            "size": 14,
+            "y": 86,
+            "size": 12,
+            "anim": "twinkle",
             "prop": "shell"
           },
           {
             "x": 70,
-            "y": 82,
-            "size": 14,
+            "y": 84,
+            "size": 12,
+            "anim": "twinkle",
             "prop": "shell"
           }
         ],
         "characters": [
           {
-            "x": 80,
-            "y": 20,
-            "size": 18,
+            "x": 82,
+            "y": 16,
+            "size": 14,
             "id": "pip",
-            "expression": "happy"
+            "pose": "surprised"
           }
         ]
       },
@@ -528,7 +563,25 @@
           "src": "audio/sfx/sparkle.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [
+        {
+          "id": "shell",
+          "shape": {
+            "x": 24,
+            "y": 78,
+            "w": 12,
+            "h": 12
+          },
+          "label": "shell",
+          "onTap": {
+            "sfx": "audio/sfx/sparkle.mp3",
+            "say": "Sparkle!",
+            "sayAudio": "audio/narration/en/the-big-blue-sea/p5-shell.mp3",
+            "animate": "twinkle"
+          }
+        }
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -553,21 +606,22 @@
         "backdrop": "sea",
         "props": [
           {
-            "x": 50,
-            "y": 55,
-            "size": 50,
+            "x": 48,
+            "y": 56,
+            "size": 46,
             "prop": "whale"
           }
         ],
         "characters": [
           {
-            "x": 82,
-            "y": 18,
-            "size": 16,
+            "x": 84,
+            "y": 16,
+            "size": 14,
             "id": "pip",
-            "expression": "surprised"
+            "pose": "surprised"
           }
-        ]
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "surprised",
       "narration": {
@@ -621,9 +675,9 @@
           "id": "whale",
           "shape": {
             "x": 25,
-            "y": 30,
-            "w": 50,
-            "h": 50
+            "y": 33,
+            "w": 46,
+            "h": 46
           },
           "label": "whale",
           "onTap": {
@@ -633,7 +687,8 @@
             "animate": "grow"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
@@ -642,21 +697,22 @@
         "backdrop": "sea",
         "props": [
           {
-            "x": 50,
-            "y": 55,
-            "size": 50,
+            "x": 48,
+            "y": 56,
+            "size": 46,
             "prop": "whale"
           }
         ],
         "characters": [
           {
-            "x": 82,
-            "y": 18,
-            "size": 16,
+            "x": 84,
+            "y": 16,
+            "size": 14,
             "id": "pip",
-            "expression": "happy"
+            "pose": "happy"
           }
-        ]
+        ],
+        "camera": "zoom-out"
       },
       "delivery": "narrator",
       "narration": {
@@ -706,7 +762,8 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: What is the biggest animal you know?"
+      "parentPrompt": "Ask: What is the biggest animal you know?",
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -740,27 +797,22 @@
         "backdrop": "beach",
         "props": [
           {
-            "x": 80,
-            "y": 20,
-            "size": 18,
-            "prop": "sun"
-          },
-          {
             "x": 50,
-            "y": 56,
-            "size": 30,
+            "y": 58,
+            "size": 28,
             "prop": "boat"
           }
         ],
         "characters": [
           {
             "x": 50,
-            "y": 46,
-            "size": 20,
+            "y": 44,
+            "size": 18,
             "id": "pip",
-            "expression": "happy"
+            "pose": "wave"
           }
-        ]
+        ],
+        "camera": "pan-left"
       },
       "delivery": "narrator",
       "narration": {
@@ -806,44 +858,47 @@
       "sfx": [],
       "hotspots": [
         {
-          "id": "sun",
+          "id": "boat",
           "shape": {
-            "x": 71,
-            "y": 11,
-            "w": 18,
-            "h": 18
+            "x": 36,
+            "y": 44,
+            "w": 28,
+            "h": 28
           },
-          "label": "sun",
+          "label": "boat",
           "onTap": {
-            "say": "Welcome back!",
-            "sayAudio": "audio/narration/en/the-big-blue-sea/p8-sun.mp3",
-            "animate": "grow"
+            "say": "Home we go!",
+            "sayAudio": "audio/narration/en/the-big-blue-sea/p8-boat.mp3",
+            "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "\"The sea is full of friends,\" smiled Pip.",
       "scene": {
-        "backdrop": "room",
+        "backdrop": "bedroom",
         "props": [
           {
-            "x": 50,
-            "y": 60,
-            "size": 20,
+            "x": 66,
+            "y": 66,
+            "size": 14,
+            "anim": "twinkle",
             "prop": "shell"
           }
         ],
         "characters": [
           {
-            "x": 30,
+            "x": 36,
             "y": 62,
-            "size": 32,
+            "size": 26,
             "id": "pip",
-            "expression": "happy"
+            "pose": "talk"
           }
-        ]
+        ],
+        "camera": "zoom-out"
       },
       "delivery": "narrator",
       "speaker": "pip",
@@ -898,7 +953,8 @@
           "src": "audio/sfx/chime.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     }
   ]
 }

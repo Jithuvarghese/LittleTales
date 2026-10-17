@@ -9,28 +9,30 @@
   "ageBand": "3-5",
   "durationTag": "short",
   "coverScene": {
-    "backdrop": "meadow",
+    "backdrop": "meadow-day",
     "props": [
       {
-        "x": 30,
-        "y": 70,
-        "size": 22,
+        "x": 26,
+        "y": 72,
+        "size": 18,
+        "anim": "sway",
         "prop": "flower"
       },
       {
-        "x": 70,
-        "y": 72,
-        "size": 22,
+        "x": 74,
+        "y": 74,
+        "size": 18,
+        "anim": "sway",
         "prop": "flower"
       }
     ],
     "characters": [
       {
         "x": 50,
-        "y": 55,
-        "size": 40,
+        "y": 60,
+        "size": 28,
         "id": "zig",
-        "expression": "happy"
+        "pose": "happy"
       }
     ]
   },
@@ -47,17 +49,18 @@
       "type": "story",
       "text": "Beep, boop! Zig the little robot found a garden.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [],
         "characters": [
           {
-            "x": 50,
-            "y": 60,
-            "size": 42,
+            "x": 46,
+            "y": 62,
+            "size": 28,
             "id": "zig",
-            "expression": "idle"
+            "pose": "walk"
           }
-        ]
+        ],
+        "camera": "pan-right"
       },
       "delivery": "silly",
       "narration": {
@@ -115,10 +118,10 @@
         {
           "id": "zig",
           "shape": {
-            "x": 29,
-            "y": 39,
-            "w": 42,
-            "h": 42
+            "x": 32,
+            "y": 48,
+            "w": 28,
+            "h": 28
           },
           "label": "zig",
           "onTap": {
@@ -128,29 +131,41 @@
             "animate": "bounce"
           }
         }
+      ],
+      "timeline": [
+        {
+          "word": 4,
+          "id": "zig",
+          "pose": "wave"
+        }
       ]
     },
     {
       "type": "story",
       "text": "A pink flower nodded hello.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 35,
-            "y": 68,
-            "size": 26,
+            "x": 34,
+            "y": 70,
+            "size": 22,
+            "anim": "sway",
             "prop": "flower"
           }
         ],
         "characters": [
           {
             "x": 70,
-            "y": 60,
-            "size": 36,
+            "y": 62,
+            "size": 26,
             "id": "zig",
-            "expression": "happy"
+            "pose": "happy",
+            "facing": "left"
           }
+        ],
+        "effects": [
+          "petals"
         ]
       },
       "delivery": "narrator",
@@ -189,10 +204,10 @@
         {
           "id": "flower",
           "shape": {
-            "x": 22,
-            "y": 55,
-            "w": 26,
-            "h": 26
+            "x": 23,
+            "y": 59,
+            "w": 22,
+            "h": 22
           },
           "label": "flower",
           "onTap": {
@@ -201,29 +216,47 @@
             "sayAudio": "audio/narration/en/zig-and-the-colour-garden/p2-flower.mp3",
             "animate": "wiggle"
           }
+        },
+        {
+          "id": "zig",
+          "shape": {
+            "x": 57,
+            "y": 49,
+            "w": 26,
+            "h": 26
+          },
+          "label": "zig",
+          "onTap": {
+            "say": "Hello, flower!",
+            "sayAudio": "audio/narration/en/zig-and-the-colour-garden/p2-zig.mp3",
+            "animate": "bounce"
+          }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "A red apple sat on the grass. What else is red?",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 40,
-            "y": 64,
-            "size": 20,
+            "x": 38,
+            "y": 72,
+            "size": 16,
+            "anim": "bounce",
             "prop": "apple"
           }
         ],
         "characters": [
           {
-            "x": 72,
-            "y": 60,
-            "size": 36,
+            "x": 70,
+            "y": 62,
+            "size": 26,
             "id": "zig",
-            "expression": "thinking"
+            "pose": "think",
+            "facing": "left"
           }
         ]
       },
@@ -294,9 +327,9 @@
           "id": "apple",
           "shape": {
             "x": 30,
-            "y": 54,
-            "w": 20,
-            "h": 20
+            "y": 64,
+            "w": 16,
+            "h": 16
           },
           "label": "apple",
           "onTap": {
@@ -307,29 +340,41 @@
           }
         }
       ],
-      "parentPrompt": "Ask: What else is red?"
+      "parentPrompt": "Ask: What else is red?",
+      "timeline": [
+        {
+          "word": 6,
+          "id": "zig",
+          "pose": "happy"
+        }
+      ]
     },
     {
       "type": "story",
       "text": "A green leaf danced in the wind.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "forest",
         "props": [
           {
             "x": 40,
-            "y": 64,
-            "size": 22,
+            "y": 60,
+            "size": 16,
+            "anim": "sway",
             "prop": "leaf"
           }
         ],
         "characters": [
           {
-            "x": 72,
-            "y": 60,
-            "size": 36,
+            "x": 70,
+            "y": 62,
+            "size": 26,
             "id": "zig",
-            "expression": "happy"
+            "pose": "dance",
+            "facing": "left"
           }
+        ],
+        "effects": [
+          "leaves"
         ]
       },
       "delivery": "narrator",
@@ -378,10 +423,10 @@
         {
           "id": "leaf",
           "shape": {
-            "x": 29,
-            "y": 53,
-            "w": 22,
-            "h": 22
+            "x": 32,
+            "y": 52,
+            "w": 16,
+            "h": 16
           },
           "label": "leaf",
           "onTap": {
@@ -391,7 +436,8 @@
             "animate": "spin"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -429,24 +475,21 @@
       "type": "story",
       "text": "The yellow sun shone bright.",
       "scene": {
-        "backdrop": "meadow",
-        "props": [
-          {
-            "x": 75,
-            "y": 22,
-            "size": 24,
-            "prop": "sun"
-          }
-        ],
+        "backdrop": "meadow-day",
+        "props": [],
         "characters": [
           {
             "x": 40,
-            "y": 60,
-            "size": 38,
+            "y": 62,
+            "size": 28,
             "id": "zig",
-            "expression": "happy"
+            "pose": "happy"
           }
-        ]
+        ],
+        "effects": [
+          "sunrays"
+        ],
+        "camera": "zoom-out"
       },
       "delivery": "narrator",
       "narration": {
@@ -482,32 +525,33 @@
       "sfx": [],
       "hotspots": [
         {
-          "id": "sun",
+          "id": "zig",
           "shape": {
-            "x": 63,
-            "y": 10,
-            "w": 24,
-            "h": 24
+            "x": 26,
+            "y": 48,
+            "w": 28,
+            "h": 28
           },
-          "label": "sun",
+          "label": "zig",
           "onTap": {
-            "say": "Yellow and warm!",
-            "sayAudio": "audio/narration/en/zig-and-the-colour-garden/p5-sun.mp3",
-            "animate": "grow"
+            "say": "So warm!",
+            "sayAudio": "audio/narration/en/zig-and-the-colour-garden/p5-zig.mp3",
+            "animate": "bounce"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "A purple butterfly flew round and round.",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
-            "x": 55,
-            "y": 40,
-            "size": 24,
+            "x": 56,
+            "y": 36,
+            "size": 18,
             "anim": "float",
             "prop": "butterfly"
           }
@@ -516,9 +560,9 @@
           {
             "x": 30,
             "y": 62,
-            "size": 36,
+            "size": 26,
             "id": "zig",
-            "expression": "happy"
+            "pose": "surprised"
           }
         ]
       },
@@ -568,10 +612,10 @@
         {
           "id": "butterfly",
           "shape": {
-            "x": 43,
-            "y": 28,
-            "w": 24,
-            "h": 24
+            "x": 47,
+            "y": 27,
+            "w": 18,
+            "h": 18
           },
           "label": "butterfly",
           "onTap": {
@@ -581,29 +625,39 @@
             "animate": "spin"
           }
         }
+      ],
+      "timeline": [
+        {
+          "word": 3,
+          "id": "zig",
+          "pose": "happy"
+        }
       ]
     },
     {
       "type": "story",
       "text": "And then... all the colours made a rainbow!",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-day",
         "props": [
           {
             "x": 50,
-            "y": 40,
-            "size": 60,
+            "y": 38,
+            "size": 56,
             "prop": "rainbow"
           }
         ],
         "characters": [
           {
             "x": 50,
-            "y": 68,
-            "size": 34,
+            "y": 66,
+            "size": 26,
             "id": "zig",
-            "expression": "celebrate"
+            "pose": "surprised"
           }
+        ],
+        "effects": [
+          "sunrays"
         ]
       },
       "delivery": "surprised",
@@ -662,10 +716,10 @@
         {
           "id": "rainbow",
           "shape": {
-            "x": 20,
+            "x": 22,
             "y": 10,
-            "w": 60,
-            "h": 60
+            "w": 56,
+            "h": 56
           },
           "label": "rainbow",
           "onTap": {
@@ -674,6 +728,13 @@
             "sayAudio": "audio/narration/en/zig-and-the-colour-garden/p7-rainbow.mp3",
             "animate": "grow"
           }
+        }
+      ],
+      "timeline": [
+        {
+          "word": 4,
+          "id": "zig",
+          "pose": "cheer"
         }
       ]
     },
@@ -709,36 +770,42 @@
       "type": "story",
       "text": "\"Beep boop,\" said Zig. \"I love colours! Do you?\"",
       "scene": {
-        "backdrop": "meadow",
+        "backdrop": "meadow-sunset",
         "props": [
           {
             "x": 50,
-            "y": 40,
-            "size": 60,
+            "y": 38,
+            "size": 56,
             "prop": "rainbow"
           },
           {
-            "x": 20,
-            "y": 76,
-            "size": 16,
+            "x": 18,
+            "y": 78,
+            "size": 14,
+            "anim": "sway",
             "prop": "flower"
           },
           {
-            "x": 80,
-            "y": 76,
-            "size": 16,
+            "x": 82,
+            "y": 78,
+            "size": 14,
+            "anim": "sway",
             "prop": "flower"
           }
         ],
         "characters": [
           {
             "x": 50,
-            "y": 68,
-            "size": 34,
+            "y": 66,
+            "size": 26,
             "id": "zig",
-            "expression": "happy"
+            "pose": "talk"
           }
-        ]
+        ],
+        "effects": [
+          "petals"
+        ],
+        "camera": "zoom-out"
       },
       "delivery": "silly",
       "speaker": "zig",
@@ -794,7 +861,8 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: What is your favourite colour?"
+      "parentPrompt": "Ask: What is your favourite colour?",
+      "timeline": []
     }
   ]
 }

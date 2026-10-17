@@ -9,28 +9,15 @@
   "ageBand": "3-5",
   "durationTag": "short",
   "coverScene": {
-    "backdrop": "night",
-    "props": [
-      {
-        "x": 30,
-        "y": 50,
-        "size": 40,
-        "prop": "tree"
-      },
-      {
-        "x": 78,
-        "y": 22,
-        "size": 22,
-        "prop": "moon"
-      }
-    ],
+    "backdrop": "forest-night",
+    "props": [],
     "characters": [
       {
-        "x": 60,
+        "x": 56,
         "y": 60,
-        "size": 36,
+        "size": 26,
         "id": "luna",
-        "expression": "happy"
+        "pose": "happy"
       }
     ]
   },
@@ -48,30 +35,18 @@
       "type": "story",
       "text": "Hoo, hoo... In the quiet forest, Luna the owl woke up.",
       "scene": {
-        "backdrop": "night",
-        "props": [
-          {
-            "x": 78,
-            "y": 22,
-            "size": 22,
-            "prop": "moon"
-          },
-          {
-            "x": 25,
-            "y": 52,
-            "size": 44,
-            "prop": "tree"
-          }
-        ],
+        "backdrop": "forest-night",
+        "props": [],
         "characters": [
           {
-            "x": 60,
-            "y": 58,
-            "size": 36,
+            "x": 56,
+            "y": 60,
+            "size": 26,
             "id": "luna",
-            "expression": "idle"
+            "pose": "sleepy"
           }
-        ]
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "gentle",
       "narration": {
@@ -139,10 +114,10 @@
         {
           "id": "luna",
           "shape": {
-            "x": 42,
-            "y": 40,
-            "w": 36,
-            "h": 36
+            "x": 43,
+            "y": 47,
+            "w": 26,
+            "h": 26
           },
           "label": "luna",
           "onTap": {
@@ -150,21 +125,13 @@
             "sayAudio": "audio/narration/en/luna-and-the-sleepy-forest/p1-luna.mp3",
             "animate": "bounce"
           }
-        },
+        }
+      ],
+      "timeline": [
         {
-          "id": "moon",
-          "shape": {
-            "x": 67,
-            "y": 11,
-            "w": 22,
-            "h": 22
-          },
-          "label": "moon",
-          "onTap": {
-            "say": "Good evening!",
-            "sayAudio": "audio/narration/en/luna-and-the-sleepy-forest/p1-moon.mp3",
-            "animate": "wiggle"
-          }
+          "word": 6,
+          "id": "luna",
+          "pose": "happy"
         }
       ]
     },
@@ -172,24 +139,18 @@
       "type": "story",
       "text": "\"Time to say good night to everyone,\" she said.",
       "scene": {
-        "backdrop": "night",
-        "props": [
-          {
-            "x": 78,
-            "y": 22,
-            "size": 22,
-            "prop": "moon"
-          }
-        ],
+        "backdrop": "forest-night",
+        "props": [],
         "characters": [
           {
-            "x": 45,
-            "y": 58,
-            "size": 36,
+            "x": 46,
+            "y": 60,
+            "size": 26,
             "id": "luna",
-            "expression": "talking"
+            "pose": "talk"
           }
-        ]
+        ],
+        "camera": "pan-right"
       },
       "delivery": "sleepy",
       "speaker": "luna",
@@ -245,34 +206,38 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Ask: Who do you say good night to?"
+      "parentPrompt": "Ask: Who do you say good night to?",
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Two bunnies yawned a big, big yawn. Yaaawn! Can you yawn too?",
       "scene": {
-        "backdrop": "night",
-        "props": [
-          {
-            "x": 40,
-            "y": 70,
-            "size": 26,
-            "prop": "rabbit"
-          },
-          {
-            "x": 60,
-            "y": 72,
-            "size": 22,
-            "prop": "rabbit"
-          }
-        ],
+        "backdrop": "forest-night",
+        "props": [],
         "characters": [
           {
-            "x": 75,
-            "y": 40,
-            "size": 26,
+            "x": 38,
+            "y": 70,
+            "size": 18,
+            "id": "rabbit",
+            "pose": "sleepy"
+          },
+          {
+            "x": 58,
+            "y": 72,
+            "size": 16,
+            "id": "rabbit",
+            "pose": "sleepy",
+            "facing": "left"
+          },
+          {
+            "x": 78,
+            "y": 44,
+            "size": 18,
             "id": "luna",
-            "expression": "happy"
+            "pose": "happy",
+            "facing": "left"
           }
         ]
       },
@@ -347,10 +312,10 @@
         {
           "id": "rabbit",
           "shape": {
-            "x": 27,
-            "y": 57,
-            "w": 26,
-            "h": 26
+            "x": 29,
+            "y": 61,
+            "w": 18,
+            "h": 18
           },
           "label": "rabbit",
           "onTap": {
@@ -360,7 +325,8 @@
           }
         }
       ],
-      "parentPrompt": "Can you do a big yawn?"
+      "parentPrompt": "Can you do a big yawn?",
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -382,28 +348,30 @@
       "type": "story",
       "text": "A little bird snuggled in her nest.",
       "scene": {
-        "backdrop": "night",
+        "backdrop": "forest-night",
         "props": [
           {
             "x": 50,
-            "y": 60,
-            "size": 34,
+            "y": 72,
+            "size": 24,
             "prop": "nest"
-          },
-          {
-            "x": 46,
-            "y": 50,
-            "size": 16,
-            "prop": "bird"
           }
         ],
         "characters": [
           {
+            "x": 50,
+            "y": 62,
+            "size": 12,
+            "id": "bird",
+            "pose": "sleepy"
+          },
+          {
             "x": 78,
-            "y": 40,
-            "size": 26,
+            "y": 44,
+            "size": 18,
             "id": "luna",
-            "expression": "happy"
+            "pose": "happy",
+            "facing": "left"
           }
         ]
       },
@@ -453,10 +421,10 @@
         {
           "id": "nest",
           "shape": {
-            "x": 33,
-            "y": 43,
-            "w": 34,
-            "h": 34
+            "x": 38,
+            "y": 60,
+            "w": 24,
+            "h": 24
           },
           "label": "nest",
           "onTap": {
@@ -464,31 +432,49 @@
             "sayAudio": "audio/narration/en/luna-and-the-sleepy-forest/p4-nest.mp3",
             "animate": "wiggle"
           }
+        },
+        {
+          "id": "bird",
+          "shape": {
+            "x": 44,
+            "y": 56,
+            "w": 12,
+            "h": 12
+          },
+          "label": "bird",
+          "onTap": {
+            "say": "Tweet... night night.",
+            "sayAudio": "audio/narration/en/luna-and-the-sleepy-forest/p4-bird.mp3",
+            "animate": "bounce"
+          }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "Bumble the bear was already snoring. Zzz... zzz...",
       "scene": {
-        "backdrop": "night",
+        "backdrop": "forest-night",
         "props": [],
         "characters": [
           {
-            "x": 45,
+            "x": 44,
             "y": 64,
-            "size": 42,
+            "size": 28,
             "id": "bumble",
-            "expression": "sleepy"
+            "pose": "sleep"
           },
           {
             "x": 80,
-            "y": 40,
-            "size": 26,
+            "y": 44,
+            "size": 18,
             "id": "luna",
-            "expression": "happy"
+            "pose": "happy",
+            "facing": "left"
           }
-        ]
+        ],
+        "camera": "zoom-in"
       },
       "delivery": "sleepy",
       "narration": {
@@ -541,10 +527,10 @@
         {
           "id": "bumble",
           "shape": {
-            "x": 24,
-            "y": 43,
-            "w": 42,
-            "h": 42
+            "x": 30,
+            "y": 50,
+            "w": 28,
+            "h": 28
           },
           "label": "bumble",
           "onTap": {
@@ -553,7 +539,8 @@
             "animate": "grow"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "quiz",
@@ -584,22 +571,23 @@
       "type": "story",
       "text": "\"Shh,\" said Luna softly to the frog.",
       "scene": {
-        "backdrop": "night",
-        "props": [
-          {
-            "x": 40,
-            "y": 72,
-            "size": 24,
-            "prop": "frog"
-          }
-        ],
+        "backdrop": "forest-night",
+        "props": [],
         "characters": [
           {
-            "x": 75,
-            "y": 40,
-            "size": 26,
+            "x": 38,
+            "y": 74,
+            "size": 18,
+            "id": "frog",
+            "pose": "happy"
+          },
+          {
+            "x": 72,
+            "y": 46,
+            "size": 20,
             "id": "luna",
-            "expression": "talking"
+            "pose": "talk",
+            "facing": "left"
           }
         ]
       },
@@ -650,10 +638,10 @@
         {
           "id": "frog",
           "shape": {
-            "x": 28,
-            "y": 60,
-            "w": 24,
-            "h": 24
+            "x": 29,
+            "y": 65,
+            "w": 18,
+            "h": 18
           },
           "label": "frog",
           "onTap": {
@@ -662,50 +650,50 @@
             "animate": "wiggle"
           }
         }
-      ]
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "The stars came out... one by one by one.",
       "scene": {
-        "backdrop": "night",
+        "backdrop": "night-sky",
         "props": [
-          {
-            "x": 78,
-            "y": 22,
-            "size": 22,
-            "prop": "moon"
-          },
           {
             "x": 30,
             "y": 15,
             "size": 8,
-            "anim": "float",
+            "anim": "twinkle",
             "prop": "star"
           },
           {
             "x": 52,
             "y": 20,
             "size": 8,
-            "anim": "float",
+            "anim": "twinkle",
             "prop": "star"
           },
           {
-            "x": 25,
-            "y": 55,
-            "size": 40,
-            "prop": "tree"
+            "x": 70,
+            "y": 12,
+            "size": 7,
+            "anim": "twinkle",
+            "prop": "star"
           }
         ],
         "characters": [
           {
-            "x": 25,
-            "y": 38,
-            "size": 22,
+            "x": 26,
+            "y": 60,
+            "size": 20,
             "id": "luna",
-            "expression": "happy"
+            "pose": "happy"
           }
-        ]
+        ],
+        "effects": [
+          "stars"
+        ],
+        "camera": "pan-left"
       },
       "delivery": "whisper",
       "narration": {
@@ -764,30 +752,42 @@
           "src": "audio/sfx/twinkle.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [
+        {
+          "id": "star",
+          "shape": {
+            "x": 26,
+            "y": 11,
+            "w": 8,
+            "h": 8
+          },
+          "label": "star",
+          "onTap": {
+            "sfx": "audio/sfx/twinkle.mp3",
+            "say": "Twinkle!",
+            "sayAudio": "audio/narration/en/luna-and-the-sleepy-forest/p7-star.mp3",
+            "animate": "twinkle"
+          }
+        }
+      ],
+      "timeline": []
     },
     {
       "type": "story",
       "text": "The forest was quiet, cosy and calm.",
       "scene": {
-        "backdrop": "night",
-        "props": [
-          {
-            "x": 78,
-            "y": 22,
-            "size": 22,
-            "prop": "moon"
-          }
-        ],
+        "backdrop": "forest-night",
+        "props": [],
         "characters": [
           {
             "x": 50,
-            "y": 58,
-            "size": 36,
+            "y": 60,
+            "size": 24,
             "id": "luna",
-            "expression": "happy"
+            "pose": "sleepy"
           }
-        ]
+        ],
+        "camera": "zoom-out"
       },
       "delivery": "sleepy",
       "narration": {
@@ -832,17 +832,18 @@
       },
       "sfx": [],
       "hotspots": [],
-      "parentPrompt": "Take three slow, sleepy breaths together."
+      "parentPrompt": "Take three slow, sleepy breaths together.",
+      "timeline": []
     },
     {
       "type": "story",
       "text": "\"Good night, forest,\" whispered Luna.",
       "scene": {
-        "backdrop": "night",
+        "backdrop": "night-sky",
         "props": [
           {
             "x": 78,
-            "y": 22,
+            "y": 24,
             "size": 22,
             "anim": "float",
             "prop": "moon"
@@ -850,11 +851,11 @@
         ],
         "characters": [
           {
-            "x": 50,
-            "y": 58,
-            "size": 34,
+            "x": 48,
+            "y": 62,
+            "size": 24,
             "id": "luna",
-            "expression": "sleepy"
+            "pose": "sleep"
           }
         ]
       },
@@ -896,7 +897,8 @@
           "src": "audio/sfx/chime.mp3"
         }
       ],
-      "hotspots": []
+      "hotspots": [],
+      "timeline": []
     }
   ]
 }

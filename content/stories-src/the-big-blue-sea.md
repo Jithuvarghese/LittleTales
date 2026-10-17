@@ -7,21 +7,24 @@ duration: short
 theme: under-the-sea
 music: row-01
 characters: pip
-cover: sea | fish 40 50 22 float | whale 70 60 34
+cover: sea | fish 36 50 18 float | whale 68 60 30 | turtle 20 76 16 happy
 ---
 
 ## Page
-scene: beach | boat 50 56 30 | pip 50 46 20 happy
+scene: beach | boat 50 58 28 | pip 50 44 18 wave
 text: Pip sailed a little boat out to sea.
+camera: pan-right
 tap: boat "Sail away!" wiggle whoosh
+tap: pip "Ahoy!" bounce
 
 ## Page
-scene: sea | fish 40 50 24 float | pip 80 20 18 happy
+scene: sea | fish 40 52 20 float | pip 82 16 14 happy
 text: Blub, blub! Down below swam a happy orange fish.
+camera: zoom-in
 tap: fish "Blub, blub!" wiggle splash
 
 ## Page
-scene: sea | octopus 50 55 34 | pip 80 20 18 happy
+scene: sea | octopus 50 56 30 wiggle | pip 82 16 14 wave
 text: An octopus waved all eight arms. Wiggle, wiggle! Can you wave?
 tap: octopus "Hello, hello, hello!" spin
 prompt: Wave your arms like an octopus!
@@ -32,26 +35,32 @@ prompt: Wave your arms like an octopus!
 - turtle
 
 ## Page
-scene: sea | turtle 50 62 30 | pip 80 20 18 happy
+scene: sea | turtle 46 64 24 walk | pip 82 16 14 happy
 text: A slow turtle swam by. "Take your time," she said.
-tap: turtle "Slow and steady." float
+speaker: turtle
+camera: pan-left
+tap: turtle "Slow and steady." bounce
 
 ## Page
-scene: sea | shell 30 82 14 | shell 50 84 14 | shell 70 82 14 | pip 80 20 18 happy
+scene: sea | shell 30 84 12 twinkle | shell 50 86 12 twinkle | shell 70 84 12 twinkle | pip 82 16 14 surprised
 text: Shiny shells sparkled on the sandy floor.
 sfx: onEnter sparkle
+tap: shell "Sparkle!" twinkle sparkle
 
 > quiz count: How many shells are there? | shell 3 | 1 3 4
 
 ## Page
-scene: sea | whale 50 55 50 | pip 82 18 16 surprised
+scene: sea | whale 48 56 46 | pip 84 16 14 surprised
 text: Then... a giant whale swam up. Whoosh!
+delivery: surprised
+camera: zoom-in
 sfx: onEnter whoosh
 tap: whale "Hello, little fox!" grow splash
 
 ## Page
-scene: sea | whale 50 55 50 | pip 82 18 16 happy
+scene: sea | whale 48 56 46 | pip 84 16 14 happy
 text: The whale was big, but gentle and kind.
+camera: zoom-out
 prompt: Ask: What is the biggest animal you know?
 
 > quiz drag-drop: Put the fish next to the shell. | fish
@@ -60,11 +69,14 @@ prompt: Ask: What is the biggest animal you know?
 - car
 
 ## Page
-scene: beach | sun 80 20 18 | boat 50 56 30 | pip 50 46 20 happy
+scene: beach | boat 50 58 28 | pip 50 44 18 wave
 text: Pip waved goodbye and sailed back home.
-tap: sun "Welcome back!" grow
+camera: pan-left
+tap: boat "Home we go!" wiggle
 
 ## Page
-scene: room | shell 50 60 20 | pip 30 62 32 happy
+scene: bedroom | shell 66 66 14 twinkle | pip 36 62 26 talk
 text: "The sea is full of friends," smiled Pip.
+speaker: pip
+camera: zoom-out
 sfx: onEnter chime

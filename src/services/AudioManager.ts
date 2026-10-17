@@ -2,7 +2,8 @@ import { Howl, Howler } from 'howler';
 import manifest from '../../content/index.json';
 import { channels, useSettings, type Channel } from '@/app/settingsStore';
 import { playAmbience, playBand, playMelody, playTones, sfxNames, type AmbienceName, type SfxName } from './synth';
-import { performance as perform, splitParts, type Delivery, type Part, type Role } from '@/content/voicing';
+import { performance as perform, reactionSrc, reactions, splitParts, type Delivery, type Part, type Reaction, type Role } from '@/content/voicing';
+import { talk } from '@/art/cast/talk';
 
 /** Music drops to this fraction of its level while a voice is speaking. */
 export const DUCK_LEVEL = 0.4;
@@ -23,6 +24,8 @@ export type SayOptions = {
   speaker?: Role;
   /** Wait for the current line to finish instead of interrupting it. */
   queue?: boolean;
+  /** Character whose mouth should move with this line. */
+  talker?: string;
 };
 
 /** Tracks overlapping voice clips so music ducks once and restores after the last ends. */
@@ -266,10 +269,16 @@ class AudioManagerImpl {
     const words = text.split(/\s+/).filter(Boolean);
     this.ducker.start();
     let finished = false;
+    if (opts.talker) talk.setTalker(opts.talker);
+    const releaseTalker = () => {
+      if (opts.talker && talk.get().talker === opts.talker) talk.setTalker(null);
+      talk.setLevel(0);
+    };
     // Natural end: restore music and tell the caller (e.g. to turn the page).
     const done = () => {
       if (finished) return;
       finished = true;
+      releaseTalker();
       this.cancelCurrent = null;
       this.clearWordTimer();
       this.ducker.end();
@@ -286,6 +295,7 @@ class AudioManagerImpl {
     this.cancelCurrent = () => {
       if (finished) return;
       finished = true;
+      releaseTalker();
       this.cancelCurrent = null;
       this.clearWordTimer();
       this.ducker.end();
@@ -302,6 +312,7 @@ class AudioManagerImpl {
       howl.once('loaderror', done);
       howl.play();
       this.voice = howl;
+      this.meterVoice(() => !finished);
       const timings = opts.wordTimings;
       if (timings?.length) {
         this.wordTimer = setInterval(() => {
@@ -316,7 +327,37 @@ class AudioManagerImpl {
       }
       return;
     }
-    this.speakFallback(text, words, channel, opts, done);
+    const onWord = opts.onWord;
+    this.speakFallback(text, words, channel, { ...opts, onWord: (i) => { talk.pulse(); onWord?.(i); } }, done);
+  }
+
+  private analyser: AnalyserNode | null = null;
+
+  /** Feeds the live loudness of recorded voice clips to the talking character's mouth. */
+  private meterVoice(active: () => boolean) {
+    try {
+      const ctx = Howler.ctx;
+      const master = (Howler as unknown as { masterGain?: GainNode }).masterGain;
+      if (!ctx || !master) return;
+      if (!this.analyser) {
+        this.analyser = ctx.createAnalyser();
+        this.analyser.fftSize = 512;
+        master.connect(this.analyser);
+      }
+      const an = this.analyser;
+      const buf = new Uint8Array(an.fftSize);
+      const tick = () => {
+        if (!active()) return talk.setLevel(0);
+        an.getByteTimeDomainData(buf);
+        let sum = 0;
+        for (const v of buf) sum += ((v - 128) / 128) ** 2;
+        talk.setLevel(Math.sqrt(sum / buf.length) * 6);
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    } catch {
+      /* no Web Audio: mouths use word pulses instead */
+    }
   }
 
   private speakFallback(text: string, words: string[], channel: Channel, opts: SayOptions, done: () => void) {
@@ -411,6 +452,12 @@ class AudioManagerImpl {
   private clearWordTimer() {
     if (this.wordTimer) clearInterval(this.wordTimer);
     this.wordTimer = null;
+  }
+
+  /** A character's tiny vocal reaction (giggle, yay, hmm, whee); falls back to the device voice. */
+  react(who: string, r: Reaction) {
+    if (!['pip', 'bumble', 'luna', 'zig', 'coco'].includes(who)) return;
+    this.say(reactions[r], { channel: 'narration', src: reactionSrc(who, r), role: who as Role, delivery: 'silly', talker: who, queue: true });
   }
 
   /** Quiet scene bed (birds, sea, night...) under narration; ducks with the music. */

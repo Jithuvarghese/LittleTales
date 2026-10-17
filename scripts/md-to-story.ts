@@ -7,20 +7,24 @@
  */
 import { readFileSync, readdirSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, basename } from 'node:path';
-import { characterId, story } from '../src/content/schema';
+import { story } from '../src/content/schema';
+import { castIds } from '../src/art/cast/species';
 import { inferDelivery, inferSpeaker } from '../src/content/voicing';
 
 const SRC = 'content/stories-src';
 const OUT = 'content/stories/en';
-const chars = new Set<string>(characterId.options);
+// Any cast member (main or supporting) in a scene line becomes an acting character.
+const chars = new Set<string>(castIds);
+const PROP_ANIMS = new Set(['float', 'wiggle', 'bounce', 'spin', 'grow', 'twinkle', 'sway', 'left', 'right']);
+const POSES = new Set(['idle', 'talk', 'happy', 'cheer', 'think', 'sleepy', 'sleep', 'sad-soft', 'surprised', 'wave', 'dance', 'walk']);
 
-type Item = { kind: 'prop' | 'char'; name: string; x: number; y: number; size: number; extra?: string };
+type Item = { kind: 'prop' | 'char'; name: string; x: number; y: number; size: number; extra?: string; facing?: string };
 
 /** "night | moon 70 25 22 float | pip 40 65 40 happy" */
 export function parseScene(line: string) {
   const [backdrop, ...rest] = line.split('|').map((s) => s.trim());
   const items: Item[] = rest.filter(Boolean).map((tok) => {
-    const [name, x, y, size, extra] = tok.split(/\s+/);
+    const [name, x, y, size, extra, facing] = tok.split(/\s+/);
     return {
       kind: chars.has(name!) ? 'char' : 'prop',
       name: name!,
@@ -28,6 +32,7 @@ export function parseScene(line: string) {
       y: Number(y),
       size: Number(size ?? 20),
       extra,
+      facing,
     };
   });
   const scene = {
@@ -37,7 +42,14 @@ export function parseScene(line: string) {
       .map((i) => ({ prop: i.name, x: i.x, y: i.y, size: i.size, ...(i.extra ? { anim: i.extra } : {}) })),
     characters: items
       .filter((i) => i.kind === 'char')
-      .map((i) => ({ id: i.name, x: i.x, y: i.y, size: i.size, ...(i.extra ? { expression: i.extra } : {}) })),
+      .map((i) => ({
+        id: i.name,
+        x: i.x,
+        y: i.y,
+        size: i.size,
+        ...(i.extra && !PROP_ANIMS.has(i.extra) ? (POSES.has(i.extra) ? { pose: i.extra } : { expression: i.extra }) : {}),
+        ...(i.facing === 'left' || i.extra === 'left' ? { facing: 'left' } : {}),
+      })),
   };
   return { scene, items };
 }
@@ -135,6 +147,19 @@ export function convert(md: string) {
         case 'delivery':
           page.delivery = value;
           break;
+        case 'effects':
+          if (page.scene) (page.scene as Record<string, unknown>).effects = value.split(/[\s,]+/).filter(Boolean);
+          break;
+        case 'camera':
+          if (page.scene) (page.scene as Record<string, unknown>).camera = value;
+          break;
+        case 'cue': {
+          // cue: 3 pip surprised  -> at word 3, Pip looks surprised
+          const [word, id, pose] = value.split(/\s+/);
+          ((page.timeline as unknown[] | undefined) ?? (page.timeline = [])) as unknown[];
+          (page.timeline as unknown[]).push({ word: Number(word), id, pose });
+          break;
+        }
         case 'speaker':
           page.speaker = value;
           break;

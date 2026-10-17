@@ -119,3 +119,12 @@ export const GamesIcon = (p: IconProps) => (
     <circle cx="50" cy="39" r="3" fill="#ff8a6b" />
   </svg>
 );
+
+/** Paint splashes for the Colours section. */
+export const ColoursIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <circle cx="22" cy="24" r="13" fill="#e8553f" />
+    <circle cx="42" cy="24" r="13" fill="#4fa3e8" />
+    <circle cx="32" cy="42" r="13" fill="#f7d443" />
+  </svg>
+);

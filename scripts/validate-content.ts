@@ -13,6 +13,8 @@ import { lettersFile, numbersFile, rhyme, stickersFile, story } from '../src/con
 // Prop ids are read from the art library source so this script needs no JSX runtime.
 const propSource = readFileSync('src/art/props.tsx', 'utf8');
 const propIds = new Set([...propSource.matchAll(/\{ id: '([a-z-]+)', name:/g)].map((m) => m[1]!));
+const speciesSource = readFileSync('src/art/cast/species.ts', 'utf8');
+const castIds = new Set([...speciesSource.matchAll(/^\s{2}(\w+): \{ name:/gm)].map((m) => m[1]!));
 const builtinSfx = new Set(['chime', 'pop', 'whoosh', 'boing', 'sparkle', 'boop', 'tada', 'click', 'twinkle', 'splash', 'drum', 'bell']);
 const builtinMusic = new Set(['twinkle', 'lullaby', 'frere', 'row', 'mary', 'play']);
 
@@ -52,6 +54,8 @@ export function validateDir(storyDir = 'content/stories/en', rhymeDir = 'content
       const where = `${f} page ${i + 1}`;
       if (p.type === 'story') {
         p.scene?.props.forEach((x) => checkProp(where, x.prop));
+        p.scene?.characters.forEach((c) => { if (!castIds.has(c.id)) r.errors.push(`${where}: unknown character "${c.id}"`); });
+        p.timeline.forEach((t) => { if (!castIds.has(t.id)) r.errors.push(`${where}: cue for unknown character "${t.id}"`); });
         if (p.image && !fileExists(p.image)) r.errors.push(`${where}: missing image ${p.image}`);
         checkAudio(where, p.narration?.src);
         if (p.narration?.src && fileExists(p.narration.src) && !p.narration.wordTimings?.length)
@@ -109,7 +113,7 @@ if (process.argv[1]?.endsWith('validate-content.ts')) {
   if (r.timingGaps.length) console.log(`${r.timingGaps.length} page(s) have audio but no wordTimings.`);
   if (r.errors.length) {
     console.error(`\n${r.errors.length} error(s):`);
-    r.errors.forEach((e) => console.error(`  ✗ ${e}`));
+    r.errors.forEach((e) => console.error(`  x ${e}`));
     process.exit(1);
   }
   console.log('content: OK');
