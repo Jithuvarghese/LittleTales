@@ -30,7 +30,8 @@ export function FallingLetters() {
   const [pressed, setPressed] = useState<{ key: string; n: number } | null>(null);
   const missed = useRef(0);
   const nextId = useRef(0);
-  const pool = order.slice(0, 10);
+  // The whole alphabet, in a random order (not just the first few letters).
+  const pool = order;
 
   useEffect(() => {
     const spawn = () => {

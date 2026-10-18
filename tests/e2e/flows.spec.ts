@@ -50,20 +50,27 @@ test.describe('child flows', () => {
   test('find the key: any case works, wrong keys are gentle, shortcuts do not leak', async ({ page, isMobile }) => {
     test.skip(isMobile, 'physical keyboard flow');
     await start(page, '/letters/find');
-    await expect(page.getByRole('button', { name: 'Can you find A?' })).toBeVisible();
+    // Letters come in a random order, so read which one is being asked for.
+    const ask = page.getByRole('button', { name: /^Can you find [A-Z]\?$/ });
+    const target = async () => ((await ask.getAttribute('aria-label')) ?? '').match(/find ([A-Z])/)![1]!;
+    const first = await target();
     // Wrong key: target key glows as a hint.
-    await page.keyboard.press('q');
-    await expect(page.getByRole('group', { name: 'Keyboard' }).getByRole('button', { name: 'A', exact: true })).toHaveClass(/bg-accent/);
+    const wrong = first === 'Q' ? 'w' : 'q';
+    await page.keyboard.press(wrong);
+    await expect(page.getByRole('group', { name: 'Keyboard' }).getByRole('button', { name: first, exact: true })).toHaveClass(/bg-accent/);
     // Backspace / Tab must not navigate or move focus out.
     const url = page.url();
     await page.keyboard.press('Backspace');
     await page.keyboard.press('Tab');
     expect(page.url()).toBe(url);
-    // Uppercase works (Shift held).
-    await page.keyboard.press('Shift+A');
-    await expect(page.getByRole('button', { name: 'Can you find B?' })).toBeVisible({ timeout: 10_000 });
-    await page.keyboard.press('b');
-    await expect(page.getByRole('button', { name: 'Can you find C?' })).toBeVisible({ timeout: 10_000 });
+    // Uppercase works (Shift held), then a new random letter is asked.
+    await page.keyboard.press(`Shift+${first}`);
+    await expect(ask).not.toHaveAttribute('aria-label', `Can you find ${first}?`, { timeout: 15_000 });
+    const second = await target();
+    expect(second).not.toBe(first);
+    // Lowercase works too.
+    await page.keyboard.press(second.toLowerCase());
+    await expect(ask).not.toHaveAttribute('aria-label', `Can you find ${second}?`, { timeout: 15_000 });
   });
 });
 

@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { makeBag } from '@/lib/random';
 import { motion, useReducedMotion } from 'framer-motion';
 import { CharacterHost } from '@/components/CharacterHost';
 import { Celebration } from '@/components/Celebration';
@@ -24,8 +25,11 @@ export function FindKey({ mode = 'letters' }: Props) {
   const reduce = useReducedMotion();
   const path = useSettings((s) => s.learningPath);
   const letterCase = useSettings((s) => s.letterCase);
-  const pool = mode === 'letters' ? letterOrder(path) : '0123456789'.split('');
-  const [idx, setIdx] = useState(0);
+  const pool = useMemo(() => (mode === 'letters' ? letterOrder(path) : '0123456789'.split('')), [mode, path]);
+  // Random order (each one once before any repeats), never in series.
+  const bag = useMemo(() => makeBag(pool), [pool]);
+  const [target, setTarget] = useState(() => bag.next());
+  useEffect(() => setTarget(bag.next()), [bag]);
   const [hint, setHint] = useState(false);
   const [pressed, setPressed] = useState<{ key: string; n: number } | null>(null);
   const [streak, setStreak] = useState(0);
@@ -34,7 +38,6 @@ export function FindKey({ mode = 'letters' }: Props) {
   const [sessionDone, setSessionDone] = useState<string | null>(null);
   const started = useRef(Date.now());
   const busy = useRef(false);
-  const target = pool[idx % pool.length]!;
 
   const prompt = (t: string) => {
     if (mode === 'letters') AudioManager.say(strings.letters.findPrompt(t), { channel: 'letters', src: letterEntry(t).audio.name });
@@ -79,7 +82,7 @@ export function FindKey({ mode = 'letters' }: Props) {
           AudioManager.say(strings.letters.breakTime);
           return;
         }
-        setIdx((i) => i + 1);
+        setTarget(bag.next());
       }, 600);
       if (mode === 'letters') sayLetterAsIn(k, next);
       else AudioManager.say(`${numbers[Number(k)]!.word}!`, { channel: 'letters', role: 'teacher', delivery: 'excited', src: numbers[Number(k)]!.audio, onEnd: next });

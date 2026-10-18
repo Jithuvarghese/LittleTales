@@ -1,4 +1,5 @@
-import { useEffect, useReducer, useRef, useState } from 'react';
+import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { shuffle } from '@/lib/random';
 import { motion } from 'framer-motion';
 import type { QuizOption, QuizPage } from '@/content/schema';
 import { Prop } from '@/art/props';
@@ -65,12 +66,18 @@ export function Quiz({ page, onDone, host = 'pip', backdrop }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
-  const options: QuizOption[] =
-    page.quizType === 'count'
-      ? page.choices.map((n) => ({ label: String(n), correct: n === page.count }))
-      : page.quizType === 'drag-drop'
-        ? page.targets
-        : page.options;
+  // Answers appear in a fresh random order each time, so the right one is never always in the same place.
+  const options: QuizOption[] = useMemo(
+    () =>
+      shuffle(
+        page.quizType === 'count'
+          ? page.choices.map((n) => ({ label: String(n), correct: n === page.count }))
+          : page.quizType === 'drag-drop'
+            ? page.targets
+            : page.options,
+      ),
+    [page],
+  );
   const correctIndex = options.findIndex((o) => o.correct);
 
   useEffect(() => {
