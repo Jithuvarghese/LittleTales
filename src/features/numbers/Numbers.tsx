@@ -121,7 +121,8 @@ const PROPS = ['apple', 'duck', 'star', 'fish', 'ball', 'flower', 'mango', 'ball
 /** Tap each object; the running count is spoken. */
 export function CountAndTap() {
   const [round, setRound] = useState(0);
-  const { total, prop } = useMemo(() => ({ total: pick(8, 2), prop: PROPS[round % PROPS.length]! }), [round]);
+  // Counting goes up in order: 1, 2, 3 … 10, then starts again.
+  const { total, prop } = useMemo(() => ({ total: (round % 10) + 1, prop: PROPS[round % PROPS.length]! }), [round]);
   const [tapped, setTapped] = useState<number[]>([]);
   const done = tapped.length === total;
 
