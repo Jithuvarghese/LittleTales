@@ -28,8 +28,12 @@ export const AbcIcon = (p: IconProps) => (
 
 export const NumbersIcon = (p: IconProps) => (
   <svg {...base} {...p}>
-    <rect x="6" y="10" width="52" height="44" rx="12" fill="#8fd18a" />
-    <path d="M16 26l5-4v22M30 27a5 5 0 0 1 10 0c0 6-10 10-10 17h10M46 23h6l-4 8a6 6 0 1 1-4 10" />
+    <rect x="4" y="10" width="56" height="44" rx="12" fill="#8fd18a" />
+    <g strokeWidth={3.6}>
+      <path d="M13 26l4.5-3.5v21" />
+      <path d="M25 27.5a4.5 4.5 0 0 1 9 0c0 5.5-9 9-9 16.5h9" />
+      <path d="M41 22.5h9l-4.5 7a5 5 0 1 1-4.8 8.6" />
+    </g>
   </svg>
 );
 

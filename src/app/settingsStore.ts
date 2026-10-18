@@ -53,7 +53,7 @@ export const defaultSettings: SettingsData = {
   childName: '',
   customWords: [],
   autoAdvance: true,
-  sessionMinutes: 15,
+  sessionMinutes: 10,
   dailyLimitMinutes: 0,
   bedtime: false,
   sleepTimerMinutes: 15,
@@ -74,8 +74,12 @@ export const useSettings = create<SettingsState>()(
     {
       name: 'littletales-settings',
       storage: appStorage,
-      version: 2,
-      migrate: (old) => ({ ...defaultSettings, ...(old as Partial<SettingsData>) }),
+      version: 3,
+      migrate: (old) => {
+        const prev = old as Partial<SettingsData>;
+        // Older default of 15 minutes becomes the new 5–10 minute stretch breaks.
+        return { ...defaultSettings, ...prev, ...(prev.sessionMinutes === 15 ? { sessionMinutes: 10 } : {}) };
+      },
     },
   ),
 );

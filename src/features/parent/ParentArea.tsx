@@ -105,7 +105,7 @@ function SettingsPanel() {
         <input value={s.childName} maxLength={16} onChange={(e) => s.set({ childName: e.target.value.replace(/[^A-Za-z]/g, '') })} className="min-h-[44px] rounded-lg border-2 border-outline bg-surface px-2 text-text" />
       </Row>
       <h2 className="mb-2 mt-6 text-2xl font-extrabold">Screen time</h2>
-      <Row label="Stretch-break reminder (minutes, 0 = off)">
+      <Row label="Stretch breaks: randomly between 5 and this many minutes (0 = off)">
         <input type="number" min={0} max={120} value={s.sessionMinutes} onChange={(e) => s.set({ sessionMinutes: Number(e.target.value) })} className="w-24 rounded-lg border-2 border-outline bg-surface px-2 text-text" />
       </Row>
       <Row label="Daily limit (minutes, 0 = off)">

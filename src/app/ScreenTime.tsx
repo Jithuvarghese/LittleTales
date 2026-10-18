@@ -11,6 +11,12 @@ import { useSettings } from './settingsStore';
 
 const TICK_S = 15;
 
+/** Seconds until the next stretch break: random between 5 minutes and the setting. */
+export function breakDelaySeconds(maxMinutes: number, rand: () => number = Math.random) {
+  const lo = Math.min(5, maxMinutes);
+  return Math.round((lo + rand() * (maxMinutes - lo)) * 60);
+}
+
 /** Counts time on the site and shows friendly stretch breaks and the daily limit. */
 export function ScreenTime() {
   const sessionMinutes = useSettings((s) => s.sessionMinutes);
@@ -20,6 +26,8 @@ export function ScreenTime() {
     import.meta.env.DEV ? ((new URLSearchParams(location.search).get('preview') as 'stretch' | 'daily' | null) ?? null) : null,
   );
   const sessionSeconds = useRef(0);
+  // Each break comes at a random moment between 5 minutes and the grown-up's setting (10 by default).
+  const nextBreakAt = useRef(breakDelaySeconds(sessionMinutes));
   const navigate = useNavigate();
   const reduce = useReducedMotion();
   const { pathname } = useLocation();
@@ -35,8 +43,9 @@ export function ScreenTime() {
         setOverlay('daily');
         AudioManager.stopAll();
         AudioManager.say(strings.screenTime.dailyDone, { role: 'quizHost', delivery: 'gentle', src: uiLineSrc(strings.screenTime.dailyDone) });
-      } else if (sessionMinutes > 0 && sessionSeconds.current >= sessionMinutes * 60) {
+      } else if (sessionMinutes > 0 && sessionSeconds.current >= nextBreakAt.current) {
         sessionSeconds.current = 0;
+        nextBreakAt.current = breakDelaySeconds(sessionMinutes);
         // A small task linked to what the child was doing (count, find a colour, hop like a bunny).
         const t = taskFor(location.pathname);
         setTask(t);
