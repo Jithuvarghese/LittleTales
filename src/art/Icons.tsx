@@ -32,7 +32,8 @@ export const NumbersIcon = (p: IconProps) => (
     <g strokeWidth={3.6}>
       <path d="M13 26l4.5-3.5v21" />
       <path d="M25 27.5a4.5 4.5 0 0 1 9 0c0 5.5-9 9-9 16.5h9" />
-      <path d="M41 22.5h9l-4.5 7a5 5 0 1 1-4.8 8.6" />
+      {/* Two stacked bowls spanning the same height (22.5–44) as the 1 and 2 */}
+      <path d="M41.27 25.46A4.5 4.5 0 1 1 45.5 31.5A6.25 6.25 0 1 1 39.63 39.89" />
     </g>
   </svg>
 );
