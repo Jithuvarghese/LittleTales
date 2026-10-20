@@ -100,6 +100,9 @@ function collectClips(only?: string): { clips: Clip[]; dirty: Map<string, unknow
       [strings.quiz.countAloud, 'excited'],
       ...strings.praise.map((t) => [t, 'excited'] as [string, Delivery]),
       ...allBreakLines.map((t) => [t, 'excited'] as [string, Delivery]),
+      // Sticker rewards
+      ...[strings.rewards.present, strings.rewards.earned, strings.rewards.shiny, strings.rewards.moreStars, strings.rewards.albumDone, strings.rewards.whereShall, ...Object.values(strings.rewards.albumLine)].map((t) => [t, 'excited'] as [string, Delivery]),
+      ...JSON.parse(readFileSync('content/stickers.json', 'utf8')).stickers.map((st: { label: string }) => [`${/^[aeiou]/i.test(st.label) ? 'An' : 'A'} ${st.label.toLowerCase()}!`, 'excited'] as [string, Delivery]),
     ];
     for (const [text, delivery] of lines) clips.push({ out: uiLineSrc(text), text, parts: [{ text, role: 'quizHost', delivery }] });
   }

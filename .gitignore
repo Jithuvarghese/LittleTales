@@ -1,6 +1,7 @@
 # spec kept local only
 PROJECT_SPEC.md
 VOICE_UPGRADE.md
+STICKER_REWORK.md
 
 node_modules
 dist

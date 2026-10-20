@@ -33,6 +33,7 @@
     "src": "audio/music/row-01.mp3",
     "volume": 0.4
   },
+  "rewardAlbum": "animals",
   "characters": [
     "bumble",
     "coco"

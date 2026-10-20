@@ -167,6 +167,8 @@ export const story = z
     theme: themeId.optional(),
     music: music.optional(),
     ambience: ambience.optional(),
+    /** Sticker album a finished story rewards from (derived from its scenes when not set). */
+    rewardAlbum: z.enum(['animals', 'ocean', 'sky', 'treats']).optional(),
     characters: z.array(z.string().regex(/^[a-z0-9]+$/)),
     pages: z.array(page).min(1),
   })
@@ -222,7 +224,7 @@ export const flagEntry = z.object({ id: z.string(), name: z.string(), continent:
 export const flagsFile = z.object({ locale, flags: z.array(flagEntry).min(6) });
 export type FlagEntry = z.infer<typeof flagEntry>;
 
-export const sticker = z.object({ id: z.string(), album: z.string(), prop: z.string(), label: z.string() });
+export const sticker = z.object({ id: z.string(), album: z.string(), prop: z.string(), label: z.string(), sound: z.string().optional() });
 export const stickersFile = z.object({ albums: z.array(z.object({ id: z.string(), label: z.string(), backdrop })), stickers: z.array(sticker) });
 
 export type Story = z.infer<typeof story>;

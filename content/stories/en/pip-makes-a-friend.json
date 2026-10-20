@@ -41,6 +41,7 @@
     "src": "audio/music/play-01.mp3",
     "volume": 0.4
   },
+  "rewardAlbum": "animals",
   "characters": [
     "pip",
     "zig"

@@ -9,6 +9,7 @@ import { useSettings } from '@/app/settingsStore';
 import { useProgress } from '@/features/rewards/progressStore';
 import { stickerData } from '@/content/loaders';
 import { strings } from '@/strings';
+import { finishActivity } from '@/features/rewards/reward';
 import { useTypingKeys } from './keys';
 import { OnScreenKeyboard } from './OnScreenKeyboard';
 import { letterEntry, sayLetterAsIn, sayLetterName } from './letterAudio';
@@ -78,7 +79,8 @@ export function FindKey({ mode = 'letters' }: Props) {
         setMood('idle');
         busy.current = false;
         if (Date.now() - started.current > SESSION_MS) {
-          setSessionDone(progress.awardSticker() ?? '');
+          setSessionDone('done');
+          finishActivity();
           AudioManager.say(strings.letters.breakTime);
           return;
         }

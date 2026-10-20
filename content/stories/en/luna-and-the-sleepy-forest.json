@@ -26,6 +26,7 @@
     "src": "audio/music/lullaby-01.mp3",
     "volume": 0.4
   },
+  "rewardAlbum": "sky",
   "characters": [
     "luna",
     "bumble"

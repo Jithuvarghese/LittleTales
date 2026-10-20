@@ -4,8 +4,10 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { BigButton } from '@/components/BigButton';
 import { CharacterHost } from '@/components/CharacterHost';
 import { ThemePicker } from '@/components/ThemePicker';
-import { AbcIcon, BookIcon, ColoursIcon, GamesIcon, LockIcon, MusicIcon, NumbersIcon, StarIcon } from '@/art/Icons';
+import { AbcIcon, BookIcon, ColoursIcon, GamesIcon, LockIcon, MusicIcon, NumbersIcon } from '@/art/Icons';
 import { AudioManager } from '@/services/AudioManager';
+import { StickerBookButton } from '@/features/rewards/StickerBookButton';
+import { StarPath } from '@/features/rewards/StarPath';
 import { Flag } from '@/art/flags';
 import { useSettings } from './settingsStore';
 import { strings } from '@/strings';
@@ -18,7 +20,6 @@ const destinations: { to: string; label: string; icon: ReactNode; tint: string }
   { to: '/flags', label: strings.nav.flags, icon: <Flag id="india" className="h-full w-full" />, tint: '#e6f6ff' },
   { to: '/songs', label: strings.nav.songs, icon: <MusicIcon />, tint: '#efe2ff' },
   { to: '/games', label: strings.nav.games, icon: <GamesIcon />, tint: '#d6f1ff' },
-  { to: '/stickers', label: strings.nav.stickers, icon: <StarIcon />, tint: '#fff6c9' },
 ];
 
 export function HomePage() {
@@ -51,7 +52,13 @@ export function HomePage() {
             <BigButton size="huge" showLabel label={d.label} icon={d.icon} tint={d.tint} onClick={() => navigate(d.to)} />
           </motion.div>
         ))}
+        {/* Sticker book: latest sticker, progress ring and a "new" dot */}
+        <motion.div initial={reduce ? false : { y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { delay: 0.08 * destinations.length } }}>
+          <StickerBookButton size="huge" showLabel />
+        </motion.div>
       </div>
+      {/* Stars toward the next present */}
+      <StarPath />
       <ThemePicker />
       <div className="absolute right-3 top-3">
         <BigButton size="tap" label={strings.nav.grownUps} icon={<LockIcon />} onClick={() => navigate('/grown-ups')} />

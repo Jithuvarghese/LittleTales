@@ -6,6 +6,7 @@ ageBand: 3-5
 duration: short
 theme: sunny-meadow
 music: play-01
+album: treats
 characters: bumble, pip
 cover: meadow-day | tree 70 46 44 | mango 64 34 9 | mango 78 40 9 | bumble 30 64 28 happy
 ---

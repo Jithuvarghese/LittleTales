@@ -6,6 +6,7 @@ import { AudioManager } from '@/services/AudioManager';
 import { useProgress } from '@/features/rewards/progressStore';
 import { numbers } from '@/content/loaders';
 import { strings } from '@/strings';
+import { finishActivity } from '@/features/rewards/reward';
 import { ArrowRightIcon } from '@/art/Icons';
 
 type Faller = { id: number; prop: string; x: number; y: number };
@@ -82,7 +83,7 @@ export function CatchGame() {
     setFallers([]);
     AudioManager.sfx('tada');
     useProgress.getState().addStars(3);
-    useProgress.getState().awardSticker();
+    finishActivity();
     AudioManager.say(strings.games.caughtAll, { role: 'quizHost', delivery: 'excited', queue: true });
   }, [caught, won]);
 

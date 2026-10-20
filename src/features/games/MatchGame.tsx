@@ -5,6 +5,7 @@ import { Celebration } from '@/components/Celebration';
 import { AudioManager } from '@/services/AudioManager';
 import { useProgress } from '@/features/rewards/progressStore';
 import { strings } from '@/strings';
+import { finishActivity } from '@/features/rewards/reward';
 
 const POOL = ['cat', 'dog', 'duck', 'fish', 'apple', 'sun', 'moon', 'star', 'car', 'ball', 'cake', 'frog', 'kite', 'tree', 'bee', 'owl'];
 
@@ -45,7 +46,7 @@ export function MatchGame() {
     if (!won) return;
     AudioManager.sfx('tada');
     useProgress.getState().addStars(3);
-    useProgress.getState().awardSticker();
+    finishActivity();
     AudioManager.say(strings.games.allMatched, { role: 'quizHost', delivery: 'excited', queue: true });
   }, [won]);
 

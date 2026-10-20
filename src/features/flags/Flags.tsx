@@ -11,6 +11,7 @@ import { BackIcon } from '@/art/Icons';
 import { AudioManager } from '@/services/AudioManager';
 import { useProgress } from '@/features/rewards/progressStore';
 import { strings } from '@/strings';
+import { finishActivity } from '@/features/rewards/reward';
 import { initialQuiz, isFinished, quizReducer } from '@/features/stories/quiz/quizLogic';
 
 const cap = (s: string) => s[0]!.toUpperCase() + s.slice(1);
@@ -68,7 +69,6 @@ export function MeetFlag() {
   const f = flags[i]!;
   useEffect(() => {
     const t = setTimeout(() => sayFlag(f), 300);
-    useProgress.getState().addStars(0);
     return () => {
       clearTimeout(t);
       AudioManager.stopVoice();
@@ -187,6 +187,7 @@ export function FlagPairs() {
     if (!won) return;
     AudioManager.sfx('tada');
     useProgress.getState().addStars(3);
+    finishActivity();
     AudioManager.react('pip', 'yay');
     AudioManager.say(strings.games.allMatched, { role: 'quizHost', delivery: 'excited', queue: true });
   }, [won]);
