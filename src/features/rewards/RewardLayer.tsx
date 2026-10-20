@@ -62,7 +62,14 @@ function GiftMoment({ album, intro, onDone }: { album?: string; intro?: boolean;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const target = phase === 'fly' ? bookTarget() : null;
+  const holder = useRef<HTMLDivElement>(null);
+  // Distance from where the sticker sits now to the sticker-book button.
+  const fly = (() => {
+    if (phase !== 'fly' || !holder.current) return null;
+    const r = holder.current.getBoundingClientRect();
+    const t = bookTarget();
+    return { x: t.x - (r.left + r.width / 2), y: t.y - (r.top + r.height / 2) };
+  })();
   return (
     <div className="flex flex-col items-center gap-4">
       {phase !== 'wrapped' && <Celebration count={award?.albumComplete ? 30 : 18} />}
@@ -86,12 +93,12 @@ function GiftMoment({ album, intro, onDone }: { album?: string; intro?: boolean;
         </AnimatePresence>
         {award && phase !== 'wrapped' && (
           <motion.div
-            className="fixed z-[60] h-36 w-36"
-            style={{ left: '50%', top: '50%', translateX: '-50%', translateY: '-50%' }}
+            ref={holder}
+            className="absolute inset-0 z-[60]"
             initial={reduce ? false : { scale: 0, rotate: -40 }}
             animate={
-              target && !reduce
-                ? { scale: 0.3, x: target.x - window.innerWidth / 2, y: target.y - window.innerHeight / 2, rotate: 20, transition: { duration: 0.8, ease: 'easeIn' } }
+              fly && !reduce
+                ? { scale: 0.3, x: fly.x, y: fly.y, rotate: 20, transition: { duration: 0.8, ease: 'easeIn' } }
                 : { scale: 1, rotate: 0, transition: { type: 'spring', stiffness: 260, damping: 13 } }
             }
           >
@@ -142,7 +149,7 @@ export function RewardLayer() {
             ) : (
               <>
                 <CharacterHost character="pip" pose="happy" size={120} />
-                <StarPath size="lg" />
+                <StarPath />
                 <button type="button" onClick={close} className="min-h-[72px] rounded-blob border-[5px] border-outline bg-accent px-8 font-ui text-2xl font-extrabold text-[#2b1d16] shadow-[0_6px_0_var(--outline)]" aria-label={strings.rewards.ok}>
                   <span className="block h-10 w-10" aria-hidden><StarIcon /></span>
                 </button>
