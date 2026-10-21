@@ -10,6 +10,7 @@ import { BackIcon } from '@/art/Icons';
 import { AudioManager } from '@/services/AudioManager';
 import { useProgress } from '@/features/rewards/progressStore';
 import { strings } from '@/strings';
+import { finishActivity } from '@/features/rewards/reward';
 
 const cap = (s: string) => s[0]!.toUpperCase() + s.slice(1);
 export const findSrc = (c: ColourEntry) => `audio/colours/en/find-${c.name}.mp3`;
@@ -230,6 +231,7 @@ export function PaintIt() {
     if (!done) return;
     AudioManager.sfx('tada');
     useProgress.getState().addStars(3);
+    setTimeout(() => finishActivity(), 1800);
     AudioManager.say(strings.colours.beautiful, { role: 'quizHost', delivery: 'excited', talker: 'pip' });
   }, [done]);
 

@@ -1,0 +1,5 @@
+{
+  "_comment": "Reward pacing. starsPerGift: stars needed to fill the star path and get a gift. albumRotation: order used when an activity has no matching album.",
+  "starsPerGift": 10,
+  "albumRotation": ["animals", "ocean", "sky", "treats"]
+}

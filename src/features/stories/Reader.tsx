@@ -12,10 +12,11 @@ import { CharacterHost } from '@/components/CharacterHost';
 import { ProgressTrail } from '@/components/ProgressTrail';
 import { Celebration } from '@/components/Celebration';
 import { BackIcon, BookIcon, HomeIcon } from '@/art/Icons';
-import { Prop } from '@/art/props';
 import { Scene } from '@/art/Scene';
-import { stickerData } from '@/content/loaders';
 import { strings } from '@/strings';
+import { finishActivity } from '@/features/rewards/reward';
+import { StarPath } from '@/features/rewards/StarPath';
+import { albumForStory } from '@/content/albums';
 import { Quiz } from './quiz/Quiz';
 import { StoryPageView, type ReadingMode } from './StoryPageView';
 
@@ -69,11 +70,10 @@ export function Reader() {
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState(1);
   const [finished, setFinished] = useState(false);
-  const [sticker, setSticker] = useState<string | null>(null);
   const theme = useSettings((s) => s.theme);
   const bedtime = useSettings((s) => s.bedtime);
   const autoAdvance = useSettings((s) => s.autoAdvance);
-  const { addStars, completeStory, awardSticker } = useProgress.getState();
+  const { addStars, completeStory } = useProgress.getState();
   const advanceTimer = useRef<ReturnType<typeof setTimeout>>();
   const finishedRef = useRef(false);
   // Never leave an automatic page turn pending after leaving the reader.
@@ -84,7 +84,6 @@ export function Reader() {
     setMode(null);
     setIndex(0);
     setFinished(false);
-    setSticker(null);
     finishedRef.current = false;
     clearTimeout(advanceTimer.current);
     void loadStory(id).then(setStory);
@@ -122,17 +121,19 @@ export function Reader() {
       if (target >= story.pages.length) {
         finishedRef.current = true;
         completeStory(story.id);
-        setSticker(awardSticker());
         setFinished(true);
         AudioManager.sfx('tada');
-        AudioManager.say(strings.storyEnd.wellDone);
+        // Finishing a story adds stars; the gift appears only when the star path is full,
+        // and its sticker comes from the story's album (sea story, sea sticker).
+        addStars(3);
+        finishActivity({ album: story.rewardAlbum ?? albumForStory(story) });
         return;
       }
       AudioManager.sfx('pageturn', 'ui');
       setDir(delta);
       setIndex(target);
     },
-    [story, index, addStars, completeStory, awardSticker],
+    [story, index, addStars, completeStory],
   );
 
   // Arrow keys turn pages.
@@ -170,7 +171,6 @@ export function Reader() {
   }
 
   if (finished) {
-    const st = stickerData.stickers.find((s) => s.id === sticker);
     const nextStory = storyIndex[(storyIndex.findIndex((s) => s.id === story.id) + 1) % storyIndex.length]!;
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-4 px-4 pb-4">
@@ -188,13 +188,8 @@ export function Reader() {
               }}
             />
           </div>
-          {st && (
-            <motion.div initial={{ scale: 0, rotate: -30 }} animate={{ scale: 1, rotate: 0 }} className="h-28 w-28 rounded-full border-[6px] border-outline bg-surface p-3" aria-label={st.label} role="img">
-              <Prop id={st.prop} />
-            </motion.div>
-          )}
         </div>
-        <p className="text-center font-ui text-3xl font-extrabold sm:text-4xl">{strings.storyEnd.wellDone}</p>
+        <StarPath />
         <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
           <BigButton size="huge" showLabel label={strings.storyEnd.again} icon={<AgainIcon />} onClick={() => { finishedRef.current = false; setFinished(false); setIndex(0); }} />
           <BigButton size="huge" showLabel label={strings.storyEnd.nextStory} icon={<BookIcon />} onClick={() => navigate(`/stories/${nextStory.id}`)} />

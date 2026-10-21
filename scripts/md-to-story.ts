@@ -9,6 +9,7 @@ import { readFileSync, readdirSync, writeFileSync, existsSync, mkdirSync } from 
 import { join, basename } from 'node:path';
 import { story } from '../src/content/schema';
 import { castIds } from '../src/art/cast/species';
+import { albumForStory } from '../src/content/albums';
 import { inferDelivery, inferSpeaker } from '../src/content/voicing';
 
 const SRC = 'content/stories-src';
@@ -210,6 +211,8 @@ export function convert(md: string) {
     theme: meta.theme || undefined,
     music: meta.music ? { src: `audio/music/${meta.music}.mp3`, volume: 0.4 } : undefined,
     ambience: meta.ambience || undefined,
+    // Sticker album: set with "album:" in the front matter, or derived from the scenes.
+    rewardAlbum: meta.album || albumForStory({ pages: pages as { type: string; scene?: { backdrop: string } }[] }),
     characters: meta.characters!.split(',').map((s) => s.trim()),
     coverScene: meta.cover ? parseScene(meta.cover).scene : undefined,
     pages,

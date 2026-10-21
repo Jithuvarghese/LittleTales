@@ -2,6 +2,7 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { BigButton } from '@/components/BigButton';
 import { BackIcon, HomeIcon } from '@/art/Icons';
 import { LivingSky } from '@/art/LivingSky';
+import { StickerBookButton } from '@/features/rewards/StickerBookButton';
 import { strings } from '@/strings';
 
 /** Screens where moving birds would distract (reading, typing, recording, settings). */
@@ -19,7 +20,10 @@ export function Layout() {
       {!atHome && (
         <nav className="flex items-center justify-between px-3 pt-3 sm:px-4" aria-label="Main">
           <BigButton size="tap" label={strings.back} icon={<BackIcon />} onClick={() => navigate(-1)} />
-          <BigButton size="tap" label={strings.home} icon={<HomeIcon />} onClick={() => navigate('/')} />
+          <div className="flex items-center gap-3">
+            {pathname !== '/stickers' && <StickerBookButton />}
+            <BigButton size="tap" label={strings.home} icon={<HomeIcon />} onClick={() => navigate('/')} />
+          </div>
         </nav>
       )}
       <main className="flex flex-1 flex-col">

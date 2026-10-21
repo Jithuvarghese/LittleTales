@@ -1,36 +1,208 @@
 {
   "albums": [
-    { "id": "animals", "label": "Animal Friends", "backdrop": "meadow" },
-    { "id": "ocean", "label": "Ocean", "backdrop": "sea" },
-    { "id": "sky", "label": "Night Sky", "backdrop": "night" },
-    { "id": "treats", "label": "Yummy Treats", "backdrop": "room" }
+    {
+      "id": "animals",
+      "label": "Animal Friends",
+      "backdrop": "meadow"
+    },
+    {
+      "id": "ocean",
+      "label": "Ocean",
+      "backdrop": "sea"
+    },
+    {
+      "id": "sky",
+      "label": "Night Sky",
+      "backdrop": "night"
+    },
+    {
+      "id": "treats",
+      "label": "Yummy Treats",
+      "backdrop": "room"
+    }
   ],
   "stickers": [
-    { "id": "s-cat", "album": "animals", "prop": "cat", "label": "Cat" },
-    { "id": "s-dog", "album": "animals", "prop": "dog", "label": "Dog" },
-    { "id": "s-cow", "album": "animals", "prop": "cow", "label": "Cow" },
-    { "id": "s-duck", "album": "animals", "prop": "duck", "label": "Duck" },
-    { "id": "s-rabbit", "album": "animals", "prop": "rabbit", "label": "Rabbit" },
-    { "id": "s-pig", "album": "animals", "prop": "pig", "label": "Pig" },
-    { "id": "s-lion", "album": "animals", "prop": "lion", "label": "Lion" },
-    { "id": "s-elephant", "album": "animals", "prop": "elephant", "label": "Elephant" },
-    { "id": "s-fish", "album": "ocean", "prop": "fish", "label": "Fish" },
-    { "id": "s-whale", "album": "ocean", "prop": "whale", "label": "Whale" },
-    { "id": "s-octopus", "album": "ocean", "prop": "octopus", "label": "Octopus" },
-    { "id": "s-turtle", "album": "ocean", "prop": "turtle", "label": "Turtle" },
-    { "id": "s-shell", "album": "ocean", "prop": "shell", "label": "Shell" },
-    { "id": "s-boat", "album": "ocean", "prop": "boat", "label": "Boat" },
-    { "id": "s-moon", "album": "sky", "prop": "moon", "label": "Moon" },
-    { "id": "s-star", "album": "sky", "prop": "star", "label": "Star" },
-    { "id": "s-owl", "album": "sky", "prop": "owl", "label": "Owl" },
-    { "id": "s-cloud", "album": "sky", "prop": "cloud", "label": "Cloud" },
-    { "id": "s-rainbow", "album": "sky", "prop": "rainbow", "label": "Rainbow" },
-    { "id": "s-kite", "album": "sky", "prop": "kite", "label": "Kite" },
-    { "id": "s-cake", "album": "treats", "prop": "cake", "label": "Cake" },
-    { "id": "s-apple", "album": "treats", "prop": "apple", "label": "Apple" },
-    { "id": "s-mango", "album": "treats", "prop": "mango", "label": "Mango" },
-    { "id": "s-banana", "album": "treats", "prop": "banana", "label": "Banana" },
-    { "id": "s-watermelon", "album": "treats", "prop": "watermelon", "label": "Watermelon" },
-    { "id": "s-grapes", "album": "treats", "prop": "grapes", "label": "Grapes" }
+    {
+      "id": "s-cat",
+      "album": "animals",
+      "prop": "cat",
+      "label": "Cat",
+      "sound": "Meow!"
+    },
+    {
+      "id": "s-dog",
+      "album": "animals",
+      "prop": "dog",
+      "label": "Dog",
+      "sound": "Woof!"
+    },
+    {
+      "id": "s-cow",
+      "album": "animals",
+      "prop": "cow",
+      "label": "Cow",
+      "sound": "Moo!"
+    },
+    {
+      "id": "s-duck",
+      "album": "animals",
+      "prop": "duck",
+      "label": "Duck",
+      "sound": "Quack!"
+    },
+    {
+      "id": "s-rabbit",
+      "album": "animals",
+      "prop": "rabbit",
+      "label": "Rabbit",
+      "sound": "Hop, hop!"
+    },
+    {
+      "id": "s-pig",
+      "album": "animals",
+      "prop": "pig",
+      "label": "Pig",
+      "sound": "Oink!"
+    },
+    {
+      "id": "s-lion",
+      "album": "animals",
+      "prop": "lion",
+      "label": "Lion",
+      "sound": "Roar!"
+    },
+    {
+      "id": "s-elephant",
+      "album": "animals",
+      "prop": "elephant",
+      "label": "Elephant",
+      "sound": "Toot!"
+    },
+    {
+      "id": "s-fish",
+      "album": "ocean",
+      "prop": "fish",
+      "label": "Fish",
+      "sound": "Blub, blub!"
+    },
+    {
+      "id": "s-whale",
+      "album": "ocean",
+      "prop": "whale",
+      "label": "Whale",
+      "sound": "Splash!"
+    },
+    {
+      "id": "s-octopus",
+      "album": "ocean",
+      "prop": "octopus",
+      "label": "Octopus",
+      "sound": "Wiggle, wiggle!"
+    },
+    {
+      "id": "s-turtle",
+      "album": "ocean",
+      "prop": "turtle",
+      "label": "Turtle",
+      "sound": "Slow and steady!"
+    },
+    {
+      "id": "s-shell",
+      "album": "ocean",
+      "prop": "shell",
+      "label": "Shell",
+      "sound": "Shh, the sea!"
+    },
+    {
+      "id": "s-boat",
+      "album": "ocean",
+      "prop": "boat",
+      "label": "Boat",
+      "sound": "Toot, toot!"
+    },
+    {
+      "id": "s-moon",
+      "album": "sky",
+      "prop": "moon",
+      "label": "Moon",
+      "sound": "Good night!"
+    },
+    {
+      "id": "s-star",
+      "album": "sky",
+      "prop": "star",
+      "label": "Star",
+      "sound": "Twinkle!"
+    },
+    {
+      "id": "s-owl",
+      "album": "sky",
+      "prop": "owl",
+      "label": "Owl",
+      "sound": "Hoo, hoo!"
+    },
+    {
+      "id": "s-cloud",
+      "album": "sky",
+      "prop": "cloud",
+      "label": "Cloud",
+      "sound": "Puff!"
+    },
+    {
+      "id": "s-rainbow",
+      "album": "sky",
+      "prop": "rainbow",
+      "label": "Rainbow",
+      "sound": "So many colours!"
+    },
+    {
+      "id": "s-kite",
+      "album": "sky",
+      "prop": "kite",
+      "label": "Kite",
+      "sound": "Whoosh!"
+    },
+    {
+      "id": "s-cake",
+      "album": "treats",
+      "prop": "cake",
+      "label": "Cake",
+      "sound": "Yum!"
+    },
+    {
+      "id": "s-apple",
+      "album": "treats",
+      "prop": "apple",
+      "label": "Apple",
+      "sound": "Crunch!"
+    },
+    {
+      "id": "s-mango",
+      "album": "treats",
+      "prop": "mango",
+      "label": "Mango",
+      "sound": "Yummy!"
+    },
+    {
+      "id": "s-banana",
+      "album": "treats",
+      "prop": "banana",
+      "label": "Banana",
+      "sound": "Peel it!"
+    },
+    {
+      "id": "s-watermelon",
+      "album": "treats",
+      "prop": "watermelon",
+      "label": "Watermelon",
+      "sound": "So juicy!"
+    },
+    {
+      "id": "s-grapes",
+      "album": "treats",
+      "prop": "grapes",
+      "label": "Grapes",
+      "sound": "Pop, pop!"
+    }
   ]
 }

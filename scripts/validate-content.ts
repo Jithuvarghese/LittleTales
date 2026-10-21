@@ -49,6 +49,7 @@ export function validateDir(storyDir = 'content/stories/en', rhymeDir = 'content
     }
     const s = parsed.data;
     if (`${s.id}.json` !== f) r.errors.push(`${f}: id "${s.id}" does not match file name`);
+    if (s.rewardAlbum && !['animals', 'ocean', 'sky', 'treats'].includes(s.rewardAlbum)) r.errors.push(`${f}: unknown sticker album "${s.rewardAlbum}"`);
     checkAudio(`${f} music`, s.music?.src, builtinMusic);
     s.pages.forEach((p, i) => {
       const where = `${f} page ${i + 1}`;
@@ -95,6 +96,18 @@ export function validateDir(storyDir = 'content/stories/en', rhymeDir = 'content
     checkFile('content/letters.en.json', lettersFile);
     checkFile('content/numbers.en.json', numbersFile);
     checkFile('content/stickers.json', stickersFile);
+    // Stickers: every picture exists, every album has a background and at least one sticker.
+    const stickerFile = stickersFile.parse(JSON.parse(readFileSync('content/stickers.json', 'utf8')));
+    const albumIds = new Set(stickerFile.albums.map((a) => a.id));
+    for (const a of stickerFile.albums) {
+      if (!a.backdrop) r.errors.push(`sticker album "${a.id}" has no background`);
+      if (!stickerFile.stickers.some((st) => st.album === a.id)) r.errors.push(`sticker album "${a.id}" has no stickers`);
+    }
+    for (const st of stickerFile.stickers) {
+      if (!albumIds.has(st.album)) r.errors.push(`sticker "${st.id}" is in unknown album "${st.album}"`);
+      if (!propIds.has(st.prop) && !castIds.has(st.prop)) r.errors.push(`sticker "${st.id}" uses unknown picture "${st.prop}"`);
+    }
+    if (new Set(stickerFile.stickers.map((st) => st.id)).size !== stickerFile.stickers.length) r.errors.push('duplicate sticker ids');
     const letters = lettersFile.parse(JSON.parse(readFileSync('content/letters.en.json', 'utf8'))).letters;
     letters.forEach((l) => {
       checkProp(`letter ${l.letter}`, l.prop);

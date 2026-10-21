@@ -34,6 +34,7 @@
     "src": "audio/music/mary-01.mp3",
     "volume": 0.4
   },
+  "rewardAlbum": "animals",
   "characters": [
     "pip"
   ],

@@ -6,6 +6,7 @@ import { HomePage } from './HomePage';
 import { StartSplash } from './StartSplash';
 import { ThemeSync } from './ThemeSync';
 import { ScreenTime } from './ScreenTime';
+import { RewardLayer } from '@/features/rewards/RewardLayer';
 import { CharacterHost } from '@/components/CharacterHost';
 import { AudioManager } from '@/services/AudioManager';
 
@@ -73,6 +74,7 @@ export function App() {
       ) : (
         <BrowserRouter>
           <ScreenTime />
+          <RewardLayer />
           <Suspense fallback={<Loading />}>
             <Routes>
               <Route element={<Layout />}>

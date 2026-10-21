@@ -33,6 +33,7 @@
     "src": "audio/music/frere-01.mp3",
     "volume": 0.4
   },
+  "rewardAlbum": "animals",
   "characters": [
     "coco"
   ],

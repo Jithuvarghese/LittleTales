@@ -6,6 +6,7 @@ ageBand: 3-7
 duration: short
 theme: sunny-meadow
 music: play-01
+album: sky
 characters: anu, pip, coco
 cover: city | kite 66 24 18 float | anu 36 64 26 happy | pip 58 70 20 happy
 ---
