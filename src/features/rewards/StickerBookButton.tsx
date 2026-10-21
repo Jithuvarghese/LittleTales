@@ -13,7 +13,7 @@ function ProgressRing({ share }: { share: number }) {
   return (
     <svg viewBox="0 0 100 100" className="pointer-events-none absolute inset-0 h-full w-full -rotate-90" aria-hidden>
       <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(74,47,39,0.15)" strokeWidth="6" />
-      <circle cx="50" cy="50" r="46" fill="none" stroke="#3c8f3f" strokeWidth="6" strokeLinecap="round" strokeDasharray={`${share * c} ${c}`} />
+      {share > 0 && <circle cx="50" cy="50" r="46" fill="none" stroke="#3c8f3f" strokeWidth="6" strokeLinecap="round" strokeDasharray={`${share * c} ${c}`} />}
     </svg>
   );
 }
@@ -46,9 +46,12 @@ export function StickerBookButton({ size = 'tap', showLabel = false }: { size?: 
       whileTap={reduce ? undefined : { scale: 0.93 }}
       className={`relative flex shrink-0 flex-col items-center justify-center gap-1 rounded-blob border-[5px] border-outline bg-[#fff6c9] text-[#2b1d16] shadow-[0_6px_0_var(--outline)] ${box}`}
     >
-      <span className="relative flex min-h-0 w-full flex-1 items-center justify-center">
-        <ProgressRing share={share} />
-        <span className="block h-[70%] w-[70%]">{latest ? <Prop id={latest.prop} /> : <StarIcon />}</span>
+      {/* A square box so the ring and the picture share one centre. */}
+      <span className="flex min-h-0 w-full flex-1 items-center justify-center">
+        <span className="relative aspect-square h-full max-w-full">
+          <ProgressRing share={share} />
+          <span className="absolute inset-[17%] flex items-center justify-center [&>svg]:h-full [&>svg]:w-full">{latest ? <Prop id={latest.prop} /> : <StarIcon />}</span>
+        </span>
       </span>
       {showLabel && <span className="font-ui text-base font-extrabold leading-tight sm:text-lg">{strings.nav.stickers}</span>}
       {hasNew && (

@@ -48,3 +48,5 @@ tools/after.mp3
 tools/shoot.ts
 tools/storyshots.ts
 tools/stickershots.ts
+tools/btnshot.ts
+tools/btn-*.png
