@@ -11,7 +11,7 @@
   },
   "phonics": {
     "_comment": "Letter sounds as phonemes, [label](/sounds/), so the engine says the sound and not the letter name (plain \"b\" is read as \"bee\", \"fff\" as \"eff eff eff\"). Short vowels; stops with a tiny uh; long sounds held. Each generated sound must be listen-checked and approved.",
-    "A": "[a](/æ/)", "B": "[b](/bə/)", "C": "[c](/kə/)", "D": "[d](/də/)", "E": "[e](/ɛ/)", "F": "[f](/ffff/)",
+    "A": "[a](/æ/)", "B": "[b](/bə/)", "C": "[c](/kə/)", "D": "[d](/də/)", "E": "e, as in egg", "F": "[f](/ffff/)",
     "G": "[g](/ɡə/)", "H": "[h](/hə/)", "I": "[i](/ɪ/)", "J": "[j](/ʤə/)", "K": "[k](/kə/)", "L": "[l](/llll/)",
     "M": "[m](/mmmm/)", "N": "[n](/nnnn/)", "O": "[o](/ɑ/)", "P": "[p](/pə/)", "Q": "[q](/kwə/)", "R": "[r](/ɹɹɹɹ/)",
     "S": "[s](/ssss/)", "T": "[t](/tə/)", "U": "[u](/ʌ/)", "V": "[v](/vvvv/)", "W": "[w](/wə/)", "X": "[x](/ks/)",
