@@ -10,10 +10,11 @@
     "Maa": "Mahh"
   },
   "phonics": {
-    "_comment": "Letter-sound prompts for the engine. Each generated letter sound must be listen-checked and approved.",
-    "A": "a, as in apple", "B": "b", "C": "k", "D": "d", "E": "e, as in egg", "F": "fff", "G": "g", "H": "h",
-    "I": "i, as in igloo", "J": "j", "K": "k", "L": "lll", "M": "mmm", "N": "nnn", "O": "o, as in octopus",
-    "P": "p", "Q": "kw", "R": "rrr", "S": "sss", "T": "t", "U": "u, as in umbrella", "V": "vvv", "W": "w",
-    "X": "ks", "Y": "y", "Z": "zzz"
+    "_comment": "Letter sounds as phonemes, [label](/sounds/), so the engine says the sound and not the letter name (plain \"b\" is read as \"bee\", \"fff\" as \"eff eff eff\"). Short vowels; stops with a tiny uh; long sounds held. Each generated sound must be listen-checked and approved.",
+    "A": "[a](/æ/)", "B": "[b](/bə/)", "C": "[c](/kə/)", "D": "[d](/də/)", "E": "[e](/ɛ/)", "F": "[f](/ffff/)",
+    "G": "[g](/ɡə/)", "H": "[h](/hə/)", "I": "[i](/ɪ/)", "J": "[j](/ʤə/)", "K": "[k](/kə/)", "L": "[l](/llll/)",
+    "M": "[m](/mmmm/)", "N": "[n](/nnnn/)", "O": "[o](/ɑ/)", "P": "[p](/pə/)", "Q": "[q](/kwə/)", "R": "[r](/ɹɹɹɹ/)",
+    "S": "[s](/ssss/)", "T": "[t](/tə/)", "U": "[u](/ʌ/)", "V": "[v](/vvvv/)", "W": "[w](/wə/)", "X": "[x](/ks/)",
+    "Y": "[y](/jə/)", "Z": "[z](/zzzz/)"
   }
 }
